@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc50tmgd6td3g"]
+
+[ext_resource type="TileSet" uid="uid://dw40gjc4in8px" path="res://addons/top_down/resources/tilesets/tileset_isometric_holes.tres" id="1_sw3in"]
+[ext_resource type="Script" uid="uid://brfbekn416n2q" path="res://addons/great_games_library/nodes/utility/TileSpawner.gd" id="2_nxffr"]
+[ext_resource type="Resource" uid="uid://bnmup4gi1ft42" path="res://addons/top_down/resources/RoomResources/behind_reference.tres" id="3_ft8oj"]
+[ext_resource type="Script" uid="uid://btwhippqv0rln" path="res://addons/great_games_library/nodes/utility/TileAstargridObstacle.gd" id="4_sugte"]
+[ext_resource type="Resource" uid="uid://dfx5wg7nqxg5b" path="res://addons/top_down/resources/arena_resources/obstacle_astargrid_resource.tres" id="5_aey1x"]
+
+[node name="ObstacleLayer" type="TileMapLayer"]
+tile_set = ExtResource("1_sw3in")
+
+[node name="TileSpawner" type="Node" parent="." node_paths=PackedStringArray("tilemap_layer")]
+script = ExtResource("2_nxffr")
+tilemap_layer = NodePath("..")
+parent_reference = ExtResource("3_ft8oj")
+data_layer_name = "scene_path"
+
+[node name="TileAstargridObstacle" type="Node" parent="." node_paths=PackedStringArray("tilemap_layer")]
+script = ExtResource("4_sugte")
+tilemap_layer = NodePath("..")
+astargrid_resource = ExtResource("5_aey1x")

@@ -19,7 +19,10 @@
 				"b3d2c00b-d634-441e-8532-5cec9d7b630e",
 				"e0c111db-26db-4dcd-b42f-0b510f08f23e",
 				"3985bd17-a40d-4eff-a3b2-7db8f7eab2e8",
-				"26381783-15e2-4282-a52e-08eaad4e9b27"
+				"26381783-15e2-4282-a52e-08eaad4e9b27",
+				"b3fae3ee-3589-4cc8-9cc1-14d942f6cb36",
+				"d7768a98-ee26-4194-b34a-4d32508450e6",
+				"6e01f56c-d2ad-4a3f-9e5b-0567e08dfd59"
 			]
 		},
 		{
@@ -121,6 +124,27 @@
 		{
 			"uuid": "26381783-15e2-4282-a52e-08eaad4e9b27",
 			"title": "Status effects (damage ticks)",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "b3fae3ee-3589-4cc8-9cc1-14d942f6cb36",
+			"title": "平面游戏场景",
+			"description": "1. 制作平面场景地图\n2. 制作子弹\n3. 制作武器\n4. 制作玩家\n5. 制作敌人",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "d7768a98-ee26-4194-b34a-4d32508450e6",
+			"title": "增加敌人生成机制",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "6e01f56c-d2ad-4a3f-9e5b-0567e08dfd59",
+			"title": "增加伤害、攻速、暴击卡片",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []
