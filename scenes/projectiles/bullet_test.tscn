@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://64j2v7e68ufp"]
+
+[ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_rroqd"]
+
+[node name="BulletTest" instance=ExtResource("1_rroqd")]
