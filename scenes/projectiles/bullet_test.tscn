@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://64j2v7e68ufp"]
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_rroqd"]
-[ext_resource type="Texture2D" uid="uid://u2vwhr4b51nr" path="res://assets/images/projectile/pj2_fireball_large_orange.png" id="2_h0sl7"]
+[ext_resource type="Texture2D" uid="uid://dqdnolhe0fvn4" path="res://assets/images/projectile/pj2_fireball_large_orange.png" id="2_h0sl7"]
 
 [sub_resource type="Animation" id="Animation_24ser"]
 length = 0.001

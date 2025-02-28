@@ -70,7 +70,7 @@ offset = Vector2(1, 0)
 
 [node name="AnimationPlayer" parent="RotatedNode/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_h0x75")
+&"": SubResource("AnimationLibrary_h0x75")
 }
 
 [node name="WeaponTrigger" parent="." index="3"]

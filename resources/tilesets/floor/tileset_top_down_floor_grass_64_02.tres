@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://binpob3df05ex"]
 
-[ext_resource type="Texture2D" uid="uid://dyfylm5mc05aq" path="res://assets/images/Top_Down_Tile_Pack/Sprites/Grass/grass_02_tile_64.png" id="1_8x2lp"]
-[ext_resource type="Texture2D" uid="uid://dyj1oopkv3vt0" path="res://assets/images/Top_Down_Tile_Pack/Sprites/Grass/grass_02_tile_road_64.png" id="2_2b0e8"]
-[ext_resource type="Texture2D" uid="uid://w8427h1q8gbx" path="res://assets/images/Top_Down_Tile_Pack/Sprites/Grass/grass_02_tile_water_64.png" id="3_7vwn8"]
+[ext_resource type="Texture2D" uid="uid://bcjmuk10v8d7a" path="res://assets/images/Top_Down_Tile_Pack/Sprites/Grass/grass_02_tile_64.png" id="1_8x2lp"]
+[ext_resource type="Texture2D" uid="uid://b14olnrn7q27n" path="res://assets/images/Top_Down_Tile_Pack/Sprites/Grass/grass_02_tile_road_64.png" id="2_2b0e8"]
+[ext_resource type="Texture2D" uid="uid://gnp3t5kf2vb0" path="res://assets/images/Top_Down_Tile_Pack/Sprites/Grass/grass_02_tile_water_64.png" id="3_7vwn8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e0ahq"]
 texture = ExtResource("1_8x2lp")

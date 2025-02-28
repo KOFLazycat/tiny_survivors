@@ -297,7 +297,7 @@ material = SubResource("ShaderMaterial_gfelk")
 
 [node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_bdy4l")
+&"": SubResource("AnimationLibrary_bdy4l")
 }
 
 [node name="DamageCooldown" parent="." index="6"]
@@ -383,5 +383,5 @@ animation_normal = &"RESET"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VisualInvulnerability" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_f0s3r")
+&"": SubResource("AnimationLibrary_f0s3r")
 }

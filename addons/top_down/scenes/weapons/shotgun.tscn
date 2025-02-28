@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_xioje"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_f0xdt"]
-[ext_resource type="Texture2D" uid="uid://cf7fp314ufx18" path="res://addons/top_down/assets/images/weapon/gun_1.png" id="2_hrbvp"]
+[ext_resource type="Texture2D" uid="uid://ccgvjjtbpv0sp" path="res://addons/top_down/assets/images/weapon/gun_1.png" id="2_hrbvp"]
 [ext_resource type="Script" uid="uid://c8isd0yt6i0fi" path="res://addons/top_down/scripts/damage/properties/DamageDataResource.gd" id="3_yx733"]
 [ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="4_y8sbf"]
 [ext_resource type="Resource" uid="uid://f7qtvi0nk5sx" path="res://addons/top_down/resources/InstanceResources/projectiles/shotgun_bullet_instance_resource.tres" id="5_yypu2"]
