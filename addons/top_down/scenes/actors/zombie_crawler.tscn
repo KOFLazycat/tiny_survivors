@@ -230,33 +230,33 @@ hframes = 6
 
 [node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_esakt")
+&"": SubResource("AnimationLibrary_esakt")
 }
 
 [node name="ActorDamage" parent="." index="11"]
 sound_resource_dead = ExtResource("11_e1dok")
 dead_vfx_instance_resource = ExtResource("12_m3r33")
 
-[node name="ZombieInput" parent="." index="16" node_paths=PackedStringArray("resource_node") instance=ExtResource("13_wn0lf")]
+[node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("13_wn0lf")]
 resource_node = NodePath("../ResourceNode")
 
-[node name="SlashAttack" parent="." index="17" node_paths=PackedStringArray("resource_node") instance=ExtResource("14_4rg71")]
+[node name="SlashAttack" parent="." index="16" node_paths=PackedStringArray("resource_node") instance=ExtResource("14_4rg71")]
 collision_mask = 2
 resource_node = NodePath("../ResourceNode")
 
-[node name="PoolNode" type="Node" parent="." index="18" node_paths=PackedStringArray("animation_player_list", "listen_node")]
+[node name="PoolNode" type="Node" parent="." index="17" node_paths=PackedStringArray("animation_player_list", "listen_node")]
 script = ExtResource("17_4fh8m")
 animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]
 listen_node = NodePath("../ActorDamage")
 signal_name = &"actor_died"
 
-[node name="ActiveEnemy" type="Node" parent="." index="19" node_paths=PackedStringArray("listen_node", "resource_node")]
+[node name="ActiveEnemy" type="Node" parent="." index="18" node_paths=PackedStringArray("listen_node", "resource_node")]
 script = ExtResource("18_dltdc")
 listen_node = NodePath("../ActorDamage")
 signal_name = &"actor_died"
 resource_node = NodePath("../ResourceNode")
 
-[node name="BloodTrail" type="Node" parent="." index="20" node_paths=PackedStringArray("position_node")]
+[node name="BloodTrail" type="Node" parent="." index="19" node_paths=PackedStringArray("position_node")]
 script = ExtResource("19_o65gd")
 position_node = NodePath("..")
 blood_particle_instance = ExtResource("20_gkgng")

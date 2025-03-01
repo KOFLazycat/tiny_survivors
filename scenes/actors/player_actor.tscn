@@ -358,9 +358,8 @@ camera_reference = ExtResource("30_hjb4k")
 position_resource = ExtResource("31_r8s2u")
 target_node = NodePath("..")
 
-[node name="HoleRecovery" type="Node" parent="." index="23" node_paths=PackedStringArray("safe_tile_tracker", "resource_node", "hole_trigger")]
+[node name="HoleRecovery" type="Node" parent="." index="23" node_paths=PackedStringArray("resource_node", "hole_trigger")]
 script = ExtResource("34_8bcna")
-safe_tile_tracker = NodePath("")
 resource_node = NodePath("../ResourceNode")
 hole_trigger = NodePath("../HoleTrigger")
 

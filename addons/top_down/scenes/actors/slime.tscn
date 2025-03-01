@@ -252,7 +252,7 @@ texture = ExtResource("10_3q2oh")
 
 [node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_esakt")
+&"": SubResource("AnimationLibrary_esakt")
 }
 
 [node name="ActorDamage" parent="." index="11"]
