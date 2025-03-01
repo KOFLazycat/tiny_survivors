@@ -43,7 +43,7 @@ texture = ExtResource("2_i2035")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RotatedNode/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_qujdc")
+&"": SubResource("AnimationLibrary_qujdc")
 }
 
 [node name="WeaponRotation" type="Node" parent="." node_paths=PackedStringArray("weapon", "rotate_node")]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://64j2v7e68ufp"]
+[gd_scene load_steps=7 format=3 uid="uid://64j2v7e68ufp"]
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_rroqd"]
-[ext_resource type="Texture2D" uid="uid://dqdnolhe0fvn4" path="res://assets/images/projectile/pj2_fireball_large_orange.png" id="2_h0sl7"]
+[ext_resource type="Texture2D" uid="uid://u2vwhr4b51nr" path="res://assets/images/projectile/pj2_fireball_large_orange.png" id="2_h0sl7"]
+[ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="3_24ser"]
 
 [sub_resource type="Animation" id="Animation_24ser"]
 length = 0.001
@@ -43,11 +44,14 @@ _data = {
 
 [node name="BulletTest" instance=ExtResource("1_rroqd")]
 
+[node name="CollisionShape2D" parent="AreaTransmitter2D" index="0"]
+position = Vector2(1, -1)
+
 [node name="RotatedNode" parent="." index="3"]
 position = Vector2(0, -1)
-scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" parent="RotatedNode" index="0"]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_h0sl7")
 hframes = 10
 
@@ -56,3 +60,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_24ser")
 }
 autoplay = "fly"
+
+[node name="TrailParticle" parent="RotatedNode" index="2" instance=ExtResource("3_24ser")]
