@@ -154,7 +154,7 @@
 		{
 			"uuid": "979c3440-eb03-49e5-95e9-13256a855de9",
 			"title": "武器自动攻击敌人",
-			"description": "",
+			"description": "增加自动攻击组件\n自动调整武器方向",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []
 		}
