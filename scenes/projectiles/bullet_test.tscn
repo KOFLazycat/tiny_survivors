@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://64j2v7e68ufp"]
+[gd_scene load_steps=9 format=3 uid="uid://64j2v7e68ufp"]
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_rroqd"]
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_bheet"]
 [ext_resource type="Texture2D" uid="uid://u2vwhr4b51nr" path="res://assets/images/projectile/pj2_fireball_large_orange.png" id="2_h0sl7"]
 [ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="3_24ser"]
+
+[sub_resource type="Resource" id="Resource_agfyf"]
+script = ExtResource("2_bheet")
+value = 10.0
+type = 0
+metadata/_custom_type_script = "uid://1rbr4is74e7l"
 
 [sub_resource type="Animation" id="Animation_24ser"]
 length = 0.001
@@ -43,6 +50,10 @@ _data = {
 }
 
 [node name="BulletTest" instance=ExtResource("1_rroqd")]
+
+[node name="ProjectileSetup" parent="." index="0"]
+base_damage = Array[ExtResource("2_bheet")]([SubResource("Resource_agfyf")])
+kickback = 30.0
 
 [node name="CollisionShape2D" parent="AreaTransmitter2D" index="0"]
 position = Vector2(1, -1)
