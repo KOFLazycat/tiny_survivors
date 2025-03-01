@@ -277,7 +277,7 @@ point_count = 3
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.5, 0.0, 0, 0]
 point_count = 2
 
-[node name="BossSlime" type="CharacterBody2D"]
+[node name="BossSlime" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 0
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -365,7 +365,7 @@ texture = ExtResource("13_bxjpi")
 
 [node name="ColorFlash" type="AnimationPlayer" parent="Body/JellyStretch/Stretch/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_tbujk")
+&"": SubResource("AnimationLibrary_tbujk")
 }
 
 [node name="DamageCooldown" type="Node" parent="." node_paths=PackedStringArray("resource_node")]

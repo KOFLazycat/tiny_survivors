@@ -223,7 +223,7 @@ script = ExtResource("13_p075e")
 value = 2.0
 type = 0
 
-[node name="SlimeSmall" instance=ExtResource("1_6nai7")]
+[node name="SlimeSmall" groups=["enemies"] instance=ExtResource("1_6nai7")]
 collision_layer = 4
 collision_mask = 5
 
@@ -253,7 +253,7 @@ hframes = 7
 
 [node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_esakt")
+&"": SubResource("AnimationLibrary_esakt")
 }
 
 [node name="ActorDamage" parent="." index="11"]

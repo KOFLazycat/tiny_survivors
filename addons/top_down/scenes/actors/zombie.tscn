@@ -214,7 +214,7 @@ _data = {
 &"walk": SubResource("Animation_d7gcn")
 }
 
-[node name="Zombie" instance=ExtResource("1_fkm2k")]
+[node name="Zombie" groups=["enemies"] instance=ExtResource("1_fkm2k")]
 collision_layer = 4
 collision_mask = 5
 
@@ -230,7 +230,7 @@ texture = ExtResource("2_giu7j")
 
 [node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_esakt")
+&"": SubResource("AnimationLibrary_esakt")
 }
 
 [node name="MoverTopDown2D" parent="." index="5"]
