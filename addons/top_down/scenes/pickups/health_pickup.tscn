@@ -262,7 +262,7 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_vucls")
+&"": SubResource("AnimationLibrary_vucls")
 }
 autoplay = "fade_in"
 next/fade_in = &"fade_in"

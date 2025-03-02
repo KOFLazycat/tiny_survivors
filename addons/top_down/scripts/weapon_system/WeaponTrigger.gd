@@ -43,11 +43,7 @@ func on_shoot()->void:
 	shoot_event.emit()
 	projectile_spawner.projectile_position = weapon.global_position
 	## Don't normalize direction if it is used for target position
-	var d: Vector2 = get_direction_tmp()
-	if d == Vector2.ZERO:
-		projectile_spawner.direction = input_resource.aim_direction
-	else:
-		projectile_spawner.direction = d
+	projectile_spawner.direction = input_resource.aim_direction
 	projectile_spawner.spawn()
 	sound_resource.play_managed()
 
@@ -61,23 +57,3 @@ func can_retrigger()->bool:
 ## Return direction information
 func get_direction()->Vector2:
 	return input_resource.aim_direction
-
-
-func get_closest_enemy() -> CharacterBody2D:
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	var closest = null
-	var min_dist = INF
-	
-	for enemy in enemies:
-		var dist = weapon.global_position.distance_to(enemy.global_position)
-		if dist < min_dist:
-			min_dist = dist
-			closest = enemy
-	return closest
-
-
-func get_direction_tmp() -> Vector2:
-	var c: CharacterBody2D = get_closest_enemy()
-	if !is_instance_valid(c):
-		return Vector2.ZERO
-	return (c.global_position - weapon.global_position).normalized()

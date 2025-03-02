@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=61 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -31,8 +31,10 @@
 [ext_resource type="Script" uid="uid://bo6201ct2o55u" path="res://addons/top_down/scripts/actor/player/CameraPositionSetter.gd" id="29_f2374"]
 [ext_resource type="Resource" uid="uid://c5igju2sl4cdg" path="res://addons/top_down/resources/CameraResources/camera_reference.tres" id="30_hjb4k"]
 [ext_resource type="Resource" uid="uid://b1yn036rka2tk" path="res://addons/top_down/resources/CameraResources/camera_position_resource.tres" id="31_r8s2u"]
+[ext_resource type="Script" uid="uid://cwyinrhy20y1d" path="res://scripts/actor/player/attack_detect_area.gd" id="34_5mxb6"]
 [ext_resource type="Script" uid="uid://cavgw0ffuka1p" path="res://addons/top_down/scripts/actor/player/HoleRecovery.gd" id="34_8bcna"]
 [ext_resource type="Script" uid="uid://bxpmefuq57enc" path="res://addons/top_down/scripts/actor/VisualInvulnerability.gd" id="35_1b055"]
+[ext_resource type="Resource" uid="uid://bctctb3u3bsix" path="res://resources/arena/enemy_attackable_resource.tres" id="35_2kw8m"]
 
 [sub_resource type="Resource" id="Resource_u7p0r"]
 resource_name = "movement  properties"
@@ -273,6 +275,9 @@ _data = {
 &"invulnerable": SubResource("Animation_67stq")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hd114"]
+radius = 100.0
+
 [node name="PlayerActor" instance=ExtResource("1_pil3h")]
 disable_mode = 2
 collision_layer = 2
@@ -374,3 +379,13 @@ animation_normal = &"RESET"
 libraries = {
 &"": SubResource("AnimationLibrary_f0s3r")
 }
+
+[node name="AttackDetectArea" type="Area2D" parent="." index="25" node_paths=PackedStringArray("collison_shape")]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("34_5mxb6")
+enemy_attackable_resource = ExtResource("35_2kw8m")
+collison_shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectArea" index="0"]
+shape = SubResource("CircleShape2D_hd114")
