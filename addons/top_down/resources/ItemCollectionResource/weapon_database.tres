@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://0jetpk7w0mgb" path="res://addons/top_down/scripts/pickups/WeaponItemResource.gd" id="1_bo3ff"]
 [ext_resource type="Script" uid="uid://clgaf0topiikf" path="res://addons/top_down/scripts/pickups/ItemResource.gd" id="1_mbiyi"]
 [ext_resource type="Script" uid="uid://jhp565m4fgu6" path="res://addons/top_down/scripts/pickups/ItemCollectionResource.gd" id="2_tekla"]
-[ext_resource type="Texture2D" uid="uid://bee6a7d7ohu6a" path="res://addons/top_down/assets/images/weapon/gun_3.png" id="4_fglbe"]
+[ext_resource type="Texture2D" uid="uid://cdisk1e68do6q" path="res://addons/top_down/assets/images/weapon/gun_3.png" id="4_fglbe"]
 
 [sub_resource type="Resource" id="Resource_qyvt1"]
 resource_name = "Assault Riffle"

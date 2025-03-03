@@ -389,3 +389,6 @@ collison_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectArea" index="0"]
 shape = SubResource("CircleShape2D_hd114")
+
+[node name="Camera2D" type="Camera2D" parent="." index="26"]
+zoom = Vector2(3, 3)
