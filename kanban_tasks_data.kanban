@@ -20,10 +20,10 @@
 				"e0c111db-26db-4dcd-b42f-0b510f08f23e",
 				"3985bd17-a40d-4eff-a3b2-7db8f7eab2e8",
 				"26381783-15e2-4282-a52e-08eaad4e9b27",
-				"e5799d89-81e9-4ca3-878b-63b8cf36f35b",
-				"12bc7950-9ed5-4481-9726-3770fd5d122d",
 				"d7768a98-ee26-4194-b34a-4d32508450e6",
-				"6e01f56c-d2ad-4a3f-9e5b-0567e08dfd59"
+				"6e01f56c-d2ad-4a3f-9e5b-0567e08dfd59",
+				"3bd24d79-18b5-4032-a406-5d2abc999b67",
+				"29f404ca-b846-4cd5-b36e-59c34c7616a6"
 			]
 		},
 		{
@@ -36,7 +36,9 @@
 			"title": "Done",
 			"tasks": [
 				"b3fae3ee-3589-4cc8-9cc1-14d942f6cb36",
-				"979c3440-eb03-49e5-95e9-13256a855de9"
+				"979c3440-eb03-49e5-95e9-13256a855de9",
+				"e5799d89-81e9-4ca3-878b-63b8cf36f35b",
+				"12bc7950-9ed5-4481-9726-3770fd5d122d"
 			]
 		}
 	],
@@ -170,6 +172,20 @@
 		{
 			"uuid": "12bc7950-9ed5-4481-9726-3770fd5d122d",
 			"title": "增加自动攻击组件",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "3bd24d79-18b5-4032-a406-5d2abc999b67",
+			"title": "优化伤害文字显示",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "29f404ca-b846-4cd5-b36e-59c34c7616a6",
+			"title": "优化子弹、怪物碰撞面积",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

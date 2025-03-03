@@ -4,6 +4,15 @@ extends WeaponTrigger
 @export var weapom_auto_aim:WeapomAutoAim
 
 
+func _process(delta: float) -> void:
+	if weapom_auto_aim.enemy_attackable_resource.list.size() > 0:
+		on_shoot()
+
+
+func set_enabled(value:bool)->void:
+	enabled = value
+
+
 ## Setup and trigger a projectile spawner
 func on_shoot()->void:
 	var direction: Vector2 = weapom_auto_aim.get_direction()
