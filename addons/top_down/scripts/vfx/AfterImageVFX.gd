@@ -9,7 +9,7 @@ extends Node2D
 
 @export var pool_node:PoolNode
 
-func setup(texture:Texture, hframes:int, vframes:int, frame:int, centered:bool, offset:Vector2, sprite_position:Vector2, sprite_scale:Vector2, world_position:Vector2)->void:
+func setup(texture:Texture, hframes:int, vframes:int, frame:int, centered:bool, offset:Vector2, sprite_position:Vector2, world_position:Vector2)->void:
 	sprite.texture = texture
 	sprite.hframes = hframes
 	sprite.vframes = vframes
@@ -17,7 +17,6 @@ func setup(texture:Texture, hframes:int, vframes:int, frame:int, centered:bool, 
 	sprite.centered = centered
 	sprite.offset = offset
 	sprite.position = sprite_position
-	sprite.scale = sprite_scale
 	global_position = world_position
 
 func _ready() -> void:

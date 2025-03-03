@@ -72,6 +72,6 @@ func _cooldown_over()->void:
 
 func _spawn_after_image()->void:
 	var _config_callback:Callable = func (inst:AfterImageVFX)->void:
-		inst.setup(sprite.texture, sprite.hframes, sprite.vframes, sprite.frame, sprite.centered, sprite.offset, sprite.position, sprite.scale, owner.global_position)
+		inst.setup(sprite.texture, sprite.hframes, sprite.vframes, sprite.frame, sprite.centered, sprite.offset, sprite.position, owner.global_position)
 	
 	after_image_instance.instance(_config_callback)
