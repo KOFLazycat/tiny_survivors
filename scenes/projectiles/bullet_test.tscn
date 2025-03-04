@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_rroqd"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_bheet"]
-[ext_resource type="Texture2D" uid="uid://u2vwhr4b51nr" path="res://assets/images/projectile/pj2_fireball_large_orange.png" id="2_h0sl7"]
+[ext_resource type="Texture2D" uid="uid://bloi2axemsbyp" path="res://assets/images/projectile/pj2_fireball_large_orange.png" id="2_h0sl7"]
 [ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="3_24ser"]
 
 [sub_resource type="Resource" id="Resource_agfyf"]
@@ -56,7 +56,7 @@ base_damage = Array[ExtResource("2_bheet")]([SubResource("Resource_agfyf")])
 kickback = 30.0
 
 [node name="CollisionShape2D" parent="AreaTransmitter2D" index="0"]
-position = Vector2(1, -1)
+position = Vector2(1.5, -1)
 
 [node name="RotatedNode" parent="." index="3"]
 position = Vector2(0, -1)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cub8dbj1w1gk"]
+[gd_scene load_steps=4 format=3 uid="uid://cub8dbj1w1gk"]
 
 [ext_resource type="Script" uid="uid://1631hxa5kqe4" path="res://addons/top_down/scripts/damage/DamagePoints.gd" id="1_tj76g"]
+[ext_resource type="FontFile" uid="uid://wwwmikeue701" path="res://assets/fonts/zpix.ttf" id="2_elyuy"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="2_hgvc1"]
 
 [node name="Damagepoints" type="Node2D" node_paths=PackedStringArray("label", "pool_node")]
@@ -23,6 +24,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_elyuy")
 theme_override_font_sizes/font_size = 6
 text = "69"
 

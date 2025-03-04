@@ -1,9 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://62j3fy0o3uwl"]
+[gd_scene load_steps=40 format=3 uid="uid://62j3fy0o3uwl"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_fkm2k"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_ak5yp"]
 [ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="2_duvie"]
-[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_giu7j"]
+[ext_resource type="Texture2D" uid="uid://dgdb34ath6j0u" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_giu7j"]
 [ext_resource type="Script" uid="uid://ticn5s8bfep6" path="res://addons/top_down/scripts/actor/ActorStatsResource.gd" id="3_j6r3n"]
 [ext_resource type="Script" uid="uid://cmp83qy0hsjyv" path="res://addons/top_down/scripts/damage/HealthResource.gd" id="4_ryem0"]
 [ext_resource type="Script" uid="uid://dr75ttkns1hyy" path="res://addons/top_down/scripts/actor/PushResource.gd" id="6_360t8"]
@@ -128,6 +128,9 @@ resource = SubResource("Resource_1jkvc")
 make_unique = true
 description = "Receives report from delt and received damage."
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b15si"]
+size = Vector2(8, 8)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtjxa"]
 resource_local_to_scene = true
 shader = ExtResource("2_duvie")
@@ -221,8 +224,15 @@ collision_mask = 5
 [node name="ResourceNode" parent="." index="0"]
 list = Array[ExtResource("2_ak5yp")]([SubResource("Resource_7jqce"), SubResource("Resource_vm74s"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_gytac")])
 
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -2)
+
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 4
+
+[node name="CollisionShape2D" parent="AreaReceiver2D" index="0"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_b15si")
 
 [node name="Sprite2D" parent="Body/Stretch" index="0"]
 material = SubResource("ShaderMaterial_mtjxa")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=63 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -147,6 +147,12 @@ resource = ExtResource("10_8eh02")
 make_unique = false
 description = ""
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kw8m"]
+size = Vector2(8, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlmhb"]
+size = Vector2(8, 11)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfelk"]
 resource_local_to_scene = true
 shader = ExtResource("2_euugg")
@@ -285,8 +291,16 @@ collision_layer = 2
 [node name="ResourceNode" parent="." index="0"]
 list = Array[ExtResource("2_2kw8m")]([SubResource("Resource_y1d7o"), SubResource("Resource_3g443"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_or6sa"), SubResource("Resource_cna70"), SubResource("Resource_sj2w3")])
 
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_2kw8m")
+
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 2
+
+[node name="CollisionShape2D" parent="AreaReceiver2D" index="0"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_vlmhb")
 
 [node name="ItemDataReceiver" type="Node" parent="AreaReceiver2D" index="4" node_paths=PackedStringArray("area_receiver", "resource_node")]
 script = ExtResource("11_enn7q")
@@ -381,6 +395,7 @@ libraries = {
 }
 
 [node name="AttackDetectArea" type="Area2D" parent="." index="25" node_paths=PackedStringArray("collison_shape")]
+visible = false
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("34_5mxb6")
@@ -391,4 +406,4 @@ collison_shape = NodePath("CollisionShape2D")
 shape = SubResource("CircleShape2D_hd114")
 
 [node name="Camera2D" type="Camera2D" parent="." index="26"]
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)

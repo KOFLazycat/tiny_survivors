@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b1gnernv8eiu5"]
+[gd_scene load_steps=39 format=3 uid="uid://b1gnernv8eiu5"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_e3uie"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_dyii5"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_nocrv"]
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_rjgwi"]
 [ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="9_j1lvb"]
-[ext_resource type="Texture2D" uid="uid://dwvq0tijkhh12" path="res://addons/top_down/assets/images/characters/zombie_crawler_16x16_strip6-sheet.png" id="10_1uw86"]
+[ext_resource type="Texture2D" uid="uid://cmlaft6i0hogr" path="res://addons/top_down/assets/images/characters/zombie_crawler_16x16_strip6-sheet.png" id="10_1uw86"]
 [ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="11_e1dok"]
 [ext_resource type="Resource" uid="uid://bx3gvcma6vvg" path="res://addons/top_down/resources/InstanceResources/vfx/dead/zomby_crawler_dead_instance_resource.tres" id="12_m3r33"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="13_wn0lf"]
@@ -127,6 +127,9 @@ resource = SubResource("Resource_1jkvc")
 make_unique = true
 description = "Receives report from delt and received damage."
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1dwc"]
+size = Vector2(8, 6)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtjxa"]
 resource_local_to_scene = true
 shader = ExtResource("9_j1lvb")
@@ -220,8 +223,15 @@ collision_mask = 5
 [node name="ResourceNode" parent="." index="0"]
 list = Array[ExtResource("2_dyii5")]([SubResource("Resource_7jqce"), SubResource("Resource_vm74s"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_gytac")])
 
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -2)
+
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 4
+
+[node name="CollisionShape2D" parent="AreaReceiver2D" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_i1dwc")
 
 [node name="Sprite2D" parent="Body/Stretch" index="0"]
 material = SubResource("ShaderMaterial_mtjxa")

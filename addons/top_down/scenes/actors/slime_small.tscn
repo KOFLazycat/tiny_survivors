@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_gxrd0"]
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_hotxp"]
 [ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="9_tba0g"]
-[ext_resource type="Texture2D" uid="uid://8pnb0dx8f0mt" path="res://addons/top_down/assets/images/characters/slime_small_16x16_strip7.png" id="10_7og58"]
+[ext_resource type="Texture2D" uid="uid://c61bbpkkjycsf" path="res://addons/top_down/assets/images/characters/slime_small_16x16_strip7.png" id="10_7og58"]
 [ext_resource type="Resource" uid="uid://pvw6k1ntsles" path="res://addons/top_down/resources/sounds/zombie_split.tres" id="11_3ifc4"]
 [ext_resource type="Resource" uid="uid://weoefubhnbf" path="res://addons/top_down/resources/InstanceResources/vfx/dead/slime_small_dead_instance_resource.tres" id="12_ue07f"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="13_p075e"]
@@ -129,8 +129,8 @@ description = "Receives report from delt and received damage."
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b46dv"]
 size = Vector2(6, 3)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oowpq"]
-size = Vector2(6, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns1qd"]
+size = Vector2(6, 4.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtjxa"]
 resource_local_to_scene = true
@@ -238,8 +238,8 @@ shape = SubResource("RectangleShape2D_b46dv")
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="AreaReceiver2D" index="0"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_oowpq")
+position = Vector2(-0.5, -0.75)
+shape = SubResource("RectangleShape2D_ns1qd")
 
 [node name="Shadow" parent="." index="3"]
 position = Vector2(-0.5, 0)
