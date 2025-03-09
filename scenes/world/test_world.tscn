@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://c75d5c6vxcu56"]
 
-[ext_resource type="Script" uid="uid://xbx2kahmhmrv" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
+[ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="PackedScene" uid="uid://b7epulhnnr8d3" path="res://addons/top_down/scenes/tile_layers/floor_layer.tscn" id="1_tjl6x"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
 [ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://addons/top_down/resources/RoomResources/ysort_reference.tres" id="3_1aw3b"]
@@ -10,11 +10,11 @@
 [ext_resource type="Script" uid="uid://b5vu2tmrvxin4" path="res://addons/top_down/scripts/game/PlayerSpawner.gd" id="7_i3rsd"]
 [ext_resource type="TileSet" uid="uid://0jy5e5dh10nu" path="res://resources/tilesets/groud/tiny_swords_shadows.tres" id="8_3cvmg"]
 [ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="8_f38oy"]
-[ext_resource type="Resource" uid="uid://bxycsg6aco80a" path="res://addons/top_down/resources/InstanceResources/actors/player_actor_instance_resource.tres" id="9_m0ivj"]
 [ext_resource type="TileSet" uid="uid://dj5rakihoi1lm" path="res://resources/tilesets/bridge/tiny_swords_bridge.tres" id="9_w0w3b"]
 [ext_resource type="Resource" uid="uid://c5cbxaiec2jk1" path="res://addons/top_down/resources/global_resources/scene_transition_resource.tres" id="10_obw6i"]
 [ext_resource type="Script" uid="uid://ctjudeblqwu4j" path="res://addons/top_down/scripts/arena/StartingWeaponSpawner.gd" id="11_gaq8h"]
 [ext_resource type="Resource" uid="uid://bytbvhnnajqxd" path="res://addons/top_down/resources/ItemCollectionResource/weapon_database.tres" id="12_em46u"]
+[ext_resource type="Resource" uid="uid://cogpibjem40wi" path="res://resources/instance_resources/actors/test_player_instance_resource.tres" id="12_w0w3b"]
 [ext_resource type="PackedScene" uid="uid://bqh7iwpl0s1ha" path="res://addons/top_down/scenes/screen_effects/screen_effects.tscn" id="13_ew2ib"]
 [ext_resource type="Resource" uid="uid://b6mldf5iax3rj" path="res://addons/top_down/resources/InstanceResources/pickups/item_pickup_instance_resource.tres" id="13_h6k38"]
 [ext_resource type="PackedScene" uid="uid://cfaobhr3r5ymj" path="res://addons/top_down/scenes/arena/enemy_manager.tscn" id="13_yapyo"]
@@ -90,7 +90,7 @@ tile_set = ExtResource("9_w0w3b")
 position = Vector2(530, 240)
 script = ExtResource("7_i3rsd")
 player_reference = ExtResource("8_f38oy")
-player_instance_resource = ExtResource("9_m0ivj")
+player_instance_resource = ExtResource("12_w0w3b")
 scene_transition_resource = ExtResource("10_obw6i")
 
 [node name="StartingWeapon" type="Node2D" parent="." node_paths=PackedStringArray("position_nodes")]

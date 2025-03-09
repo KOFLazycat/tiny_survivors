@@ -31,7 +31,7 @@
 [ext_resource type="Script" uid="uid://bo6201ct2o55u" path="res://addons/top_down/scripts/actor/player/CameraPositionSetter.gd" id="29_f2374"]
 [ext_resource type="Resource" uid="uid://c5igju2sl4cdg" path="res://addons/top_down/resources/CameraResources/camera_reference.tres" id="30_hjb4k"]
 [ext_resource type="Resource" uid="uid://b1yn036rka2tk" path="res://addons/top_down/resources/CameraResources/camera_position_resource.tres" id="31_r8s2u"]
-[ext_resource type="Script" uid="uid://cwyinrhy20y1d" path="res://scripts/actor/player/attack_detect_area.gd" id="34_5mxb6"]
+[ext_resource type="Script" uid="uid://62wdp3ivfwdn" path="res://scripts/actor/player/attack_detect_area.gd" id="34_5mxb6"]
 [ext_resource type="Script" uid="uid://cavgw0ffuka1p" path="res://addons/top_down/scripts/actor/player/HoleRecovery.gd" id="34_8bcna"]
 [ext_resource type="Script" uid="uid://bxpmefuq57enc" path="res://addons/top_down/scripts/actor/VisualInvulnerability.gd" id="35_1b055"]
 [ext_resource type="Resource" uid="uid://bctctb3u3bsix" path="res://resources/arena/enemy_attackable_resource.tres" id="35_2kw8m"]
@@ -406,4 +406,3 @@ collison_shape = NodePath("CollisionShape2D")
 shape = SubResource("CircleShape2D_hd114")
 
 [node name="Camera2D" type="Camera2D" parent="." index="26"]
-zoom = Vector2(5, 5)
