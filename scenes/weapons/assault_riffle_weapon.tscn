@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://n6b2nqit864m"]
+
+[ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_7ig7w"]
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_d05rv"]
+[ext_resource type="Script" uid="uid://c8isd0yt6i0fi" path="res://addons/top_down/scripts/damage/properties/DamageDataResource.gd" id="3_6bxpg"]
+[ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="4_1xy6b"]
+[ext_resource type="Texture2D" uid="uid://bee6a7d7ohu6a" path="res://addons/top_down/assets/images/weapon/gun_3.png" id="5_g41bh"]
+[ext_resource type="Script" uid="uid://d0x01f4jds6e1" path="res://scripts/weapon_system/projectile/projectile_spawner_base.gd" id="6_0acx1"]
+[ext_resource type="Script" uid="uid://gncg4eiwdn4t" path="res://scripts/weapon_system/weapon/weapom_auto_aim.gd" id="6_2n2cl"]
+[ext_resource type="Script" uid="uid://r7udbeknxjsf" path="res://scripts/weapon_system/weapon/weapon_rotation_auto.gd" id="6_7ae7h"]
+[ext_resource type="Script" uid="uid://3mr4r7o6w2v3" path="res://scripts/weapon_system/weapon/weapon_trigger_auto.gd" id="6_fb6gj"]
+[ext_resource type="Resource" uid="uid://bctctb3u3bsix" path="res://resources/arena/enemy_attackable_resource.tres" id="7_fb5sv"]
+[ext_resource type="Resource" uid="uid://cw030o04i08yd" path="res://addons/top_down/resources/InstanceResources/projectiles/assault_bullet_instance_resource.tres" id="11_7ae7h"]
+
+[sub_resource type="Resource" id="Resource_84q31"]
+script = ExtResource("3_6bxpg")
+base_damage = Array[ExtResource("2_d05rv")]([])
+critical_chance = 0.3
+critical_multiply = 1.5
+status_list = Array[ExtResource("4_1xy6b")]([])
+hit_list = []
+report_callback = Callable()
+kickback_strength = 0.0
+transmission_name = &""
+state = -1
+valid = true
+version = 0
+not_saved = false
+
+[node name="AssaultRiffleWeapon" instance=ExtResource("1_7ig7w")]
+damage_data_resource = SubResource("Resource_84q31")
+
+[node name="Sprite2D" parent="RotatedNode" index="0"]
+texture = ExtResource("5_g41bh")
+
+[node name="BulletSpawnPosition" type="Marker2D" parent="RotatedNode/Sprite2D" index="1"]
+position = Vector2(8, 1.5)
+
+[node name="WeaponRotation" parent="." index="1" node_paths=PackedStringArray("weapom_auto_aim")]
+script = ExtResource("6_7ae7h")
+weapom_auto_aim = NodePath("../WeaponTrigger/WeapomAutoAim")
+
+[node name="WeaponKickback" parent="." index="2"]
+kickback_strength = 0.0
+
+[node name="WeaponTrigger" parent="." index="3" node_paths=PackedStringArray("weapom_auto_aim")]
+script = ExtResource("6_fb6gj")
+weapom_auto_aim = NodePath("WeapomAutoAim")
+
+[node name="WeapomAutoAim" type="Node" parent="WeaponTrigger" index="2" node_paths=PackedStringArray("weapon", "weapon_rotation")]
+script = ExtResource("6_2n2cl")
+weapon = NodePath("../..")
+weapon_rotation = NodePath("../../WeaponRotation")
+enemy_attackable_resource = ExtResource("7_fb5sv")
+
+[node name="ProjectileSpawner" parent="." index="4" node_paths=PackedStringArray("bullet_spawn_position")]
+script = ExtResource("6_0acx1")
+bullet_spawn_position = NodePath("../RotatedNode/Sprite2D/BulletSpawnPosition")
+projectile_instance_resource = ExtResource("11_7ae7h")

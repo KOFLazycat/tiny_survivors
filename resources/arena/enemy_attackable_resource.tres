@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyAttactableResource" load_steps=2 format=3 uid="uid://bctctb3u3bsix"]
+
+[ext_resource type="Script" uid="uid://bbesjqan35y8e" path="res://scripts/arena/enemy_attactable_resource.gd" id="1_mtl2q"]
+
+[resource]
+script = ExtResource("1_mtl2q")
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://bbesjqan35y8e"
