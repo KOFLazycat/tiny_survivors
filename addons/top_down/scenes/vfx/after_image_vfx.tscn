@@ -55,7 +55,7 @@ hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_gk0wv")
+&"": SubResource("AnimationLibrary_gk0wv")
 }
 
 [node name="PoolNode" type="Node" parent="."]

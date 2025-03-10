@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://boty88spopcaa"]
+
+[ext_resource type="Script" uid="uid://bw4f76beeqt2j" path="res://scripts/cartridge/cartridge.gd" id="1_ul8sg"]
+[ext_resource type="Texture2D" uid="uid://c3p3p628q48dw" path="res://assets/images/cartridge/cartridge.png" id="2_47f87"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="3_uib5y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_47f87"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="Animation" id="Animation_uib5y"]
+resource_name = "fade"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-0.5, -0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nhnda"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhnda"]
+_data = {
+&"RESET": SubResource("Animation_nhnda"),
+&"fade": SubResource("Animation_uib5y")
+}
+
+[node name="Cartridge" type="RigidBody2D" node_paths=PackedStringArray("animation_player", "pool_node")]
+collision_layer = 2
+gravity_scale = 0.2
+script = ExtResource("1_ul8sg")
+animation_player = NodePath("AnimationPlayer")
+animation = &"fade"
+pool_node = NodePath("PoolNode")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_47f87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_47f87")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("2_47f87")
+texture_scale = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nhnda")
+}
+
+[node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
+script = ExtResource("3_uib5y")
+ready_nodes = [NodePath("..")]
+animation_player_list = [NodePath("../AnimationPlayer")]

@@ -48,7 +48,7 @@ frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qqpok")
+&"": SubResource("AnimationLibrary_qqpok")
 }
 autoplay = "animate"
 

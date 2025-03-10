@@ -95,7 +95,7 @@ grow_vertical = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ProgressRing")
 libraries = {
-"": SubResource("AnimationLibrary_vbmnr")
+&"": SubResource("AnimationLibrary_vbmnr")
 }
 autoplay = "spawn_in"
 
