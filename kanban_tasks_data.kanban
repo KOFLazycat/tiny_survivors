@@ -20,13 +20,15 @@
 				"e0c111db-26db-4dcd-b42f-0b510f08f23e",
 				"3985bd17-a40d-4eff-a3b2-7db8f7eab2e8",
 				"26381783-15e2-4282-a52e-08eaad4e9b27",
-				"f807c7a8-a9d4-47a2-bb07-8d466398e2c8"
+				"6785aa21-bd32-4042-9142-4d954cf5017d"
 			]
 		},
 		{
 			"uuid": "9134cb1d-4b69-45a3-8edc-bce770720557",
-			"title": "Bugs",
-			"tasks": []
+			"title": "放弃",
+			"tasks": [
+				"f807c7a8-a9d4-47a2-bb07-8d466398e2c8"
+			]
 		},
 		{
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
@@ -146,6 +148,13 @@
 		{
 			"uuid": "f807c7a8-a9d4-47a2-bb07-8d466398e2c8",
 			"title": "子弹发射镜头抖动",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "6785aa21-bd32-4042-9142-4d954cf5017d",
+			"title": "子弹射击后弹飞的效果",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []
