@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_omfnw"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_6qsna"]
-[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="2_gpamq"]
-[ext_resource type="Texture2D" uid="uid://cp2j5s0kpi288" path="res://addons/top_down/assets/images/projectile/bullet_1.png" id="3_8p5j6"]
+[ext_resource type="Texture2D" uid="uid://d2tle2bgdsopw" path="res://addons/top_down/assets/images/shadow.png" id="2_gpamq"]
+[ext_resource type="Texture2D" uid="uid://b5k0cvn775w7v" path="res://addons/top_down/assets/images/projectile/bullet_1.png" id="3_8p5j6"]
 [ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="3_f731g"]
 
 [sub_resource type="Resource" id="Resource_0qe4y"]

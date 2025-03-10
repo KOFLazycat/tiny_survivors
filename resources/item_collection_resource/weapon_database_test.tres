@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemCollectionResource" load_steps=6 format=3 uid="uid://bc6ageykf2bd"]
+
+[ext_resource type="Script" uid="uid://clgaf0topiikf" path="res://addons/top_down/scripts/pickups/ItemResource.gd" id="1_8qqst"]
+[ext_resource type="Texture2D" uid="uid://dp2tfxj0r5br7" path="res://addons/top_down/assets/images/weapon/gun_0.png" id="2_7lopn"]
+[ext_resource type="Script" uid="uid://0jetpk7w0mgb" path="res://addons/top_down/scripts/pickups/WeaponItemResource.gd" id="3_luqq8"]
+[ext_resource type="Script" uid="uid://jhp565m4fgu6" path="res://addons/top_down/scripts/pickups/ItemCollectionResource.gd" id="8_aybxi"]
+
+[sub_resource type="Resource" id="Resource_q51dg"]
+resource_name = "Gun"
+script = ExtResource("3_luqq8")
+icon = ExtResource("2_7lopn")
+scene_path = "res://scenes/weapons/gun_test.tscn"
+type = 0
+unlocked = true
+
+[resource]
+script = ExtResource("8_aybxi")
+list = Array[ExtResource("1_8qqst")]([SubResource("Resource_q51dg")])
+selected = 0
+max_items = 0
+version = 0
+not_saved = false

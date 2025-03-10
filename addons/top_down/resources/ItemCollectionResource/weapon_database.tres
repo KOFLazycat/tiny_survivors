@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://0jetpk7w0mgb" path="res://addons/top_down/scripts/pickups/WeaponItemResource.gd" id="1_bo3ff"]
 [ext_resource type="Script" uid="uid://clgaf0topiikf" path="res://addons/top_down/scripts/pickups/ItemResource.gd" id="1_mbiyi"]
-[ext_resource type="Texture2D" uid="uid://bho7eucocnqsk" path="res://addons/top_down/assets/images/weapon/gun_0.png" id="2_jrlm3"]
+[ext_resource type="Texture2D" uid="uid://dp2tfxj0r5br7" path="res://addons/top_down/assets/images/weapon/gun_0.png" id="2_jrlm3"]
 [ext_resource type="Script" uid="uid://jhp565m4fgu6" path="res://addons/top_down/scripts/pickups/ItemCollectionResource.gd" id="2_tekla"]
-[ext_resource type="Texture2D" uid="uid://cf7fp314ufx18" path="res://addons/top_down/assets/images/weapon/gun_1.png" id="3_1j2rw"]
-[ext_resource type="Texture2D" uid="uid://bee6a7d7ohu6a" path="res://addons/top_down/assets/images/weapon/gun_3.png" id="4_fglbe"]
-[ext_resource type="Texture2D" uid="uid://b24o40qwaae24" path="res://addons/top_down/assets/images/weapon/sword_0.png" id="5_n1on6"]
-[ext_resource type="Texture2D" uid="uid://cna6wvkgfgpxw" path="res://addons/top_down/assets/images/vfx/slash_2_strip5.png" id="6_ot0bc"]
+[ext_resource type="Texture2D" uid="uid://ccgvjjtbpv0sp" path="res://addons/top_down/assets/images/weapon/gun_1.png" id="3_1j2rw"]
+[ext_resource type="Texture2D" uid="uid://kdfmi5rxbrnx" path="res://addons/top_down/assets/images/weapon/gun_3.png" id="4_fglbe"]
+[ext_resource type="Texture2D" uid="uid://b873chfw0jj30" path="res://addons/top_down/assets/images/weapon/sword_0.png" id="5_n1on6"]
+[ext_resource type="Texture2D" uid="uid://bxi55hn56supm" path="res://addons/top_down/assets/images/vfx/slash_2_strip5.png" id="6_ot0bc"]
 
 [sub_resource type="Resource" id="Resource_q51dg"]
 resource_name = "Gun"

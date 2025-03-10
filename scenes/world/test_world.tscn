@@ -13,13 +13,13 @@
 [ext_resource type="TileSet" uid="uid://dj5rakihoi1lm" path="res://resources/tilesets/bridge/tiny_swords_bridge.tres" id="9_w0w3b"]
 [ext_resource type="Resource" uid="uid://c5cbxaiec2jk1" path="res://addons/top_down/resources/global_resources/scene_transition_resource.tres" id="10_obw6i"]
 [ext_resource type="Script" uid="uid://ctjudeblqwu4j" path="res://addons/top_down/scripts/arena/StartingWeaponSpawner.gd" id="11_gaq8h"]
-[ext_resource type="Resource" uid="uid://bytbvhnnajqxd" path="res://addons/top_down/resources/ItemCollectionResource/weapon_database.tres" id="12_em46u"]
 [ext_resource type="Resource" uid="uid://cogpibjem40wi" path="res://resources/instance_resources/actors/test_player_instance_resource.tres" id="12_w0w3b"]
 [ext_resource type="PackedScene" uid="uid://bqh7iwpl0s1ha" path="res://addons/top_down/scenes/screen_effects/screen_effects.tscn" id="13_ew2ib"]
 [ext_resource type="Resource" uid="uid://b6mldf5iax3rj" path="res://addons/top_down/resources/InstanceResources/pickups/item_pickup_instance_resource.tres" id="13_h6k38"]
 [ext_resource type="PackedScene" uid="uid://cfaobhr3r5ymj" path="res://addons/top_down/scenes/arena/enemy_manager.tscn" id="13_yapyo"]
 [ext_resource type="Script" uid="uid://b7uevqt2dkh07" path="res://addons/top_down/scripts/arena/SpawnQueueResource.gd" id="14_ew2ib"]
 [ext_resource type="Script" uid="uid://cgc1tkk1w6e2a" path="res://addons/top_down/scripts/arena/SpawnWaveList.gd" id="15_s4qyy"]
+[ext_resource type="Resource" uid="uid://bc6ageykf2bd" path="res://resources/item_collection_resource/weapon_database_test.tres" id="15_w0w3b"]
 [ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="16_tersh"]
 [ext_resource type="Resource" uid="uid://cwxx7lc1yjet4" path="res://addons/top_down/resources/InstanceResources/actors/slime_instance_resource.tres" id="17_g4hen"]
 [ext_resource type="Resource" uid="uid://c05ys7ybsfv4u" path="res://addons/top_down/resources/InstanceResources/actors/zomby_instance_resource.tres" id="18_3cvmg"]
@@ -95,18 +95,12 @@ scene_transition_resource = ExtResource("10_obw6i")
 
 [node name="StartingWeapon" type="Node2D" parent="." node_paths=PackedStringArray("position_nodes")]
 script = ExtResource("11_gaq8h")
-position_nodes = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
-weapon_database = ExtResource("12_em46u")
+position_nodes = [NodePath("Marker2D")]
+weapon_database = ExtResource("15_w0w3b")
 weapon_pickup_instance_resource = ExtResource("13_h6k38")
 
 [node name="Marker2D" type="Marker2D" parent="StartingWeapon"]
-position = Vector2(582, 189)
-
-[node name="Marker2D2" type="Marker2D" parent="StartingWeapon"]
-position = Vector2(606, 202)
-
-[node name="Marker2D3" type="Marker2D" parent="StartingWeapon"]
-position = Vector2(628, 212)
+position = Vector2(568, 240)
 
 [node name="EnemyManager" parent="." instance=ExtResource("13_yapyo")]
 wave_queue = SubResource("Resource_ew2ib")
@@ -135,11 +129,11 @@ script = ExtResource("20_s4g5r")
 boss_position = true
 
 [node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]
+position = Vector2(681, 351)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaEntry"]
-position = Vector2(482, 291)
 shape = SubResource("CircleShape2D_ew2ib")
 
 [node name="ScreenEffects" parent="." instance=ExtResource("13_ew2ib")]
