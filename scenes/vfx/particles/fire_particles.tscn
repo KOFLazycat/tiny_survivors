@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdc7huj4d7tnk"]
+
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="1_fasvg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qeryj"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_jlf4i"]
+offsets = PackedFloat32Array(0.00271739, 0.866029, 1)
+colors = PackedColorArray(1, 0.890623, 0.0968534, 1, 0.486275, 0.486275, 0.486275, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gmjer"]
+gradient = SubResource("Gradient_jlf4i")
+
+[sub_resource type="Curve" id="Curve_7mvyc"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.776942, 2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lf28g"]
+curve = SubResource("Curve_7mvyc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6wlxw"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 0.01
+direction = Vector3(50, 0, 0)
+spread = 80.83
+initial_velocity_min = 50.0
+initial_velocity_max = 80.0
+gravity = Vector3(0, 0, 0)
+damping_max = 16.42
+scale_curve = SubResource("CurveTexture_lf28g")
+color_ramp = SubResource("GradientTexture1D_gmjer")
+
+[sub_resource type="GDScript" id="GDScript_yppws"]
+script/source = "class_name FireParticles
+extends GPUParticles2D
+
+func _ready():
+	set_emitting.call_deferred(true)
+"
+
+[node name="FireParticles" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_qeryj")
+emitting = false
+amount = 30
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_6wlxw")
+script = SubResource("GDScript_yppws")
+
+[node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "particle2d_list", "listen_node")]
+script = ExtResource("1_fasvg")
+ready_nodes = [NodePath("..")]
+particle2d_list = [NodePath("..")]
+listen_node = NodePath("..")
+signal_name = &"finished"
