@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=64 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -21,7 +21,8 @@
 [ext_resource type="Resource" uid="uid://b6mldf5iax3rj" path="res://addons/top_down/resources/InstanceResources/pickups/item_pickup_instance_resource.tres" id="19_ymkqw"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="20_vx1an"]
 [ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="21_mql7k"]
-[ext_resource type="Script" uid="uid://dcovdxgivs8b" path="res://addons/top_down/scripts/actor/DashAbility.gd" id="22_7g6rn"]
+[ext_resource type="Script" uid="uid://dfreivb3o277t" path="res://scripts/actor/ActorDashAbility.gd" id="22_5mxb6"]
+[ext_resource type="Resource" uid="uid://ctupncw2hwy80" path="res://resources/instance_resources/vfx/move_particles_instance.tres" id="23_2kw8m"]
 [ext_resource type="Resource" uid="uid://cirgsoc2387p2" path="res://addons/top_down/resources/InstanceResources/vfx/after_image_vfx.tres" id="23_a4nca"]
 [ext_resource type="Script" uid="uid://bqycuolygavk3" path="res://addons/top_down/scripts/actor/player/PlayerJuice.gd" id="24_fqsr7"]
 [ext_resource type="Resource" uid="uid://ddpkkj7j7ync6" path="res://addons/top_down/resources/CameraResources/enemy_damage_shake.tres" id="25_0a8lt"]
@@ -354,8 +355,9 @@ until_tree_exit = false
 signal_node = NodePath("../ActorDamage")
 signal_name = &"actor_died"
 
-[node name="DashAbility" type="Node" parent="." index="19" node_paths=PackedStringArray("resource_node", "sprite")]
-script = ExtResource("22_7g6rn")
+[node name="ActorDashAbility" type="Node" parent="." index="19" node_paths=PackedStringArray("resource_node", "sprite")]
+script = ExtResource("22_5mxb6")
+move_particles_instance_resource = ExtResource("23_2kw8m")
 resource_node = NodePath("../ResourceNode")
 after_image_instance = ExtResource("23_a4nca")
 sprite = NodePath("../Body/Stretch/Sprite2D")

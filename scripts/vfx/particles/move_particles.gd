@@ -1,0 +1,2 @@
+class_name MoveParticles
+extends GPUParticles2D

@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://diqslhjq8ig87"]
+
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="1_opcnx"]
+[ext_resource type="Texture2D" uid="uid://bij41x8n8uwmw" path="res://assets/images/vfx/smoke.png" id="1_pubtt"]
+[ext_resource type="Script" uid="uid://l54jxj8fhdnr" path="res://scripts/vfx/particles/move_particles.gd" id="2_sepby"]
+
+[sub_resource type="Gradient" id="Gradient_pubtt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sepby"]
+gradient = SubResource("Gradient_pubtt")
+
+[sub_resource type="Curve" id="Curve_pubtt"]
+_data = [Vector2(0, 0.488113), 0.0, 0.0, 0, 0, Vector2(0.255396, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sepby"]
+width = 2048
+curve = SubResource("Curve_pubtt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1jrd2"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+damping_min = 25.0
+damping_max = 50.0
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_sepby")
+color_ramp = SubResource("GradientTexture1D_sepby")
+
+[node name="MoveParticles" type="GPUParticles2D"]
+emitting = false
+amount = 16
+texture = ExtResource("1_pubtt")
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_1jrd2")
+script = ExtResource("2_sepby")
+
+[node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "particle2d_list", "listen_node")]
+script = ExtResource("1_opcnx")
+ready_nodes = [NodePath("..")]
+particle2d_list = [NodePath("..")]
+listen_node = NodePath("..")
+signal_name = &"finished"
