@@ -8,8 +8,10 @@ extends RigidBody2D
 @export var animation:StringName
 ## 实例池
 @export var pool_node:PoolNode
-## 子弹射出后，施加的冲击偏移量，一般只施加向上的偏移量
-@export var impulse_up: Vector2 = Vector2(0, 200)
+## 子弹射出后，施加的冲击向上方向偏移量因子
+@export var impulse_up_factor: float = 200.0
+## 子弹射出后，跟射出方向反向的偏移量因子
+@export var impulse_direction_factor: float = 80.0
 
 var spin_speed = 100
 
@@ -29,7 +31,7 @@ func _physics_process(delta: float) -> void:
 
 
 func start(direction: Vector2):
-	var impluse: Vector2 = -(direction + impulse_up)
+	var impluse: Vector2 = (-1) * direction.normalized()*impulse_direction_factor + Vector2.UP * impulse_up_factor
 	apply_impulse(impluse)
 
 
