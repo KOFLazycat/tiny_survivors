@@ -20,7 +20,8 @@
 				"e0c111db-26db-4dcd-b42f-0b510f08f23e",
 				"3985bd17-a40d-4eff-a3b2-7db8f7eab2e8",
 				"26381783-15e2-4282-a52e-08eaad4e9b27",
-				"6785aa21-bd32-4042-9142-4d954cf5017d"
+				"f095d219-b00f-4b52-98ca-0a0ce4dc59b8",
+				"5d7d6cb2-7ec3-4a6e-9063-b9b0d5526777"
 			]
 		},
 		{
@@ -35,7 +36,8 @@
 			"title": "Done",
 			"tasks": [
 				"5265366f-5a67-4383-bfa9-d41eb0db4342",
-				"2b501978-35c5-4d4d-9513-bd55fc7a00f9"
+				"2b501978-35c5-4d4d-9513-bd55fc7a00f9",
+				"6785aa21-bd32-4042-9142-4d954cf5017d"
 			]
 		}
 	],
@@ -155,6 +157,20 @@
 		{
 			"uuid": "6785aa21-bd32-4042-9142-4d954cf5017d",
 			"title": "子弹射击后弹飞的效果",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "f095d219-b00f-4b52-98ca-0a0ce4dc59b8",
+			"title": "增加弹匣容量逻辑",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "5d7d6cb2-7ec3-4a6e-9063-b9b0d5526777",
+			"title": "增加武器装填逻辑",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

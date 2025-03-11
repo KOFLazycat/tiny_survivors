@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://b6mldf5iax3rj" path="res://addons/top_down/resources/InstanceResources/pickups/item_pickup_instance_resource.tres" id="19_ymkqw"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="20_vx1an"]
 [ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="21_mql7k"]
-[ext_resource type="Script" uid="uid://dfreivb3o277t" path="res://scripts/actor/ActorDashAbility.gd" id="22_5mxb6"]
+[ext_resource type="Script" uid="uid://dfreivb3o277t" path="res://scripts/actor/actor_dash_ability.gd" id="22_5mxb6"]
 [ext_resource type="Resource" uid="uid://ctupncw2hwy80" path="res://resources/instance_resources/vfx/move_particles_instance.tres" id="23_2kw8m"]
 [ext_resource type="Resource" uid="uid://cirgsoc2387p2" path="res://addons/top_down/resources/InstanceResources/vfx/after_image_vfx.tres" id="23_a4nca"]
 [ext_resource type="Script" uid="uid://bqycuolygavk3" path="res://addons/top_down/scripts/actor/player/PlayerJuice.gd" id="24_fqsr7"]

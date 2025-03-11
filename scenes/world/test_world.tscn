@@ -131,7 +131,7 @@ boss_position = true
 [node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]
 position = Vector2(681, 351)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaEntry"]
 shape = SubResource("CircleShape2D_ew2ib")

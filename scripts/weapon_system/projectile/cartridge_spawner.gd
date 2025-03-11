@@ -1,10 +1,11 @@
-class_name FireParticlesSpawner
+## 弹壳弹飞生成效果
+class_name CartridgeSpawner
 extends Node
 
 ## projectile 生成器
 @export var projectile_spawner: ProjectileSpawner
-## 开火粒子特效资源
-@export var fire_particles_instance_resource: InstanceResource
+## 弹壳资源
+@export var cartridge_instance_resource: InstanceResource
 ## 开火枪口位置
 @export var muzzle_pos: Marker2D
 
@@ -15,7 +16,7 @@ func _ready() -> void:
 
 
 func on_projectile_spawner_prepare_spawn() -> void:
-	var _partickle_config:Callable = func(inst:Node2D)->void:		
+	var _partickle_config:Callable = func(inst:Cartridge)->void:
 		inst.global_position = muzzle_pos.global_position
-		inst.rotation = projectile_spawner.direction.angle()
-	fire_particles_instance_resource.instance(_partickle_config)
+		inst.start(projectile_spawner.direction)
+	cartridge_instance_resource.instance(_partickle_config)
