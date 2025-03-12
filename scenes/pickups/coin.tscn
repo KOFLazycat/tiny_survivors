@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://bxyt501q0uc7g"]
+
+[ext_resource type="Script" uid="uid://c4v5w6gc7kac7" path="res://addons/great_games_library/nodes/utility/FixSpawnOverlap.gd" id="1_uikhv"]
+[ext_resource type="Texture2D" uid="uid://d2tle2bgdsopw" path="res://addons/top_down/assets/images/shadow.png" id="2_v0wud"]
+[ext_resource type="Texture2D" uid="uid://76166jpj5gxa" path="res://addons/top_down/assets/images/items/coin_8x8_strip3.png" id="3_xch1c"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="4_4c60c"]
+[ext_resource type="Script" uid="uid://bggg4brr0gsxx" path="res://addons/top_down/scripts/pickups/CollectingPoint.gd" id="5_6thx4"]
+[ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="6_rs3e0"]
+[ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="7_i114d"]
+[ext_resource type="Resource" uid="uid://bjtsmmvr7yblf" path="res://addons/top_down/resources/sounds/coin_pickup.tres" id="8_srm6i"]
+[ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://addons/top_down/resources/global_resources/axis_multiplication_resource.tres" id="9_4aof4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f5a1"]
+size = Vector2(32, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uikhv"]
+radius = 100.0
+
+[sub_resource type="Animation" id="Animation_7exxp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_5fcg2"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sc0pb"]
+_data = {
+&"RESET": SubResource("Animation_7exxp"),
+&"idle": SubResource("Animation_5fcg2")
+}
+
+[node name="Coin" type="Node2D"]
+
+[node name="FixOverlap" type="ShapeCast2D" parent="." node_paths=PackedStringArray("move_node")]
+enabled = false
+shape = SubResource("RectangleShape2D_6f5a1")
+target_position = Vector2(0, 0)
+script = ExtResource("1_uikhv")
+move_node = NodePath("..")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_uikhv")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 0.983333, 0, 0.168627)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_v0wud")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, -4)
+texture = ExtResource("3_xch1c")
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visuals/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_sc0pb")
+}
+autoplay = "idle"
+
+[node name="PoolNode" type="Node" parent="."]
+script = ExtResource("4_4c60c")
+
+[node name="CollectingPoint" type="Node" parent="." node_paths=PackedStringArray("moved_node", "area", "collision_shape", "pool_node")]
+script = ExtResource("5_6thx4")
+moved_node = NodePath("..")
+collision_mask = 2
+area = NodePath("../Area2D")
+collision_shape = NodePath("../Area2D/CollisionShape2D")
+point_resource = ExtResource("6_rs3e0")
+pool_node = NodePath("../PoolNode")
+player_reference = ExtResource("7_i114d")
+sound_collect = ExtResource("8_srm6i")
+axis_multiplication = ExtResource("9_4aof4")
+spawn_radius = 16.0
