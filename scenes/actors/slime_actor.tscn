@@ -1,0 +1,292 @@
+[gd_scene load_steps=44 format=3 uid="uid://h2v2jghxd8rn"]
+
+[ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_lnwmw"]
+[ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_qeyi1"]
+[ext_resource type="Script" uid="uid://ticn5s8bfep6" path="res://addons/top_down/scripts/actor/ActorStatsResource.gd" id="3_q61pg"]
+[ext_resource type="Script" uid="uid://cmp83qy0hsjyv" path="res://addons/top_down/scripts/damage/HealthResource.gd" id="4_uoikx"]
+[ext_resource type="Script" uid="uid://dr75ttkns1hyy" path="res://addons/top_down/scripts/actor/PushResource.gd" id="5_6bqsb"]
+[ext_resource type="Script" uid="uid://bywrj5osehdeq" path="res://addons/great_games_library/resources/ValueResource/BoolResource.gd" id="6_dm3rr"]
+[ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_y2hwn"]
+[ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_vx35j"]
+[ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="9_suoqa"]
+[ext_resource type="Texture2D" uid="uid://cngavqgt8flsc" path="res://addons/top_down/assets/images/characters/slime_16x16_strip8.png" id="10_4el76"]
+[ext_resource type="Resource" uid="uid://pvw6k1ntsles" path="res://addons/top_down/resources/sounds/zombie_split.tres" id="11_cb20c"]
+[ext_resource type="Resource" uid="uid://du3d7vd7ddtdp" path="res://resources/instance_resources/actors/dead/slime_dead_instance.tres" id="12_qeyi1"]
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="13_2gvfv"]
+[ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="13_qeyi1"]
+[ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="14_ck4xw"]
+[ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="15_lnqsc"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="16_idfnr"]
+[ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="17_bpw04"]
+[ext_resource type="Script" uid="uid://lepba1gt5jy6" path="res://addons/top_down/scripts/actor/bots/SlimeSplit.gd" id="18_3k3mo"]
+[ext_resource type="Resource" uid="uid://bwaqqrp3vlmbc" path="res://addons/top_down/resources/InstanceResources/actors/slime_small_instance_resource.tres" id="19_gyw8s"]
+[ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://addons/top_down/resources/global_resources/axis_multiplication_resource.tres" id="20_0l463"]
+
+[sub_resource type="Resource" id="Resource_16400"]
+resource_name = "movement  properties"
+script = ExtResource("3_q61pg")
+acceleration = 300.0
+max_speed = 25.0
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_7jqce"]
+resource_name = "movement"
+script = ExtResource("2_qeyi1")
+resource = SubResource("Resource_16400")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_y76f1"]
+resource_name = "Health resource"
+script = ExtResource("4_uoikx")
+hp = 50.0
+max_hp = 50.0
+reset_hp = 50.0
+reset_max_hp = 50.0
+is_dead = false
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_vm74s"]
+resource_name = "health"
+script = ExtResource("2_qeyi1")
+resource = SubResource("Resource_y76f1")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_xhp0x"]
+resource_name = "Push Resource"
+script = ExtResource("5_6bqsb")
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_ltyge"]
+resource_name = "push"
+script = ExtResource("2_qeyi1")
+resource = SubResource("Resource_xhp0x")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_8r3vs"]
+resource_name = "Dash bool"
+script = ExtResource("6_dm3rr")
+value = false
+default_value = false
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_dsnfh"]
+resource_name = "dash"
+script = ExtResource("2_qeyi1")
+resource = SubResource("Resource_8r3vs")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_kivos"]
+resource_name = "Hole bool"
+script = ExtResource("6_dm3rr")
+value = false
+default_value = false
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_j3dss"]
+resource_name = "hole"
+script = ExtResource("2_qeyi1")
+resource = SubResource("Resource_kivos")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_k8ute"]
+resource_name = "Input resource"
+script = ExtResource("7_y2hwn")
+axis = Vector2(0, 0)
+action_1 = false
+action_2 = false
+aim_direction = Vector2(0, 0)
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_ju227"]
+resource_name = "input"
+script = ExtResource("2_qeyi1")
+resource = SubResource("Resource_k8ute")
+make_unique = true
+description = "Used to control actors movement by it's input node.
+"
+
+[sub_resource type="Resource" id="Resource_1jkvc"]
+resource_name = "Damage Resource"
+script = ExtResource("8_vx35j")
+can_receive_damage = true
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_gytac"]
+resource_name = "damage"
+script = ExtResource("2_qeyi1")
+resource = SubResource("Resource_1jkvc")
+make_unique = true
+description = "Receives report from delt and received damage."
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ygf2"]
+size = Vector2(12, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rc8y"]
+size = Vector2(12, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtjxa"]
+resource_local_to_scene = true
+shader = ExtResource("9_suoqa")
+shader_parameter/overlay = Color(1, 1, 1, 1)
+shader_parameter/blend = 0.0
+
+[sub_resource type="Animation" id="Animation_48kfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jjeif"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_d7gcn"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esakt"]
+_data = {
+&"RESET": SubResource("Animation_48kfv"),
+&"idle": SubResource("Animation_jjeif"),
+&"walk": SubResource("Animation_d7gcn")
+}
+
+[sub_resource type="Resource" id="Resource_7dwox"]
+script = ExtResource("13_2gvfv")
+value = 3.0
+type = 0
+
+[node name="SlimeActor" instance=ExtResource("1_lnwmw")]
+collision_layer = 4
+collision_mask = 5
+
+[node name="ResourceNode" parent="." index="0"]
+list = Array[ExtResource("2_qeyi1")]([SubResource("Resource_7jqce"), SubResource("Resource_vm74s"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_gytac")])
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_4ygf2")
+
+[node name="AreaReceiver2D" parent="." index="2"]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="AreaReceiver2D" index="0"]
+shape = SubResource("RectangleShape2D_1rc8y")
+
+[node name="Shadow" parent="." index="3"]
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" parent="Body/Stretch" index="0"]
+material = SubResource("ShaderMaterial_mtjxa")
+position = Vector2(0, -5)
+texture = ExtResource("10_4el76")
+
+[node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_esakt")
+}
+
+[node name="ActorDamage" parent="." index="11"]
+sound_resource_dead = ExtResource("11_cb20c")
+dead_vfx_instance_resource = ExtResource("12_qeyi1")
+
+[node name="DamageDisplay" parent="." index="12"]
+damage_points_instance_resource = ExtResource("13_qeyi1")
+
+[node name="DamageSetup" parent="." index="13"]
+resistance_list = Array[ExtResource("13_2gvfv")]([SubResource("Resource_7dwox")])
+
+[node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("14_ck4xw")]
+resource_node = NodePath("../ResourceNode")
+
+[node name="SlashAttack" parent="." index="16" node_paths=PackedStringArray("resource_node") instance=ExtResource("15_lnqsc")]
+collision_mask = 2
+resource_node = NodePath("../ResourceNode")
+
+[node name="PoolNode" type="Node" parent="." index="17" node_paths=PackedStringArray("animation_player_list", "listen_node")]
+script = ExtResource("16_idfnr")
+animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]
+listen_node = NodePath("../ActorDamage")
+signal_name = &"actor_died"
+
+[node name="ActiveEnemy" type="Node" parent="." index="18" node_paths=PackedStringArray("resource_node")]
+script = ExtResource("17_bpw04")
+resource_node = NodePath("../ResourceNode")
+
+[node name="SlimeSplit" type="Node" parent="." index="19" node_paths=PackedStringArray("resource_node", "position_node", "active_enemy")]
+script = ExtResource("18_3k3mo")
+resource_node = NodePath("../ResourceNode")
+split_instance_resource = ExtResource("19_gyw8s")
+axis_multiplication = ExtResource("20_0l463")
+position_node = NodePath("..")
+active_enemy = NodePath("../ActiveEnemy")

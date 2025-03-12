@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InstanceResource" load_steps=3 format=3 uid="uid://ongll375kuqe"]
+
+[ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://addons/top_down/resources/RoomResources/ysort_reference.tres" id="1_xcn7w"]
+[ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="2_1plhj"]
+
+[resource]
+resource_name = "Zomby instance resource"
+script = ExtResource("2_1plhj")
+scene_path = "res://scenes/actors/zombie_actor.tscn"
+parent_reference_resource = ExtResource("1_xcn7w")

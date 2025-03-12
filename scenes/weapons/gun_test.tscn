@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgx80igstifbk"]
+[gd_scene load_steps=7 format=3 uid="uid://cgx80igstifbk"]
 
 [ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_4ah6y"]
+[ext_resource type="Resource" uid="uid://cvcpfky78qcit" path="res://resources/instance_resources/projectile/bullet_projectile_instance.tres" id="2_ho0b4"]
 [ext_resource type="Script" uid="uid://clm7rrgaximg2" path="res://scripts/weapon_system/weapon/fire_particles_spawner.gd" id="2_mwn0f"]
 [ext_resource type="Resource" uid="uid://dp0eydeu0uj78" path="res://resources/instance_resources/vfx/fire_particles_instance.tres" id="3_ir5yd"]
 [ext_resource type="Script" uid="uid://cm6mgixu5huop" path="res://scripts/weapon_system/projectile/cartridge_spawner.gd" id="4_xfwl4"]
@@ -10,6 +11,9 @@
 
 [node name="MuzzlePos" type="Marker2D" parent="RotatedNode/Sprite2D" index="1"]
 position = Vector2(6, -0.5)
+
+[node name="ProjectileSpawner" parent="." index="4"]
+projectile_instance_resource = ExtResource("2_ho0b4")
 
 [node name="FireParticlesSpawner" type="Node" parent="ProjectileSpawner" index="1" node_paths=PackedStringArray("projectile_spawner", "muzzle_pos")]
 script = ExtResource("2_mwn0f")

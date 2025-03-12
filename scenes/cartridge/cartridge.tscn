@@ -45,13 +45,12 @@ _data = {
 &"fade": SubResource("Animation_uib5y")
 }
 
-[node name="Cartridge" type="RigidBody2D" node_paths=PackedStringArray("animation_player", "pool_node")]
+[node name="Cartridge" type="RigidBody2D" node_paths=PackedStringArray("animation_player")]
 collision_layer = 2
 gravity_scale = 0.8
 script = ExtResource("1_ul8sg")
 animation_player = NodePath("AnimationPlayer")
 animation = &"fade"
-pool_node = NodePath("")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_47f87")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InstanceResource" load_steps=3 format=3 uid="uid://c5t4bqpjlct80"]
+
+[ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://addons/top_down/resources/RoomResources/ysort_reference.tres" id="1_8kq5x"]
+[ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="2_d7afx"]
+
+[resource]
+resource_name = "Zombie slash weapon"
+script = ExtResource("2_d7afx")
+scene_path = "res://scenes/projectiles/zombie_slash_projectile.tscn"
+parent_reference_resource = ExtResource("1_8kq5x")

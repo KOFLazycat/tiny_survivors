@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=65 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="9_dbdfy"]
 [ext_resource type="Resource" uid="uid://btej3lqnjytbl" path="res://addons/top_down/resources/ItemCollectionResource/weapon_inventory.tres" id="10_8eh02"]
 [ext_resource type="Script" uid="uid://dw1hy3w3qhyc7" path="res://addons/great_games_library/nodes/AreaTransmitter/DataChannelReceiver.gd" id="11_enn7q"]
+[ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="15_6oxay"]
 [ext_resource type="Script" uid="uid://bmer0pq67qfcc" path="res://addons/top_down/scripts/actor/player/PlayerInput.gd" id="15_cjohi"]
 [ext_resource type="Resource" uid="uid://dsk5usbvnbqi3" path="res://addons/top_down/resources/global_resources/action_resource.tres" id="16_k6o20"]
 [ext_resource type="Script" uid="uid://cs42xdqek2foa" path="res://addons/great_games_library/nodes/utility/DebugInput.gd" id="17_o34ox"]
@@ -327,6 +328,9 @@ enabled = false
 [node name="ActorDamage" parent="." index="11"]
 sound_resource_dead = ExtResource("3_epdcw")
 dead_vfx_instance_resource = ExtResource("4_q3pdt")
+
+[node name="DamageDisplay" parent="." index="12"]
+damage_points_instance_resource = ExtResource("15_6oxay")
 
 [node name="PlayerInput" type="Node" parent="." index="15" node_paths=PackedStringArray("position_node", "resource_node")]
 script = ExtResource("15_cjohi")

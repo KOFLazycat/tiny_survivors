@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5tq2hw88cf73"]
+
+[ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_kxxn2"]
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_jobuq"]
+[ext_resource type="Texture2D" uid="uid://d2tle2bgdsopw" path="res://addons/top_down/assets/images/shadow.png" id="3_s83xh"]
+[ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="4_lwnxk"]
+[ext_resource type="Texture2D" uid="uid://b5k0cvn775w7v" path="res://addons/top_down/assets/images/projectile/bullet_1.png" id="5_4lonb"]
+[ext_resource type="Resource" uid="uid://qkblw3huirik" path="res://resources/instance_resources/vfx/explosion0_instance_resource.tres" id="6_adkdu"]
+
+[sub_resource type="Resource" id="Resource_0qe4y"]
+script = ExtResource("2_jobuq")
+value = 10.0
+type = 0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv4mq"]
+radius = 2.0
+
+[node name="BulletProjectile" instance=ExtResource("1_kxxn2")]
+
+[node name="ProjectileSetup" parent="." index="0"]
+base_damage = Array[ExtResource("2_jobuq")]([SubResource("Resource_0qe4y")])
+kickback = 60.0
+
+[node name="Shadow" type="Sprite2D" parent="." index="1"]
+modulate = Color(1, 0.983333, 0, 0.168627)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_s83xh")
+
+[node name="ProjectileMover" parent="." index="2"]
+movement_type = 1
+max_bounce = 3
+collision_shape = SubResource("CircleShape2D_pv4mq")
+
+[node name="RotatedNode" parent="." index="4"]
+position = Vector2(0, -4)
+
+[node name="TrailParticle" parent="RotatedNode" index="0" instance=ExtResource("4_lwnxk")]
+amount = 12
+
+[node name="Sprite2D" parent="RotatedNode" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("5_4lonb")
+
+[node name="ProjectileImpact" parent="." index="6"]
+impact_instance_resource = ExtResource("6_adkdu")
+
+[node name="PoolNode" parent="." index="9" node_paths=PackedStringArray("ready_nodes", "particle2d_list")]
+ready_nodes = [NodePath(".."), NodePath("../ProjectileSetup"), NodePath("../ProjectileLifetime"), NodePath("../HitLimit"), NodePath("../ProjectileRotation"), NodePath("../RotatedNode/TrailParticle"), NodePath("../ProjectileMover")]
+particle2d_list = [NodePath("../RotatedNode/TrailParticle")]
