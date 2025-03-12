@@ -286,7 +286,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_hd114"]
 radius = 100.0
 
-[node name="PlayerActor" instance=ExtResource("1_pil3h")]
+[node name="PlayerActor" groups=["player"] instance=ExtResource("1_pil3h")]
 disable_mode = 2
 collision_layer = 2
 

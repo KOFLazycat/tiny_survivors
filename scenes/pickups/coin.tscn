@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://bxyt501q0uc7g"]
 
 [ext_resource type="Script" uid="uid://c4v5w6gc7kac7" path="res://addons/great_games_library/nodes/utility/FixSpawnOverlap.gd" id="1_uikhv"]
-[ext_resource type="Texture2D" uid="uid://d2tle2bgdsopw" path="res://addons/top_down/assets/images/shadow.png" id="2_v0wud"]
-[ext_resource type="Texture2D" uid="uid://76166jpj5gxa" path="res://addons/top_down/assets/images/items/coin_8x8_strip3.png" id="3_xch1c"]
+[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="2_v0wud"]
+[ext_resource type="Texture2D" uid="uid://bbiobrp17ue35" path="res://addons/top_down/assets/images/items/coin_8x8_strip3.png" id="3_xch1c"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="4_4c60c"]
-[ext_resource type="Script" uid="uid://bggg4brr0gsxx" path="res://addons/top_down/scripts/pickups/CollectingPoint.gd" id="5_6thx4"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="6_rs3e0"]
 [ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="7_i114d"]
 [ext_resource type="Resource" uid="uid://bjtsmmvr7yblf" path="res://addons/top_down/resources/sounds/coin_pickup.tres" id="8_srm6i"]
 [ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://addons/top_down/resources/global_resources/axis_multiplication_resource.tres" id="9_4aof4"]
+[ext_resource type="Script" uid="uid://b037aamrl8nqa" path="res://scripts/pickups/auto_collect_point.gd" id="10_v0wud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f5a1"]
 size = Vector2(32, 16)
@@ -92,12 +92,9 @@ autoplay = "idle"
 [node name="PoolNode" type="Node" parent="."]
 script = ExtResource("4_4c60c")
 
-[node name="CollectingPoint" type="Node" parent="." node_paths=PackedStringArray("moved_node", "area", "collision_shape", "pool_node")]
-script = ExtResource("5_6thx4")
+[node name="AutoCollectPoint" type="Node" parent="." node_paths=PackedStringArray("moved_node", "pool_node")]
+script = ExtResource("10_v0wud")
 moved_node = NodePath("..")
-collision_mask = 2
-area = NodePath("../Area2D")
-collision_shape = NodePath("../Area2D/CollisionShape2D")
 point_resource = ExtResource("6_rs3e0")
 pool_node = NodePath("../PoolNode")
 player_reference = ExtResource("7_i114d")

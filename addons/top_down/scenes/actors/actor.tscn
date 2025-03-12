@@ -265,7 +265,7 @@ hframes = 8
 
 [node name="ColorFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_tbujk")
+&"": SubResource("AnimationLibrary_tbujk")
 }
 
 [node name="MoverTopDown2D" type="ShapeCast2D" parent="." node_paths=PackedStringArray("character", "collision_shape", "resource_node")]

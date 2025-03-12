@@ -13,7 +13,7 @@
 [ext_resource type="TileSet" uid="uid://dj5rakihoi1lm" path="res://resources/tilesets/bridge/tiny_swords_bridge.tres" id="9_w0w3b"]
 [ext_resource type="Resource" uid="uid://c5cbxaiec2jk1" path="res://addons/top_down/resources/global_resources/scene_transition_resource.tres" id="10_obw6i"]
 [ext_resource type="Script" uid="uid://ctjudeblqwu4j" path="res://addons/top_down/scripts/arena/StartingWeaponSpawner.gd" id="11_gaq8h"]
-[ext_resource type="Resource" uid="uid://cogpibjem40wi" path="res://resources/instance_resources/actors/test_player_instance_resource.tres" id="12_w0w3b"]
+[ext_resource type="Resource" uid="uid://cogpibjem40wi" path="res://resources/instance_resources/actors/player_actor_instance_resource.tres" id="12_w0w3b"]
 [ext_resource type="PackedScene" uid="uid://bqh7iwpl0s1ha" path="res://addons/top_down/scenes/screen_effects/screen_effects.tscn" id="13_ew2ib"]
 [ext_resource type="Resource" uid="uid://b6mldf5iax3rj" path="res://addons/top_down/resources/InstanceResources/pickups/item_pickup_instance_resource.tres" id="13_h6k38"]
 [ext_resource type="PackedScene" uid="uid://cfaobhr3r5ymj" path="res://addons/top_down/scenes/arena/enemy_manager.tscn" id="13_yapyo"]
