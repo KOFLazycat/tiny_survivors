@@ -20,8 +20,9 @@
 				"e0c111db-26db-4dcd-b42f-0b510f08f23e",
 				"3985bd17-a40d-4eff-a3b2-7db8f7eab2e8",
 				"26381783-15e2-4282-a52e-08eaad4e9b27",
-				"f095d219-b00f-4b52-98ca-0a0ce4dc59b8",
-				"5d7d6cb2-7ec3-4a6e-9063-b9b0d5526777"
+				"257de61d-0774-4198-bbf4-8e750bb24e31",
+				"34594764-1b39-4746-96e3-4f91e8c9515d",
+				"7d8fbd7f-f98c-4de9-8202-f27c9b3f044a"
 			]
 		},
 		{
@@ -41,7 +42,9 @@
 				"4ed1650c-1fcd-4bf6-a121-3c92e4d4afe1",
 				"f0a1b8ce-0b89-4be3-910b-268b125cf413",
 				"4d324338-8c3b-48e5-8a63-721d30023f33",
-				"d3621e4a-dee9-4408-b252-985064dcafe5"
+				"d3621e4a-dee9-4408-b252-985064dcafe5",
+				"f095d219-b00f-4b52-98ca-0a0ce4dc59b8",
+				"5d7d6cb2-7ec3-4a6e-9063-b9b0d5526777"
 			]
 		}
 	],
@@ -203,6 +206,27 @@
 		{
 			"uuid": "d3621e4a-dee9-4408-b252-985064dcafe5",
 			"title": "子弹攻击、敌人受到伤害判定区域优化",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "257de61d-0774-4198-bbf4-8e750bb24e31",
+			"title": "优化地图以及地图碰撞物理层",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "34594764-1b39-4746-96e3-4f91e8c9515d",
+			"title": "子弹装填音效时间与具体装填时间匹配",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "7d8fbd7f-f98c-4de9-8202-f27c9b3f044a",
+			"title": "增加子弹装填动画显示",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

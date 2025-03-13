@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IntResource" load_steps=2 format=3 uid="uid://dyu0vairbqhuv"]
+
+[ext_resource type="Script" uid="uid://fr2efgjvklki" path="res://addons/great_games_library/resources/ValueResource/IntResource.gd" id="1_i6y5u"]
+
+[resource]
+resource_name = "WeaponCapacity"
+script = ExtResource("1_i6y5u")
+value = 10
+default_value = 10
+version = 0
+not_saved = false
