@@ -10,8 +10,8 @@ script = ExtResource("2_ivsrl")
 value = 10.0
 type = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a4j3"]
-size = Vector2(8, 4)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgi75"]
+size = Vector2(14, 9)
 
 [sub_resource type="Animation" id="Animation_3u71e"]
 length = 0.001
@@ -75,7 +75,8 @@ kickback = 120.0
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="AreaTransmitter2D" index="0"]
-shape = SubResource("RectangleShape2D_5a4j3")
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_tgi75")
 
 [node name="Sprite2D" parent="RotatedNode" index="0"]
 texture = ExtResource("3_ro8rt")

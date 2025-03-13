@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3h4pus0snrfu"]
+[gd_scene load_steps=40 format=3 uid="uid://c3h4pus0snrfu"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_bgiua"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_k2tpu"]
@@ -128,6 +128,9 @@ resource = SubResource("Resource_1jkvc")
 make_unique = true
 description = "Receives report from delt and received damage."
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2tpu"]
+size = Vector2(8, 7)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtjxa"]
 resource_local_to_scene = true
 shader = ExtResource("9_nxcny")
@@ -223,6 +226,10 @@ list = Array[ExtResource("2_k2tpu")]([SubResource("Resource_7jqce"), SubResource
 
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 4
+
+[node name="CollisionShape2D" parent="AreaReceiver2D" index="0"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_k2tpu")
 
 [node name="Sprite2D" parent="Body/Stretch" index="0"]
 material = SubResource("ShaderMaterial_mtjxa")

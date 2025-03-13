@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5tq2hw88cf73"]
+[gd_scene load_steps=10 format=3 uid="uid://b5tq2hw88cf73"]
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_kxxn2"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_jobuq"]
@@ -15,6 +15,9 @@ type = 0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv4mq"]
 radius = 2.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adkdu"]
+size = Vector2(4, 4)
+
 [node name="BulletProjectile" instance=ExtResource("1_kxxn2")]
 
 [node name="ProjectileSetup" parent="." index="0"]
@@ -30,6 +33,10 @@ texture = ExtResource("3_s83xh")
 movement_type = 1
 max_bounce = 3
 collision_shape = SubResource("CircleShape2D_pv4mq")
+
+[node name="CollisionShape2D" parent="AreaTransmitter2D" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_adkdu")
 
 [node name="RotatedNode" parent="." index="4"]
 position = Vector2(0, -4)
