@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://bxyt501q0uc7g"]
 
 [ext_resource type="Script" uid="uid://c4v5w6gc7kac7" path="res://addons/great_games_library/nodes/utility/FixSpawnOverlap.gd" id="1_uikhv"]
-[ext_resource type="Texture2D" uid="uid://d2tle2bgdsopw" path="res://addons/top_down/assets/images/shadow.png" id="2_v0wud"]
-[ext_resource type="Texture2D" uid="uid://76166jpj5gxa" path="res://addons/top_down/assets/images/items/coin_8x8_strip3.png" id="3_xch1c"]
+[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="2_v0wud"]
+[ext_resource type="Texture2D" uid="uid://bbiobrp17ue35" path="res://addons/top_down/assets/images/items/coin_8x8_strip3.png" id="3_xch1c"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="4_4c60c"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="6_rs3e0"]
 [ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="7_i114d"]

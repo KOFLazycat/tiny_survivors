@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cm6mgixu5huop" path="res://scripts/weapon_system/projectile/cartridge_spawner.gd" id="4_xfwl4"]
 [ext_resource type="Resource" uid="uid://ct3wdwle23pao" path="res://resources/instance_resources/cartridge/cartridge_instance.tres" id="5_g4big"]
 [ext_resource type="Script" uid="uid://bmrpiu8cmr12w" path="res://addons/great_games_library/resources/SoundResource/SoundResource.gd" id="10_ejs7v"]
-[ext_resource type="AudioStream" uid="uid://fllptvr0mcsp" path="res://assets/sounds/GUNMech_Insert Clip_01.wav" id="11_pujeb"]
+[ext_resource type="AudioStream" uid="uid://qw8gaxv0vcha" path="res://assets/sounds/GUNMech_Insert Clip_01.wav" id="11_pujeb"]
 
 [sub_resource type="Resource" id="Resource_h3xdy"]
 script = ExtResource("10_ejs7v")
@@ -52,4 +52,3 @@ weapon_trigger = NodePath("../WeaponTrigger")
 projectile_spawner = NodePath("../ProjectileSpawner")
 weapon_capacity_resource = ExtResource("3_imla6")
 sound_resource = SubResource("Resource_h3xdy")
-reload_num_every_second = 20

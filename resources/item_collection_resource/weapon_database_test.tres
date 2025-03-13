@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemCollectionResource" load_steps=6 format=3 uid="uid://bc6ageykf2bd"]
 
 [ext_resource type="Script" uid="uid://clgaf0topiikf" path="res://addons/top_down/scripts/pickups/ItemResource.gd" id="1_8qqst"]
-[ext_resource type="Texture2D" uid="uid://dp2tfxj0r5br7" path="res://addons/top_down/assets/images/weapon/gun_0.png" id="2_7lopn"]
+[ext_resource type="Texture2D" uid="uid://bho7eucocnqsk" path="res://addons/top_down/assets/images/weapon/gun_0.png" id="2_7lopn"]
 [ext_resource type="Script" uid="uid://0jetpk7w0mgb" path="res://addons/top_down/scripts/pickups/WeaponItemResource.gd" id="3_luqq8"]
 [ext_resource type="Script" uid="uid://jhp565m4fgu6" path="res://addons/top_down/scripts/pickups/ItemCollectionResource.gd" id="8_aybxi"]
 

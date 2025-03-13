@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlemxc4roie6n"]
+
+[ext_resource type="Script" uid="uid://cb2s8pxg43d3r" path="res://addons/top_down/scripts/ui/game_screen/HealthPanel.gd" id="1_4rf34"]
+[ext_resource type="Resource" uid="uid://c61lm3lfv4u6h" path="res://addons/top_down/resources/health_resource/player_health.tres" id="2_8ymem"]
+[ext_resource type="Material" uid="uid://buxjwi6yhg10o" path="res://addons/top_down/resources/materials/progress_bar_material.tres" id="3_x4hh8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sr7kk"]
+
+[node name="HealthPanel" type="PanelContainer" node_paths=PackedStringArray("label")]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 124.0
+offset_bottom = 15.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sr7kk")
+script = ExtResource("1_4rf34")
+health_resource = ExtResource("2_8ymem")
+label = NodePath("HealthLabel")
+progress_shader = ExtResource("3_x4hh8")
+
+[node name="HealthProgress" type="ColorRect" parent="."]
+material = ExtResource("3_x4hh8")
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 7
+text = "69/420"
+horizontal_alignment = 1
