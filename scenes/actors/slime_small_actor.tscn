@@ -127,8 +127,8 @@ resource = SubResource("Resource_1jkvc")
 make_unique = true
 description = "Receives report from delt and received damage."
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b46dv"]
-size = Vector2(6, 3)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulrw5"]
+radius = 1.80278
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oowpq"]
 size = Vector2(6, 3)
@@ -225,6 +225,7 @@ value = 2.0
 type = 0
 
 [node name="SlimeSmallActor" instance=ExtResource("1_g8p0i")]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 5
 
@@ -232,8 +233,8 @@ collision_mask = 5
 list = Array[ExtResource("2_b8epc")]([SubResource("Resource_7jqce"), SubResource("Resource_vm74s"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_gytac")])
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_b46dv")
+position = Vector2(-0.5, -0.5)
+shape = SubResource("CircleShape2D_ulrw5")
 
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 4

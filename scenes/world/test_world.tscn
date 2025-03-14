@@ -35,6 +35,7 @@ waves = Array[ExtResource("15_s4qyy")]([SubResource("Resource_avoxj")])
 radius = 29.0689
 
 [node name="TestWorld" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_cg5f0")
 metadata/_edit_vertical_guides_ = [960.0]
 metadata/_edit_horizontal_guides_ = [540.0]
@@ -45,6 +46,7 @@ reference_node = NodePath("..")
 reference_resource = ExtResource("3_1aw3b")
 
 [node name="MapTest" parent="." instance=ExtResource("8_yapyo")]
+y_sort_enabled = true
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(220, 113)

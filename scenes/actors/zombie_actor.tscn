@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ihisi7gmpv21"]
+[gd_scene load_steps=42 format=3 uid="uid://ihisi7gmpv21"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_j6u0x"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_48j3i"]
@@ -129,6 +129,9 @@ resource = SubResource("Resource_1jkvc")
 make_unique = true
 description = "Receives report from delt and received damage."
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_48j3i"]
+radius = 4.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48j3i"]
 size = Vector2(8, 12)
 
@@ -219,11 +222,16 @@ _data = {
 }
 
 [node name="ZombieActor" instance=ExtResource("1_j6u0x")]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 5
 
 [node name="ResourceNode" parent="." index="0"]
 list = Array[ExtResource("2_48j3i")]([SubResource("Resource_7jqce"), SubResource("Resource_vm74s"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_gytac")])
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_48j3i")
 
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 4

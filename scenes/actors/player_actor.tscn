@@ -149,8 +149,8 @@ resource = ExtResource("10_8eh02")
 make_unique = false
 description = ""
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kw8m"]
-size = Vector2(8, 5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6oxay"]
+radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlmhb"]
 size = Vector2(8, 11)
@@ -287,6 +287,7 @@ _data = {
 radius = 100.0
 
 [node name="PlayerActor" groups=["player"] instance=ExtResource("1_pil3h")]
+y_sort_enabled = true
 disable_mode = 2
 collision_layer = 2
 
@@ -295,7 +296,7 @@ list = Array[ExtResource("2_2kw8m")]([SubResource("Resource_y1d7o"), SubResource
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_2kw8m")
+shape = SubResource("CircleShape2D_6oxay")
 
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 2
@@ -321,6 +322,9 @@ libraries = {
 
 [node name="DamageCooldown" parent="." index="6"]
 cooldown_time = 0.5
+
+[node name="SpriteFlip" parent="." index="7"]
+flip_type = 1
 
 [node name="HoleDeath" parent="." index="10"]
 enabled = false
