@@ -129,8 +129,8 @@ resource = SubResource("Resource_1jkvc")
 make_unique = true
 description = "Receives report from delt and received damage."
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_48j3i"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poq88"]
+size = Vector2(8, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48j3i"]
 size = Vector2(8, 12)
@@ -230,8 +230,8 @@ collision_mask = 5
 list = Array[ExtResource("2_48j3i")]([SubResource("Resource_7jqce"), SubResource("Resource_vm74s"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_gytac")])
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_48j3i")
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_poq88")
 
 [node name="AreaReceiver2D" parent="." index="2"]
 collision_layer = 4
