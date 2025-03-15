@@ -30,7 +30,8 @@
 				"989a87d8-9dad-4325-9df1-880d6db9e1a2",
 				"34c0218c-a3f5-40b1-8452-7ce332b0c17a",
 				"94a1ba27-5178-418d-bdcc-1d75220eff9e",
-				"af565d77-e724-48dc-9016-e584077cde51"
+				"af565d77-e724-48dc-9016-e584077cde51",
+				"219a8e03-f625-4174-b4cc-531eb8eeb256"
 			]
 		},
 		{
@@ -355,6 +356,13 @@
 		{
 			"uuid": "40990473-95b7-44d9-b62c-dc6af9f4afa2",
 			"title": "怪物波数显示不正确",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "219a8e03-f625-4174-b4cc-531eb8eeb256",
+			"title": "修复怪物剩余数量显示问题",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []
