@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_fkm2k"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_ak5yp"]
 [ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="2_duvie"]
-[ext_resource type="Texture2D" uid="uid://dwfrduorsoblt" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_giu7j"]
+[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_giu7j"]
 [ext_resource type="Script" uid="uid://ticn5s8bfep6" path="res://addons/top_down/scripts/actor/ActorStatsResource.gd" id="3_j6r3n"]
 [ext_resource type="Script" uid="uid://cmp83qy0hsjyv" path="res://addons/top_down/scripts/damage/HealthResource.gd" id="4_ryem0"]
 [ext_resource type="Script" uid="uid://dr75ttkns1hyy" path="res://addons/top_down/scripts/actor/PushResource.gd" id="6_360t8"]
