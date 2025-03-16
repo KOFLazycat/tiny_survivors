@@ -25,7 +25,7 @@
 [ext_resource type="Resource" uid="uid://be8s05nqt2y5d" path="res://addons/top_down/resources/arena_resources/wave_number_resource.tres" id="23_3cvmg"]
 [ext_resource type="Script" uid="uid://bikfo53xqsol6" path="res://scripts/ui/info_tracker_detail.gd" id="23_w0w3b"]
 [ext_resource type="Resource" uid="uid://dyu0vairbqhuv" path="res://resources/weapon/weapon_capacity_resource.tres" id="24_63a70"]
-[ext_resource type="PackedScene" uid="uid://dlemxc4roie6n" path="res://scenes/ui/health_bar.tscn" id="25_3cvmg"]
+[ext_resource type="PackedScene" uid="uid://dlemxc4roie6n" path="res://scenes/ui/health_bar/health_bar.tscn" id="25_3cvmg"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="25_bhy0e"]
 [ext_resource type="Resource" uid="uid://dmefbqytsy6x0" path="res://addons/top_down/resources/arena_resources/remaining_wave_count_resource.tres" id="26_lh68e"]
 [ext_resource type="Resource" uid="uid://cjmecrxyvujlx" path="res://addons/top_down/resources/arena_resources/enemy_count_resource.tres" id="27_63a70"]
