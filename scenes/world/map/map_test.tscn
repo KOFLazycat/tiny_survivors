@@ -27,7 +27,7 @@ tile_set = ExtResource("3_tgevw")
 
 [node name="DecoLayer" parent="." instance=ExtResource("1_werjq")]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAJAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAcAAgAAQAAAAAAAAAcAAQAAQAAAAAAAAABAAQAAQAAAAAAABABAAgAAQAAAAAAABAXAAQAAgASAAAAAAATAAsAAgASAAAAAAAFAAkAAgATAAAAAAALAAgAAgARAAEAAAAQAAkAAgASAAEAAAASAAMAAgATAAEAAAASAAcAAgATAAEAAAAVAAkAAgATAAEAAAA=")
+tile_map_data = PackedByteArray("AAAcAAgAAQAAAAAAAAAcAAQAAQAAAAAAAAABAAQAAQAAAAAAABABAAgAAQAAAAAAABAXAAQAAgASAAAAAAATAAsAAgASAAAAAAAFAAkAAgATAAAAAAALAAgAAgARAAEAAAAQAAkAAgASAAEAAAASAAMAAgATAAEAAAASAAcAAgATAAEAAAAVAAkAAgATAAEAAAAMAAwAAAAAAAAAAAAIAAYAAAAAAAAAAAAYAAsAAAAAAAAAAAADAA0AAAAAAAAAAAAVAAUAAAAAAAAAAAANAAIAAAAAAAAAAAAQAAIAAAAAAAAAAAA=")
 tile_set = ExtResource("4_htfa5")
 
 [node name="PointLight2D" type="PointLight2D" parent="DecoLayer"]
@@ -46,22 +46,6 @@ range_layer_min = -100
 range_layer_max = 100
 texture = SubResource("GradientTexture2D_nmepf")
 
-[node name="PointLight2D3" type="PointLight2D" parent="DecoLayer"]
-position = Vector2(152, 27)
-color = Color(0.901961, 0.643137, 0.223529, 0.698039)
-energy = 1.6
-range_layer_min = -100
-range_layer_max = 100
-texture = SubResource("GradientTexture2D_nmepf")
-
-[node name="PointLight2D4" type="PointLight2D" parent="DecoLayer"]
-position = Vector2(312, 27)
-color = Color(0.901961, 0.643137, 0.223529, 0.698039)
-energy = 1.6
-range_layer_min = -100
-range_layer_max = 100
-texture = SubResource("GradientTexture2D_nmepf")
-
 [node name="PointLight2D5" type="PointLight2D" parent="DecoLayer"]
 position = Vector2(462, 73)
 color = Color(0.901961, 0.643137, 0.223529, 0.698039)
@@ -72,6 +56,62 @@ texture = SubResource("GradientTexture2D_nmepf")
 
 [node name="PointLight2D6" type="PointLight2D" parent="DecoLayer"]
 position = Vector2(462, 138)
+color = Color(0.901961, 0.643137, 0.223529, 0.698039)
+energy = 1.6
+range_layer_min = -100
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_nmepf")
+
+[node name="PointLight2D7" type="PointLight2D" parent="DecoLayer"]
+position = Vector2(344, 92)
+color = Color(0.901961, 0.643137, 0.223529, 0.698039)
+energy = 1.6
+range_layer_min = -100
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_nmepf")
+
+[node name="PointLight2D8" type="PointLight2D" parent="DecoLayer"]
+position = Vector2(391, 187)
+color = Color(0.901961, 0.643137, 0.223529, 0.698039)
+energy = 1.6
+range_layer_min = -100
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_nmepf")
+
+[node name="PointLight2D9" type="PointLight2D" parent="DecoLayer"]
+position = Vector2(200, 202)
+color = Color(0.901961, 0.643137, 0.223529, 0.698039)
+energy = 1.6
+range_layer_min = -100
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_nmepf")
+
+[node name="PointLight2D10" type="PointLight2D" parent="DecoLayer"]
+position = Vector2(137, 108)
+color = Color(0.901961, 0.643137, 0.223529, 0.698039)
+energy = 1.6
+range_layer_min = -100
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_nmepf")
+
+[node name="PointLight2D11" type="PointLight2D" parent="DecoLayer"]
+position = Vector2(56, 219)
+color = Color(0.901961, 0.643137, 0.223529, 0.698039)
+energy = 1.6
+range_layer_min = -100
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_nmepf")
+
+[node name="PointLight2D12" type="PointLight2D" parent="DecoLayer"]
+position = Vector2(216, 43)
+color = Color(0.901961, 0.643137, 0.223529, 0.698039)
+energy = 1.6
+range_layer_min = -100
+range_layer_max = 100
+texture = SubResource("GradientTexture2D_nmepf")
+
+[node name="PointLight2D13" type="PointLight2D" parent="DecoLayer"]
+position = Vector2(265, 42)
 color = Color(0.901961, 0.643137, 0.223529, 0.698039)
 energy = 1.6
 range_layer_min = -100
