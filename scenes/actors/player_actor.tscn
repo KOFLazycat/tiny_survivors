@@ -421,6 +421,7 @@ shape = SubResource("CircleShape2D_hd114")
 [node name="Camera2D" type="Camera2D" parent="." index="26"]
 physics_interpolation_mode = 1
 position = Vector2(140, 95)
+process_callback = 0
 limit_left = -100
 limit_top = -40
 limit_right = 580
