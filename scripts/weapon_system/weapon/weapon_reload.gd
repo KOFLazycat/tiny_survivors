@@ -13,6 +13,10 @@ signal reload_finish
 @export var projectile_spawner:ProjectileSpawner
 ## 武器弹匣容量资源
 @export var weapon_capacity_resource: IntResource
+## 充填动画
+@export var reload_progress_bar_instance:InstanceResource
+## 充填动画相对武器位置的偏移量
+@export var reload_progress_bar_offset: Vector2 = Vector2(0, -20)
 ## 武器充填音效
 @export var sound_resource:SoundResource
 ## 充填速度（每秒充填多少个子弹）
@@ -24,6 +28,8 @@ signal reload_finish
 var reload_num: int = 0
 # 需要充填的时间
 var reload_time: float = 0.0
+# 充填进度条
+var reload_bar: ReloadProgressBar
 
 
 func _ready() -> void:
@@ -33,6 +39,11 @@ func _ready() -> void:
 	reset_capacity()
 	# 信号连接
 	weapon_capacity_resource.updated.connect(_update_weapon_capacity)
+
+
+func _physics_process(_delta: float) -> void:
+	if reload_bar:
+		reload_bar.global_position = owner.global_position + reload_progress_bar_offset
 
 
 func reload() -> void:
@@ -49,6 +60,8 @@ func reload() -> void:
 	# TODO 增加装填动画
 	var _tween:Tween = create_tween()
 	_tween.tween_callback(_reload_finish).set_delay(reload_time)
+	
+	reload_bar = reload_progress_bar_instance.instance()
 
 
 ## 重置弹匣
