@@ -373,29 +373,31 @@ resource_node = NodePath("../ResourceNode")
 after_image_instance = ExtResource("23_a4nca")
 sprite = NodePath("../Body/Stretch/Sprite2D")
 
-[node name="PlayerJuice" type="Node" parent="." index="20" node_paths=PackedStringArray("resource_node")]
+[node name="AbilitySystem" type="Node" parent="." index="20"]
+
+[node name="PlayerJuice" type="Node" parent="." index="21" node_paths=PackedStringArray("resource_node")]
 script = ExtResource("24_fqsr7")
 resource_node = NodePath("../ResourceNode")
 enemy_damage_shake = ExtResource("25_0a8lt")
 screen_flash_animation_player = ExtResource("26_qomdb")
 player_damage_shake = ExtResource("27_3da7t")
 
-[node name="ResetHealth" type="Node" parent="." index="21" node_paths=PackedStringArray("resource_node")]
+[node name="ResetHealth" type="Node" parent="." index="22" node_paths=PackedStringArray("resource_node")]
 script = ExtResource("28_di31h")
 resource_node = NodePath("../ResourceNode")
 
-[node name="CameraPositionSetter" type="Node" parent="." index="22" node_paths=PackedStringArray("target_node")]
+[node name="CameraPositionSetter" type="Node" parent="." index="23" node_paths=PackedStringArray("target_node")]
 script = ExtResource("29_f2374")
 camera_reference = ExtResource("30_hjb4k")
 position_resource = ExtResource("31_r8s2u")
 target_node = NodePath("..")
 
-[node name="HoleRecovery" type="Node" parent="." index="23" node_paths=PackedStringArray("resource_node", "hole_trigger")]
+[node name="HoleRecovery" type="Node" parent="." index="24" node_paths=PackedStringArray("resource_node", "hole_trigger")]
 script = ExtResource("34_8bcna")
 resource_node = NodePath("../ResourceNode")
 hole_trigger = NodePath("../HoleTrigger")
 
-[node name="VisualInvulnerability" type="Node" parent="." index="24" node_paths=PackedStringArray("resource_node", "animation_player")]
+[node name="VisualInvulnerability" type="Node" parent="." index="25" node_paths=PackedStringArray("resource_node", "animation_player")]
 script = ExtResource("35_1b055")
 resource_node = NodePath("../ResourceNode")
 animation_player = NodePath("AnimationPlayer")
@@ -407,7 +409,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_f0s3r")
 }
 
-[node name="AttackDetectArea" type="Area2D" parent="." index="25" node_paths=PackedStringArray("collison_shape")]
+[node name="AttackDetectArea" type="Area2D" parent="." index="26" node_paths=PackedStringArray("collison_shape")]
 visible = false
 collision_layer = 2
 collision_mask = 4
@@ -418,7 +420,7 @@ collison_shape = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectArea" index="0"]
 shape = SubResource("CircleShape2D_hd114")
 
-[node name="Camera2D" type="Camera2D" parent="." index="26"]
+[node name="Camera2D" type="Camera2D" parent="." index="27"]
 physics_interpolation_mode = 1
 position = Vector2(140, 95)
 process_callback = 0
