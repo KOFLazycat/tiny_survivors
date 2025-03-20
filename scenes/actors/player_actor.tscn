@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=70 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -30,8 +30,8 @@
 [ext_resource type="Script" uid="uid://cl070glejwcc3" path="res://scripts/ability/ability_system.gd" id="26_3clrf"]
 [ext_resource type="Resource" uid="uid://diqvd4u0lbw7h" path="res://addons/top_down/resources/CommandNodeResource/color_flash.tres" id="26_qomdb"]
 [ext_resource type="Resource" uid="uid://dkb7r2v362yj" path="res://addons/top_down/resources/CameraResources/player_damage_shake.tres" id="27_3da7t"]
-[ext_resource type="Script" uid="uid://b7a3kdmawowup" path="res://addons/top_down/scripts/damage/ResetHealth.gd" id="28_di31h"]
 [ext_resource type="Script" uid="uid://bo6201ct2o55u" path="res://addons/top_down/scripts/actor/player/CameraPositionSetter.gd" id="29_f2374"]
+[ext_resource type="Script" uid="uid://btf75nhdx5yp1" path="res://scripts/damage/player_health.gd" id="30_dbdfy"]
 [ext_resource type="Resource" uid="uid://c5igju2sl4cdg" path="res://addons/top_down/resources/CameraResources/camera_reference.tres" id="30_hjb4k"]
 [ext_resource type="Resource" uid="uid://b1yn036rka2tk" path="res://addons/top_down/resources/CameraResources/camera_position_resource.tres" id="31_r8s2u"]
 [ext_resource type="Script" uid="uid://62wdp3ivfwdn" path="res://scripts/actor/player/attack_detect_area.gd" id="34_5mxb6"]
@@ -41,6 +41,7 @@
 [ext_resource type="Script" uid="uid://bklmcwi57xdvc" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="38_dt53q"]
 [ext_resource type="Script" uid="uid://c82fqvyguykvb" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="39_1dmng"]
 [ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="40_3clrf"]
+[ext_resource type="Script" uid="uid://bctb6brcnl2yb" path="res://scripts/ability/stats_component.gd" id="42_dbdfy"]
 
 [sub_resource type="Resource" id="Resource_u7p0r"]
 resource_name = "movement  properties"
@@ -374,32 +375,31 @@ resource_node = NodePath("../ResourceNode")
 after_image_instance = ExtResource("23_a4nca")
 sprite = NodePath("../Body/Stretch/Sprite2D")
 
-[node name="AbilitySystem" type="Node" parent="." index="20"]
-script = ExtResource("26_3clrf")
-
-[node name="PlayerJuice" type="Node" parent="." index="21" node_paths=PackedStringArray("resource_node")]
+[node name="PlayerJuice" type="Node" parent="." index="20" node_paths=PackedStringArray("resource_node")]
 script = ExtResource("24_fqsr7")
 resource_node = NodePath("../ResourceNode")
 enemy_damage_shake = ExtResource("25_0a8lt")
 screen_flash_animation_player = ExtResource("26_qomdb")
 player_damage_shake = ExtResource("27_3da7t")
 
-[node name="ResetHealth" type="Node" parent="." index="22" node_paths=PackedStringArray("resource_node")]
-script = ExtResource("28_di31h")
+[node name="PlayerHealth" type="Node" parent="." index="21" node_paths=PackedStringArray("resource_node", "ability_system", "stats_component")]
+script = ExtResource("30_dbdfy")
 resource_node = NodePath("../ResourceNode")
+ability_system = NodePath("../AbilitySystem")
+stats_component = NodePath("../AbilitySystem/StatsComponent")
 
-[node name="CameraPositionSetter" type="Node" parent="." index="23" node_paths=PackedStringArray("target_node")]
+[node name="CameraPositionSetter" type="Node" parent="." index="22" node_paths=PackedStringArray("target_node")]
 script = ExtResource("29_f2374")
 camera_reference = ExtResource("30_hjb4k")
 position_resource = ExtResource("31_r8s2u")
 target_node = NodePath("..")
 
-[node name="HoleRecovery" type="Node" parent="." index="24" node_paths=PackedStringArray("resource_node", "hole_trigger")]
+[node name="HoleRecovery" type="Node" parent="." index="23" node_paths=PackedStringArray("resource_node", "hole_trigger")]
 script = ExtResource("34_8bcna")
 resource_node = NodePath("../ResourceNode")
 hole_trigger = NodePath("../HoleTrigger")
 
-[node name="VisualInvulnerability" type="Node" parent="." index="25" node_paths=PackedStringArray("resource_node", "animation_player")]
+[node name="VisualInvulnerability" type="Node" parent="." index="24" node_paths=PackedStringArray("resource_node", "animation_player")]
 script = ExtResource("35_1b055")
 resource_node = NodePath("../ResourceNode")
 animation_player = NodePath("AnimationPlayer")
@@ -411,7 +411,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_f0s3r")
 }
 
-[node name="AttackDetectArea" type="Area2D" parent="." index="26" node_paths=PackedStringArray("collison_shape")]
+[node name="AttackDetectArea" type="Area2D" parent="." index="25" node_paths=PackedStringArray("collison_shape")]
 visible = false
 collision_layer = 2
 collision_mask = 4
@@ -422,7 +422,7 @@ collison_shape = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectArea" index="0"]
 shape = SubResource("CircleShape2D_hd114")
 
-[node name="Camera2D" type="Camera2D" parent="." index="27"]
+[node name="Camera2D" type="Camera2D" parent="." index="26"]
 physics_interpolation_mode = 1
 position = Vector2(140, 95)
 process_callback = 0
@@ -456,3 +456,11 @@ limit_top = -40
 limit_right = 580
 limit_bottom = 310
 metadata/_custom_type_script = "uid://c82fqvyguykvb"
+
+[node name="AbilitySystem" type="Node" parent="." index="27" node_paths=PackedStringArray("stats_component")]
+script = ExtResource("26_3clrf")
+stats_component = NodePath("StatsComponent")
+
+[node name="StatsComponent" type="Node" parent="AbilitySystem" index="0" node_paths=PackedStringArray("resource_node")]
+script = ExtResource("42_dbdfy")
+resource_node = NodePath("../../ResourceNode")

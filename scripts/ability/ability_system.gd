@@ -2,15 +2,23 @@
 class_name AbilitySystem
 extends Node
 
+@export var stats_component: StatsComponent
+
+@onready var timer: Timer = $Timer
+
+
 signal ability_added(ability: AbilityResource)
 signal ability_updated
 
 # 已获得能力字典（处理叠加）
 var _acquired_abilities: Dictionary = {} # Key: AbilityResource, Value: Stack count
-var stats_component: StatsComponent
 
 func _ready() -> void:
-	stats_component = get_tree().get_nodes_in_group(stats_component.group_name).pop_back()
+	assert(stats_component != null)
+	#var tmp: HealthAbility = preload("res://resources/abilities/health_ability_resource.tres")
+	#tmp.current_level = 1
+	#acquire_ability(tmp)
+	#print(stats_component.get_stat(StatsComponent.STAT.MAX_HEALTH))
 
 
 # 添加新能力
