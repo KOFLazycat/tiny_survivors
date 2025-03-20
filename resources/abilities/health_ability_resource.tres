@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="HealthAbility" load_steps=2 format=3 uid="uid://nimxtnsfkmk3"]
+
+[ext_resource type="Script" uid="uid://bylbynoin1vq6" path="res://scripts/ability/abilities/health_ability.gd" id="1_uatbf"]
+
+[resource]
+script = ExtResource("1_uatbf")
+max_level = 2
+additive_per_level = Array[float]([10.0, 20.0])
+multiplier_per_level = Array[float]([0.5, 1.0])
+ability_name = "New Ability"
+description = ""
+is_unique = false
+max_stacks = 1
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://bylbynoin1vq6"

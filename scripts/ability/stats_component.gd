@@ -2,66 +2,58 @@
 class_name StatsComponent
 extends Node
 
-# 基础属性（可在编辑器中直接配置）
-@export_category("Base Stats")
-@export var base_health: float = 100.0 # 基础血量
-@export var base_move_speed: float = 300.0 # 基础移动速度
-@export var base_projectile_damage: float = 10.0 # 基础伤害
-@export var base_ammo: int = 10 # 基础弹匣容量
-@export var base_reload_speed: float = 10 # 基础装填速度（个/秒）
-@export var base_shot_number: int = 1 # 基础发射子弹数量
-@export var base_critical_chance: float = 0.05 # 5%基础暴击率
-@export var base_critical_multiplier: float = 1.5 # 150%暴击伤害
-@export var base_fire_rate: float = 1.0  # 攻击速度（秒/次） TODO: 是否改成 次/秒
+## 数值更新信号
+signal stats_updated
 
-# 动态计算属性（通过能力系统修改）
-var current_health: float:
-	get = _get_current_health,
-	set = _set_current_health
+## 组名称
+@export var group_name: StringName = "stats_component"
 
-var move_speed: float:
-	get = _get_move_speed
+enum STAT {
+	MAX_HEALTH,
+	MOVE_SPEED,
+	PROJECTILE_DAMAGE,
+	AMMO_CAPACITY,
+	RELOAD_SPEED,
+	SHOT_NUMBER,
+	CRIT_CHANCE,
+	CRIT_DAMAGE,
+	FIRE_RATE
+}
 
-# 修正值存储（加法修正）
-var _health_additive: float = 0.0
-var _projectile_damage_additive: float = 0.0
-var _shot_number_additive: int = 1
+var base_values = {
+	STAT.MAX_HEALTH: 100.0, # 基础血量
+	STAT.MOVE_SPEED: 300.0, # 基础移动速度
+	STAT.PROJECTILE_DAMAGE: 1.0, # 基础伤害
+	STAT.AMMO_CAPACITY: 10, # 基础弹匣容量
+	STAT.RELOAD_SPEED: 10, # 基础装填速度（个/秒）
+	STAT.SHOT_NUMBER: 1, # 基础一次发射子弹数量
+	STAT.CRIT_CHANCE: 0.05, # 5%基础暴击率
+	STAT.CRIT_DAMAGE: 1.5, # 基础暴击率，150%暴击伤害
+	STAT.FIRE_RATE: 1 # 攻击速度（次/秒），越大攻击速度越快
+}
+## 加法数值
+var additive_bonuses = {}
+## 乘法数值
+var multiplier_bonuses = {}
 
-# 修正乘数存储（乘法修正）
-var _health_multiplier: float = 1.0
-var _move_speed_multiplier: float = 1.0
-var _attack_speed_multiplier: float = 1.0
-var _crit_chance_additive: float = 0.0
-var _crit_multiplier_multiplier: float = 1.0
+func _ready():
+	if is_in_group(group_name):
+		add_to_group(group_name)
+	
+	for stat in STAT.values():
+		additive_bonuses[stat] = 0.0
+		multiplier_bonuses[stat] = 1.0
 
-# 属性计算逻辑
-func _get_current_health() -> float:
-	return (base_health + _health_additive) * _health_multiplier
+## 获取数值
+func get_stat(stat: STAT):
+	return (base_values[stat] + additive_bonuses[stat]) * multiplier_bonuses[stat]
 
+## 加法运算
+func add_additive_bonus(stat: STAT, value: float):
+	additive_bonuses[stat] += value
+	stats_updated.emit()
 
-func _set_current_health(value: float) -> void:
-	# 确保生命值不低于0
-	base_health = max(value / _health_multiplier - _health_additive, 0)
-
-
-func _get_move_speed() -> float:
-	return base_move_speed * _move_speed_multiplier
-
-
-# 应用修正的方法
-func add_modifier(stat_type: String, value: float, is_multiplier: bool = false) -> void:
-	match stat_type:
-		"health":
-			if is_multiplier:
-				_health_multiplier *= (1.0 + value)
-			else:
-				_health_additive += value
-		"move_speed":
-			if is_multiplier:
-				_move_speed_multiplier *= (1.0 + value)
-		#"damage":
-			#_projectile_damage_additive += value if not is_multiplier else 0
-		#"attack_speed":
-			#if is_multiplier:
-				#_attack_speed_multiplier *= (1.0 + value)
-		# ... 其他属性处理
+## 乘法运算
+func add_multiplier_bonus(stat: STAT, value: float):
+	multiplier_bonuses[stat] *= (1.0 + value)
+	stats_updated.emit()

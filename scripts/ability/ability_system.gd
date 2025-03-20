@@ -2,17 +2,15 @@
 class_name AbilitySystem
 extends Node
 
-@export var stats_component: StatsComponent
-
 signal ability_added(ability: AbilityResource)
 signal ability_updated
 
 # 已获得能力字典（处理叠加）
 var _acquired_abilities: Dictionary = {} # Key: AbilityResource, Value: Stack count
-
+var stats_component: StatsComponent
 
 func _ready() -> void:
-	assert(stats_component != null)
+	stats_component = get_tree().get_nodes_in_group(stats_component.group_name).pop_back()
 
 
 # 添加新能力
@@ -25,7 +23,7 @@ func acquire_ability(new_ability: AbilityResource) -> void:
 		_acquired_abilities[new_ability] = 1
 	
 	# 应用能力效果
-	new_ability.apply_to(stats_component)
+	new_ability.apply_effect(stats_component)
 	
 	emit_signal("ability_added", new_ability)
 	emit_signal("ability_updated")

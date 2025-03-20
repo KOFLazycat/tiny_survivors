@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=69 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://cirgsoc2387p2" path="res://addons/top_down/resources/InstanceResources/vfx/after_image_vfx.tres" id="23_a4nca"]
 [ext_resource type="Script" uid="uid://bqycuolygavk3" path="res://addons/top_down/scripts/actor/player/PlayerJuice.gd" id="24_fqsr7"]
 [ext_resource type="Resource" uid="uid://ddpkkj7j7ync6" path="res://addons/top_down/resources/CameraResources/enemy_damage_shake.tres" id="25_0a8lt"]
+[ext_resource type="Script" uid="uid://cl070glejwcc3" path="res://scripts/ability/ability_system.gd" id="26_3clrf"]
 [ext_resource type="Resource" uid="uid://diqvd4u0lbw7h" path="res://addons/top_down/resources/CommandNodeResource/color_flash.tres" id="26_qomdb"]
 [ext_resource type="Resource" uid="uid://dkb7r2v362yj" path="res://addons/top_down/resources/CameraResources/player_damage_shake.tres" id="27_3da7t"]
 [ext_resource type="Script" uid="uid://b7a3kdmawowup" path="res://addons/top_down/scripts/damage/ResetHealth.gd" id="28_di31h"]
@@ -374,6 +375,7 @@ after_image_instance = ExtResource("23_a4nca")
 sprite = NodePath("../Body/Stretch/Sprite2D")
 
 [node name="AbilitySystem" type="Node" parent="." index="20"]
+script = ExtResource("26_3clrf")
 
 [node name="PlayerJuice" type="Node" parent="." index="21" node_paths=PackedStringArray("resource_node")]
 script = ExtResource("24_fqsr7")
