@@ -4,9 +4,6 @@ extends Node
 
 @export var stats_component: StatsComponent
 
-@onready var timer: Timer = $Timer
-
-
 signal ability_added(ability: AbilityResource)
 signal ability_updated
 
@@ -15,10 +12,12 @@ var _acquired_abilities: Dictionary = {} # Key: AbilityResource, Value: Stack co
 
 func _ready() -> void:
 	assert(stats_component != null)
-	#var tmp: HealthAbility = preload("res://resources/abilities/health_ability_resource.tres")
-	#tmp.current_level = 1
-	#acquire_ability(tmp)
-	#print(stats_component.get_stat(StatsComponent.STAT.MAX_HEALTH))
+	#var tmp: AbilityResource = preload("res://resources/abilities/health_ability_resource.tres")
+	var tmp: AbilityResource = preload("res://resources/abilities/move_speed_ability_resource.tres")
+	tmp.current_level = 5
+	await get_tree().create_timer(5).timeout
+	acquire_ability(tmp)
+	print(stats_component.get_stat(StatsComponent.STAT.MAX_HEALTH))
 
 
 # 添加新能力

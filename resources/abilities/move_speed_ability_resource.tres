@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=2 format=3 uid="uid://btwgp3xxd0jfy"]
+
+[ext_resource type="Script" uid="uid://dgc6elsrh4408" path="res://scripts/ability/ability_resource.gd" id="1_r3sl1"]
+
+[resource]
+script = ExtResource("1_r3sl1")
+ability_name = "move_speed_ability"
+ability_stat = 1
+description = "move_speed_abilitymove_speed_ability"
+additive_per_level = Array[float]([])
+multiplier_per_level = Array[float]([0.1, 0.3, 0.5, 1.0, 1.5, 2.0])
+is_unique = false
+max_stacks = 1
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://bylbynoin1vq6"

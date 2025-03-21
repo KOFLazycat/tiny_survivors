@@ -1,5 +1,5 @@
 ## 玩家生命初始化与升级
-class_name PlayerHealth
+class_name PlayerHealthUpdate
 extends Node
 
 @export var resource_node: ResourceNode

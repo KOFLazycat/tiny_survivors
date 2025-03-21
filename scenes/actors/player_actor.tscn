@@ -31,7 +31,7 @@
 [ext_resource type="Resource" uid="uid://diqvd4u0lbw7h" path="res://addons/top_down/resources/CommandNodeResource/color_flash.tres" id="26_qomdb"]
 [ext_resource type="Resource" uid="uid://dkb7r2v362yj" path="res://addons/top_down/resources/CameraResources/player_damage_shake.tres" id="27_3da7t"]
 [ext_resource type="Script" uid="uid://bo6201ct2o55u" path="res://addons/top_down/scripts/actor/player/CameraPositionSetter.gd" id="29_f2374"]
-[ext_resource type="Script" uid="uid://btf75nhdx5yp1" path="res://scripts/damage/player_health.gd" id="30_dbdfy"]
+[ext_resource type="Script" uid="uid://b7a3kdmawowup" path="res://addons/top_down/scripts/damage/ResetHealth.gd" id="30_dbdfy"]
 [ext_resource type="Resource" uid="uid://c5igju2sl4cdg" path="res://addons/top_down/resources/CameraResources/camera_reference.tres" id="30_hjb4k"]
 [ext_resource type="Resource" uid="uid://b1yn036rka2tk" path="res://addons/top_down/resources/CameraResources/camera_position_resource.tres" id="31_r8s2u"]
 [ext_resource type="Script" uid="uid://62wdp3ivfwdn" path="res://scripts/actor/player/attack_detect_area.gd" id="34_5mxb6"]
@@ -382,11 +382,9 @@ enemy_damage_shake = ExtResource("25_0a8lt")
 screen_flash_animation_player = ExtResource("26_qomdb")
 player_damage_shake = ExtResource("27_3da7t")
 
-[node name="PlayerHealth" type="Node" parent="." index="21" node_paths=PackedStringArray("resource_node", "ability_system", "stats_component")]
+[node name="HealthReset" type="Node" parent="." index="21" node_paths=PackedStringArray("resource_node")]
 script = ExtResource("30_dbdfy")
 resource_node = NodePath("../ResourceNode")
-ability_system = NodePath("../AbilitySystem")
-stats_component = NodePath("../AbilitySystem/StatsComponent")
 
 [node name="CameraPositionSetter" type="Node" parent="." index="22" node_paths=PackedStringArray("target_node")]
 script = ExtResource("29_f2374")
