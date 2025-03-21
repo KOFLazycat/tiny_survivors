@@ -7,7 +7,9 @@ signal stats_updated(stat: STAT)
 
 ## 组名称
 @export var group_name: StringName = "stats_component"
-@export var resource_node:ResourceNode
+@export var resource_node: ResourceNode
+## 攻击速度资源，每秒攻击次数
+@export var fire_rate_resource: FloatResource
 
 enum STAT {
 	MAX_HEALTH,
@@ -41,12 +43,16 @@ var health_resource: HealthResource
 var movement_resource: ActorStatsResource
 
 func _ready() -> void:
+	assert(resource_node != null)
+	assert(fire_rate_resource != null)
 	# 初始化基础生命数值
 	health_resource = resource_node.get_resource("health")
 	base_values[STAT.MAX_HEALTH] = health_resource.max_hp
 	# 初始化基础移动数值
 	movement_resource = resource_node.get_resource("movement")
 	base_values[STAT.MAX_SPEED] = movement_resource.max_speed
+	# 初始化基础攻速数值
+	base_values[STAT.FIRE_RATE] = fire_rate_resource.value
 	
 	# 初始化加法和乘法数值
 	for stat in STAT.values():
@@ -87,3 +93,5 @@ func _on_stats_updated(stat: STAT) -> void:
 		STAT.MAX_SPEED:
 			if value > movement_resource.max_speed:
 				movement_resource.max_speed = value
+		STAT.FIRE_RATE:
+			fire_rate_resource.value = value

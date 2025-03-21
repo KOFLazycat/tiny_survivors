@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=2 format=3 uid="uid://dbpfv42avw3vq"]
+
+[ext_resource type="Script" uid="uid://dgc6elsrh4408" path="res://scripts/ability/ability_resource.gd" id="1_4kk0a"]
+
+[resource]
+script = ExtResource("1_4kk0a")
+ability_name = "fire_rate_ability"
+ability_stat = 8
+description = "fire_rate_abilityfire_rate_abilityfire_rate_ability"
+additive_per_level = Array[float]([])
+multiplier_per_level = Array[float]([0.5, 1.0, 1.5, 2.0, 2.5])
+is_unique = false
+max_stacks = 1
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://dgc6elsrh4408"

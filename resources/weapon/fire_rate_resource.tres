@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FloatResource" load_steps=2 format=3 uid="uid://cpjei8vssoidu"]
+
+[ext_resource type="Script" uid="uid://5lp8s2d517jk" path="res://addons/great_games_library/resources/ValueResource/FloatResource.gd" id="1_ao3pn"]
+
+[resource]
+script = ExtResource("1_ao3pn")
+value = 1.0
+default_value = 1.0
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://5lp8s2d517jk"
