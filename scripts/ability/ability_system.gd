@@ -3,6 +3,8 @@ class_name AbilitySystem
 extends Node
 
 @export var stats_component: StatsComponent
+## 组名称
+@export var group_name: StringName = "ability_system"
 
 signal ability_added(ability: AbilityResource)
 signal ability_updated
@@ -12,13 +14,15 @@ var _acquired_abilities: Dictionary = {} # Key: AbilityResource, Value: Stack co
 
 func _ready() -> void:
 	assert(stats_component != null)
+	if is_in_group(group_name):
+		add_to_group(group_name)
 	#var tmp: AbilityResource = preload("res://resources/abilities/health_ability_resource.tres")
 	#var tmp: AbilityResource = preload("res://resources/abilities/move_speed_ability_resource.tres")
-	var tmp: AbilityResource = preload("res://resources/abilities/fire_rate_ability_resource.tres")
-	tmp.current_level = 1
-	await get_tree().create_timer(5).timeout
-	acquire_ability(tmp)
-	print(stats_component.get_stat(StatsComponent.STAT.FIRE_RATE))
+	#var tmp: AbilityResource = preload("res://resources/abilities/fire_rate_ability_resource.tres")
+	#tmp.current_level = 1
+	#await get_tree().create_timer(5).timeout
+	#acquire_ability(tmp)
+	#print(stats_component.get_stat(StatsComponent.STAT.FIRE_RATE))
 
 
 # 添加新能力

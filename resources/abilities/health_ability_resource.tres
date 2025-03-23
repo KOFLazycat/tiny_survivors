@@ -6,11 +6,11 @@
 script = ExtResource("1_uatbf")
 ability_name = "health_ability"
 ability_stat = 0
-description = "health_abilityhealth_abilityhealth_abilityhealth_ability"
+description = "hp 10
+hp 50%"
 additive_per_level = Array[float]([10.0, 20.0])
 multiplier_per_level = Array[float]([0.5, 1.0])
 is_unique = false
 max_stacks = 1
 version = 0
 not_saved = false
-metadata/_custom_type_script = "uid://bylbynoin1vq6"

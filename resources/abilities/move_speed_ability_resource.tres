@@ -6,11 +6,10 @@
 script = ExtResource("1_r3sl1")
 ability_name = "move_speed_ability"
 ability_stat = 1
-description = "move_speed_abilitymove_speed_ability"
+description = "speed 200%"
 additive_per_level = Array[float]([])
 multiplier_per_level = Array[float]([0.1, 0.3, 0.5, 1.0, 1.5, 2.0])
 is_unique = false
 max_stacks = 1
 version = 0
 not_saved = false
-metadata/_custom_type_script = "uid://bylbynoin1vq6"

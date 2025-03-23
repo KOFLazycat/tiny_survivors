@@ -6,7 +6,7 @@
 script = ExtResource("1_4kk0a")
 ability_name = "fire_rate_ability"
 ability_stat = 8
-description = "fire_rate_abilityfire_rate_abilityfire_rate_ability"
+description = "fire rate 250%"
 additive_per_level = Array[float]([])
 multiplier_per_level = Array[float]([0.5, 1.0, 1.5, 2.0, 2.5])
 is_unique = false

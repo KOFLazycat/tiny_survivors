@@ -456,7 +456,7 @@ limit_right = 580
 limit_bottom = 310
 metadata/_custom_type_script = "uid://c82fqvyguykvb"
 
-[node name="AbilitySystem" type="Node" parent="." index="27" node_paths=PackedStringArray("stats_component")]
+[node name="AbilitySystem" type="Node" parent="." index="27" node_paths=PackedStringArray("stats_component") groups=["ability_system"]]
 script = ExtResource("26_3clrf")
 stats_component = NodePath("StatsComponent")
 
