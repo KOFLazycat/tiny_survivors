@@ -46,6 +46,7 @@
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
 			"title": "Done",
 			"tasks": [
+				"33147a24-c144-4806-85a2-e4e8b29acafc",
 				"7d8fbd7f-f98c-4de9-8202-f27c9b3f044a",
 				"6fa56405-59f2-41e4-88f5-8e5ccc169346",
 				"dcf35a13-98ec-4c72-a8c2-21e10118c81c",
@@ -379,6 +380,13 @@
 		{
 			"uuid": "1c99e181-528c-4f4b-88b8-e59e7bdc66f1",
 			"title": "增加玩家出生动画、特效",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "33147a24-c144-4806-85a2-e4e8b29acafc",
+			"title": "优化地形显示",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

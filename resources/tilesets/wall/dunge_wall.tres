@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://66ycp24vns2e"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://66ycp24vns2e"]
 
 [ext_resource type="Texture2D" uid="uid://bnmv41k5f3ppa" path="res://assets/images/dungeonassetpack/Tileset.png" id="1_dotdy"]
+[ext_resource type="Texture2D" uid="uid://c0yjy2icci331" path="res://addons/top_down/assets/images/tilesets/tileset_template.png" id="2_xjyrh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjyrh"]
 texture = ExtResource("1_dotdy")
@@ -47,7 +48,66 @@ texture = ExtResource("1_dotdy")
 9:0/0/y_sort_origin = 3
 9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0.372505, 8, 0.372505, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqq1k"]
+texture = ExtResource("2_xjyrh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, 8, -3, -3, 8, -3, 8, -8, -8, -8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3, -8, -3)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3, 3, -3, 3, 8, 8, 8, 8, -8, -8, -8)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, -8, -8, -3, -8, -3, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, 3, 8, 3, -8)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 3, -3, 3, -3, -8, -8, -8, -8, 8, 8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, 3, 8, 3)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -8, 3, 3, -8, 3, -8, 8, 8, 8, 8, -8)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_xjyrh")
+sources/1 = SubResource("TileSetAtlasSource_gqq1k")

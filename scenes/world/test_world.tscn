@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=36 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -18,8 +18,9 @@
 [ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="16_tersh"]
 [ext_resource type="Resource" uid="uid://cow45wk7j1gh8" path="res://resources/instance_resources/actors/slime_actor_instance_resource.tres" id="17_bhy0e"]
 [ext_resource type="Resource" uid="uid://c05ys7ybsfv4u" path="res://addons/top_down/resources/InstanceResources/actors/zomby_instance_resource.tres" id="18_3cvmg"]
+[ext_resource type="Script" uid="uid://n3sy0eibcxhs" path="res://scripts/arena/enemy_spawn_point.gd" id="18_63a70"]
 [ext_resource type="Resource" uid="uid://ongll375kuqe" path="res://resources/instance_resources/actors/zomby_actor_instance_resource.tres" id="18_lh68e"]
-[ext_resource type="Script" uid="uid://bqvtxx78hbt4a" path="res://addons/top_down/scripts/arena/SpawnPoint.gd" id="20_s4g5r"]
+[ext_resource type="Resource" uid="uid://ct10qlb66mijl" path="res://addons/top_down/resources/arena_resources/spawn_point_resource.tres" id="19_e6uwu"]
 [ext_resource type="PackedScene" uid="uid://crddbd0tmxp5p" path="res://addons/top_down/scenes/arena/arena_entry.tscn" id="20_yapyo"]
 [ext_resource type="Resource" uid="uid://c7ckp7i2820tg" path="res://addons/top_down/resources/arena_resources/fight_mode_resource.tres" id="22_g4hen"]
 [ext_resource type="Resource" uid="uid://be8s05nqt2y5d" path="res://addons/top_down/resources/arena_resources/wave_number_resource.tres" id="23_3cvmg"]
@@ -66,7 +67,7 @@ reference_resource = ExtResource("3_1aw3b")
 y_sort_enabled = true
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
-position = Vector2(220, 113)
+position = Vector2(240, 136)
 script = ExtResource("7_i3rsd")
 player_reference = ExtResource("8_f38oy")
 player_instance_resource = ExtResource("12_w0w3b")
@@ -79,52 +80,22 @@ weapon_database = ExtResource("15_w0w3b")
 weapon_pickup_instance_resource = ExtResource("13_h6k38")
 
 [node name="Marker2D" type="Marker2D" parent="StartingWeapon"]
-position = Vector2(281, 108)
+position = Vector2(255, 136)
 
 [node name="EnemyManager" parent="." instance=ExtResource("13_yapyo")]
 wave_queue = SubResource("Resource_ew2ib")
 
-[node name="EnemySpawnPoints" type="Node2D" parent="."]
+[node name="EnemySpawnPoint" type="Node2D" parent="."]
+script = ExtResource("18_63a70")
+spawn_point_resource = ExtResource("19_e6uwu")
 
-[node name="Spawn_1" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(427, 207)
-script = ExtResource("20_s4g5r")
+[node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]
+position = Vector2(241, 134)
+collision_layer = 0
+collision_mask = 2
 
-[node name="Spawn_2" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(432, 50)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_3" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(58, 50)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_4" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(55, 202)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_5" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(58, 127)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_6" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(427, 138)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_7" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(153, 50)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_8" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(312, 215)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_9" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(313, 54)
-script = ExtResource("20_s4g5r")
-
-[node name="Spawn_10" type="Marker2D" parent="EnemySpawnPoints"]
-position = Vector2(177, 211)
-script = ExtResource("20_s4g5r")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaEntry"]
+shape = SubResource("CircleShape2D_ew2ib")
 
 [node name="ScreenEffects" parent="." instance=ExtResource("13_ew2ib")]
 
@@ -208,15 +179,6 @@ fight_mode_resource = ExtResource("22_g4hen")
 wave_count_resource = ExtResource("23_3cvmg")
 tweened_node = NodePath("../CenterContainer")
 
-[node name="ArenaEntry" parent="UI" instance=ExtResource("20_yapyo")]
-position = Vector2(378, 73)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/ArenaEntry"]
-shape = SubResource("CircleShape2D_ew2ib")
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-autostart = true
