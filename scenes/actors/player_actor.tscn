@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=68 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -38,9 +38,6 @@
 [ext_resource type="Script" uid="uid://cavgw0ffuka1p" path="res://addons/top_down/scripts/actor/player/HoleRecovery.gd" id="34_8bcna"]
 [ext_resource type="Script" uid="uid://bxpmefuq57enc" path="res://addons/top_down/scripts/actor/VisualInvulnerability.gd" id="35_1b055"]
 [ext_resource type="Resource" uid="uid://bctctb3u3bsix" path="res://resources/arena/enemy_attackable_resource.tres" id="35_2kw8m"]
-[ext_resource type="Script" uid="uid://bklmcwi57xdvc" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="38_dt53q"]
-[ext_resource type="Script" uid="uid://c82fqvyguykvb" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="39_1dmng"]
-[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="40_3clrf"]
 [ext_resource type="Script" uid="uid://bctb6brcnl2yb" path="res://scripts/ability/stats_component.gd" id="42_dbdfy"]
 [ext_resource type="Resource" uid="uid://cpjei8vssoidu" path="res://resources/weapon/fire_rate_resource.tres" id="43_8eh02"]
 
@@ -422,42 +419,7 @@ collison_shape = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectArea" index="0"]
 shape = SubResource("CircleShape2D_hd114")
 
-[node name="Camera2D" type="Camera2D" parent="." index="26"]
-physics_interpolation_mode = 1
-position = Vector2(140, 95)
-process_callback = 0
-limit_left = -100
-limit_top = -40
-limit_right = 580
-limit_bottom = 310
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D" index="0"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("38_dt53q")
-metadata/_custom_type_script = "uid://bklmcwi57xdvc"
-
-[node name="PhantomCamera2D" type="Node2D" parent="Camera2D" index="1" node_paths=PackedStringArray("follow_target")]
-top_level = true
-position = Vector2(140, 95)
-script = ExtResource("39_1dmng")
-priority = 1
-follow_mode = 2
-follow_target = NodePath("../../Body")
-tween_resource = ExtResource("40_3clrf")
-follow_damping = true
-follow_damping_value = Vector2(0.2, 0.2)
-dead_zone_width = 0.4
-dead_zone_height = 0.6
-show_viewfinder_in_play = true
-draw_limits = true
-limit_left = -100
-limit_top = -40
-limit_right = 580
-limit_bottom = 310
-metadata/_custom_type_script = "uid://c82fqvyguykvb"
-
-[node name="AbilitySystem" type="Node" parent="." index="27" node_paths=PackedStringArray("stats_component") groups=["ability_system"]]
+[node name="AbilitySystem" type="Node" parent="." index="26" node_paths=PackedStringArray("stats_component") groups=["ability_system"]]
 script = ExtResource("26_3clrf")
 stats_component = NodePath("StatsComponent")
 

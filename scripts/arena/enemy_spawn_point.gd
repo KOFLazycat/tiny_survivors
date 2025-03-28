@@ -29,7 +29,6 @@ func get_random_position():
 	var top_right = Vector2(480, 0)
 	var bottom_left = Vector2(0, 270)
 	var bottom_right = Vector2(480, 270)
-	print(top_left, top_right, bottom_left, bottom_right)
 	var pos_side = ["up", "down", "right", "left"].pick_random()
 	var spawn_pos1 = Vector2.ZERO
 	var spawn_pos2 = Vector2.ZERO

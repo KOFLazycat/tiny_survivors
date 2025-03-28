@@ -19,7 +19,6 @@ func _ready()->void:
 ## Disables weapon's ability to spawn and plays an attack animation
 func start() -> void:
 	interval = 1 / fire_rate_resource.value
-	print(interval)
 	weapon_trigger.set_can_shoot(false)
 	if tween != null:
 		tween.kill()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgx80igstifbk"]
+[gd_scene load_steps=18 format=3 uid="uid://cgx80igstifbk"]
 
 [ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_4ah6y"]
 [ext_resource type="Script" uid="uid://d3bsaslj08p1o" path="res://scripts/weapon_system/weapon/weapon_reload.gd" id="2_fnhax"]
@@ -8,8 +8,10 @@
 [ext_resource type="Resource" uid="uid://cpjei8vssoidu" path="res://resources/weapon/fire_rate_resource.tres" id="3_8eh5n"]
 [ext_resource type="Resource" uid="uid://dyu0vairbqhuv" path="res://resources/weapon/weapon_capacity_resource.tres" id="3_imla6"]
 [ext_resource type="Resource" uid="uid://dp0eydeu0uj78" path="res://resources/instance_resources/vfx/fire_particles_instance.tres" id="3_ir5yd"]
+[ext_resource type="Script" uid="uid://dhcj7cp2rq3mv" path="res://scripts/weapon_system/weapon/shot_shaker.gd" id="4_5a6y7"]
 [ext_resource type="Resource" uid="uid://cvcpfky78qcit" path="res://resources/instance_resources/projectile/bullet_projectile_instance.tres" id="4_wcec3"]
 [ext_resource type="Script" uid="uid://cm6mgixu5huop" path="res://scripts/weapon_system/projectile/cartridge_spawner.gd" id="4_xfwl4"]
+[ext_resource type="Resource" uid="uid://drvios0skyo3q" path="res://resources/camera_resources/player_shot_shake.tres" id="5_5xqp2"]
 [ext_resource type="Resource" uid="uid://ct3wdwle23pao" path="res://resources/instance_resources/cartridge/cartridge_instance.tres" id="5_g4big"]
 [ext_resource type="Script" uid="uid://bmrpiu8cmr12w" path="res://addons/great_games_library/resources/SoundResource/SoundResource.gd" id="10_ejs7v"]
 [ext_resource type="Resource" uid="uid://b1xh01nrxibfg" path="res://resources/instance_resources/vfx/reload_progress_bar_instance.tres" id="10_pujeb"]
@@ -35,6 +37,11 @@ position = Vector2(6, -0.5)
 [node name="ProjectileInterval" parent="WeaponTrigger" index="0"]
 script = ExtResource("2_h3xdy")
 fire_rate_resource = ExtResource("3_8eh5n")
+
+[node name="ShotShaker" type="Node" parent="WeaponTrigger" index="2" node_paths=PackedStringArray("weapon_trigger")]
+script = ExtResource("4_5a6y7")
+weapon_trigger = NodePath("..")
+player_shot_shake = ExtResource("5_5xqp2")
 
 [node name="ProjectileSpawner" parent="." index="4"]
 script = ExtResource("2_imla6")
