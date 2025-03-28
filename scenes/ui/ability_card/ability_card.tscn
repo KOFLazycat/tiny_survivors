@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmv357e2aofau"]
 
 [ext_resource type="Script" uid="uid://drcypa7tweoq1" path="res://scripts/ui/ability_card/ability_card.gd" id="1_4u2mk"]
-[ext_resource type="FontFile" uid="uid://bxjg2ly3td0ku" path="res://assets/fonts/VonwaonBitmap-12px.ttf" id="1_c5j8k"]
+[ext_resource type="FontFile" uid="uid://bktsm8ukloj1q" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="2_4u2mk"]
 [ext_resource type="Texture2D" uid="uid://h7ixxeos7mn8" path="res://icon.svg" id="2_xntf4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kepfu"]
@@ -66,8 +66,8 @@ theme_override_constants/separation = 13
 [node name="LevelLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_c5j8k")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("2_4u2mk")
+theme_override_font_sizes/font_size = 16
 text = "I"
 horizontal_alignment = 1
 vertical_alignment = 1

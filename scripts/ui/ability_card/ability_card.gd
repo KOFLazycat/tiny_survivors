@@ -10,7 +10,10 @@ extends Button
 #@onready var detail_label: Label = %DetailLabel
 
 var ability_system: AbilitySystem
-var tween: Tween
+# 上下浮动动画
+var float_tween : Tween
+# 左右摆动动画
+var sway_tween  : Tween
 
 
 func _ready() -> void:
@@ -21,14 +24,20 @@ func _ready() -> void:
 	ability_resource.updated.connect(_on_ability_resource_updated)
 	
 	## 浮动
-	tween = create_tween().set_loops(0)  # 0表示无限循环
-	tween.set_trans(Tween.TRANS_SINE)    # 使用正弦过渡
-	tween.set_ease(Tween.EASE_IN_OUT)    # 缓入缓出使动画更平滑
-	
+	float_tween  = create_tween().set_loops(0)  # 0表示无限循环
+	float_tween .set_trans(Tween.TRANS_SINE)    # 使用正弦过渡
+	float_tween .set_ease(Tween.EASE_IN_OUT)    # 缓入缓出使动画更平滑
 	# 上浮10像素，耗时1秒
-	tween.tween_property(self, "position:y", position.y - randf_range(2.0, 6.0), 1.0)
+	float_tween .tween_property(self, "position:y", position.y - randf_range(2.0, 6.0), 1.0)
 	# 下沉回原位，耗时1秒
-	tween.tween_property(self, "position:y", position.y + randf_range(2.0, 6.0), 1.0)
+	float_tween .tween_property(self, "position:y", position.y + randf_range(2.0, 6.0), 1.0)
+	
+	## 摆动
+	sway_tween  = create_tween().set_loops(0)  # 0表示无限循环
+	sway_tween.set_trans(Tween.TRANS_SINE)
+	sway_tween.set_ease(Tween.EASE_IN_OUT)
+	sway_tween.tween_property(self, "rotation_degrees", 1, 0.5)  # 摆动5度
+	sway_tween.tween_property(self, "rotation_degrees", -1, 0.5)  # 摆动5度
 
 
 func _process(delta: float) -> void:
