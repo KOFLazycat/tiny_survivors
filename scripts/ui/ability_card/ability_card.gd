@@ -22,6 +22,8 @@ func _ready() -> void:
 	assert(ability_system != null)
 	ability_card.pressed.connect(_on_ability_card_pressed)
 	ability_resource.updated.connect(_on_ability_resource_updated)
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
 	
 	## 浮动
 	float_tween  = create_tween().set_loops(0)  # 0表示无限循环
@@ -53,3 +55,19 @@ func _on_ability_card_pressed() -> void:
 func _on_ability_resource_updated() -> void:
 	level_label.text = str(ability_resource.current_level)
 	#detail_label.text = str(ability_resource.description)
+
+
+func _on_mouse_entered() -> void:
+	if float_tween.is_running():
+		float_tween.stop()
+	if sway_tween.is_running():
+		sway_tween.stop()
+	
+	set_deferred("rotation", 0)
+	set_deferred("scale", Vector2(1.2, 1.2))
+
+
+func _on_mouse_exited() -> void:
+	float_tween.play()
+	sway_tween.play()
+	set_deferred("scale", Vector2(1.0, 1.0))
