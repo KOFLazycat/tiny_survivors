@@ -4,9 +4,10 @@ extends Button
 
 @export var ability_resource: AbilityResource
 
-@onready var ability_card: AbilityCard = $"."
+@onready var panel_container: PanelContainer = %PanelContainer
 @onready var level_label: Label = %LevelLabel
 @onready var texture_rect: TextureRect = %TextureRect
+@onready var line_2d: Line2D = $Line2D
 #@onready var detail_label: Label = %DetailLabel
 
 var ability_system: AbilitySystem
@@ -20,7 +21,8 @@ func _ready() -> void:
 	ability_system = get_tree().get_nodes_in_group("ability_system").pop_front()
 	assert(ability_resource != null)
 	assert(ability_system != null)
-	ability_card.pressed.connect(_on_ability_card_pressed)
+	line_2d.visible = false
+	pressed.connect(_on_pressed)
 	ability_resource.updated.connect(_on_ability_resource_updated)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
@@ -47,7 +49,7 @@ func _process(delta: float) -> void:
 	#detail_label.text = str(ability_resource.description)
 
 
-func _on_ability_card_pressed() -> void:
+func _on_pressed() -> void:
 	ability_system.acquire_ability(ability_resource)
 	queue_free()
 
@@ -63,6 +65,7 @@ func _on_mouse_entered() -> void:
 	if sway_tween.is_running():
 		sway_tween.stop()
 	
+	line_2d.visible = true
 	set_deferred("rotation", 0)
 	set_deferred("scale", Vector2(1.2, 1.2))
 
@@ -70,4 +73,5 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	float_tween.play()
 	sway_tween.play()
+	line_2d.visible = false
 	set_deferred("scale", Vector2(1.0, 1.0))
