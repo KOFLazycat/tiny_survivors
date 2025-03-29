@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://db5rl8n120flr"]
 
-[ext_resource type="Texture2D" uid="uid://bsi62aiwb4cvp" path="res://assets/images/dungeonassetpack/Objects and traps/Gold key.png" id="1_63675"]
+[ext_resource type="Texture2D" uid="uid://b4d0ntparytfa" path="res://assets/images/dungeonassetpack/Objects and traps/Gold key.png" id="1_63675"]
 [ext_resource type="Script" uid="uid://cejqt1nronm1m" path="res://scripts/ui/gold_bar/gold_bar.gd" id="1_qyn28"]
-[ext_resource type="FontFile" uid="uid://bktsm8ukloj1q" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="2_25ng2"]
+[ext_resource type="FontFile" uid="uid://b72qaxx0sk0rv" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="2_25ng2"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="2_vatt0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy25i"]
@@ -58,7 +58,7 @@ layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_dy25i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_63675")
 max_value = 5000.0
-value = 2000.0
+value = 3000.0
 show_percentage = false
 
 [node name="TopLayerBar" type="ProgressBar" parent="VBoxContainer/MarginContainer"]
@@ -73,7 +73,7 @@ show_percentage = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
@@ -83,6 +83,7 @@ expand_mode = 3
 
 [node name="GoldLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_25ng2")

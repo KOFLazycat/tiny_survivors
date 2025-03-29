@@ -10,7 +10,7 @@ extends MarginContainer
 @export var max_value: float
 @export var current_value: float : set = set_current_value
 @export var top_layer_bar_time: float = 0.2
-@export var top_layer_bar_delay: float = 0.0
+@export var top_layer_bar_delay: float = 0.2
 @export var bottom_layer_bar_time: float = 0.2
 @export var bottom_layer_bar_delay: float = 0.0
 ## 金币资源
@@ -21,9 +21,10 @@ func _ready() -> void:
 	assert(top_layer_bar != null)
 	assert(bottom_layer_bar != null)
 	assert(gold_label != null)
-	#await get_tree().process_frame
+	await get_tree().process_frame
 	## 设置旋转中心为Label中心
-	#gold_label.pivot_offset = gold_label.size / 2.0
+	gold_label.pivot_offset = gold_label.size / 2.0
+	print(gold_label.pivot_offset)
 	set_default_values(min_value, max_value, current_value)
 	update_label(0)
 	current_value = min_value
@@ -67,6 +68,9 @@ func update_label(v: int) -> void:
 
 
 func _on_score_updated() -> void:
+	#current_value = score_resource.value * 10
+	set_current_value(score_resource.value * 10)
+	
 	var tween: Tween = create_tween()
 	tween.tween_method(update_label, int(gold_label.text), score_resource.value, 0.2).set_trans(Tween.TRANS_LINEAR)
 	# 放大到 1.5 倍，快速完成（0.2秒）
