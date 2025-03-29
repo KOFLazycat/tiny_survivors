@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=38 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
 [ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://addons/top_down/resources/RoomResources/ysort_reference.tres" id="3_1aw3b"]
 [ext_resource type="PackedScene" uid="uid://7ixxtkmuui6p" path="res://addons/top_down/scenes/main_camera.tscn" id="5_k6tl3"]
-[ext_resource type="Script" uid="uid://b5vu2tmrvxin4" path="res://addons/top_down/scripts/game/PlayerSpawner.gd" id="7_i3rsd"]
+[ext_resource type="Script" uid="uid://bkddjn242ic60" path="res://scripts/game/player_spawner_detail.gd" id="6_lh68e"]
+[ext_resource type="Resource" uid="uid://cw0j6r7yc7j4u" path="res://resources/instance_resources/vfx/dust_particle_instance.tres" id="7_5vhu7"]
 [ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="8_f38oy"]
 [ext_resource type="PackedScene" uid="uid://riirk5vhl5k0" path="res://scenes/world/map/map_test.tscn" id="8_yapyo"]
 [ext_resource type="Resource" uid="uid://c5cbxaiec2jk1" path="res://addons/top_down/resources/global_resources/scene_transition_resource.tres" id="10_obw6i"]
@@ -71,7 +72,8 @@ y_sort_enabled = true
 
 [node name="PlayerSpawner" type="Marker2D" parent="."]
 position = Vector2(240, 136)
-script = ExtResource("7_i3rsd")
+script = ExtResource("6_lh68e")
+spawn_partickle_instance_resource = ExtResource("7_5vhu7")
 player_reference = ExtResource("8_f38oy")
 player_instance_resource = ExtResource("12_w0w3b")
 scene_transition_resource = ExtResource("10_obw6i")
