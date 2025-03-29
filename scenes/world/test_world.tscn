@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=39 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -33,6 +33,7 @@
 [ext_resource type="Resource" uid="uid://dmefbqytsy6x0" path="res://addons/top_down/resources/arena_resources/remaining_wave_count_resource.tres" id="26_lh68e"]
 [ext_resource type="Resource" uid="uid://cjmecrxyvujlx" path="res://addons/top_down/resources/arena_resources/enemy_count_resource.tres" id="27_63a70"]
 [ext_resource type="Script" uid="uid://f2e3p78m4nrv" path="res://scripts/ui/wave_display.gd" id="30_63a70"]
+[ext_resource type="PackedScene" uid="uid://db5rl8n120flr" path="res://scenes/ui/gold_bar/gold_bar.tscn" id="34_lludv"]
 
 [sub_resource type="Resource" id="Resource_avoxj"]
 script = ExtResource("15_s4qyy")
@@ -161,6 +162,10 @@ layout_mode = 2
 text = "Boss Fight: Big Jelly"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GoldBar" parent="UI" instance=ExtResource("34_lludv")]
+offset_left = -145.0
+offset_right = 145.0
 
 [node name="InfoTrackerDetail" type="Node" parent="UI" node_paths=PackedStringArray("cartridge_count", "score_label", "fight_mode_label", "wave_count_label", "enemy_count_label", "active_count_label")]
 script = ExtResource("23_w0w3b")
