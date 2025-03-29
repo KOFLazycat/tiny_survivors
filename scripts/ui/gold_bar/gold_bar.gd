@@ -8,10 +8,10 @@ extends MarginContainer
 
 @export var min_value: float
 @export var max_value: float
-@export var current_value: float : set = set_current_value
-@export var top_layer_bar_time: float = 0.2
-@export var top_layer_bar_delay: float = 0.2
-@export var bottom_layer_bar_time: float = 0.2
+@export var current_value: float = 100.0 : set = set_current_value
+@export var top_layer_bar_time: float = 0.5
+@export var top_layer_bar_delay: float = 0.5
+@export var bottom_layer_bar_time: float = 0.5
 @export var bottom_layer_bar_delay: float = 0.0
 ## 金币资源
 @export var score_resource:ScoreResource
@@ -24,9 +24,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	## 设置旋转中心为Label中心
 	gold_label.pivot_offset = gold_label.size / 2.0
-	print(gold_label.pivot_offset)
-	set_default_values(min_value, max_value, current_value)
-	update_label(0)
+	set_default_values(min_value, max_value, max_value)
+	update_label(min_value)
 	current_value = min_value
 	score_resource.updated.connect(_on_score_updated)
 
@@ -48,11 +47,15 @@ func set_current_value(value: float) -> void:
 	
 	if value < current_value:
 		# 减少的情况，先减上层，后减下层
+		top_layer_bar_delay = 0.0
+		bottom_layer_bar_delay = 0.5
 		current_value = clamp(value, min_value, max_value)
 		run_juicy_tween(top_layer_bar, current_value, top_layer_bar_time, top_layer_bar_delay)
 		run_juicy_tween(bottom_layer_bar, current_value, bottom_layer_bar_time, bottom_layer_bar_delay)
 	else:
 		# 增加的情况，先加下层，后加上层
+		top_layer_bar_delay = 0.5
+		bottom_layer_bar_delay = 0.0
 		current_value = clamp(value, min_value, max_value)
 		run_juicy_tween(bottom_layer_bar, current_value, bottom_layer_bar_time, bottom_layer_bar_delay)
 		run_juicy_tween(top_layer_bar, current_value, top_layer_bar_time, top_layer_bar_delay)
