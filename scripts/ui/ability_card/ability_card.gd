@@ -68,6 +68,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	pass
+	#global_position = global_position - offset
 	#level_label.text = str(ability_resource.current_level)
 	#detail_label.text = str(ability_resource.description)
 
@@ -90,6 +91,7 @@ func reset_card() -> void:
 
 
 func move_to_target_pos() -> void:
+	set_process(true)
 	if movement_tween and movement_tween.is_running():
 		movement_tween.kill()
 	movement_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
