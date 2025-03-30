@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="2_vatt0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy25i"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.384314)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63675"]
 bg_color = Color(1, 1, 1, 1)

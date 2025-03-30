@@ -22,12 +22,12 @@ func _on_timer_timeout() -> void:
 	health_ability_card.global_position = Vector2(80, 160)
 	add_child(health_ability_card)
 	
-	var speed_ability_card: AbilityCard = ability_card.instantiate()
-	speed_ability_card.ability_resource = speed_ability_resource
-	speed_ability_card.global_position = Vector2(160, 160)
-	add_child(speed_ability_card)
-	
-	var fire_rate_ability_card: AbilityCard = ability_card.instantiate()
-	fire_rate_ability_card.ability_resource = fire_rate_ability_resource
-	fire_rate_ability_card.global_position = Vector2(240, 160)
-	add_child(fire_rate_ability_card)
+	#var speed_ability_card: AbilityCard = ability_card.instantiate()
+	#speed_ability_card.ability_resource = speed_ability_resource
+	#speed_ability_card.global_position = Vector2(160, 160)
+	#add_child(speed_ability_card)
+	#
+	#var fire_rate_ability_card: AbilityCard = ability_card.instantiate()
+	#fire_rate_ability_card.ability_resource = fire_rate_ability_resource
+	#fire_rate_ability_card.global_position = Vector2(240, 160)
+	#add_child(fire_rate_ability_card)
