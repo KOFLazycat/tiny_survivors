@@ -46,7 +46,6 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 	ability_resource.updated.connect(_on_ability_resource_updated)
 	
-	await get_tree().create_timer(2.0).timeout
 	move_to_target_pos()
 	
 	### 浮动

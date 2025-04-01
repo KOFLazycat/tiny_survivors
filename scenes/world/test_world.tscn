@@ -129,7 +129,6 @@ score_resource = ExtResource("25_bhy0e")
 position = Vector2(241, 134)
 collision_layer = 0
 collision_mask = 2
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaEntry"]
 shape = SubResource("CircleShape2D_ew2ib")
@@ -223,8 +222,3 @@ label = NodePath("../CenterContainer/WaveLabel")
 fight_mode_resource = ExtResource("22_g4hen")
 wave_count_resource = ExtResource("23_3cvmg")
 tweened_node = NodePath("../CenterContainer")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true

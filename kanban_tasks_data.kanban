@@ -33,7 +33,8 @@
 				"7f4efd1f-094b-4b21-b30a-caac0130cc8d",
 				"e7f28f1f-bc5a-44b9-a5b6-c5aff78b40e2",
 				"98908dcb-38ff-4ccd-8345-68d706c321d4",
-				"94be23a1-4d6b-4911-9aeb-41cf74922147"
+				"94be23a1-4d6b-4911-9aeb-41cf74922147",
+				"e23c70be-685c-4086-8e27-c12a550b9a46"
 			]
 		},
 		{
@@ -475,6 +476,13 @@
 		{
 			"uuid": "94be23a1-4d6b-4911-9aeb-41cf74922147",
 			"title": "增加玩家冲刺音效",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "e23c70be-685c-4086-8e27-c12a550b9a46",
+			"title": "增加弹匣UI",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []
