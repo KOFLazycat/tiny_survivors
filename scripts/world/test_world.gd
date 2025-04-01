@@ -23,18 +23,20 @@ func _on_experience_manager_level_up(current_level: int) -> void:
 	
 	var health_ability_card: AbilityCard = ability_card.instantiate()
 	health_ability_card.ability_resource = health_ability_resource
-	health_ability_card.target_pos = Vector2(148, 30)
+	health_ability_card.target_pos = Vector2(180, 30)
 	add_child(health_ability_card)
+	await health_ability_card.movement_tween.finished
 	
 	var speed_ability_card: AbilityCard = ability_card.instantiate()
 	speed_ability_card.ability_resource = speed_ability_resource
-	speed_ability_card.target_pos = Vector2(218, 30)
+	speed_ability_card.target_pos = Vector2(220, 30)
 	add_child(speed_ability_card)
+	await speed_ability_card.movement_tween.finished
 	
 	var fire_rate_ability_card: AbilityCard = ability_card.instantiate()
 	fire_rate_ability_card.ability_resource = fire_rate_ability_resource
-	fire_rate_ability_card.target_pos = Vector2(288, 30)
+	fire_rate_ability_card.target_pos = Vector2(260, 30)
 	add_child(fire_rate_ability_card)
+	await fire_rate_ability_card.movement_tween.finished
 	
-	await get_tree().create_timer(2.0).timeout
 	get_tree().paused = false

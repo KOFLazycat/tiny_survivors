@@ -135,7 +135,7 @@ func _on_mouse_entered() -> void:
 	if hover_tween and hover_tween.is_running():
 		hover_tween.kill()
 	hover_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	hover_tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.15)
+	hover_tween.tween_property(self, "scale", Vector2(0.65, 0.65), 0.15)
 
 
 func _on_mouse_exited() -> void:

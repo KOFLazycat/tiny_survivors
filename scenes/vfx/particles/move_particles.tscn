@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://diqslhjq8ig87"]
 
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="1_opcnx"]
-[ext_resource type="Texture2D" uid="uid://bij41x8n8uwmw" path="res://assets/images/vfx/smoke.png" id="1_pubtt"]
+[ext_resource type="Texture2D" uid="uid://m1npa3ia1gun" path="res://assets/images/vfx/smoke.png" id="1_pubtt"]
 [ext_resource type="Script" uid="uid://l54jxj8fhdnr" path="res://scripts/vfx/particles/move_particles.gd" id="2_sepby"]
 
 [sub_resource type="Gradient" id="Gradient_pubtt"]
