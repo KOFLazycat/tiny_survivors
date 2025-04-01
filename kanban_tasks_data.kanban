@@ -26,7 +26,14 @@
 				"989a87d8-9dad-4325-9df1-880d6db9e1a2",
 				"34c0218c-a3f5-40b1-8452-7ce332b0c17a",
 				"219a8e03-f625-4174-b4cc-531eb8eeb256",
-				"799c9bd7-576c-4220-99c5-0ecdda5323d3"
+				"799c9bd7-576c-4220-99c5-0ecdda5323d3",
+				"387b33a8-855e-4361-8204-f6e651720697",
+				"13a4c3a4-69a4-4613-8836-a6b7c1fc1863",
+				"26249de1-6e31-492f-a2c2-ccfe758ef149",
+				"7f4efd1f-094b-4b21-b30a-caac0130cc8d",
+				"e7f28f1f-bc5a-44b9-a5b6-c5aff78b40e2",
+				"98908dcb-38ff-4ccd-8345-68d706c321d4",
+				"94be23a1-4d6b-4911-9aeb-41cf74922147"
 			]
 		},
 		{
@@ -41,6 +48,7 @@
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
 			"title": "Done",
 			"tasks": [
+				"a3234e7f-8f5b-4ceb-a8c1-2c1a8a19b4f1",
 				"af565d77-e724-48dc-9016-e584077cde51",
 				"94a1ba27-5178-418d-bdcc-1d75220eff9e",
 				"1d9b0b95-3734-46f2-949e-744965a523d0",
@@ -411,6 +419,62 @@
 		{
 			"uuid": "eeaf108b-0f35-4942-8731-463c0b281b59",
 			"title": "射击时增加屏幕抖动效果",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "a3234e7f-8f5b-4ceb-a8c1-2c1a8a19b4f1",
+			"title": "BUG: fire_particles 不销毁问题",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "387b33a8-855e-4361-8204-f6e651720697",
+			"title": "装填子弹时，射击音效不停止问题",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "13a4c3a4-69a4-4613-8836-a6b7c1fc1863",
+			"title": "怪物生成速度太快问题",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "26249de1-6e31-492f-a2c2-ccfe758ef149",
+			"title": "升级选择能力卡片、刷新逻辑",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "7f4efd1f-094b-4b21-b30a-caac0130cc8d",
+			"title": "增加敌人死亡的血迹",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "e7f28f1f-bc5a-44b9-a5b6-c5aff78b40e2",
+			"title": "移除加血掉落",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "98908dcb-38ff-4ccd-8345-68d706c321d4",
+			"title": "增加玩家出生时的音效和屏闪或者光柱",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "94be23a1-4d6b-4911-9aeb-41cf74922147",
+			"title": "增加玩家冲刺音效",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

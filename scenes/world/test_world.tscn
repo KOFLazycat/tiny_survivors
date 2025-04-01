@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=44 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://cgc1tkk1w6e2a" path="res://addons/top_down/scripts/arena/SpawnWaveList.gd" id="15_s4qyy"]
 [ext_resource type="Resource" uid="uid://bc6ageykf2bd" path="res://resources/item_collection_resource/weapon_database_test.tres" id="15_w0w3b"]
 [ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="16_tersh"]
-[ext_resource type="Resource" uid="uid://cow45wk7j1gh8" path="res://resources/instance_resources/actors/slime_actor_instance_resource.tres" id="17_bhy0e"]
 [ext_resource type="Resource" uid="uid://c05ys7ybsfv4u" path="res://addons/top_down/resources/InstanceResources/actors/zomby_instance_resource.tres" id="18_3cvmg"]
 [ext_resource type="Script" uid="uid://n3sy0eibcxhs" path="res://scripts/arena/enemy_spawn_point.gd" id="18_63a70"]
 [ext_resource type="Resource" uid="uid://ongll375kuqe" path="res://resources/instance_resources/actors/zomby_actor_instance_resource.tres" id="18_lh68e"]
@@ -41,19 +40,40 @@
 [sub_resource type="Resource" id="Resource_avoxj"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 2
+count = 5
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 
 [sub_resource type="Resource" id="Resource_bhy0e"]
 script = ExtResource("15_s4qyy")
 is_boss = false
+count = 10
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_u65ls"]
+script = ExtResource("15_s4qyy")
+is_boss = false
 count = 20
-instance_list = Array[ExtResource("16_tersh")]([ExtResource("17_bhy0e"), ExtResource("18_lh68e")])
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_rsl8k"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 40
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_6n4eo"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 60
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_ew2ib"]
 script = ExtResource("14_ew2ib")
-waves = Array[ExtResource("15_s4qyy")]([SubResource("Resource_avoxj"), SubResource("Resource_bhy0e")])
+waves = Array[ExtResource("15_s4qyy")]([SubResource("Resource_avoxj"), SubResource("Resource_bhy0e"), SubResource("Resource_u65ls"), SubResource("Resource_rsl8k"), SubResource("Resource_6n4eo")])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ew2ib"]
 radius = 29.0689
@@ -109,6 +129,7 @@ score_resource = ExtResource("25_bhy0e")
 position = Vector2(241, 134)
 collision_layer = 0
 collision_mask = 2
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaEntry"]
 shape = SubResource("CircleShape2D_ew2ib")
@@ -179,6 +200,7 @@ offset_right = 145.0
 top_layer_bar_time = 0.2
 top_layer_bar_delay = 0.2
 bottom_layer_bar_time = 0.2
+bottom_layer_bar_delay = 0.2
 
 [node name="InfoTrackerDetail" type="Node" parent="UI" node_paths=PackedStringArray("cartridge_count", "score_label", "fight_mode_label", "wave_count_label", "enemy_count_label", "active_count_label")]
 script = ExtResource("23_w0w3b")
