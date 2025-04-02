@@ -26,7 +26,7 @@
 resource_name = "movement  properties"
 script = ExtResource("3_q61pg")
 acceleration = 300.0
-max_speed = 25.0
+max_speed = 35.0
 version = 0
 not_saved = false
 

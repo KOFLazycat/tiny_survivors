@@ -41,3 +41,4 @@ enemy_spawner = NodePath("../EnemySpawner")
 coin_instance = ExtResource("12_3mubb")
 health_pickup_instance = ExtResource("13_78ysf")
 luck_resource = ExtResource("14_87rq8")
+drop_chance = 0.0
