@@ -23,8 +23,8 @@
 [sub_resource type="Resource" id="Resource_16400"]
 resource_name = "movement  properties"
 script = ExtResource("3_vjq2g")
-acceleration = 150.0
-max_speed = 30.0
+acceleration = 200.0
+max_speed = 60.0
 version = 0
 not_saved = false
 

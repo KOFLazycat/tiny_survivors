@@ -44,8 +44,8 @@
 [sub_resource type="Resource" id="Resource_u7p0r"]
 resource_name = "movement  properties"
 script = ExtResource("3_vlmhb")
-acceleration = 1000.0
-max_speed = 60.0
+acceleration = 500.0
+max_speed = 80.0
 version = 0
 not_saved = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=45 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -32,6 +32,7 @@
 [ext_resource type="Resource" uid="uid://c8t06653md6cc" path="res://resources/level/level_config/level_config.tres" id="24_rsl8k"]
 [ext_resource type="PackedScene" uid="uid://dlemxc4roie6n" path="res://scenes/ui/health_bar/health_bar.tscn" id="25_3cvmg"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="25_bhy0e"]
+[ext_resource type="Script" uid="uid://0ev4l1tt8yfv" path="res://scripts/level/level_up_manager.gd" id="25_rsl8k"]
 [ext_resource type="Resource" uid="uid://dmefbqytsy6x0" path="res://addons/top_down/resources/arena_resources/remaining_wave_count_resource.tres" id="26_lh68e"]
 [ext_resource type="Resource" uid="uid://cjmecrxyvujlx" path="res://addons/top_down/resources/arena_resources/enemy_count_resource.tres" id="27_63a70"]
 [ext_resource type="Script" uid="uid://f2e3p78m4nrv" path="res://scripts/ui/wave_display.gd" id="30_63a70"]
@@ -124,6 +125,10 @@ script = ExtResource("23_u65ls")
 experience_bar = NodePath("../UI/ExperienceBar")
 level_config = ExtResource("24_rsl8k")
 score_resource = ExtResource("25_bhy0e")
+
+[node name="LevelUpManager" type="Node" parent="." node_paths=PackedStringArray("experience_manager")]
+script = ExtResource("25_rsl8k")
+experience_manager = NodePath("../ExperienceManager")
 
 [node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]
 position = Vector2(241, 134)

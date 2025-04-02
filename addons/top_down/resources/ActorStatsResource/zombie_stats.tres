@@ -6,6 +6,6 @@
 resource_name = "Zombie Stats"
 script = ExtResource("1_ggmfy")
 acceleration = 100.0
-max_speed = 40.0
+max_speed = 80.0
 version = 0
 not_saved = false
