@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://bmv357e2aofau"]
 
 [ext_resource type="Script" uid="uid://drcypa7tweoq1" path="res://scripts/ui/ability_card/ability_card.gd" id="1_4u2mk"]
-[ext_resource type="FontFile" uid="uid://b72qaxx0sk0rv" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="2_4u2mk"]
+[ext_resource type="FontFile" uid="uid://bktsm8ukloj1q" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="2_4u2mk"]
 [ext_resource type="Shader" uid="uid://6kmfyg1m676f" path="res://scripts/shaders/ant_line.gdshader" id="2_ccyjy"]
-[ext_resource type="Texture2D" uid="uid://brdajdjy3nw33" path="res://assets/images/vfx/dianxain.png" id="2_qibba"]
-[ext_resource type="Texture2D" uid="uid://c4e5cnh8cmao1" path="res://icon.svg" id="2_xntf4"]
+[ext_resource type="Texture2D" uid="uid://dj70l2p7wgeev" path="res://assets/images/vfx/dianxain.png" id="2_qibba"]
+[ext_resource type="Texture2D" uid="uid://h7ixxeos7mn8" path="res://icon.svg" id="2_xntf4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kepfu"]
 

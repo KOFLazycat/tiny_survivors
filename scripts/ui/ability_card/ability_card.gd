@@ -86,7 +86,7 @@ func reset_card() -> void:
 	global_position = init_pos
 	rotation = init_rotation
 	#scale = init_scale
-	modulate.a = 0
+	modulate.a = 0.0
 
 
 func move_to_target_pos() -> void:
@@ -95,13 +95,13 @@ func move_to_target_pos() -> void:
 		movement_tween.kill()
 	movement_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	#
-	movement_tween.tween_property(self, "modulate:a", 0.3, 0.4)
+	movement_tween.tween_property(self, "modulate:a", 0.1, 0.4)
 	movement_tween.parallel().tween_property(self, "global_position:y", init_pos.y - 100, 0.4)
 	movement_tween.parallel().tween_property(self, "scale", init_scale, 0.4)
 	
 	movement_tween.tween_property(self, "rotation", TAU + target_rotation, animation_duration).from(rotation)
 	movement_tween.parallel().tween_property(self, "global_position", target_pos, animation_duration)
-	movement_tween.parallel().tween_property(self, "modulate:a", 1.0, animation_duration)
+	movement_tween.parallel().tween_property(self, "modulate:a", 0.5, animation_duration)
 	movement_tween.parallel().tween_property(self, "scale", target_scale, animation_duration)
 	movement_tween.parallel().tween_property(self, "scale", target_scale, animation_duration)
 	
@@ -136,6 +136,7 @@ func _on_mouse_entered() -> void:
 		hover_tween.kill()
 	hover_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	hover_tween.tween_property(self, "scale", Vector2(0.65, 0.65), 0.15)
+	hover_tween.tween_property(self, "modulate:a", 1.0, 0.15)
 
 
 func _on_mouse_exited() -> void:
@@ -146,3 +147,4 @@ func _on_mouse_exited() -> void:
 		hover_tween.kill()
 	hover_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	hover_tween.tween_property(self, "scale", target_scale, 0.15)
+	hover_tween.tween_property(self, "modulate:a", 0.5, 0.15)
