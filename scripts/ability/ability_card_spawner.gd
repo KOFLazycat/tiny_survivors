@@ -2,7 +2,7 @@
 class_name AbilityCardSpawner
 extends Node
 
-@export var experience_manager: ExperienceManager 
+@export var experience_manager: ExperienceManager
 
 @onready var ability_card: PackedScene = preload("res://scenes/ui/upgrade/ability_card/ability_card.tscn")
 @onready var health_ability_resource: AbilityResource = preload("res://resources/abilities/health_ability_resource.tres")
@@ -54,10 +54,6 @@ func arrange_cards():
 
 func _on_experience_manager_level_up(current_level: int) -> void:
 	get_tree().paused = true
-	
-	health_ability_resource.current_level = current_level + 1
-	speed_ability_resource.current_level = current_level + 1
-	fire_rate_ability_resource.current_level = current_level + 1
 	
 	arrange_cards()
 	

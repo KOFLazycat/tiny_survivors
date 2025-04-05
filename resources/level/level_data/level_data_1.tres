@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_2gf54")
-value = 5
+value = 1
 default_value = 5
 version = 0
 not_saved = false

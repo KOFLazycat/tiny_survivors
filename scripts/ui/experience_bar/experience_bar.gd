@@ -17,12 +17,14 @@ extends MarginContainer
 @export var bottom_layer_bar_time: float = 0.5
 @export var bottom_layer_bar_delay: float = 0.5
 
+signal juicy_tween_finished
+
 
 func _ready() -> void:
 	assert(top_layer_bar != null)
 	assert(bottom_layer_bar != null)
 	assert(gold_label != null)
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	## 设置旋转中心为Label中心
 	gold_label.pivot_offset = gold_label.size / 2.0
 	update_label(min_value)
@@ -52,17 +54,19 @@ func set_current_value(value: float) -> void:
 		# 减少的情况，先减上层，后减下层
 		current_value = clamp(value, min_value, max_value)
 		run_juicy_tween(top_layer_bar, current_value, top_layer_bar_time, 0.0)
-		run_juicy_tween(bottom_layer_bar, current_value, bottom_layer_bar_time, bottom_layer_bar_delay)
+		run_juicy_tween(bottom_layer_bar, current_value, bottom_layer_bar_time, bottom_layer_bar_delay, true)
 	else:
 		# 增加的情况，先加下层，后加上层
 		current_value = clamp(value, min_value, max_value)
 		run_juicy_tween(bottom_layer_bar, current_value, bottom_layer_bar_time, 0.0)
-		run_juicy_tween(top_layer_bar, current_value, top_layer_bar_time, top_layer_bar_delay)
+		run_juicy_tween(top_layer_bar, current_value, top_layer_bar_time, top_layer_bar_delay, true)
 
 
-func run_juicy_tween(bar: ProgressBar, value: float, length: float, delay: float) -> void:
-	var tween = create_tween()
+func run_juicy_tween(bar: ProgressBar, value: float, length: float, delay: float, is_finished: bool = false) -> void:
+	var tween: Tween = create_tween()
 	tween.tween_property(bar, "value", value, length).set_delay(delay).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN_OUT)
+	# 进度条动画完成后发射完成信号
+	tween.tween_callback(_on_juicy_tween_finish.bind(is_finished))
 
 
 func update_label(v: int) -> void:
@@ -78,4 +82,7 @@ func _on_score_updated() -> void:
 	# 缩放到原始尺寸，带有弹性效果（0.5秒）
 	tween.tween_property(gold_label, "scale", Vector2(1.0, 1.0), 0.5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 
-	
+
+func _on_juicy_tween_finish(is_finished: bool = false) -> void:
+	if is_finished:
+		juicy_tween_finished.emit()

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dbw04170f474a" path="res://scripts/ui/upgrade/upgrade_screen.gd" id="1_i6jii"]
 
 [node name="UpgradeScreen" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,5 +27,5 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 8
+theme_override_constants/separation = 16
 alignment = 1
