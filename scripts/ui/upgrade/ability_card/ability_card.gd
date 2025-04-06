@@ -26,14 +26,16 @@ func init_card() -> void:
 	modulate = Color.TRANSPARENT
 	scale = Vector2.ZERO
 	
-	pressed.connect(_on_pressed)
+	pressed.connect(on_pressed)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 
 
-func _on_pressed() -> void:
+func on_pressed() -> void:
 	set_deferred("disabled", true)
+	mouse_entered.disconnect(_on_mouse_entered)
+	mouse_exited.disconnect(_on_mouse_exited)
 
 ## 设置技能资源
 func set_ability_resource(v: AbilityResource) -> void:

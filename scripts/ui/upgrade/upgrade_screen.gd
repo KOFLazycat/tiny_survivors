@@ -31,6 +31,7 @@ func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
 			ability_card_selected.emit(ability_card)
 			get_tree().paused = false
 		else:
+			card.on_pressed()
 			card.play_animation("discard")
 
 
