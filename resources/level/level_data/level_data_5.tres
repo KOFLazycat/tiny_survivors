@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_mlmdt")
-value = 60
+value = 1
 default_value = 60
 version = 0
 not_saved = false

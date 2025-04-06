@@ -4,15 +4,15 @@
 
 [resource]
 script = ExtResource("1_4kk0a")
-ability_name = &"New Ability"
+ability_name = &"FireRate"
 ability_stat = 2
 description = "fire rate 250%"
-max_level = 2
+max_level = 4
 additive_per_level = Array[float]([])
 multiplier_per_level = Array[float]([0.5, 1.0, 1.5, 2.0, 2.5])
-weight = 1.0
+base_weight = 1.0
 is_unique = false
-max_stacks = 1
+max_stacks = 0
 version = 0
 not_saved = false
 metadata/_custom_type_script = "uid://dgc6elsrh4408"

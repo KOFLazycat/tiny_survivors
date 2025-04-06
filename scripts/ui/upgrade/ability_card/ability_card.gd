@@ -3,10 +3,11 @@ class_name AbilityCard
 extends Button
 
 ## 能力资源
-@export var ability_resource: AbilityResource
+@export var ability_resource: AbilityResource: set = set_ability_resource
 
 @onready var panel_container: PanelContainer = %PanelContainer
 @onready var level_label: Label = %LevelLabel
+@onready var ability_name_label: Label = %AbilityNameLabel
 @onready var texture_rect: TextureRect = %TextureRect
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hover_animation_player: AnimationPlayer = $HoverAnimationPlayer
@@ -15,14 +16,7 @@ var hover_tween: Tween
 
 
 func _ready() -> void:
-	#assert(ability_resource != null )
 	init_card()
-
-
-func _process(_delta: float) -> void:
-	pass
-	#level_label.text = str(ability_resource.current_level)
-	#detail_label.text = str(ability_resource.description)
 
 
 func init_card() -> void:
@@ -39,9 +33,13 @@ func init_card() -> void:
 
 
 func _on_pressed() -> void:
-	#ability_system.acquire_ability(ability_resource)
 	set_deferred("disabled", true)
 
+## 设置技能资源
+func set_ability_resource(v: AbilityResource) -> void:
+	ability_resource = v
+	level_label.text = str(ability_resource.current_level)
+	ability_name_label.text = ability_resource.ability_name
 
 
 func play_animation(ani_name: StringName, delay: float = 0.0) -> void:

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityPickListResource" load_steps=3 format=3 uid="uid://b8dltgabvesk3"]
+
+[ext_resource type="Script" uid="uid://bwj0vao77wwfd" path="res://scripts/ability/ability_pick_list_resource.gd" id="1_wa0st"]
+[ext_resource type="Script" uid="uid://dgc6elsrh4408" path="res://scripts/ability/ability_resource.gd" id="2_p3vg2"]
+
+[resource]
+script = ExtResource("1_wa0st")
+selected_list = Array[ExtResource("2_p3vg2")]([])
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://bwj0vao77wwfd"

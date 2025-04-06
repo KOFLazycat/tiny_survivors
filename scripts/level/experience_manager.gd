@@ -58,10 +58,11 @@ func _check_level_up() -> void:
 		if _current_exp >= required:
 			_current_exp -= required
 			_current_level += 1
-			is_level_up = true
-			
+			if !is_level_up:
+				is_level_up = true
 		else:
-			is_level_up = false
+			if is_level_up:
+				is_level_up = false
 			break
 
 ## 获取当前等级资源数据

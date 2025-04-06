@@ -3,8 +3,8 @@ class_name AbilitySystem
 extends Node
 
 @export var stats_component: StatsComponent
-## 组名称
-@export var group_name: StringName = "ability_system"
+## 已选技能列表
+@export var ability_pick_list_resource: AbilityPickListResource
 
 signal ability_added(ability: AbilityResource)
 signal ability_updated
@@ -14,21 +14,14 @@ var _acquired_abilities: Dictionary = {} # Key: AbilityResource, Value: Stack co
 
 func _ready() -> void:
 	assert(stats_component != null)
-	if is_in_group(group_name):
-		add_to_group(group_name)
-	#var tmp: AbilityResource = preload("res://resources/abilities/health_ability_resource.tres")
-	#var tmp: AbilityResource = preload("res://resources/abilities/move_speed_ability_resource.tres")
-	#var tmp: AbilityResource = preload("res://resources/abilities/fire_rate_ability_resource.tres")
-	#tmp.current_level = 1
-	#await get_tree().create_timer(5).timeout
-	#acquire_ability(tmp)
-	#print(stats_component.get_stat(StatsComponent.STAT.FIRE_RATE))
+	assert(ability_pick_list_resource != null)
+	ability_pick_list_resource.pick_list_update.connect(_on_pick_list_update)
 
 
 # 添加新能力
 func acquire_ability(new_ability: AbilityResource) -> void:
 	if _acquired_abilities.has(new_ability):
-		if _acquired_abilities[new_ability] >= new_ability.max_stacks:
+		if new_ability.max_stacks > 0 and _acquired_abilities[new_ability] >= new_ability.max_stacks:
 			return
 		_acquired_abilities[new_ability] += 1
 	else:
@@ -44,3 +37,7 @@ func acquire_ability(new_ability: AbilityResource) -> void:
 # 获取当前能力列表
 func get_acquired_abilities() -> Array:
 	return _acquired_abilities.keys()
+
+
+func _on_pick_list_update(ability_res: AbilityResource) -> void:
+	acquire_ability(ability_res)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=69 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" uid="uid://cavgw0ffuka1p" path="res://addons/top_down/scripts/actor/player/HoleRecovery.gd" id="34_8bcna"]
 [ext_resource type="Script" uid="uid://bxpmefuq57enc" path="res://addons/top_down/scripts/actor/VisualInvulnerability.gd" id="35_1b055"]
 [ext_resource type="Resource" uid="uid://bctctb3u3bsix" path="res://resources/arena/enemy_attackable_resource.tres" id="35_2kw8m"]
+[ext_resource type="Resource" uid="uid://b8dltgabvesk3" path="res://resources/abilities/ability_pick_list.tres" id="39_3clrf"]
 [ext_resource type="Script" uid="uid://bctb6brcnl2yb" path="res://scripts/ability/stats_component.gd" id="42_dbdfy"]
 [ext_resource type="Resource" uid="uid://cpjei8vssoidu" path="res://resources/weapon/fire_rate_resource.tres" id="43_8eh02"]
 
@@ -423,6 +424,7 @@ shape = SubResource("CircleShape2D_hd114")
 [node name="AbilitySystem" type="Node" parent="." index="26" node_paths=PackedStringArray("stats_component") groups=["ability_system"]]
 script = ExtResource("26_3clrf")
 stats_component = NodePath("StatsComponent")
+ability_pick_list_resource = ExtResource("39_3clrf")
 
 [node name="StatsComponent" type="Node" parent="AbilitySystem" index="0" node_paths=PackedStringArray("resource_node")]
 script = ExtResource("42_dbdfy")

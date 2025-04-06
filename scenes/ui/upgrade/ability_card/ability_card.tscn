@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bmv357e2aofau"]
 
 [ext_resource type="Script" uid="uid://drcypa7tweoq1" path="res://scripts/ui/upgrade/ability_card/ability_card.gd" id="1_n50ql"]
-[ext_resource type="FontFile" uid="uid://b72qaxx0sk0rv" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="4_7cl8o"]
+[ext_resource type="FontFile" uid="uid://ct63nvy5x11mp" path="res://assets/fonts/VonwaonBitmap-12px.ttf" id="3_cnvky"]
 [ext_resource type="Texture2D" uid="uid://c4e5cnh8cmao1" path="res://icon.svg" id="5_ke8rt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kepfu"]
@@ -242,21 +242,31 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_kepfu")
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 5
+theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_bottom = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 13
+theme_override_constants/separation = 2
+alignment = 1
 
 [node name="LevelLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_7cl8o")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("3_cnvky")
+theme_override_font_sizes/font_size = 12
 text = "I"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilityNameLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cnvky")
+theme_override_font_sizes/font_size = 12
+text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
 
