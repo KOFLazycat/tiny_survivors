@@ -8,8 +8,6 @@ signal shoot_event
 @export var weapon:Weapon
 @export var projectile_spawner:ProjectileSpawner
 
-## Sound of shooting projectile
-@export var sound_resource:SoundResource
 @export var can_shoot:bool = true
 
 var input_resource:InputResource
@@ -45,7 +43,6 @@ func on_shoot()->void:
 	## Don't normalize direction if it is used for target position
 	projectile_spawner.direction = input_resource.aim_direction
 	projectile_spawner.spawn()
-	sound_resource.play_managed()
 
 ## Toggle ability to spawn projectiles
 func set_can_shoot(value:bool)->void:

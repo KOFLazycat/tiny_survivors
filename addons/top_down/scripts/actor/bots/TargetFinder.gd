@@ -22,6 +22,9 @@ func _on_input_update()->void:
 		target_count = 0
 		var _collision_count:int = shape_cast.get_collision_count()
 		for i:int in _collision_count:
+			## 修复BUG
+			if i >= target_list.size():
+				break
 			var _collider:PhysicsBody2D = shape_cast.get_collider(i)
 			if _collider is StaticBody2D:
 				continue

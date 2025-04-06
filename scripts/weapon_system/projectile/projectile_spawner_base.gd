@@ -8,7 +8,8 @@ signal one_spawn_done
 
 ## 武器弹匣容量资源
 @export var weapon_capacity_resource: IntResource
-
+## Sound of shooting projectile
+@export var sound_resource:SoundResource
 
 func set_enabled(value:bool)->void:
 	enabled = value
@@ -46,3 +47,5 @@ func spawn()->void:
 		
 		var _inst:Projectile2D = projectile_instance_resource.instance(_config_callback)
 		one_spawn_done.emit()
+	## 射击音效
+	sound_resource.play_managed()

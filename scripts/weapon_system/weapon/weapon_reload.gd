@@ -18,7 +18,7 @@ signal reload_finish
 ## 充填动画相对武器位置的偏移量
 @export var reload_progress_bar_offset: Vector2 = Vector2(0, -20)
 ## 武器充填音效
-@export var sound_resource:SoundResource
+@export var sound_reload_resource:SoundResource
 ## 充填速度（每秒充填多少个子弹）
 @export var reload_num_every_second: int = 10
 ## 弹匣最大容量
@@ -49,13 +49,14 @@ func _physics_process(_delta: float) -> void:
 func reload() -> void:
 	# 停止射击
 	weapon_trigger.set_enabled(false)
+	weapon_trigger.set_can_shoot(false)
 	projectile_spawner.set_enabled(false)
 	
 	reload_num = clampi(max_capacity - weapon_capacity_resource.value, 0, max_capacity)
 	reload_time = reload_num / reload_num_every_second
 	# TODO 音效长度需要与装填速度匹配
 	# 播放装填音效
-	sound_resource.play_managed()
+	sound_reload_resource.play_managed()
 	
 	# TODO 增加装填动画
 	var _tween:Tween = create_tween()

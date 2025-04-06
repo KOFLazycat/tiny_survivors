@@ -16,8 +16,6 @@ signal ability_card_selected(ability_card: AbilityCard)
 @onready var ability_card_container: HBoxContainer = %AbilityCardContainer
 
 
-var card_num: int = 4
-
 func _ready() -> void:
 	experience_manager.level_up.connect(_on_experience_manager_level_up)
 
@@ -37,6 +35,7 @@ func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
 
 func _on_experience_manager_level_up(current_level: int) -> void:
 	get_tree().paused = true
+	await get_tree().create_timer(0.2).timeout
 	var abilities_res: Array[AbilityResource] = ability_pool_manager.get_upgrade_options()
 	for i:int in range(abilities_res.size()):
 		var ability_card: AbilityCard = ability_card_scene.instantiate()
