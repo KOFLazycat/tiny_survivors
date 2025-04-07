@@ -1,5 +1,5 @@
 ## 子弹弹跳时的声音特效
-class_name ProjectileBounceVfx
+class_name ProjectileBounceSfx
 extends Node
 
 @export var projectile_mover:ProjectileMover
