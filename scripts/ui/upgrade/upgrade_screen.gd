@@ -14,10 +14,39 @@ signal ability_card_selected(ability_card: AbilityCard)
 @export var display_delay: float = 0.2
 
 @onready var ability_card_container: HBoxContainer = %AbilityCardContainer
+@onready var refresh_container: HBoxContainer = %RefreshContainer
+@onready var refresh_button: Button = %RefreshButton
 
 
 func _ready() -> void:
+	set_deferred("visible", false)
+	refresh_container.modulate.a = 0.0
+	refresh_button.pressed.connect(_on_refresh_button_pressed)
 	experience_manager.level_up.connect(_on_experience_manager_level_up)
+
+
+## 逆序删除所有子节点
+func clear_cards() -> void:
+	for i in range(ability_card_container.get_child_count() - 1, -1, -1):
+		var child: AbilityCard = ability_card_container.get_child(i)
+		child.queue_free()
+
+
+func spawn_card() -> void:
+	randomize()
+	clear_cards()
+	var abilities_res: Array[AbilityResource] = ability_pool_manager.get_upgrade_options()
+	abilities_res.shuffle()
+	for i:int in range(abilities_res.size()):
+		var ability_card: AbilityCard = ability_card_scene.instantiate()
+		ability_card_container.add_child(ability_card)
+		ability_card.ability_resource = abilities_res[i]
+		ability_card.play_animation("in", i * display_delay)
+		ability_card.pressed.connect(_on_ability_card_pressed.bind(ability_card))
+		if i == (abilities_res.size() - 1):
+			await ability_card.animation_player.animation_finished
+			var tween: Tween = create_tween()
+			tween.tween_property(refresh_container, "modulate:a", 1.0, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 
 
 func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
@@ -28,6 +57,8 @@ func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
 			await card.animation_player.animation_finished
 			ability_card_selected.emit(ability_card)
 			get_tree().paused = false
+			set_deferred("visible", false)
+			refresh_container.modulate.a = 0.0
 		else:
 			card.on_pressed()
 			card.play_animation("discard")
@@ -35,11 +66,10 @@ func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
 
 func _on_experience_manager_level_up(current_level: int) -> void:
 	get_tree().paused = true
+	set_deferred("visible", true)
 	await get_tree().create_timer(0.2).timeout
-	var abilities_res: Array[AbilityResource] = ability_pool_manager.get_upgrade_options()
-	for i:int in range(abilities_res.size()):
-		var ability_card: AbilityCard = ability_card_scene.instantiate()
-		ability_card_container.add_child(ability_card)
-		ability_card.ability_resource = abilities_res[i]
-		ability_card.play_animation("in", i * display_delay)
-		ability_card.pressed.connect(_on_ability_card_pressed.bind(ability_card))
+	spawn_card()
+
+
+func _on_refresh_button_pressed() -> void:
+	spawn_card()

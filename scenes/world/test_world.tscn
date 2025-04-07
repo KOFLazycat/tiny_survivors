@@ -214,6 +214,7 @@ bottom_layer_bar_time = 0.2
 bottom_layer_bar_delay = 0.2
 
 [node name="UpgradeScreen" parent="UI" node_paths=PackedStringArray("experience_manager", "ability_pool_manager") instance=ExtResource("38_6n4eo")]
+visible = false
 experience_manager = NodePath("../../ExperienceManager")
 ability_pool_manager = NodePath("../../AbilityPoolManager")
 

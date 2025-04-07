@@ -1,7 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://co5kvd8tl87gp"]
+[gd_scene load_steps=10 format=3 uid="uid://co5kvd8tl87gp"]
 
 [ext_resource type="PackedScene" uid="uid://bmv357e2aofau" path="res://scenes/ui/upgrade/ability_card/ability_card.tscn" id="1_g2uy3"]
 [ext_resource type="Script" uid="uid://dbw04170f474a" path="res://scripts/ui/upgrade/upgrade_screen.gd" id="1_i6jii"]
+[ext_resource type="Texture2D" uid="uid://h7ixxeos7mn8" path="res://icon.svg" id="3_mcqj1"]
+[ext_resource type="FontFile" uid="uid://bxjg2ly3td0ku" path="res://assets/fonts/VonwaonBitmap-12px.ttf" id="4_xev4a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xev4a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ov6lp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xev4a"]
+bg_color = Color(1, 0.257908, 0.323356, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov6lp"]
+bg_color = Color(0.706825, 0, 0.159335, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_layay"]
+bg_color = Color(1, 0.141176, 0.270588, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
 
 [node name="UpgradeScreen" type="Control"]
 process_mode = 3
@@ -22,10 +67,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AbilityCardContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AbilityCardContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 16
 alignment = 1
+
+[node name="RefreshContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/RefreshContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_mcqj1")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RefreshButton" type="Button" parent="MarginContainer/VBoxContainer/RefreshContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_xev4a")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xev4a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ov6lp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xev4a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ov6lp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_layay")
+text = "刷新"
