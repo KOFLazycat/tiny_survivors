@@ -16,11 +16,14 @@ signal ability_card_selected(ability_card: AbilityCard)
 @onready var ability_card_container: HBoxContainer = %AbilityCardContainer
 @onready var refresh_container: HBoxContainer = %RefreshContainer
 @onready var refresh_button: Button = %RefreshButton
+@onready var color_rect: ColorRect = %ColorRect
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
 	set_deferred("visible", false)
 	refresh_container.modulate.a = 0.0
+	color_rect.modulate.a = 0.0
 	refresh_button.pressed.connect(_on_refresh_button_pressed)
 	experience_manager.level_up.connect(_on_experience_manager_level_up)
 
@@ -54,11 +57,13 @@ func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
 		if card == ability_card:
 			card.play_animation("selected")
 			ability_pool_manager.add_ability_pick_list(ability_card.ability_resource)
+			animation_player.play("out")
 			await card.animation_player.animation_finished
 			ability_card_selected.emit(ability_card)
 			get_tree().paused = false
 			set_deferred("visible", false)
 			refresh_container.modulate.a = 0.0
+			color_rect.modulate.a = 0.0
 		else:
 			card.on_pressed()
 			card.play_animation("discard")
@@ -67,7 +72,8 @@ func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
 func _on_experience_manager_level_up(current_level: int) -> void:
 	get_tree().paused = true
 	set_deferred("visible", true)
-	await get_tree().create_timer(0.2).timeout
+	animation_player.play("in")
+	await animation_player.animation_finished
 	spawn_card()
 
 
