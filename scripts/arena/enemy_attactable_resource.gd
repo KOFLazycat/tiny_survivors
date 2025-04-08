@@ -11,7 +11,7 @@ func add_enemy(enemy:CharacterBody2D)->void:
 		list.append(enemy)
 		updated.emit()
 		var ad: ActorDamage = enemy.get_node("ActorDamage")
-		if !ad.actor_died.is_connected(_on_enemy_died):
+		if is_instance_valid(ad) and !ad.actor_died.is_connected(_on_enemy_died):
 			ad.actor_died.connect(_on_enemy_died.bind(enemy), CONNECT_ONE_SHOT)
 
 
@@ -21,7 +21,7 @@ func remove_enemy(enemy: CharacterBody2D) -> void:
 		list.erase(enemy)
 		updated.emit()
 		var ad: ActorDamage = enemy.get_node("ActorDamage")
-		if ad.actor_died.is_connected(_on_enemy_died):
+		if is_instance_valid(ad) and ad.actor_died.is_connected(_on_enemy_died):
 			ad.actor_died.disconnect(_on_enemy_died)
 
 
