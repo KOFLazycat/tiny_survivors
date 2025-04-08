@@ -2,6 +2,7 @@ class_name WeaponTriggerAuto
 extends WeaponTrigger
 
 @export var weapom_auto_aim:WeapomAutoAim
+@export var sound_resource:SoundResource
 
 
 func _process(delta: float) -> void:
