@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=50 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -29,7 +29,6 @@
 [ext_resource type="Script" uid="uid://7cridyrqb6ie" path="res://scripts/level/experience_manager.gd" id="23_u65ls"]
 [ext_resource type="Script" uid="uid://bikfo53xqsol6" path="res://scripts/ui/info_tracker_detail.gd" id="23_w0w3b"]
 [ext_resource type="Resource" uid="uid://dyu0vairbqhuv" path="res://resources/weapon/weapon_capacity_resource.tres" id="24_63a70"]
-[ext_resource type="Resource" uid="uid://c8t06653md6cc" path="res://resources/level/level_config/level_config.tres" id="24_rsl8k"]
 [ext_resource type="PackedScene" uid="uid://dlemxc4roie6n" path="res://scenes/ui/health_bar/health_bar.tscn" id="25_3cvmg"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="25_bhy0e"]
 [ext_resource type="Script" uid="uid://dlj415e5js6ux" path="res://scripts/ability/ability_pool_manager.gd" id="26_22031"]
@@ -126,11 +125,11 @@ wave_queue = SubResource("Resource_ew2ib")
 script = ExtResource("18_63a70")
 spawn_point_resource = ExtResource("19_e6uwu")
 
-[node name="ExperienceManager" type="Node" parent="." node_paths=PackedStringArray("experience_bar")]
+[node name="ExperienceManager" type="Node" parent="." node_paths=PackedStringArray("experience_bar", "enemy_manager")]
 script = ExtResource("23_u65ls")
 experience_bar = NodePath("../UI/ExperienceBar")
-level_config = ExtResource("24_rsl8k")
 score_resource = ExtResource("25_bhy0e")
+enemy_manager = NodePath("../EnemyManager")
 
 [node name="AbilityPoolManager" type="Node" parent="."]
 script = ExtResource("26_22031")
