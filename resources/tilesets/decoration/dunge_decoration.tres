@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bwdkhyu1xq8lp"]
 
-[ext_resource type="Texture2D" uid="uid://beyu4wdhvgq06" path="res://assets/images/dungeonassetpack/Objects and traps/Torch (front).png" id="1_0rx66"]
-[ext_resource type="Texture2D" uid="uid://ukrvgmcxw4ec" path="res://assets/images/dungeonassetpack/Objects and traps/Torch (side).png" id="2_ane5i"]
-[ext_resource type="Texture2D" uid="uid://bnmv41k5f3ppa" path="res://assets/images/dungeonassetpack/Tileset.png" id="3_ane5i"]
+[ext_resource type="Texture2D" uid="uid://qrae7drv4o3p" path="res://assets/images/dungeonassetpack/Objects and traps/Torch (front).png" id="1_0rx66"]
+[ext_resource type="Texture2D" uid="uid://srjq08gts5v6" path="res://assets/images/dungeonassetpack/Objects and traps/Torch (side).png" id="2_ane5i"]
+[ext_resource type="Texture2D" uid="uid://8no5qulhrddv" path="res://assets/images/dungeonassetpack/Tileset.png" id="3_ane5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnq0j"]
 texture = ExtResource("1_0rx66")
