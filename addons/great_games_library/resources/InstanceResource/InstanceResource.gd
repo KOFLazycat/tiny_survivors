@@ -79,7 +79,8 @@ func _erase(node:Node)->void:
 func _return_to_pool(node:Node)->void:
 	
 	assert(node.get_parent() == parent_reference_resource.node)
-	_handle_return.call_deferred(node)
+	#_handle_return.call_deferred(node)
+	_handle_return(node)
 
 func _handle_return(node:Node)->void:
 	assert(node.get_parent() == parent_reference_resource.node)
