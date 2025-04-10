@@ -14,7 +14,7 @@ func get_upgrade_options() -> Array[AbilityResource]:
 	var candidates: Array[AbilityResource] = get_available_abilities()
 	var selected: Array[AbilityResource] = []
 	# 分层抽取（确保出现至少1个新技能）
-	var new_abilities: Array[d] = candidates.filter(func(c): return c.current_level == 1)
+	var new_abilities: Array[AbilityResource] = candidates.filter(func(c): return c.current_level == 1)
 	if new_abilities.size() > 0:
 		selected.append(pick_by_weight(new_abilities))
 		candidates = candidates.filter(func(c): return !selected.has(c))

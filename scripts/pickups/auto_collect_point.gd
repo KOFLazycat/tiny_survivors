@@ -44,7 +44,7 @@ func _on_reference_update()->void:
 
 
 func collect() -> void:
-	if player_reference.node != null:
+	if player_reference.node == null:
 		return
 	if tween != null:
 		tween.kill()

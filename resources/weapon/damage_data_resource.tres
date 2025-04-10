@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DamageDataResource" load_steps=4 format=3 uid="uid://cc4h7hhxrb2gl"]
+
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="1_4vq84"]
+[ext_resource type="Script" uid="uid://c8isd0yt6i0fi" path="res://addons/top_down/scripts/damage/properties/DamageDataResource.gd" id="2_v4hth"]
+[ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="3_6kfhy"]
+
+[resource]
+script = ExtResource("2_v4hth")
+base_damage = Array[ExtResource("1_4vq84")]([])
+critical_chance = 0.3
+critical_multiply = 1.5
+status_list = Array[ExtResource("3_6kfhy")]([])
+hit_list = []
+report_callback = Callable()
+kickback_strength = 0.0
+transmission_name = &""
+state = -1
+valid = true
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://c8isd0yt6i0fi"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=2 format=3 uid="uid://dahjhokasxq3d"]
+
+[ext_resource type="Script" uid="uid://dgc6elsrh4408" path="res://scripts/ability/ability_resource.gd" id="1_46own"]
+
+[resource]
+script = ExtResource("1_46own")
+ability_name = &"CritMultiply"
+ability_stat = 5
+description = ""
+max_level = 6
+additive_per_level = Array[float]([0.0, 0.1, 0.3, 0.5, 0.8, 1.0])
+multiplier_per_level = Array[float]([0.1, 0.1, 0.2, 0.3, 0.4, 0.5])
+base_weight = 1.0
+is_unique = false
+max_stacks = 0
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://dgc6elsrh4408"

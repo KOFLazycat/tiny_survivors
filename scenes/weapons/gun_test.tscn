@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgx80igstifbk"]
+[gd_scene load_steps=18 format=3 uid="uid://cgx80igstifbk"]
 
 [ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_4ah6y"]
+[ext_resource type="Resource" uid="uid://cc4h7hhxrb2gl" path="res://resources/weapon/damage_data_resource.tres" id="2_48a1x"]
 [ext_resource type="Script" uid="uid://d3bsaslj08p1o" path="res://scripts/weapon_system/weapon/weapon_reload.gd" id="2_fnhax"]
 [ext_resource type="Script" uid="uid://p4ww8d6i8uce" path="res://scripts/weapon_system/weapon/weapon_fire_rate.gd" id="2_h3xdy"]
 [ext_resource type="Script" uid="uid://2c03233l5nvt" path="res://scripts/weapon_system/projectile/projectile_spawner_base.gd" id="2_imla6"]
@@ -18,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://scutiecfmepp" path="res://resources/sounds/weapon_reload.tres" id="16_5xqp2"]
 
 [node name="GunTest" instance=ExtResource("1_4ah6y")]
+damage_data_resource = ExtResource("2_48a1x")
 
 [node name="MuzzlePos" type="Marker2D" parent="RotatedNode/Sprite2D" index="1"]
 position = Vector2(6, -0.5)
