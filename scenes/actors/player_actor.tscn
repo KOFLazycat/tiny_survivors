@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=70 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -39,6 +39,7 @@
 [ext_resource type="Script" uid="uid://bxpmefuq57enc" path="res://addons/top_down/scripts/actor/VisualInvulnerability.gd" id="35_1b055"]
 [ext_resource type="Resource" uid="uid://bctctb3u3bsix" path="res://resources/arena/enemy_attackable_resource.tres" id="35_2kw8m"]
 [ext_resource type="Resource" uid="uid://b8dltgabvesk3" path="res://resources/abilities/ability_pick_list.tres" id="39_3clrf"]
+[ext_resource type="Resource" uid="uid://dhdcbu4ejf1ni" path="res://resources/weapon/projectile_damage_type_resource.tres" id="42_8eh02"]
 [ext_resource type="Script" uid="uid://bctb6brcnl2yb" path="res://scripts/ability/stats_component.gd" id="42_dbdfy"]
 [ext_resource type="Resource" uid="uid://cpjei8vssoidu" path="res://resources/weapon/fire_rate_resource.tres" id="43_8eh02"]
 
@@ -430,3 +431,4 @@ ability_pick_list_resource = ExtResource("39_3clrf")
 script = ExtResource("42_dbdfy")
 resource_node = NodePath("../../ResourceNode")
 fire_rate_resource = ExtResource("43_8eh02")
+projectile_damage_type_resource = ExtResource("42_8eh02")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DamageTypeResource" load_steps=2 format=3 uid="uid://dhdcbu4ejf1ni"]
+
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="1_smoq7"]
+
+[resource]
+script = ExtResource("1_smoq7")
+value = 10.0
+type = 0
+metadata/_custom_type_script = "uid://1rbr4is74e7l"

@@ -16,8 +16,8 @@ extends ValueResource
 
 ## 等级标记
 @export_category("Level Set")
-## 最大等级
-@export var max_level: int = 1
+## 最大等级，additive_per_level和additive_per_level长度超过max_level的数据将无法使用
+@export var max_level: int = 1: set = set_max_level
 ## 每个等级增加值，超过最大等级的无效
 @export var additive_per_level: Array[float]
 ## 每个等级百分比，超过最大等级的无效
@@ -35,6 +35,14 @@ var current_level: int = 1
 var current_weight: float = 1.0
 ## 是否满级
 var is_max_level: bool = false
+
+
+func set_max_level(v: int) -> void:
+	max_level = v
+	if max_level < additive_per_level.size():
+		additive_per_level = additive_per_level.slice(0, max_level - 1)
+	if max_level < multiplier_per_level.size():
+		multiplier_per_level = multiplier_per_level.slice(0, max_level - 1)
 
 ## 更新数值
 func apply_effect(stats: StatsComponent) -> void:

@@ -10,12 +10,14 @@ signal stats_updated(stat: STAT)
 @export var resource_node: ResourceNode
 ## 攻击速度资源，每秒攻击次数
 @export var fire_rate_resource: FloatResource
+## 基础伤害
+@export var projectile_damage_type_resource: DamageTypeResource
 
 enum STAT {
 	MAX_HEALTH,
 	MAX_SPEED,
-	FIRE_RATE
-	#PROJECTILE_DAMAGE,
+	FIRE_RATE,
+	DAMAGE
 	#AMMO_CAPACITY,
 	#RELOAD_SPEED,
 	#SHOT_NUMBER,
@@ -26,8 +28,8 @@ enum STAT {
 var base_values: Dictionary = {
 	STAT.MAX_HEALTH: 0.0, # 基础血量
 	STAT.MAX_SPEED: 0.0, # 基础移动速度
-	STAT.FIRE_RATE: 1 # 攻击速度（次/秒），越大攻击速度越快
-	#STAT.PROJECTILE_DAMAGE: 1.0, # 基础伤害
+	STAT.FIRE_RATE: 1, # 攻击速度（次/秒），越大攻击速度越快
+	STAT.DAMAGE: 1.0 # 基础伤害
 	#STAT.AMMO_CAPACITY: 10, # 基础弹匣容量
 	#STAT.RELOAD_SPEED: 10, # 基础装填速度（个/秒）
 	#STAT.SHOT_NUMBER: 1, # 基础一次发射子弹数量
@@ -53,6 +55,8 @@ func _ready() -> void:
 	base_values[STAT.MAX_SPEED] = movement_resource.max_speed
 	# 初始化基础攻速数值
 	base_values[STAT.FIRE_RATE] = fire_rate_resource.value
+	# 初始化基础攻速数值
+	base_values[STAT.DAMAGE] = projectile_damage_type_resource.value
 	
 	# 初始化加法和乘法数值
 	for stat in STAT.values():
@@ -95,3 +99,5 @@ func _on_stats_updated(stat: STAT) -> void:
 				movement_resource.max_speed = value
 		STAT.FIRE_RATE:
 			fire_rate_resource.value = value
+		STAT.DAMAGE:
+			projectile_damage_type_resource.value = value
