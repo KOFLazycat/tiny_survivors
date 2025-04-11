@@ -17,8 +17,8 @@ signal reload_finish
 @export var reload_progress_bar_offset: Vector2 = Vector2(0, -20)
 ## 武器充填音效
 @export var sound_reload_resource:SoundResource
-## 充填速度（每秒充填多少个子弹）
-@export var reload_num_every_second: int = 10
+## 充填速度（每秒充填多少个子弹）资源
+@export var reload_speed_resource: IntResource
 ## 剩余子弹容量资源
 @export var ammo_remain_resource: IntResource
 ## 弹匣最大容量资源
@@ -56,16 +56,17 @@ func reload() -> void:
 	projectile_spawner.set_enabled(false)
 	
 	reload_num = clampi(max_capacity - ammo_remain_resource.value, 0, max_capacity)
-	reload_time = reload_num / reload_num_every_second
-	# TODO 音效长度需要与装填速度匹配
+	reload_time = float(reload_num) / reload_speed_resource.value
+	# 进度条时间
+	var _config_callback:Callable = func (inst:ReloadProgressBar)->void:
+			inst.reload_time = reload_time
+	reload_bar = reload_progress_bar_instance.instance(_config_callback)
 	# 播放装填音效
 	sound_reload_resource.play_managed()
 	
 	# TODO 增加装填动画
 	var _tween:Tween = create_tween()
 	_tween.tween_callback(_reload_finish).set_delay(reload_time)
-	
-	reload_bar = reload_progress_bar_instance.instance()
 
 
 ## 重置弹匣

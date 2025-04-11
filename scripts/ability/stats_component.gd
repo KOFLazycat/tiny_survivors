@@ -16,6 +16,8 @@ signal stats_updated(stat: STAT)
 @export var damage_data_resource: DamageDataResource
 ## 基础弹匣容量
 @export var ammo_capacity_resource: IntResource
+## 充填速度（每秒充填多少个子弹）资源
+@export var reload_speed_resource: IntResource
 
 enum STAT {
 	MAX_HEALTH,
@@ -24,8 +26,8 @@ enum STAT {
 	DAMAGE,
 	CRIT_CHANCE,
 	CRIT_MULTIPLY,
-	AMMO_CAPACITY
-	#RELOAD_SPEED,
+	AMMO_CAPACITY,
+	RELOAD_SPEED
 	#SHOT_NUMBER,
 }
 
@@ -36,8 +38,8 @@ var base_values: Dictionary = {
 	STAT.DAMAGE: 1.0, # 基础伤害
 	STAT.CRIT_CHANCE: 0.05, # 5%基础暴击率
 	STAT.CRIT_MULTIPLY: 1.5, # 基础暴击率，150%暴击伤害
-	STAT.AMMO_CAPACITY: 10 # 基础弹匣容量
-	#STAT.RELOAD_SPEED: 10, # 基础装填速度（个/秒）
+	STAT.AMMO_CAPACITY: 10, # 基础弹匣容量
+	STAT.RELOAD_SPEED: 10 # 基础装填速度（个/秒）
 	#STAT.SHOT_NUMBER: 1, # 基础一次发射子弹数量
 	
 }
@@ -67,6 +69,8 @@ func _ready() -> void:
 	base_values[STAT.CRIT_MULTIPLY] = damage_data_resource.critical_multiply
 	# 初始化基础弹匣容量
 	base_values[STAT.AMMO_CAPACITY] = ammo_capacity_resource.value
+	# 初始化基础充填速度（每秒充填多少个子弹）
+	base_values[STAT.RELOAD_SPEED] = reload_speed_resource.value
 	
 	# 初始化加法和乘法数值
 	for stat in STAT.values():
@@ -116,4 +120,6 @@ func _on_stats_updated(stat: STAT) -> void:
 		STAT.CRIT_MULTIPLY:
 			damage_data_resource.critical_multiply = value
 		STAT.AMMO_CAPACITY:
-			ammo_capacity_resource.value = value
+			ammo_capacity_resource.value = int(value)
+		STAT.RELOAD_SPEED:
+			reload_speed_resource.value = int(value)

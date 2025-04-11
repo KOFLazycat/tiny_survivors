@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi027ox8yiju"]
 
-[ext_resource type="Texture2D" uid="uid://b7gnvjjjs4ngn" path="res://assets/images/reload/reload_back.png" id="1_t7heg"]
+[ext_resource type="Texture2D" uid="uid://cig1narksiv35" path="res://assets/images/reload/reload_back.png" id="1_t7heg"]
 [ext_resource type="Script" uid="uid://cvp58mt60ccxm" path="res://scripts/vfx/reload/reload__progress_bar.gd" id="1_wtoi1"]
-[ext_resource type="Texture2D" uid="uid://cew5fsfv33yl3" path="res://assets/images/reload/reload_front.png" id="2_wtoi1"]
+[ext_resource type="Texture2D" uid="uid://bs0nf1h3ugea4" path="res://assets/images/reload/reload_front.png" id="2_wtoi1"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="4_jk884"]
 
 [node name="ReloadProgressBar" type="Node2D" node_paths=PackedStringArray("pool_node")]

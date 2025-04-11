@@ -82,7 +82,8 @@ func _add_new_weapon_from_scene(scene:PackedScene)->Weapon:
 	_weapon.enabled = false
 	_weapon.resource_node = resource_node
 	_weapon.collision_mask = collision_mask
-	_weapon.damage_data_resource = _weapon.damage_data_resource.duplicate()
+	# 解綁武器傷害資源類
+	#_weapon.damage_data_resource = _weapon.damage_data_resource.duplicate()
 	
 	add_child(_weapon)
 	return _weapon

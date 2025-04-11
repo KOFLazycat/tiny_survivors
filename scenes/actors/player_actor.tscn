@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=73 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -44,6 +44,7 @@
 [ext_resource type="Resource" uid="uid://cpjei8vssoidu" path="res://resources/weapon/fire_rate_resource.tres" id="43_8eh02"]
 [ext_resource type="Resource" uid="uid://cc4h7hhxrb2gl" path="res://resources/weapon/damage_data_resource.tres" id="43_enn7q"]
 [ext_resource type="Resource" uid="uid://brtv3jsq2cfgc" path="res://resources/weapon/ammo_capacity_resource.tres" id="44_enn7q"]
+[ext_resource type="Resource" uid="uid://ch8r0ct8rsu28" path="res://resources/weapon/reload_speed_resource.tres" id="45_cjohi"]
 
 [sub_resource type="Resource" id="Resource_u7p0r"]
 resource_name = "movement  properties"
@@ -436,3 +437,4 @@ fire_rate_resource = ExtResource("43_8eh02")
 projectile_damage_type_resource = ExtResource("42_8eh02")
 damage_data_resource = ExtResource("43_enn7q")
 ammo_capacity_resource = ExtResource("44_enn7q")
+reload_speed_resource = ExtResource("45_cjohi")

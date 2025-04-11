@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://baisjmcsnk3on"]
+[gd_scene load_steps=7 format=3 uid="uid://baisjmcsnk3on"]
 
 [ext_resource type="PackedScene" uid="uid://do8p6aamuv46h" path="res://addons/top_down/scenes/weapons/weapon.tscn" id="1_tygi1"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_g4imc"]
 [ext_resource type="Script" uid="uid://c8isd0yt6i0fi" path="res://addons/top_down/scripts/damage/properties/DamageDataResource.gd" id="3_0vfyh"]
-[ext_resource type="Resource" uid="uid://cmxblo8l2xfeq" path="res://addons/top_down/resources/sounds/zombie_slash.tres" id="3_4gid6"]
 [ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="4_2px0i"]
 [ext_resource type="Resource" uid="uid://c5t4bqpjlct80" path="res://resources/instance_resources/projectile/zombie_slash_instance.tres" id="6_gvepo"]
 
-[sub_resource type="Resource" id="Resource_jm7i8"]
+[sub_resource type="Resource" id="Resource_blc8j"]
 script = ExtResource("3_0vfyh")
 base_damage = Array[ExtResource("2_g4imc")]([])
 critical_chance = 0.3
@@ -21,15 +20,13 @@ state = -1
 valid = true
 version = 0
 not_saved = false
+metadata/_custom_type_script = "uid://c8isd0yt6i0fi"
 
 [node name="ZombieAttack" instance=ExtResource("1_tygi1")]
-damage_data_resource = SubResource("Resource_jm7i8")
+damage_data_resource = SubResource("Resource_blc8j")
 
 [node name="RotatedNode" parent="." index="0"]
 visible = false
-
-[node name="WeaponTrigger" parent="." index="3"]
-sound_resource = ExtResource("3_4gid6")
 
 [node name="ProjectileSpawner" parent="." index="4"]
 projectile_instance_resource = ExtResource("6_gvepo")

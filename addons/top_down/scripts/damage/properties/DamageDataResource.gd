@@ -100,8 +100,6 @@ func process(resource_node:ResourceNode)->void:
 			is_critical = true
 			damage_multiply = critical_multiply
 		
-		print(critical_chance, critical_multiply)
-		
 		# Dealt damage
 		for _damage:DamageTypeResource in base_damage:
 			total_damage += max(_damage.value * damage_multiply - _damage_resource.resistance_value_list[_damage.type], 0.0)

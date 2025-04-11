@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func reload_bar() -> void:
 	if tween != null:
-		tween.kill
+		tween.kill()
 	tween = create_tween()
 	# 使用相对位置
 	tween.tween_property(top, "position", right_pos.position, reload_time).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT_IN)

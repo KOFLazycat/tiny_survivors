@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=60 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -44,75 +44,76 @@
 [ext_resource type="Resource" uid="uid://dbpfv42avw3vq" path="res://resources/abilities/fire_rate_ability_resource.tres" id="30_oysqe"]
 [ext_resource type="Resource" uid="uid://dahjhokasxq3d" path="res://resources/abilities/crit_multiply_ability_resource.tres" id="31_irhx2"]
 [ext_resource type="Resource" uid="uid://cclejf2m41ewo" path="res://resources/abilities/ammo_capacity_ability_resource.tres" id="32_25kst"]
+[ext_resource type="Resource" uid="uid://b5f1tcmblbub8" path="res://resources/abilities/reload_speed_ability_resource.tres" id="33_irhx2"]
 [ext_resource type="PackedScene" uid="uid://db5rl8n120flr" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="34_lludv"]
 [ext_resource type="PackedScene" uid="uid://co5kvd8tl87gp" path="res://scenes/ui/upgrade/upgrade_screen.tscn" id="38_6n4eo"]
 
 [sub_resource type="Resource" id="Resource_avoxj"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 5
+count = 2
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 
 [sub_resource type="Resource" id="Resource_ykgsn"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 10
+count = 3
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_1ow1t"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 15
+count = 5
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_c2v4b"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 20
+count = 8
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_oysqe"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 25
+count = 13
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_25kst"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 30
+count = 21
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_irhx2"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 35
+count = 34
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_77f8d"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 40
+count = 55
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_oce4k"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 45
+count = 89
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_oh41w"]
 script = ExtResource("15_s4qyy")
 is_boss = false
-count = 50
+count = 144
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("18_lh68e")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
@@ -172,7 +173,7 @@ enemy_manager = NodePath("../EnemyManager")
 
 [node name="AbilityPoolManager" type="Node" parent="."]
 script = ExtResource("26_22031")
-all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("30_oysqe"), ExtResource("29_1ow1t"), ExtResource("30_25kst"), ExtResource("31_irhx2"), ExtResource("32_25kst")])
+all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("30_25kst"), ExtResource("31_irhx2"), ExtResource("32_25kst"), ExtResource("30_oysqe"), ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("29_1ow1t"), ExtResource("33_irhx2")])
 ability_pick_list_resource = ExtResource("30_1ow1t")
 
 [node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]

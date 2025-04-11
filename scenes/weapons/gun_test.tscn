@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgx80igstifbk"]
+[gd_scene load_steps=20 format=3 uid="uid://cgx80igstifbk"]
 
 [ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_4ah6y"]
 [ext_resource type="Resource" uid="uid://cc4h7hhxrb2gl" path="res://resources/weapon/damage_data_resource.tres" id="2_48a1x"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://b1xh01nrxibfg" path="res://resources/instance_resources/vfx/reload_progress_bar_instance.tres" id="10_pujeb"]
 [ext_resource type="Resource" uid="uid://bsgm5x8805se7" path="res://addons/top_down/resources/sounds/bullet.tres" id="15_5a6y7"]
 [ext_resource type="Resource" uid="uid://scutiecfmepp" path="res://resources/sounds/weapon_reload.tres" id="16_5xqp2"]
+[ext_resource type="Resource" uid="uid://ch8r0ct8rsu28" path="res://resources/weapon/reload_speed_resource.tres" id="18_mblgf"]
 [ext_resource type="Resource" uid="uid://brtv3jsq2cfgc" path="res://resources/weapon/ammo_capacity_resource.tres" id="18_ny01y"]
 
 [node name="GunTest" instance=ExtResource("1_4ah6y")]
@@ -42,6 +43,7 @@ script = ExtResource("2_imla6")
 ammo_remain_resource = ExtResource("3_imla6")
 sound_resource = ExtResource("15_5a6y7")
 projectile_instance_resource = ExtResource("4_wcec3")
+new_damage = false
 
 [node name="FireParticlesSpawner" type="Node" parent="ProjectileSpawner" index="1" node_paths=PackedStringArray("projectile_spawner", "muzzle_pos")]
 script = ExtResource("2_mwn0f")
@@ -61,6 +63,6 @@ weapon_trigger = NodePath("../WeaponTrigger")
 projectile_spawner = NodePath("../ProjectileSpawner")
 reload_progress_bar_instance = ExtResource("10_pujeb")
 sound_reload_resource = ExtResource("16_5xqp2")
-reload_num_every_second = 100
+reload_speed_resource = ExtResource("18_mblgf")
 ammo_remain_resource = ExtResource("3_imla6")
 ammo_capacity_resource = ExtResource("18_ny01y")
