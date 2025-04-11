@@ -14,6 +14,8 @@ signal stats_updated(stat: STAT)
 @export var projectile_damage_type_resource: DamageTypeResource
 ## 基础暴击概率与暴击倍率
 @export var damage_data_resource: DamageDataResource
+## 基础弹匣容量
+@export var ammo_capacity_resource: IntResource
 
 enum STAT {
 	MAX_HEALTH,
@@ -21,8 +23,8 @@ enum STAT {
 	FIRE_RATE,
 	DAMAGE,
 	CRIT_CHANCE,
-	CRIT_MULTIPLY
-	#AMMO_CAPACITY,
+	CRIT_MULTIPLY,
+	AMMO_CAPACITY
 	#RELOAD_SPEED,
 	#SHOT_NUMBER,
 }
@@ -33,8 +35,8 @@ var base_values: Dictionary = {
 	STAT.FIRE_RATE: 1, # 攻击速度（次/秒），越大攻击速度越快
 	STAT.DAMAGE: 1.0, # 基础伤害
 	STAT.CRIT_CHANCE: 0.05, # 5%基础暴击率
-	STAT.CRIT_MULTIPLY: 1.5 # 基础暴击率，150%暴击伤害
-	#STAT.AMMO_CAPACITY: 10, # 基础弹匣容量
+	STAT.CRIT_MULTIPLY: 1.5, # 基础暴击率，150%暴击伤害
+	STAT.AMMO_CAPACITY: 10 # 基础弹匣容量
 	#STAT.RELOAD_SPEED: 10, # 基础装填速度（个/秒）
 	#STAT.SHOT_NUMBER: 1, # 基础一次发射子弹数量
 	
@@ -63,6 +65,8 @@ func _ready() -> void:
 	# 初始化基础暴击概率与暴击倍率
 	base_values[STAT.CRIT_CHANCE] = damage_data_resource.critical_chance
 	base_values[STAT.CRIT_MULTIPLY] = damage_data_resource.critical_multiply
+	# 初始化基础弹匣容量
+	base_values[STAT.AMMO_CAPACITY] = ammo_capacity_resource.value
 	
 	# 初始化加法和乘法数值
 	for stat in STAT.values():
@@ -107,3 +111,9 @@ func _on_stats_updated(stat: STAT) -> void:
 			fire_rate_resource.value = value
 		STAT.DAMAGE:
 			projectile_damage_type_resource.value = value
+		STAT.CRIT_CHANCE:
+			damage_data_resource.critical_chance = value
+		STAT.CRIT_MULTIPLY:
+			damage_data_resource.critical_multiply = value
+		STAT.AMMO_CAPACITY:
+			ammo_capacity_resource.value = value

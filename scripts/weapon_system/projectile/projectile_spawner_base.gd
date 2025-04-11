@@ -7,7 +7,7 @@ extends ProjectileSpawner
 signal one_spawn_done
 
 ## 武器弹匣容量资源
-@export var weapon_capacity_resource: IntResource
+@export var ammo_remain_resource: IntResource
 ## Sound of shooting projectile
 @export var sound_resource:SoundResource
 
@@ -18,7 +18,7 @@ func set_enabled(value:bool)->void:
 func spawn()->void:
 	assert(projectile_instance_resource != null)
 	assert(axis_multiplication_resource != null)
-	assert(weapon_capacity_resource != null)
+	assert(ammo_remain_resource != null)
 	
 	if !enabled:
 		return
@@ -31,10 +31,10 @@ func spawn()->void:
 		new_damage_resource = damage_data_resource
 	
 	for angle:float in projectile_angles:
-		if weapon_capacity_resource.value <= 0:
+		if ammo_remain_resource.value <= 0:
 			return
 		
-		weapon_capacity_resource.value -= 1
+		ammo_remain_resource.value -= 1
 		
 		var _config_callback:Callable = func (inst:Projectile2D)->void:
 			# TODO: maybe there's better solution

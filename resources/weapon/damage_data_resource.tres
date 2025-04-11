@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_v4hth")
 base_damage = Array[ExtResource("1_4vq84")]([])
-critical_chance = 0.3
+critical_chance = 0.05
 critical_multiply = 1.5
 status_list = Array[ExtResource("3_6kfhy")]([])
 hit_list = []

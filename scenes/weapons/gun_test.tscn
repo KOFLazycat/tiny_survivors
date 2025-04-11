@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgx80igstifbk"]
+[gd_scene load_steps=19 format=3 uid="uid://cgx80igstifbk"]
 
 [ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_4ah6y"]
 [ext_resource type="Resource" uid="uid://cc4h7hhxrb2gl" path="res://resources/weapon/damage_data_resource.tres" id="2_48a1x"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://2c03233l5nvt" path="res://scripts/weapon_system/projectile/projectile_spawner_base.gd" id="2_imla6"]
 [ext_resource type="Script" uid="uid://clm7rrgaximg2" path="res://scripts/weapon_system/weapon/fire_particles_spawner.gd" id="2_mwn0f"]
 [ext_resource type="Resource" uid="uid://cpjei8vssoidu" path="res://resources/weapon/fire_rate_resource.tres" id="3_8eh5n"]
-[ext_resource type="Resource" uid="uid://dyu0vairbqhuv" path="res://resources/weapon/weapon_capacity_resource.tres" id="3_imla6"]
+[ext_resource type="Resource" uid="uid://dyu0vairbqhuv" path="res://resources/weapon/ammo_remain_resource.tres" id="3_imla6"]
 [ext_resource type="Resource" uid="uid://dp0eydeu0uj78" path="res://resources/instance_resources/vfx/fire_particles_instance.tres" id="3_ir5yd"]
 [ext_resource type="Script" uid="uid://dhcj7cp2rq3mv" path="res://scripts/weapon_system/weapon/shot_shaker.gd" id="4_5a6y7"]
 [ext_resource type="Resource" uid="uid://cvcpfky78qcit" path="res://resources/instance_resources/projectile/bullet_projectile_instance.tres" id="4_wcec3"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://b1xh01nrxibfg" path="res://resources/instance_resources/vfx/reload_progress_bar_instance.tres" id="10_pujeb"]
 [ext_resource type="Resource" uid="uid://bsgm5x8805se7" path="res://addons/top_down/resources/sounds/bullet.tres" id="15_5a6y7"]
 [ext_resource type="Resource" uid="uid://scutiecfmepp" path="res://resources/sounds/weapon_reload.tres" id="16_5xqp2"]
+[ext_resource type="Resource" uid="uid://brtv3jsq2cfgc" path="res://resources/weapon/ammo_capacity_resource.tres" id="18_ny01y"]
 
 [node name="GunTest" instance=ExtResource("1_4ah6y")]
 damage_data_resource = ExtResource("2_48a1x")
@@ -38,7 +39,7 @@ player_shot_shake = ExtResource("5_5xqp2")
 
 [node name="ProjectileSpawner" parent="." index="4"]
 script = ExtResource("2_imla6")
-weapon_capacity_resource = ExtResource("3_imla6")
+ammo_remain_resource = ExtResource("3_imla6")
 sound_resource = ExtResource("15_5a6y7")
 projectile_instance_resource = ExtResource("4_wcec3")
 
@@ -58,8 +59,8 @@ muzzle_pos = NodePath("../../RotatedNode/Sprite2D/MuzzlePos")
 script = ExtResource("2_fnhax")
 weapon_trigger = NodePath("../WeaponTrigger")
 projectile_spawner = NodePath("../ProjectileSpawner")
-weapon_capacity_resource = ExtResource("3_imla6")
 reload_progress_bar_instance = ExtResource("10_pujeb")
 sound_reload_resource = ExtResource("16_5xqp2")
 reload_num_every_second = 100
-max_capacity = 100
+ammo_remain_resource = ExtResource("3_imla6")
+ammo_capacity_resource = ExtResource("18_ny01y")

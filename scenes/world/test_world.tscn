@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=59 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -28,7 +28,7 @@
 [ext_resource type="Resource" uid="uid://be8s05nqt2y5d" path="res://addons/top_down/resources/arena_resources/wave_number_resource.tres" id="23_3cvmg"]
 [ext_resource type="Script" uid="uid://7cridyrqb6ie" path="res://scripts/level/experience_manager.gd" id="23_u65ls"]
 [ext_resource type="Script" uid="uid://bikfo53xqsol6" path="res://scripts/ui/info_tracker_detail.gd" id="23_w0w3b"]
-[ext_resource type="Resource" uid="uid://dyu0vairbqhuv" path="res://resources/weapon/weapon_capacity_resource.tres" id="24_63a70"]
+[ext_resource type="Resource" uid="uid://dyu0vairbqhuv" path="res://resources/weapon/ammo_remain_resource.tres" id="24_63a70"]
 [ext_resource type="PackedScene" uid="uid://dlemxc4roie6n" path="res://scenes/ui/health_bar/health_bar.tscn" id="25_3cvmg"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="25_bhy0e"]
 [ext_resource type="Script" uid="uid://dlj415e5js6ux" path="res://scripts/ability/ability_pool_manager.gd" id="26_22031"]
@@ -43,6 +43,7 @@
 [ext_resource type="Script" uid="uid://f2e3p78m4nrv" path="res://scripts/ui/wave_display.gd" id="30_63a70"]
 [ext_resource type="Resource" uid="uid://dbpfv42avw3vq" path="res://resources/abilities/fire_rate_ability_resource.tres" id="30_oysqe"]
 [ext_resource type="Resource" uid="uid://dahjhokasxq3d" path="res://resources/abilities/crit_multiply_ability_resource.tres" id="31_irhx2"]
+[ext_resource type="Resource" uid="uid://cclejf2m41ewo" path="res://resources/abilities/ammo_capacity_ability_resource.tres" id="32_25kst"]
 [ext_resource type="PackedScene" uid="uid://db5rl8n120flr" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="34_lludv"]
 [ext_resource type="PackedScene" uid="uid://co5kvd8tl87gp" path="res://scenes/ui/upgrade/upgrade_screen.tscn" id="38_6n4eo"]
 
@@ -171,7 +172,7 @@ enemy_manager = NodePath("../EnemyManager")
 
 [node name="AbilityPoolManager" type="Node" parent="."]
 script = ExtResource("26_22031")
-all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("30_oysqe"), ExtResource("29_1ow1t"), ExtResource("30_25kst"), ExtResource("31_irhx2")])
+all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("30_oysqe"), ExtResource("29_1ow1t"), ExtResource("30_25kst"), ExtResource("31_irhx2"), ExtResource("32_25kst")])
 ability_pick_list_resource = ExtResource("30_1ow1t")
 
 [node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]
@@ -257,7 +258,7 @@ ability_pool_manager = NodePath("../../AbilityPoolManager")
 
 [node name="InfoTrackerDetail" type="Node" parent="UI" node_paths=PackedStringArray("cartridge_count", "score_label", "fight_mode_label", "wave_count_label", "enemy_count_label", "active_count_label")]
 script = ExtResource("23_w0w3b")
-weapon_capacity_resource = ExtResource("24_63a70")
+ammo_remain_resource = ExtResource("24_63a70")
 cartridge_count = NodePath("../MarginContainer/VBoxContainer/CartridgeCount")
 score_resource = ExtResource("25_bhy0e")
 fight_mode_resource = ExtResource("22_g4hen")

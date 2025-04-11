@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IntResource" load_steps=2 format=3 uid="uid://brtv3jsq2cfgc"]
+
+[ext_resource type="Script" uid="uid://fr2efgjvklki" path="res://addons/great_games_library/resources/ValueResource/IntResource.gd" id="1_t2rhb"]
+
+[resource]
+script = ExtResource("1_t2rhb")
+value = 10
+default_value = 10
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://fr2efgjvklki"

@@ -11,7 +11,6 @@
 			"uuid": "ed797cac-3c98-43ce-bdfd-b503f3fe384b",
 			"title": "Features",
 			"tasks": [
-				"ddd496ae-3635-4121-94b9-c54f4a0804fb",
 				"34c0218c-a3f5-40b1-8452-7ce332b0c17a",
 				"219a8e03-f625-4174-b4cc-531eb8eeb256",
 				"13a4c3a4-69a4-4613-8836-a6b7c1fc1863",
@@ -34,6 +33,7 @@
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
 			"title": "Done",
 			"tasks": [
+				"ddd496ae-3635-4121-94b9-c54f4a0804fb",
 				"989a87d8-9dad-4325-9df1-880d6db9e1a2",
 				"4a772b5b-4093-419f-9c7b-abf0de4cb329",
 				"64670123-e9b4-4d5e-89d3-65652f6b971b",
