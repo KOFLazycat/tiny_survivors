@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi027ox8yiju"]
 
-[ext_resource type="Texture2D" uid="uid://cig1narksiv35" path="res://assets/images/reload/reload_back.png" id="1_t7heg"]
-[ext_resource type="Script" uid="uid://cvp58mt60ccxm" path="res://scripts/vfx/reload/reload__progress_bar.gd" id="1_wtoi1"]
-[ext_resource type="Texture2D" uid="uid://bs0nf1h3ugea4" path="res://assets/images/reload/reload_front.png" id="2_wtoi1"]
-[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="4_jk884"]
+[ext_resource type="Script" uid="uid://cvp58mt60ccxm" path="res://scripts/vfx/reload/reload_progress_bar.gd" id="1_8v6t6"]
+[ext_resource type="Texture2D" uid="uid://cig1narksiv35" path="res://assets/images/reload/reload_back.png" id="2_md5n0"]
+[ext_resource type="Texture2D" uid="uid://bs0nf1h3ugea4" path="res://assets/images/reload/reload_front.png" id="3_mn85y"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="4_wsmxa"]
 
 [node name="ReloadProgressBar" type="Node2D" node_paths=PackedStringArray("pool_node")]
-script = ExtResource("1_wtoi1")
+script = ExtResource("1_8v6t6")
 pool_node = NodePath("PoolNode")
 
 [node name="Bottom" type="Sprite2D" parent="."]
-texture = ExtResource("1_t7heg")
+texture = ExtResource("2_md5n0")
 offset = Vector2(0, 0.5)
 
 [node name="LeftPos" type="Marker2D" parent="Bottom"]
@@ -20,10 +20,10 @@ position = Vector2(-10, 0)
 position = Vector2(10, 0)
 
 [node name="Top" type="Sprite2D" parent="."]
-texture = ExtResource("2_wtoi1")
+texture = ExtResource("3_mn85y")
 offset = Vector2(0.5, 0.5)
 
 [node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes")]
-script = ExtResource("4_jk884")
+script = ExtResource("4_wsmxa")
 ready_nodes = [NodePath("..")]
 metadata/_custom_type_script = "uid://c0aipoimc2hru"
