@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=61 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -45,6 +45,7 @@
 [ext_resource type="Resource" uid="uid://dahjhokasxq3d" path="res://resources/abilities/crit_multiply_ability_resource.tres" id="31_irhx2"]
 [ext_resource type="Resource" uid="uid://cclejf2m41ewo" path="res://resources/abilities/ammo_capacity_ability_resource.tres" id="32_25kst"]
 [ext_resource type="Resource" uid="uid://b5f1tcmblbub8" path="res://resources/abilities/reload_speed_ability_resource.tres" id="33_irhx2"]
+[ext_resource type="Resource" uid="uid://b0kivf0sa6oe5" path="res://resources/abilities/shot_number_ability_resource.tres" id="34_77f8d"]
 [ext_resource type="PackedScene" uid="uid://db5rl8n120flr" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="34_lludv"]
 [ext_resource type="PackedScene" uid="uid://co5kvd8tl87gp" path="res://scenes/ui/upgrade/upgrade_screen.tscn" id="38_6n4eo"]
 
@@ -173,7 +174,7 @@ enemy_manager = NodePath("../EnemyManager")
 
 [node name="AbilityPoolManager" type="Node" parent="."]
 script = ExtResource("26_22031")
-all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("30_25kst"), ExtResource("31_irhx2"), ExtResource("32_25kst"), ExtResource("30_oysqe"), ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("29_1ow1t"), ExtResource("33_irhx2")])
+all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("30_25kst"), ExtResource("31_irhx2"), ExtResource("32_25kst"), ExtResource("30_oysqe"), ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("29_1ow1t"), ExtResource("33_irhx2"), ExtResource("34_77f8d")])
 ability_pick_list_resource = ExtResource("30_1ow1t")
 
 [node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]

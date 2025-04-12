@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgx80igstifbk"]
+[gd_scene load_steps=21 format=3 uid="uid://cgx80igstifbk"]
 
 [ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_4ah6y"]
 [ext_resource type="Resource" uid="uid://cc4h7hhxrb2gl" path="res://resources/weapon/damage_data_resource.tres" id="2_48a1x"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cm6mgixu5huop" path="res://scripts/weapon_system/projectile/cartridge_spawner.gd" id="4_xfwl4"]
 [ext_resource type="Resource" uid="uid://drvios0skyo3q" path="res://resources/camera_resources/player_shot_shake.tres" id="5_5xqp2"]
 [ext_resource type="Resource" uid="uid://ct3wdwle23pao" path="res://resources/instance_resources/cartridge/cartridge_instance.tres" id="5_g4big"]
+[ext_resource type="Resource" uid="uid://drtgnmajx060m" path="res://resources/weapon/shot_number_resource.tres" id="10_jx5pc"]
 [ext_resource type="Resource" uid="uid://b1xh01nrxibfg" path="res://resources/instance_resources/vfx/reload_progress_bar_instance.tres" id="10_pujeb"]
 [ext_resource type="Resource" uid="uid://bsgm5x8805se7" path="res://addons/top_down/resources/sounds/bullet.tres" id="15_5a6y7"]
 [ext_resource type="Resource" uid="uid://scutiecfmepp" path="res://resources/sounds/weapon_reload.tres" id="16_5xqp2"]
@@ -42,8 +43,13 @@ player_shot_shake = ExtResource("5_5xqp2")
 script = ExtResource("2_imla6")
 ammo_remain_resource = ExtResource("3_imla6")
 sound_resource = ExtResource("15_5a6y7")
+shot_number_resource = ExtResource("10_jx5pc")
+interval_angle = 10.0
 projectile_instance_resource = ExtResource("4_wcec3")
 new_damage = false
+
+[node name="SpreadShot" parent="ProjectileSpawner" index="0"]
+random_angle_offset = 0.0
 
 [node name="FireParticlesSpawner" type="Node" parent="ProjectileSpawner" index="1" node_paths=PackedStringArray("projectile_spawner", "muzzle_pos")]
 script = ExtResource("2_mwn0f")

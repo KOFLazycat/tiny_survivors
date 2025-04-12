@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_afdu3")
-scene_path = "res://scenes/vfx/reload/reload__progress_bar.tscn"
+scene_path = "res://scenes/vfx/reload/reload_progress_bar.tscn"
 parent_reference_resource = ExtResource("1_b7se7")
 metadata/_custom_type_script = "uid://bbnccrapnv54n"

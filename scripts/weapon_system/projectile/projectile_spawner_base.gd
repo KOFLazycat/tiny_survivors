@@ -10,9 +10,33 @@ signal one_spawn_done
 @export var ammo_remain_resource: IntResource
 ## Sound of shooting projectile
 @export var sound_resource:SoundResource
+## 基础散弹数量资源，通过该值自动生成projectile_angles，不要主动去设置projectile_angles
+@export var shot_number_resource: IntResource
+## 两个子弹之间的夹角值，单位度
+@export var interval_angle: float = 10.0
+
+
+func _ready() -> void:
+	assert(shot_number_resource != null)
+	set_angles()
+	shot_number_resource.updated.connect(_on_shot_number_updated)
+
+# 第一个子弹的夹角计算规律：
+	#1 0
+	#2 -5
+	#3 -10
+	#4 -15
+	#5 -20
+func set_angles() -> void:
+	projectile_angles.clear()
+	var first_angle: float = (shot_number_resource.value - 1) * (interval_angle/2) * (-1)
+	for i:int in range(shot_number_resource.value):
+		projectile_angles.append(first_angle + i * interval_angle)
+
 
 func set_enabled(value:bool)->void:
 	enabled = value
+
 
 ## 生产子弹
 func spawn()->void:
@@ -49,3 +73,7 @@ func spawn()->void:
 		one_spawn_done.emit()
 	## 射击音效
 	sound_resource.play_managed()
+
+
+func _on_shot_number_updated() -> void:
+	set_angles()

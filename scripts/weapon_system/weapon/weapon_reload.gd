@@ -32,6 +32,8 @@ var reload_time: float = 0.0
 var reload_bar: ReloadProgressBar
 # 最大容量
 var max_capacity: int
+# 是否在装填中
+var is_reloading: bool = false
 
 
 func _ready() -> void:
@@ -50,6 +52,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func reload() -> void:
+	if is_reloading:
+		return
+	is_reloading = true
 	# 停止射击
 	weapon_trigger.set_enabled(false)
 	weapon_trigger.set_can_shoot(false)
@@ -73,13 +78,14 @@ func reload() -> void:
 func reset_capacity() -> void:
 	reload_num = 0
 	reload_time = 0
+	is_reloading = false
 	max_capacity = ammo_capacity_resource.value
 	ammo_remain_resource.value = max_capacity
 
 
 ## 弹匣子弹剩余数量变化时，在此处理逻辑
 func _update_ammo_remain() -> void:
-	if ammo_remain_resource.value <= 0:
+	if ammo_remain_resource.value < projectile_spawner.projectile_angles.size() && !is_reloading:
 		reload_start.emit()
 		reload()
 
