@@ -33,6 +33,7 @@
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
 			"title": "Done",
 			"tasks": [
+				"df61cbde-273b-4f88-86bb-f1201fbf4f7b",
 				"43fe885e-84ef-4e7c-aca8-8345ebb6d857",
 				"34c0218c-a3f5-40b1-8452-7ce332b0c17a",
 				"ddd496ae-3635-4121-94b9-c54f4a0804fb",
@@ -467,6 +468,13 @@
 		{
 			"uuid": "b1d1d101-f069-45d2-9851-ad8eeb37a9ce",
 			"title": "优化数值",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "df61cbde-273b-4f88-86bb-f1201fbf4f7b",
+			"title": "增加散弹card",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []
