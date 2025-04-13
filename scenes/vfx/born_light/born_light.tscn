@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ndfije7dl6j"]
+
+[ext_resource type="Script" uid="uid://ty3pirp7ne7a" path="res://scripts/vfx/born_light/born_light.gd" id="1_lr67v"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="2_1pvhe"]
+
+[node name="BornLight" type="Line2D"]
+self_modulate = Color(1, 1, 1, 0)
+points = PackedVector2Array(0, 0, 0, 0)
+script = ExtResource("1_lr67v")
+target_position = Vector2(270, 135)
+metadata/_edit_vertical_guides_ = [270.0]
+metadata/_edit_horizontal_guides_ = [139.0]
+
+[node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes")]
+script = ExtResource("2_1pvhe")
+ready_nodes = [NodePath("..")]

@@ -3,6 +3,7 @@ extends PlayerSpawner
 
 ## VFX on moment player spawns
 @export var spawn_partickle_instance_resource:InstanceResource
+@export var player_born_instance:InstanceResource
 @export var player_shot_shake:CameraShakeResource
 
 func _ready()->void:
@@ -19,7 +20,12 @@ func _ready()->void:
 	var _partickle_config:Callable = func(inst:Node2D)->void:
 		inst.global_position = global_position
 	
+	var _player_born_config:Callable = func(inst: BornLight)->void:
+		inst.target_position = global_position
+		inst.appear()
+	
 	var _config_callback:Callable = func (inst:Node2D)->void:
+		player_born_instance.instance(_player_born_config)
 		inst.global_position = Vector2(global_position.x, global_position.y - 180) 
 		var tween: Tween = create_tween()
 		tween.tween_property(inst, "global_position", global_position, 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)

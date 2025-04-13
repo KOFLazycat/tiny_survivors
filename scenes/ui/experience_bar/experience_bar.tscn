@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://db5rl8n120flr"]
 
-[ext_resource type="Texture2D" uid="uid://bsi62aiwb4cvp" path="res://assets/images/dungeonassetpack/Objects and traps/Gold key.png" id="1_63675"]
+[ext_resource type="Texture2D" uid="uid://b4d0ntparytfa" path="res://assets/images/dungeonassetpack/Objects and traps/Gold key.png" id="1_63675"]
 [ext_resource type="Script" uid="uid://cejqt1nronm1m" path="res://scripts/ui/experience_bar/experience_bar.gd" id="1_qyn28"]
-[ext_resource type="FontFile" uid="uid://bktsm8ukloj1q" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="2_25ng2"]
+[ext_resource type="FontFile" uid="uid://b72qaxx0sk0rv" path="res://assets/fonts/VonwaonBitmap-16px.ttf" id="2_25ng2"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://addons/top_down/resources/global_resources/score_resource.tres" id="2_vatt0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy25i"]
