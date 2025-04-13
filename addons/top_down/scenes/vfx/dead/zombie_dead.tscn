@@ -168,13 +168,13 @@ hframes = 8
 
 [node name="CharacterAnimator" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_esakt")
+&"": SubResource("AnimationLibrary_esakt")
 }
 autoplay = "died"
 
 [node name="ColorFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_tbujk")
+&"": SubResource("AnimationLibrary_tbujk")
 }
 
 [node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
