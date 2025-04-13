@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu2n5cvym7bse"]
+[gd_scene load_steps=11 format=3 uid="uid://1uf0oscdqpky"]
 
-[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="1_uohpc"]
-[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="3_lydny"]
-[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="5_pym8g"]
+[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="1_vjesd"]
+[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_s5tad"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="3_l8jy5"]
+[ext_resource type="Texture2D" uid="uid://dstebxmd6b315" path="res://assets/images/new_pack_blood/1_100x100px.png" id="3_s5tad"]
 
 [sub_resource type="Animation" id="Animation_48kfv"]
 length = 0.001
@@ -42,10 +43,35 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../BloodSprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../BloodSprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_2ygqc"]
 resource_name = "died"
 length = 7.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -106,6 +132,30 @@ tracks/4/keys = {
 "method": &"pool_return"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../BloodSprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../BloodSprite2D:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esakt"]
 _data = {
@@ -154,7 +204,7 @@ _data = {
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0.0196078, 0.0352941, 0.0784314, 0.454902)
-texture = ExtResource("1_uohpc")
+texture = ExtResource("1_vjesd")
 
 [node name="Body" type="Node2D" parent="."]
 
@@ -162,7 +212,7 @@ texture = ExtResource("1_uohpc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body/Stretch"]
 position = Vector2(0, -8)
-texture = ExtResource("5_pym8g")
+texture = ExtResource("2_s5tad")
 hframes = 8
 
 [node name="CharacterAnimator" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
@@ -176,7 +226,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_tbujk")
 }
 
+[node name="BloodSprite2D" type="Sprite2D" parent="Body"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_s5tad")
+offset = Vector2(2, -7)
+hframes = 6
+vframes = 6
+
 [node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
-script = ExtResource("3_lydny")
+script = ExtResource("3_l8jy5")
 ready_nodes = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator")]
 animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]

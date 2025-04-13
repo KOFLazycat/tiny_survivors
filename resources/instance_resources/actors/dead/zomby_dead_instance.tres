@@ -6,5 +6,5 @@
 [resource]
 resource_name = "zombie dead"
 script = ExtResource("2_8xj1l")
-scene_path = "res://addons/top_down/scenes/vfx/dead/zombie_dead.tscn"
+scene_path = "res://scenes/vfx/dead/zombie_dead.tscn"
 parent_reference_resource = ExtResource("1_5eemx")
