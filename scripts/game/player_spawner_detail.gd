@@ -25,14 +25,17 @@ func _ready()->void:
 		inst.appear()
 	
 	var _config_callback:Callable = func (inst:Node2D)->void:
+		# 增加光束效果
 		player_born_instance.instance(_player_born_config)
+		# 玩家降落
+		inst.modulate.a = 0.0
 		inst.global_position = Vector2(global_position.x, global_position.y - 180) 
 		var tween: Tween = create_tween()
-		tween.tween_property(inst, "global_position", global_position, 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.parallel().tween_property(inst, "global_position", global_position, 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.parallel().tween_property(inst, "modulate:a", 1.0, 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		await tween.finished
 		spawn_partickle_instance_resource.instance(_partickle_config)
 		player_shot_shake.play()
-		# TODO 增加光束效果
 		
 	var _player:Node2D = player_instance_resource.instance(_config_callback)
 	

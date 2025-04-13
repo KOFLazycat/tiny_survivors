@@ -20,7 +20,6 @@
 				"a41bf011-2c10-4d8f-8f59-3323721330a4",
 				"b1d1d101-f069-45d2-9851-ad8eeb37a9ce",
 				"b402e081-9843-40eb-bb4b-ada437049b2f",
-				"2975d253-c534-44b9-8995-adce3f1c54eb",
 				"8485bba9-1c63-4c71-875a-da82ce73e616"
 			]
 		},
@@ -36,6 +35,8 @@
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
 			"title": "Done",
 			"tasks": [
+				"2975d253-c534-44b9-8995-adce3f1c54eb",
+				"b62b112b-66e4-4241-995b-d05823c2baf8",
 				"df61cbde-273b-4f88-86bb-f1201fbf4f7b",
 				"43fe885e-84ef-4e7c-aca8-8345ebb6d857",
 				"34c0218c-a3f5-40b1-8452-7ce332b0c17a",
@@ -407,7 +408,7 @@
 		},
 		{
 			"uuid": "98908dcb-38ff-4ccd-8345-68d706c321d4",
-			"title": "增加玩家出生时的音效和屏闪或者光柱",
+			"title": "增加玩家出生时的音效",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []
@@ -499,6 +500,13 @@
 		{
 			"uuid": "8485bba9-1c63-4c71-875a-da82ce73e616",
 			"title": "增加辉光效果",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "b62b112b-66e4-4241-995b-d05823c2baf8",
+			"title": "增加玩家出生时的光柱",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

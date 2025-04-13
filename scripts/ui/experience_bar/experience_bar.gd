@@ -31,19 +31,21 @@ func _ready() -> void:
 	score_resource.updated.connect(_on_score_updated)
 
 ## 重置
-func reset_default_values(min: float = 0, max: float = 100, current: float = 0) -> void:
-	set_default_values(min, max, max)
+func reset_default_values(_min: float = 0, _max: float = 100, current: float = 0) -> void:
+	set_default_values(_min, _max, _max)
 	set_current_value(current)
 
 ## 直接设置默认值
-func set_default_values(min: float = 0, max: float = 100, current: float = 0) -> void:
-	top_layer_bar.min_value = min
-	top_layer_bar.max_value = max
+func set_default_values(_min: float = 0, _max: float = 100, current: float = 0) -> void:
+	top_layer_bar.min_value = _min
+	top_layer_bar.max_value = _max
 	top_layer_bar.value = current
 	
-	bottom_layer_bar.min_value = min
-	bottom_layer_bar.max_value = max
+	bottom_layer_bar.min_value = _min
+	bottom_layer_bar.max_value = _max
 	bottom_layer_bar.value = current
+	
+	max_value = _max
 
 
 func set_current_value(value: float) -> void:
@@ -69,8 +71,9 @@ func run_juicy_tween(bar: ProgressBar, value: float, length: float, delay: float
 	tween.tween_callback(_on_juicy_tween_finish.bind(is_finished))
 
 
-func update_label(v: int) -> void:
-	gold_label.text = str(v)
+func update_label(v: float) -> void:
+	var vi: int = int(v)
+	gold_label.text = str(vi)
 
 
 func _on_score_updated() -> void:
