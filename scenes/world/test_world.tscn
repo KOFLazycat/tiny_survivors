@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=63 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -49,6 +49,7 @@
 [ext_resource type="Resource" uid="uid://b0kivf0sa6oe5" path="res://resources/abilities/shot_number_ability_resource.tres" id="34_77f8d"]
 [ext_resource type="PackedScene" uid="uid://db5rl8n120flr" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="34_lludv"]
 [ext_resource type="PackedScene" uid="uid://co5kvd8tl87gp" path="res://scenes/ui/upgrade/upgrade_screen.tscn" id="38_6n4eo"]
+[ext_resource type="Resource" uid="uid://brtv3jsq2cfgc" path="res://resources/weapon/ammo_capacity_resource.tres" id="44_oh41w"]
 
 [sub_resource type="Resource" id="Resource_avoxj"]
 script = ExtResource("15_s4qyy")
@@ -263,6 +264,7 @@ ability_pool_manager = NodePath("../../AbilityPoolManager")
 [node name="InfoTrackerDetail" type="Node" parent="UI" node_paths=PackedStringArray("cartridge_count", "score_label", "fight_mode_label", "wave_count_label", "enemy_count_label", "active_count_label")]
 script = ExtResource("23_w0w3b")
 ammo_remain_resource = ExtResource("24_63a70")
+ammo_capacity_resource = ExtResource("44_oh41w")
 cartridge_count = NodePath("../MarginContainer/VBoxContainer/CartridgeCount")
 score_resource = ExtResource("25_bhy0e")
 fight_mode_resource = ExtResource("22_g4hen")

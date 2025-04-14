@@ -1,7 +1,9 @@
 class_name InfoTrackerDetail
 extends InfoTracker
-
+## 剩余子弹资源
 @export var ammo_remain_resource: IntResource
+## 弹匣最大容量资源
+@export var ammo_capacity_resource: IntResource
 @export var cartridge_count: Label
 
 
@@ -13,4 +15,4 @@ func _ready() -> void:
 
 
 func update_cartridge_count_label()->void:
-	cartridge_count.text = "Remaining Bullets: " + str(ammo_remain_resource.value)
+	cartridge_count.text = "Remaining Bullets: " + str(ammo_remain_resource.value) + "/" + str(ammo_capacity_resource.value)
