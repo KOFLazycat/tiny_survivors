@@ -20,6 +20,9 @@ signal pool_requested
 var pool_was_requested:bool
 
 func _ready()->void:
+	# 将节点的处理模式设置为始终处理
+	process_mode = PROCESS_MODE_ALWAYS
+	
 	if !pool_was_requested:
 		## This is the first time
 		## Particles have a "bug" to initially appear at Vector2(0, 0)
