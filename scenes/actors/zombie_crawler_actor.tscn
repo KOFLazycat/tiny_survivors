@@ -264,6 +264,7 @@ collision_mask = 2
 resource_node = NodePath("../ResourceNode")
 
 [node name="PoolNode" type="Node" parent="." index="17" node_paths=PackedStringArray("animation_player_list", "listen_node")]
+process_mode = 3
 script = ExtResource("15_t6ndq")
 animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]
 listen_node = NodePath("../ActorDamage")

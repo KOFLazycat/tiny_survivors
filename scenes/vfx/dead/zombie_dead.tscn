@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://1uf0oscdqpky"]
 
-[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="1_vjesd"]
-[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_s5tad"]
+[ext_resource type="Texture2D" uid="uid://d2tle2bgdsopw" path="res://addons/top_down/assets/images/shadow.png" id="1_vjesd"]
+[ext_resource type="Texture2D" uid="uid://dwfrduorsoblt" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_s5tad"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="3_l8jy5"]
-[ext_resource type="Texture2D" uid="uid://dstebxmd6b315" path="res://assets/images/new_pack_blood/1_100x100px.png" id="3_s5tad"]
+[ext_resource type="Texture2D" uid="uid://rpgjf0lvh843" path="res://assets/images/new_pack_blood/1_100x100px.png" id="3_s5tad"]
 
 [sub_resource type="Animation" id="Animation_48kfv"]
 length = 0.001
@@ -235,6 +235,7 @@ hframes = 6
 vframes = 6
 
 [node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
+process_mode = 3
 script = ExtResource("3_l8jy5")
 ready_nodes = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator")]
 animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]
