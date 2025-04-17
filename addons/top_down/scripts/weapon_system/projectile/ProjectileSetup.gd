@@ -31,6 +31,7 @@ func _on_update_requested(transmission_resource:TransmissionResource, _receiver:
 	
 	## TODO: something similar but create a new DamageDataResource only when needed
 	_damage_data_resource.direction = projectile.direction
-	_damage_data_resource.kickback_strength = kickback
+	if (kickback > 0):
+		_damage_data_resource.kickback_strength = kickback
 	_damage_data_resource.base_damage.append_array(base_damage)
 	_damage_data_resource.status_list.append_array(status_damage)

@@ -12,7 +12,7 @@ signal stats_updated(stat: STAT)
 @export var fire_rate_resource: FloatResource
 ## 基础伤害
 @export var projectile_damage_type_resource: DamageTypeResource
-## 基础暴击概率与暴击倍率
+## 基础暴击概率与暴击倍率、击退距离
 @export var damage_data_resource: DamageDataResource
 ## 基础弹匣容量
 @export var ammo_capacity_resource: IntResource
@@ -30,7 +30,8 @@ enum STAT {
 	CRIT_MULTIPLY,
 	AMMO_CAPACITY,
 	RELOAD_SPEED,
-	SHOT_NUMBER
+	SHOT_NUMBER,
+	KICKBACK
 }
 
 var base_values: Dictionary = {
@@ -42,7 +43,8 @@ var base_values: Dictionary = {
 	STAT.CRIT_MULTIPLY: 1.5, # 基础暴击率，150%暴击伤害
 	STAT.AMMO_CAPACITY: 10, # 基础弹匣容量
 	STAT.RELOAD_SPEED: 10, # 基础装填速度（个/秒）
-	STAT.SHOT_NUMBER: 1 # 基础一次发射子弹数量
+	STAT.SHOT_NUMBER: 1, # 基础一次发射子弹数量
+	STAT.KICKBACK: 10, # 基础击退距离
 }
 ## 加法数值
 var additive_bonuses = {}
@@ -74,6 +76,8 @@ func _ready() -> void:
 	base_values[STAT.RELOAD_SPEED] = reload_speed_resource.value
 	# 基础散弹数量资源
 	base_values[STAT.SHOT_NUMBER] = shot_number_resource.value
+	# 初始化基础击退距离
+	base_values[STAT.KICKBACK] = damage_data_resource.kickback_strength
 	
 	# 初始化加法和乘法数值
 	for stat in STAT.values():
@@ -128,3 +132,5 @@ func _on_stats_updated(stat: STAT) -> void:
 			reload_speed_resource.value = int(value)
 		STAT.SHOT_NUMBER:
 			shot_number_resource.value = int(value)
+		STAT.KICKBACK:
+			damage_data_resource.kickback_strength = value
