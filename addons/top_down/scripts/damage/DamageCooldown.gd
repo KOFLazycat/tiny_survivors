@@ -5,6 +5,7 @@ signal cooldown_finished
 
 @export var resource_node:ResourceNode
 @export var cooldown_time:float = 0.0
+@export var invincible_time_resource: FloatResource
 
 var health_resource:HealthResource
 var damage_resource:DamageResource
@@ -15,6 +16,10 @@ func _ready()->void:
 	damage_resource = resource_node.get_resource("damage")
 	assert(damage_resource != null)
 	health_resource.damaged.connect(_start_cooldown)
+	
+	if invincible_time_resource != null:
+		cooldown_time = invincible_time_resource.value
+		invincible_time_resource.updated.connect(_on_invincible_time_updated)
 	
 	# in case used with PoolNode
 	request_ready()
@@ -31,3 +36,7 @@ func _start_cooldown()->void:
 func _on_cooldown_finish()->void:
 	damage_resource.set_can_receive_damage(true)
 	cooldown_finished.emit()
+
+## 更新无敌时间
+func _on_invincible_time_updated() -> void:
+	cooldown_time = invincible_time_resource.value

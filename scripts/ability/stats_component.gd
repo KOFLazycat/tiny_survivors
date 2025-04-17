@@ -20,6 +20,8 @@ signal stats_updated(stat: STAT)
 @export var reload_speed_resource: IntResource
 ## 基础散弹数量资源
 @export var shot_number_resource: IntResource
+## 基础无敌时间
+@export var invincible_time_resource: FloatResource
 
 enum STAT {
 	MAX_HEALTH,
@@ -31,7 +33,8 @@ enum STAT {
 	AMMO_CAPACITY,
 	RELOAD_SPEED,
 	SHOT_NUMBER,
-	KICKBACK
+	KICKBACK,
+	INVINCIBLE
 }
 
 var base_values: Dictionary = {
@@ -45,6 +48,7 @@ var base_values: Dictionary = {
 	STAT.RELOAD_SPEED: 10, # 基础装填速度（个/秒）
 	STAT.SHOT_NUMBER: 1, # 基础一次发射子弹数量
 	STAT.KICKBACK: 10, # 基础击退距离
+	STAT.INVINCIBLE: 0.5 # 基础无敌时间
 }
 ## 加法数值
 var additive_bonuses = {}
@@ -57,6 +61,7 @@ var movement_resource: ActorStatsResource
 func _ready() -> void:
 	assert(resource_node != null)
 	assert(fire_rate_resource != null)
+	assert(invincible_time_resource != null)
 	# 初始化基础生命数值
 	health_resource = resource_node.get_resource("health")
 	base_values[STAT.MAX_HEALTH] = health_resource.max_hp
@@ -78,6 +83,8 @@ func _ready() -> void:
 	base_values[STAT.SHOT_NUMBER] = shot_number_resource.value
 	# 初始化基础击退距离
 	base_values[STAT.KICKBACK] = damage_data_resource.kickback_strength
+	# 初始化基础无敌时间数值
+	base_values[STAT.INVINCIBLE] = invincible_time_resource.value
 	
 	# 初始化加法和乘法数值
 	for stat in STAT.values():
@@ -134,3 +141,5 @@ func _on_stats_updated(stat: STAT) -> void:
 			shot_number_resource.value = int(value)
 		STAT.KICKBACK:
 			damage_data_resource.kickback_strength = value
+		STAT.INVINCIBLE:
+			invincible_time_resource.value = value

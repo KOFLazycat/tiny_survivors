@@ -92,7 +92,6 @@ func process(resource_node:ResourceNode)->void:
 	
 	var _push_resource:PushResource = resource_node.get_resource("push")
 	if _push_resource != null:
-		print(kickback_strength)
 		_push_resource.add_impulse(direction * kickback_strength)
 	
 	if !base_damage.is_empty():
