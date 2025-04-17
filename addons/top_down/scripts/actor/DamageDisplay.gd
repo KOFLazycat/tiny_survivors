@@ -9,11 +9,13 @@ var last_time:float
 var last_points:DamagePoints
 var last_critical:bool
 var total_points:float
+var miss_total_damage: float
 
 func _ready()->void:
 	var _damage_resource:DamageResource = resource_node.get_resource("damage")
 	assert(_damage_resource != null)
 	_damage_resource.received_damage_points.connect(_on_damage_points)
+	_damage_resource.damage_missed.connect(_on_damage_missed)
 	
 	# in case used with PoolNode
 	request_ready()
@@ -36,3 +38,14 @@ func _on_damage_points(points:float, is_critical:bool)->void:
 		(inst as DamagePoints).set_displayed_points(total_points, last_critical)
 	
 	last_points = damage_points_instance_resource.instance(_config_callback)
+
+
+func _on_damage_missed(damage_data: DamageDataResource) -> void:
+	miss_total_damage += damage_data.total_damage
+	
+	var _config_callback:Callable = func (inst:DamagePoints)->void:
+		# give offset to appear on body position
+		inst.global_position = owner.global_position + Vector2(0.0, -8.0)
+		inst.set_displayed_points(0, damage_data.is_critical)
+	
+	damage_points_instance_resource.instance(_config_callback)

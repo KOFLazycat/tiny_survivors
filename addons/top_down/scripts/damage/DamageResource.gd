@@ -7,6 +7,7 @@ signal received_damage_points(points:float, is_critical:bool)
 signal store_status(status_effect:DamageStatusResource)
 
 signal can_receive_changed
+signal damage_missed(damage_data:DamageDataResource)
 
 @export var can_receive_damage:bool = true
 
@@ -34,3 +35,7 @@ func receive_points(points:float, is_critical:bool = false)->void:
 
 func add_status_effect(status_effect:DamageStatusResource)->void:
 	store_status.emit(status_effect)
+
+## 伤害丢失
+func miss_damage(damage_data:DamageDataResource)->void:
+	damage_missed.emit(damage_data)
