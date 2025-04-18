@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=66 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://db5rl8n120flr" path="res://scenes/ui/experience_bar/experience_bar.tscn" id="34_lludv"]
 [ext_resource type="Resource" uid="uid://cd5ikaqtlv0p" path="res://resources/abilities/kickback_ability_resource.tres" id="36_3m1go"]
 [ext_resource type="Resource" uid="uid://d3kqqr6kgy55y" path="res://resources/abilities/invincible_time_ability_resource.tres" id="37_hshco"]
+[ext_resource type="Resource" uid="uid://d4c3uqgbdg0jb" path="res://resources/abilities/miss_chance_ability_resource.tres" id="38_3nfe5"]
 [ext_resource type="PackedScene" uid="uid://co5kvd8tl87gp" path="res://scenes/ui/upgrade/upgrade_screen.tscn" id="38_6n4eo"]
 [ext_resource type="Resource" uid="uid://brtv3jsq2cfgc" path="res://resources/weapon/ammo_capacity_resource.tres" id="44_oh41w"]
 
@@ -179,7 +180,7 @@ enemy_manager = NodePath("../EnemyManager")
 
 [node name="AbilityPoolManager" type="Node" parent="."]
 script = ExtResource("26_22031")
-all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("30_25kst"), ExtResource("31_irhx2"), ExtResource("32_25kst"), ExtResource("30_oysqe"), ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("29_1ow1t"), ExtResource("33_irhx2"), ExtResource("34_77f8d"), ExtResource("36_3m1go"), ExtResource("37_hshco")])
+all_abilities = Array[ExtResource("27_wnu4w")]([ExtResource("30_25kst"), ExtResource("31_irhx2"), ExtResource("32_25kst"), ExtResource("30_oysqe"), ExtResource("28_1ow1t"), ExtResource("29_c2v4b"), ExtResource("29_1ow1t"), ExtResource("33_irhx2"), ExtResource("34_77f8d"), ExtResource("36_3m1go"), ExtResource("37_hshco"), ExtResource("38_3nfe5")])
 ability_pick_list_resource = ExtResource("30_1ow1t")
 
 [node name="ArenaEntry" parent="." instance=ExtResource("20_yapyo")]

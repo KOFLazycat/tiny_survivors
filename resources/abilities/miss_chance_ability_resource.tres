@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=2 format=3 uid="uid://d4c3uqgbdg0jb"]
+
+[ext_resource type="Script" uid="uid://dgc6elsrh4408" path="res://scripts/ability/ability_resource.gd" id="1_5q181"]
+
+[resource]
+script = ExtResource("1_5q181")
+ability_name = &"MissChance"
+ability_stat = 11
+description = ""
+max_level = 5
+additive_per_level = Array[float]([0.05, 0.05, 0.1, 0.1, 0.1])
+multiplier_per_level = Array[float]([0.0, 0.0, 0.1, 0.15, 0.2])
+base_weight = 1.0
+is_unique = false
+max_stacks = 0
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://dgc6elsrh4408"

@@ -113,7 +113,10 @@ func process(resource_node:ResourceNode)->void:
 		for _damage:DamageTypeResource in base_damage:
 			total_damage += max(_damage.value * damage_multiply - _damage_resource.resistance_value_list[_damage.type], 0.0)
 	
-		var is_miss: bool = randf() < player_damage_data.miss_chance
+		var is_miss: bool = false
+		if player_damage_data != null:
+			is_miss = randf() < player_damage_data.miss_chance
+	
 		if is_miss:
 			player_damage_data.missed.emit()
 			_damage_resource.miss_damage(self)

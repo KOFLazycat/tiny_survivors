@@ -34,7 +34,8 @@ enum STAT {
 	RELOAD_SPEED,
 	SHOT_NUMBER,
 	KICKBACK,
-	INVINCIBLE
+	INVINCIBLE,
+	MISS_CHANCE
 }
 
 var base_values: Dictionary = {
@@ -48,7 +49,8 @@ var base_values: Dictionary = {
 	STAT.RELOAD_SPEED: 10, # 基础装填速度（个/秒）
 	STAT.SHOT_NUMBER: 1, # 基础一次发射子弹数量
 	STAT.KICKBACK: 10, # 基础击退距离
-	STAT.INVINCIBLE: 0.5 # 基础无敌时间
+	STAT.INVINCIBLE: 0.5, # 基础无敌时间
+	STAT.MISS_CHANCE: 0.1 # 基础闪避概率
 }
 ## 加法数值
 var additive_bonuses = {}
@@ -85,6 +87,8 @@ func _ready() -> void:
 	base_values[STAT.KICKBACK] = damage_data_resource.kickback_strength
 	# 初始化基础无敌时间数值
 	base_values[STAT.INVINCIBLE] = invincible_time_resource.value
+	# 初始化基础闪避概率
+	base_values[STAT.MISS_CHANCE] = damage_data_resource.miss_chance
 	
 	# 初始化加法和乘法数值
 	for stat in STAT.values():
@@ -143,3 +147,5 @@ func _on_stats_updated(stat: STAT) -> void:
 			damage_data_resource.kickback_strength = value
 		STAT.INVINCIBLE:
 			invincible_time_resource.value = value
+		STAT.MISS_CHANCE:
+			damage_data_resource.miss_chance = value
