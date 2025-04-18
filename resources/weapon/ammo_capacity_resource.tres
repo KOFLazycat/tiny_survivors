@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_t2rhb")
-value = 10
+value = 100
 default_value = 10
 version = 0
 not_saved = false
