@@ -5,11 +5,11 @@ extends Node
 @export var data_transmitter:DataChannelTransmitter
 
 ## Starting with negative has infinite count
-@export var target_hit_limit:int = 1
-
+var target_hit_limit:int = 1
 var remaining_hits:int
 
 func _ready()->void:
+	target_hit_limit = projectile.damage_data_resource.target_hit_limit
 	if target_hit_limit < 1:
 		return
 	remaining_hits = target_hit_limit

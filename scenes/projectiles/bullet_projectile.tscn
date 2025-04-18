@@ -49,9 +49,6 @@ script = ExtResource("7_hs2kk")
 projectile_mover = NodePath("../ProjectileMover")
 damage_sound_resource = ExtResource("8_t66r8")
 
-[node name="HitLimit" parent="." index="8"]
-target_hit_limit = 5
-
 [node name="PoolNode" parent="." index="10" node_paths=PackedStringArray("ready_nodes", "particle2d_list")]
 ready_nodes = [NodePath(".."), NodePath("../ProjectileSetup"), NodePath("../ProjectileLifetime"), NodePath("../HitLimit"), NodePath("../ProjectileRotation"), NodePath("../RotatedNode/TrailParticle"), NodePath("../ProjectileMover")]
 particle2d_list = [NodePath("../RotatedNode/TrailParticle")]

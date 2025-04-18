@@ -15,6 +15,9 @@ signal missed
 ## Critical damage multiplier
 @export var critical_multiply:float = 1.5
 
+## 子弹穿透攻击数量，0为无限
+@export var target_hit_limit:int = 1
+
 ## Status effects that can be applied to target
 @export var status_list:Array[DamageStatusResource]
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AbilityResource" load_steps=2 format=3 uid="uid://diqwqa27l1nux"]
+
+[ext_resource type="Script" uid="uid://dgc6elsrh4408" path="res://scripts/ability/ability_resource.gd" id="1_1farf"]
+
+[resource]
+script = ExtResource("1_1farf")
+ability_name = &"HitLimit"
+ability_stat = 12
+description = ""
+max_level = 5
+additive_per_level = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
+multiplier_per_level = Array[float]([])
+base_weight = 1.0
+is_unique = false
+max_stacks = 0
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://dgc6elsrh4408"
