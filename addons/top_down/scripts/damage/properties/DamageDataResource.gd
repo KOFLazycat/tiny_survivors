@@ -18,6 +18,9 @@ signal missed
 ## Status effects that can be applied to target
 @export var status_list:Array[DamageStatusResource]
 
+## 监听玩家的DamageDataResource
+@export var player_damage_data: DamageDataResource
+
 ## 收到攻击时，闪避的概率
 @export_range(0.0, 1.0) var miss_chance:float = 0.1
 
@@ -110,9 +113,9 @@ func process(resource_node:ResourceNode)->void:
 		for _damage:DamageTypeResource in base_damage:
 			total_damage += max(_damage.value * damage_multiply - _damage_resource.resistance_value_list[_damage.type], 0.0)
 	
-		var is_miss: bool = randf() < miss_chance
+		var is_miss: bool = randf() < player_damage_data.miss_chance
 		if is_miss:
-			missed.emit()
+			player_damage_data.missed.emit()
 			_damage_resource.miss_damage(self)
 		else:
 			_health_resource.add_hp( -total_damage )

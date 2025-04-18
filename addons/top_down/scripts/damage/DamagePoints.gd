@@ -12,7 +12,10 @@ func set_displayed_points(points:int, is_critical:bool)->void:
 		label.modulate = Color.YELLOW
 	else:
 		label.modulate = Color.WHITE
-	label.text = str(points)
+	var text: String = str(points)
+	if points == 0:
+		text = "MISS"
+	label.text = text
 	label.set_anchors_and_offsets_preset(Control.PRESET_CENTER,Control.PRESET_MODE_MINSIZE)
 
 func _ready()->void:

@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://ch8r0ct8rsu28" path="res://resources/weapon/reload_speed_resource.tres" id="18_mblgf"]
 [ext_resource type="Resource" uid="uid://brtv3jsq2cfgc" path="res://resources/weapon/ammo_capacity_resource.tres" id="18_ny01y"]
 
-[node name="GunTest" instance=ExtResource("1_4ah6y")]
+[node name="GunTest" groups=["player_weapon"] instance=ExtResource("1_4ah6y")]
 damage_data_resource = ExtResource("2_48a1x")
 
 [node name="MuzzlePos" type="Marker2D" parent="RotatedNode/Sprite2D" index="1"]
