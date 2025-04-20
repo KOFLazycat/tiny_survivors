@@ -70,7 +70,7 @@ func _on_ability_card_pressed(ability_card: AbilityCard) -> void:
 
 
 func _on_experience_manager_level_up(current_level: int) -> void:
-	await get_tree().create_timer(0.2).timeout
+	#await get_tree().create_timer(0.2).timeout
 	get_tree().paused = true
 	set_deferred("visible", true)
 	animation_player.play("in")
