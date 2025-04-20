@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_wg77g")
-value = 10.0
+value = 0.2
 default_value = 0.0
 version = 0
 not_saved = false
