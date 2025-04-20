@@ -20,13 +20,13 @@ func _ready() -> void:
 
 
 ## 直接设置默认值
-func set_default_values(min: float = 0, max: float = 100, current: float = 100) -> void:
-	top_layer_bar.min_value = min
-	top_layer_bar.max_value = max
+func set_default_values(_min: float = 0, _max: float = 100, current: float = 100) -> void:
+	top_layer_bar.min_value = _min
+	top_layer_bar.max_value = _max
 	top_layer_bar.value = current
 	
-	bottom_layer_bar.min_value = min
-	bottom_layer_bar.max_value = max
+	bottom_layer_bar.min_value = _min
+	bottom_layer_bar.max_value = _max
 	bottom_layer_bar.value = current
 
 

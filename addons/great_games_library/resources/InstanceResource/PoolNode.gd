@@ -45,5 +45,5 @@ func pool_return()->void:
 		_particle.ready.connect(_particle.restart, CONNECT_ONE_SHOT)
 	for _node:Node in ready_nodes:
 		_node.request_ready()
-		
+	
 	pool_requested.emit()
