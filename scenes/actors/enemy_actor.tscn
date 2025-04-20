@@ -1,0 +1,243 @@
+[gd_scene load_steps=37 format=3 uid="uid://c2h30dpmo6tff"]
+
+[ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_fybaw"]
+[ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_6gjbv"]
+[ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="2_ggfmp"]
+[ext_resource type="Script" uid="uid://ticn5s8bfep6" path="res://addons/top_down/scripts/actor/ActorStatsResource.gd" id="3_dj46p"]
+[ext_resource type="Script" uid="uid://cmp83qy0hsjyv" path="res://addons/top_down/scripts/damage/HealthResource.gd" id="4_vbwwv"]
+[ext_resource type="Script" uid="uid://dr75ttkns1hyy" path="res://addons/top_down/scripts/actor/PushResource.gd" id="5_23nqi"]
+[ext_resource type="Script" uid="uid://bywrj5osehdeq" path="res://addons/great_games_library/resources/ValueResource/BoolResource.gd" id="6_rcdee"]
+[ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_dfrcs"]
+[ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_l0fag"]
+[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="8_yad2s"]
+[ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="10_vbwwv"]
+[ext_resource type="Resource" uid="uid://puojn644fqur" path="res://resources/instance_resources/actors/dead/enemy_dead_instance.tres" id="11_23nqi"]
+[ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="12_rcdee"]
+[ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="14_l0fag"]
+[ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="15_cnjwa"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="16_d6xd7"]
+[ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="17_bex4l"]
+
+[sub_resource type="Resource" id="Resource_16400"]
+resource_name = "movement  properties"
+script = ExtResource("3_dj46p")
+acceleration = 400.0
+max_speed = 40.0
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_7jqce"]
+resource_name = "movement"
+script = ExtResource("2_6gjbv")
+resource = SubResource("Resource_16400")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_y76f1"]
+resource_name = "Health resource"
+script = ExtResource("4_vbwwv")
+hp = 50.0
+max_hp = 50.0
+reset_hp = 50.0
+reset_max_hp = 50.0
+is_dead = false
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_vm74s"]
+resource_name = "health"
+script = ExtResource("2_6gjbv")
+resource = SubResource("Resource_y76f1")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_xhp0x"]
+resource_name = "Push Resource"
+script = ExtResource("5_23nqi")
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_ltyge"]
+resource_name = "push"
+script = ExtResource("2_6gjbv")
+resource = SubResource("Resource_xhp0x")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_1jkvc"]
+resource_name = "Damage Resource"
+script = ExtResource("8_l0fag")
+can_receive_damage = true
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_gytac"]
+resource_name = "damage"
+script = ExtResource("2_6gjbv")
+resource = SubResource("Resource_1jkvc")
+make_unique = true
+description = "Receives report from delt and received damage."
+
+[sub_resource type="Resource" id="Resource_kivos"]
+resource_name = "Hole bool"
+script = ExtResource("6_rcdee")
+value = false
+default_value = false
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_dj46p"]
+resource_name = "hole"
+script = ExtResource("2_6gjbv")
+resource = SubResource("Resource_kivos")
+make_unique = true
+description = ""
+
+[sub_resource type="Resource" id="Resource_k8ute"]
+resource_name = "Input resource"
+script = ExtResource("7_dfrcs")
+axis = Vector2(0, 0)
+action_1 = false
+action_2 = false
+aim_direction = Vector2(0, 0)
+version = 0
+not_saved = false
+
+[sub_resource type="Resource" id="Resource_ju227"]
+resource_name = "input"
+script = ExtResource("2_6gjbv")
+resource = SubResource("Resource_k8ute")
+make_unique = true
+description = "Used to control actors movement by it's input node.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yad2s"]
+size = Vector2(8, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dj46p"]
+size = Vector2(9, 13)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6gjbv"]
+resource_local_to_scene = true
+shader = ExtResource("2_ggfmp")
+shader_parameter/overlay = Color(1, 1, 1, 1)
+shader_parameter/blend = 0.0
+
+[sub_resource type="Animation" id="Animation_yad2s"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_dj46p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vbwwv"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dj46p"]
+_data = {
+&"RESET": SubResource("Animation_dj46p"),
+&"idle": SubResource("Animation_yad2s"),
+&"walk": SubResource("Animation_vbwwv")
+}
+
+[node name="EnemyActor" instance=ExtResource("1_fybaw")]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 5
+
+[node name="ResourceNode" parent="." index="0"]
+list = Array[ExtResource("2_6gjbv")]([SubResource("Resource_7jqce"), SubResource("Resource_vm74s"), SubResource("Resource_ltyge"), SubResource("Resource_gytac"), SubResource("Resource_dj46p"), SubResource("Resource_ju227")])
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_yad2s")
+
+[node name="AreaReceiver2D" parent="." index="2"]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="AreaReceiver2D" index="0"]
+position = Vector2(0.5, -6.5)
+shape = SubResource("RectangleShape2D_dj46p")
+
+[node name="HoleDataReceiver" parent="AreaReceiver2D" index="1"]
+enabled = false
+
+[node name="Sprite2D" parent="Body/Stretch" index="0"]
+material = SubResource("ShaderMaterial_6gjbv")
+texture = ExtResource("8_yad2s")
+
+[node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_dj46p")
+}
+
+[node name="HoleDeath" parent="." index="10"]
+enabled = false
+
+[node name="ActorDamage" parent="." index="11"]
+sound_resource_dead = ExtResource("10_vbwwv")
+dead_vfx_instance_resource = ExtResource("11_23nqi")
+
+[node name="DamageDisplay" parent="." index="12"]
+damage_points_instance_resource = ExtResource("12_rcdee")
+
+[node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("14_l0fag")]
+resource_node = NodePath("../ResourceNode")
+
+[node name="SlashAttack" parent="." index="16" node_paths=PackedStringArray("resource_node") instance=ExtResource("15_cnjwa")]
+collision_mask = 2
+resource_node = NodePath("../ResourceNode")
+
+[node name="PoolNode" type="Node" parent="." index="17" node_paths=PackedStringArray("animation_player_list", "listen_node")]
+process_mode = 3
+script = ExtResource("16_d6xd7")
+animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]
+listen_node = NodePath("../ActorDamage")
+signal_name = &"actor_died"
+
+[node name="ActiveEnemy" type="Node" parent="." index="18" node_paths=PackedStringArray("listen_node", "resource_node")]
+script = ExtResource("17_bex4l")
+listen_node = NodePath("../ActorDamage")
+signal_name = &"actor_died"
+resource_node = NodePath("../ResourceNode")
