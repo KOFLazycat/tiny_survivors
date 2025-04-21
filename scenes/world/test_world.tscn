@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=67 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -61,9 +61,72 @@ is_boss = false
 count = 2
 instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
 
+[sub_resource type="Resource" id="Resource_tmsu7"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 3
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_prvl0"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 5
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_8keqq"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 8
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_8sgms"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 13
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_0bcx0"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 21
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_h1i0h"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 34
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_fyxt2"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 55
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_0goju"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 89
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
+[sub_resource type="Resource" id="Resource_sul5t"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 144
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
+
 [sub_resource type="Resource" id="Resource_ew2ib"]
 script = ExtResource("14_ew2ib")
-waves = Array[ExtResource("15_s4qyy")]([SubResource("Resource_avoxj")])
+waves = Array[ExtResource("15_s4qyy")]([SubResource("Resource_avoxj"), SubResource("Resource_tmsu7"), SubResource("Resource_prvl0"), SubResource("Resource_8keqq"), SubResource("Resource_8sgms"), SubResource("Resource_0bcx0"), SubResource("Resource_h1i0h"), SubResource("Resource_fyxt2"), SubResource("Resource_0goju"), SubResource("Resource_sul5t")])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ew2ib"]
 radius = 29.0689

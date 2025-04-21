@@ -79,16 +79,11 @@ func _erase(node:Node)->void:
 func _return_to_pool(node:Node)->void:
 	
 	assert(node.get_parent() == parent_reference_resource.node)
-	if node is CharacterBody2D:
-		print(1111)
 	_handle_return.call_deferred(node)
-	#_handle_return(node)
+
 
 func _handle_return(node:Node)->void:
-	if node is CharacterBody2D:
-		print(2222)
 	assert(node.get_parent() == parent_reference_resource.node)
 	
 	node.tree_exiting.connect(pool_list.append.call_deferred.bind(node), CONNECT_ONE_SHOT)
 	parent_reference_resource.node.remove_child(node)
-	#parent_reference_resource.node.call_deferred("remove_child", node)

@@ -65,10 +65,10 @@ func _process(_delta: float) -> void:
 	_create_spawn_mark()
 
 func _create_spawn_mark()->void:
-	if enemy_manager.wave_queue.waves.is_empty():
+	if enemy_manager.is_wave_clear():
 		return
 	
-	var _current_wave:SpawnWaveList = enemy_manager.wave_queue.waves.front()
+	var _current_wave:SpawnWaveList = enemy_manager.wave_queue.waves[enemy_manager.wave_index]
 	
 	var _free_positions:Array[Vector2]
 	if _current_wave.is_boss:
@@ -97,7 +97,8 @@ func _create_enemies(spawn_position:Vector2)->void:
 		inst.global_position = spawn_position
 		ActiveEnemy.insert_child(inst, ActiveEnemy.root, _erase_enemy)
 	
-	enemy_manager.wave_queue.waves.front().instance_list.pick_random().instance(_enemy_config)
+	#enemy_manager.wave_queue.waves.front().instance_list.pick_random().instance(_enemy_config)
+	enemy_manager.wave_queue.waves[enemy_manager.wave_index].instance_list.pick_random().instance(_enemy_config)
 
 func _erase_enemy(enemy:ActiveEnemy)->void:
 	enemy_count_resource.set_value(enemy_count_resource.value -1)

@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bywrj5osehdeq" path="res://addons/great_games_library/resources/ValueResource/BoolResource.gd" id="6_rcdee"]
 [ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_dfrcs"]
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_l0fag"]
-[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="8_yad2s"]
+[ext_resource type="Texture2D" uid="uid://dwfrduorsoblt" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="8_yad2s"]
 [ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="10_vbwwv"]
 [ext_resource type="Resource" uid="uid://puojn644fqur" path="res://resources/instance_resources/actors/dead/enemy_dead_instance.tres" id="11_23nqi"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="12_rcdee"]
@@ -123,6 +123,21 @@ shader = ExtResource("2_ggfmp")
 shader_parameter/overlay = Color(1, 1, 1, 1)
 shader_parameter/blend = 0.0
 
+[sub_resource type="Animation" id="Animation_dj46p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_yad2s"]
 resource_name = "idle"
 length = 0.4
@@ -139,21 +154,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_dj46p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_vbwwv"]

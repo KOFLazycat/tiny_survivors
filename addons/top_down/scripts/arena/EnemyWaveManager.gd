@@ -27,7 +27,7 @@ func _exit_tree() -> void:
 
 # Setup 1
 func _init_wave_count()->void:
-	remaining_wave_count_resource.set_value(enemy_manager.wave_queue.waves.size())
+	remaining_wave_count_resource.set_value(enemy_manager.remain_wave_count)
 	wave_number_resource.set_value(0)
 
 # Setup 2
@@ -36,7 +36,7 @@ func _reset_enemy_count()->void:
 		fight_mode_resource.set_value(false)
 		return
 	
-	var _wave_list:SpawnWaveList = enemy_manager.wave_queue.waves.front()
+	var _wave_list:SpawnWaveList = enemy_manager.wave_queue.waves[enemy_manager.wave_index]
 	var _enemy_count:int = _wave_list.count
 	# TODO: have some rule of enemy count & strength spawning
 	enemy_count_resource.set_value(_enemy_count)
@@ -50,8 +50,8 @@ func _update_wave_count()->void:
 	if enemy_count_resource.value > 0:
 		return
 	
-	enemy_manager.wave_queue.waves.pop_front()
-	remaining_wave_count_resource.set_value(enemy_manager.wave_queue.waves.size())
-	if enemy_manager.wave_queue.waves.is_empty():
+	enemy_manager.increase_wave_index()
+	remaining_wave_count_resource.set_value(enemy_manager.remain_wave_count)
+	if enemy_manager.is_wave_clear():
 		return
-	wave_number_resource.set_value(wave_number_resource.value +1)
+	wave_number_resource.set_value(wave_number_resource.value + 1)
