@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bywrj5osehdeq" path="res://addons/great_games_library/resources/ValueResource/BoolResource.gd" id="6_rcdee"]
 [ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_dfrcs"]
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_l0fag"]
-[ext_resource type="Texture2D" uid="uid://dwfrduorsoblt" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="8_yad2s"]
+[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="8_yad2s"]
 [ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="10_vbwwv"]
 [ext_resource type="Resource" uid="uid://puojn644fqur" path="res://resources/instance_resources/actors/dead/enemy_dead_instance.tres" id="11_23nqi"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="12_rcdee"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="15_cnjwa"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="16_d6xd7"]
 [ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="17_bex4l"]
-[ext_resource type="Resource" uid="uid://djao1rauye0x4" path="res://resources/instance_resources/actors/zomby_crawler_actor_instance_resource.tres" id="19_ltm0k"]
+[ext_resource type="Resource" uid="uid://djao1rauye0x4" path="res://resources/instance_resources/actors/enemy_crawler_actor_instance_resource.tres" id="19_ltm0k"]
 [ext_resource type="Resource" uid="uid://pvw6k1ntsles" path="res://addons/top_down/resources/sounds/zombie_split.tres" id="20_8ddkg"]
 [ext_resource type="Script" uid="uid://dlrprrnoy0ccc" path="res://scripts/actor/bots/enemy_replace.gd" id="20_ltm0k"]
 
@@ -118,7 +118,7 @@ description = "Used to control actors movement by it's input node.
 size = Vector2(8, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dj46p"]
-size = Vector2(9, 13)
+size = Vector2(12, 10)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6gjbv"]
 resource_local_to_scene = true
