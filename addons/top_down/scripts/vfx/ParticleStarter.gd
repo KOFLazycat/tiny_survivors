@@ -1,3 +1,4 @@
+class_name ParticleStarter
 extends GPUParticles2D
 
 func _ready()->void:

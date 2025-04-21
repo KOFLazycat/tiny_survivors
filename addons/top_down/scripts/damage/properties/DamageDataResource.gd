@@ -125,9 +125,8 @@ func process(resource_node:ResourceNode)->void:
 			_damage_resource.miss_damage(self)
 		else:
 			_health_resource.add_hp( -total_damage )
+			is_kill = _health_resource.is_dead
 			_damage_resource.receive(self)
-		
-		is_kill = _health_resource.is_dead
 	
 	# Status effects have their own implementations
 	for _status:DamageStatusResource in status_list:

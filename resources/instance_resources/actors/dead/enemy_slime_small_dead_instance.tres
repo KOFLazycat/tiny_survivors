@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="2_rf7yl"]
 
 [resource]
-resource_name = "Slime Small dead"
+resource_name = "Enemy Slime Small dead"
 script = ExtResource("2_rf7yl")
-scene_path = "res://addons/top_down/scenes/vfx/dead/slime_small_dead.tscn"
+scene_path = "res://scenes/vfx/dead/enemy_slime_small_dead.tscn"
 parent_reference_resource = ExtResource("1_l7ssv")
