@@ -14,6 +14,8 @@ extends Node
 @export_range(0.0, 1.0, 0.01) var health_treshold: float = 0.5
 ## 进入第二形态的概率
 @export_range(0.0, 1.0, 0.01) var replace_chance: float = 0.3
+## 进入第二形态时被击退距离的系数
+@export var impluse_multiplier: float = 2.0
 ## 进入第二形态时是否恢复生命
 @export var is_restore_life: bool = false
 @export var replacement_instance_resource: InstanceResource
@@ -64,9 +66,7 @@ func _trigger_replacement(damage: DamageDataResource) -> void:
 	is_replaced = true
 	damage_data_receiver.enabled = false
 	
-	# 数据快照（优化点6：显式声明常量）
-	const IMPULSE_MULTIPLIER: float = 1.5
-	var push_vector: Vector2 = damage.kickback_strength * damage.direction * IMPULSE_MULTIPLIER
+	var push_vector: Vector2 = damage.kickback_strength * damage.direction * impluse_multiplier
 	var current_hp: float = health_resource.max_hp if is_restore_life else health_resource.hp
 	var enemy_branch: ActiveEnemyResource = active_enemy.enemy_resource
 	

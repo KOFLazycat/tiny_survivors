@@ -249,6 +249,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_esakt")
 }
 
+[node name="HoleDeath" parent="." index="10"]
+enabled = false
+
 [node name="ActorDamage" parent="." index="11"]
 sound_resource_dead = ExtResource("11_7e1ob")
 dead_vfx_instance_resource = ExtResource("12_k2tpu")
