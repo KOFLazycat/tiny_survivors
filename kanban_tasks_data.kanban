@@ -16,7 +16,12 @@
 				"98908dcb-38ff-4ccd-8345-68d706c321d4",
 				"12acfd8c-06e5-4933-9b52-4b8f772b1399",
 				"a41bf011-2c10-4d8f-8f59-3323721330a4",
-				"b1d1d101-f069-45d2-9851-ad8eeb37a9ce"
+				"b1d1d101-f069-45d2-9851-ad8eeb37a9ce",
+				"5a167ef6-c09d-49ac-927c-695f3e1163d6",
+				"e59afb84-f734-4c8d-885d-02c34c6c324e",
+				"a9cf6e1a-3468-4a2b-ad11-d62f2d31c84c",
+				"3cbd7638-d178-4e9a-bdfa-4a9393416f63",
+				"91125858-e14f-45ab-ad84-6b5b93dd8445"
 			]
 		},
 		{
@@ -31,6 +36,7 @@
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
 			"title": "Done",
 			"tasks": [
+				"7d8b35ef-2407-4ffd-a065-1b6b481c1abb",
 				"28e35374-0360-4367-b158-03ff9ecfc4a2",
 				"b402e081-9843-40eb-bb4b-ada437049b2f",
 				"26ee25b7-7eb6-4145-8067-9dcc0ddb03e0",
@@ -547,6 +553,48 @@
 		{
 			"uuid": "28e35374-0360-4367-b158-03ff9ecfc4a2",
 			"title": "制作slime怪物敌人",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "5a167ef6-c09d-49ac-927c-695f3e1163d6",
+			"title": "毒属性card-持续伤害、死亡传染",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "e59afb84-f734-4c8d-885d-02c34c6c324e",
+			"title": "火属性card-持续伤害、死亡爆炸",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "a9cf6e1a-3468-4a2b-ad11-d62f2d31c84c",
+			"title": "雷属性card-瞬间伤害、范围伤害",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "3cbd7638-d178-4e9a-bdfa-4a9393416f63",
+			"title": "咒属性card-诅咒状态、到时间秒杀",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "91125858-e14f-45ab-ad84-6b5b93dd8445",
+			"title": "冰属性card-持续伤害、减速、冰冻",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "7d8b35ef-2407-4ffd-a065-1b6b481c1abb",
+			"title": "修复slime无法正常销毁、产生小slime的BUG",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

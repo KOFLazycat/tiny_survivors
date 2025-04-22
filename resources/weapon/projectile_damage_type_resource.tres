@@ -4,6 +4,13 @@
 
 [resource]
 script = ExtResource("1_smoq7")
-value = 10.0
+value = 100.0
+duration = 0
+damage_per_sec = 0.0
+damage_after_dead = 0.0
+damage_radius = 0.0
+speed_decrease = 0.0
+amplify_damage_multiply = 2.0
+is_infect = false
 type = 0
 metadata/_custom_type_script = "uid://1rbr4is74e7l"

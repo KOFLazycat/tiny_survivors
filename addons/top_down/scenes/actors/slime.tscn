@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_ndfpq"]
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_m1ovx"]
 [ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="9_r733y"]
-[ext_resource type="Texture2D" uid="uid://ct1rxdhxn73qh" path="res://addons/top_down/assets/images/characters/slime_16x16_strip8.png" id="10_3q2oh"]
+[ext_resource type="Texture2D" uid="uid://cngavqgt8flsc" path="res://addons/top_down/assets/images/characters/slime_16x16_strip8.png" id="10_3q2oh"]
 [ext_resource type="Resource" uid="uid://pvw6k1ntsles" path="res://addons/top_down/resources/sounds/zombie_split.tres" id="11_upwne"]
 [ext_resource type="Resource" uid="uid://lm63dcddpjhf" path="res://addons/top_down/resources/InstanceResources/vfx/dead/slime_dead_instance_resource.tres" id="12_fht2r"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="13_6l5hi"]
@@ -224,6 +224,13 @@ _data = {
 [sub_resource type="Resource" id="Resource_7dwox"]
 script = ExtResource("13_woinq")
 value = 3.0
+duration = 0
+damage_per_sec = 0.0
+damage_after_dead = 0.0
+damage_radius = 0.0
+speed_decrease = 0.0
+amplify_damage_multiply = 2.0
+is_infect = false
 type = 0
 
 [node name="Slime" instance=ExtResource("1_0dxwo")]
@@ -252,7 +259,7 @@ texture = ExtResource("10_3q2oh")
 
 [node name="CharacterAnimator" parent="Body/Stretch/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_esakt")
+&"": SubResource("AnimationLibrary_esakt")
 }
 
 [node name="ActorDamage" parent="." index="11"]

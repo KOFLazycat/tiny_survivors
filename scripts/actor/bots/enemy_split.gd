@@ -37,6 +37,8 @@ func _ready() -> void:
 		)
 	else:
 		push_error("Failed to get DamageResource from ResourceNode")
+	
+	request_ready()
 
 ## 提取回调函数为类方法
 func _config_instance(inst: Node, pos: Vector2, dir: Vector2, branch: ActiveEnemyResource) -> void:
