@@ -60,7 +60,7 @@
 script = ExtResource("15_s4qyy")
 is_boss = false
 count = 2
-instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_prvl0")])
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
 
 [sub_resource type="Resource" id="Resource_tmsu7"]
 script = ExtResource("15_s4qyy")
@@ -108,21 +108,21 @@ metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 script = ExtResource("15_s4qyy")
 is_boss = false
 count = 55
-instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7"), ExtResource("20_prvl0")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_0goju"]
 script = ExtResource("15_s4qyy")
 is_boss = false
 count = 89
-instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7"), ExtResource("20_prvl0")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_sul5t"]
 script = ExtResource("15_s4qyy")
 is_boss = false
 count = 144
-instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7")])
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_tmsu7"), ExtResource("20_prvl0")])
 metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_ew2ib"]
