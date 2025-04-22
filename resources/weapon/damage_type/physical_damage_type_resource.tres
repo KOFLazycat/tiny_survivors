@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="DamageTypeResource" load_steps=2 format=3 uid="uid://dhdcbu4ejf1ni"]
 
-[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="1_smoq7"]
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="1_6ege2"]
 
 [resource]
-script = ExtResource("1_smoq7")
-value = 100.0
+script = ExtResource("1_6ege2")
+value = 10.0
+available_chance = 0.0
 duration = 0
 damage_per_sec = 0.0
 damage_after_dead = 0.0

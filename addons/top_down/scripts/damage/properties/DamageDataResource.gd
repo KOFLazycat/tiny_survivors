@@ -114,7 +114,11 @@ func process(resource_node:ResourceNode)->void:
 		
 		# Dealt damage
 		for _damage:DamageTypeResource in base_damage:
-			total_damage += max(_damage.value * damage_multiply - _damage_resource.resistance_value_list[_damage.type], 0.0)
+			# 物理伤害计算暴击，其他伤害不计算暴击
+			if _damage.type == DamageTypeResource.DamageType.PHYSICAL:
+				total_damage += max(_damage.value * damage_multiply - _damage_resource.resistance_value_list[_damage.type], 0.0)
+			else:
+				total_damage += max(_damage.value - _damage_resource.resistance_value_list[_damage.type], 0.0)
 	
 		var is_miss: bool = false
 		if player_damage_data != null:
