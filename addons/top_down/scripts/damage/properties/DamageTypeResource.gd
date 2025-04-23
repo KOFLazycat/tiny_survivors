@@ -1,24 +1,43 @@
+## 伤害类型资源，定义一种特定属性的伤害（如火焰/毒素）。
+## 用于：
+## - 在 DamageDataResource 中组合多种伤害类型
+## - 在抗性系统中匹配对应抗性值
 class_name DamageTypeResource
 extends Resource
 
-## 基础伤害值，一次性伤害
-@export var value:float
+@export_group("Damage Configuration")
+## 基础伤害值（最终伤害需计算抗性）
+## 注意：该值为单次伤害，非持续伤害
+@export_range(0.0, 10000.0) var value: float = 0.0
 
+@export_group("Type Settings")
+## 伤害类型，决定：
+## - 抗性计算方式
+## - 命中特效表现
+@export var type: DamageType = DamageType.PHYSICAL
+
+## 伤害类型枚举，命名规则：
+## 1. 基础类型在前，特殊类型在后
+## 2. 按世界观分类（自然/魔法/科技）
 enum DamageType {
-	PHYSICAL, # 物理
-	FIRE, # 火
-	ICE, # 冰
-	LIGHTNING, # 雷 
-	POISON, # 毒
-	CURSE, # 咒
-	ACID, 
-	MAGNETIC, 
-	BLOOD, 
-	DARK, 
-	ARCANE,
-	## Last one for fetching total count
-	COUNT,
-	}
+	PHYSICAL,   # 物理（刀剑/子弹）
+	FIRE,       # 火焰（持续灼烧，可引燃环境）
+	ICE,        # 冰霜（减速目标移动速度）
+	LIGHTNING,  # 雷电（连锁攻击多个目标）
+	POISON,     # 毒素（持续生命流失）
+	CURSE,      # 诅咒（降低目标抗性）
+	ACID,       # 酸液（降低护甲值）
+	MAGNETIC,   # 磁力（禁用机械单位）
+	BLOOD,      # 鲜血（吸血效果）
+	DARK,       # 暗影（无视部分抗性）
+	ARCANE,     # 奥术（魔法穿透）
+}
 
-## 伤害类型
-@export var type:DamageType
+
+## 获取类型名称（用于UI显示）
+func get_type_name() -> String:
+	return DamageType.keys()[type].capitalize()
+
+## 验证数据合法性（可在编辑器中调用）
+func validate() -> bool:
+	return value >= 0.0

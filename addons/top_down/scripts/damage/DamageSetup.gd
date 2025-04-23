@@ -20,7 +20,7 @@ func _setup_resistance()->void:
 	assert(damage_resource != null)
 	damage_resource.owner = owner
 	
-	damage_resource.resistance_value_list.resize(DamageTypeResource.DamageType.COUNT)
+	damage_resource.resistance_value_list.resize(DamageTypeResource.DamageType.size())
 	damage_resource.resistance_value_list.fill(0.0)
 	
 	for _resistance:DamageTypeResource in resistance_list:
