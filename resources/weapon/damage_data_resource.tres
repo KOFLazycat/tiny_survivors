@@ -1,19 +1,18 @@
-[gd_resource type="Resource" script_class="DamageDataResource" load_steps=6 format=3 uid="uid://cc4h7hhxrb2gl"]
+[gd_resource type="Resource" script_class="DamageDataResource" load_steps=5 format=3 uid="uid://cc4h7hhxrb2gl"]
 
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="1_4vq84"]
 [ext_resource type="Resource" uid="uid://dhdcbu4ejf1ni" path="res://resources/weapon/damage_type/physical_damage_type_resource.tres" id="2_6kfhy"]
 [ext_resource type="Script" uid="uid://c8isd0yt6i0fi" path="res://addons/top_down/scripts/damage/properties/DamageDataResource.gd" id="2_v4hth"]
-[ext_resource type="Resource" uid="uid://cwg7u2ktoqlsi" path="res://resources/weapon/damage_type/poision_damage_type_resource.tres" id="3_5j11v"]
 [ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="3_6kfhy"]
 
 [resource]
 script = ExtResource("2_v4hth")
-base_damage = Array[ExtResource("1_4vq84")]([ExtResource("2_6kfhy"), ExtResource("3_5j11v")])
+base_damage = Array[ExtResource("1_4vq84")]([ExtResource("2_6kfhy")])
 critical_chance = 0.3
 critical_multiply = 1.5
 target_hit_limit = 1
-status_list = Array[ExtResource("3_6kfhy")]([])
 miss_chance = 1.0
+status_list = Array[ExtResource("3_6kfhy")]([])
 hit_list = []
 report_callback = Callable()
 kickback_strength = 0.0
