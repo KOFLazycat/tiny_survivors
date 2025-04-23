@@ -28,9 +28,8 @@ func _ready() -> void:
 		resource_node.ready.disconnect(_setup_resistance)
 	resource_node.ready.connect(_setup_resistance)
 	
-	# 立即初始化（如果 ResourceNode 已就绪）
-	if resource_node.is_node_ready():
-		_setup_resistance()
+	_setup_resistance()
+
 
 ## 初始化/更新抗性数组
 func _setup_resistance()->void:

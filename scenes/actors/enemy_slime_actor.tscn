@@ -90,7 +90,7 @@ description = "Used to control actors movement by it's input node.
 resource_name = "Damage Resource"
 script = ExtResource("7_bwls5")
 can_receive_damage = true
-resistance_value_list = Array[float]([0.0, 0.0])
+resistance_value_list = Array[float]([])
 version = 0
 not_saved = false
 
