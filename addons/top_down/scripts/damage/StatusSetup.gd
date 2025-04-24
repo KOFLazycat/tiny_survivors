@@ -21,9 +21,16 @@ func _setup_status()->void:
 		# it is the same DamageResource
 		return
 	damage_resource.store_status.connect(_store_status)
-	for _status:DamageStatusResource in status_list:
-		assert(_status != null)
-		_status.process(resource_node, null, true)
+	#for _status:DamageStatusResource in status_list:
+		#assert(_status != null)
+		#_status.process(resource_node, null, true)
 
 func _store_status(status_effect:DamageStatusResource)->void:
+	if status_effect.tick_finished.is_connected(_on_tick_finished):
+		return
+	status_effect.tick_finished.connect(_on_tick_finished)
 	status_list.append(status_effect)
+
+
+func _on_tick_finished(status_effect: DamageStatusResource) -> void:
+	status_list.erase(status_effect)

@@ -2,8 +2,8 @@ class_name DamagePoints
 extends Node2D
 
 @export var label:Label
-@export var tween_time:float = 1.0
-@export var distance:float = 16.0
+@export var tween_time:float = 0.5
+@export var distance:float = 20.0
 @export var pool_node:PoolNode
 
 

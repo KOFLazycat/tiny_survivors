@@ -91,7 +91,13 @@ func process(resource_node:ResourceNode)->void:
 	_apply_damage_effects(resource_node, _damage_resource, _health_resource)
 	
 	# 状态效果
-	status_list.map(func(s): s.process(resource_node, _damage_resource))
+	status_list.map(
+		func(s: DamageStatusResource): 
+			var status_setup: StatusSetup = resource_node.owner.get_node("StatusSetup")
+			assert(status_setup != null, "status_setup should not be null.")
+			if !status_setup.status_list.has(s):
+				s.process(resource_node, _damage_resource, true)
+	)
 	
 	if report_callback.is_valid():
 		report_callback.call_deferred(self)
