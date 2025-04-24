@@ -5,19 +5,25 @@
 class_name DamageTypeResource
 extends Resource
 
-@export_group("Damage Configuration")
+@export_group("Basic Settings")
 ## 基础伤害值（最终伤害需计算抗性）
 ## 注意：该值为单次伤害，非持续伤害
 @export_range(0.0, 10000.0) var value: float = 0.0
-## 抗性百分比
+## 抗性百分比，DamageSetup设置时有效
 ## 注意：实际伤害 = 伤害总量 * (1 - resistance_value)
 @export_range(0.0, 1.0, 0.01) var resistance_value: float = 0.0
-
-@export_group("Type Settings")
 ## 伤害类型，决定：
 ## - 抗性计算方式
 ## - 命中特效表现
 @export var type: DamageType = DamageType.PHYSICAL
+
+@export_group("Advanced Effects")
+## 效果作用半径
+@export var effect_radius: float = 20.0
+## 最大传播次数（0=不可传播）
+@export var max_spread: int = 0
+## 是否允许对Boss生效
+@export var allow_on_boss: bool = false
 
 ## 伤害类型枚举，命名规则：
 ## 1. 基础类型在前，特殊类型在后
@@ -29,13 +35,12 @@ enum DamageType {
 	LIGHTNING,  # 雷电（连锁攻击多个目标）
 	POISON,     # 毒素（持续生命流失）
 	CURSE,      # 诅咒（降低目标抗性）
-	ACID,       # 酸液（降低护甲值）
-	MAGNETIC,   # 磁力（禁用机械单位）
-	BLOOD,      # 鲜血（吸血效果）
-	DARK,       # 暗影（无视部分抗性）
-	ARCANE,     # 奥术（魔法穿透）
+	#ACID,       # 酸液（降低护甲值）
+	#MAGNETIC,   # 磁力（禁用机械单位）
+	#BLOOD,      # 鲜血（吸血效果）
+	#DARK,       # 暗影（无视部分抗性）
+	#ARCANE,     # 奥术（魔法穿透）
 }
-
 
 ## 获取类型名称（用于UI显示）
 func get_type_name() -> String:
