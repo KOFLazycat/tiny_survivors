@@ -62,7 +62,7 @@ func add_resistance(resistance: DamageTypeResource) -> void:
 	resistance_list.append(resistance)
 	var type: int = resistance.type
 	if _is_valid_resistance_type(type):
-		damage_resource.resistance_value_list[type] += resistance.value
+		damage_resource.resistance_value_list[type] = clampf(damage_resource.resistance_value_list[type] + resistance.resistance_value, 0.0, 1.0)
 
 ## 移除抗性
 func remove_resistance(resistance: DamageTypeResource) -> void:
@@ -72,14 +72,14 @@ func remove_resistance(resistance: DamageTypeResource) -> void:
 	resistance_list.erase(resistance)
 	var type: int = resistance.type
 	if _is_valid_resistance_type(type):
-		damage_resource.resistance_value_list[type] -= resistance.value
+		damage_resource.resistance_value_list[type] = clampf(damage_resource.resistance_value_list[type] - resistance.resistance_value, 0.0, 1.0)
 
 ## 计算总抗性值
 func _calculate_resistances() -> void:
 	for resistance in resistance_list:
 		var type: int = resistance.type
 		if _is_valid_resistance_type(type):
-			damage_resource.resistance_value_list[type] += resistance.value
+			damage_resource.resistance_value_list[type] = clampf(damage_resource.resistance_value_list[type] + resistance.resistance_value, 0.0, 1.0)
 		else:
 			push_warning("Invalid resistance type: %d" % type)
 

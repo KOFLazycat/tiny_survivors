@@ -8,9 +8,6 @@
 class_name DamageDataResource
 extends TransmissionResource
 
-## 成功闪避信号
-signal missed
-
 @export_group("Weapon Config")
 ## 基础伤害类型列表（可混合物理+元素伤害）
 ## 注意：非物理伤害不受暴击影响
@@ -23,10 +20,6 @@ signal missed
 @export var target_hit_limit:int = 1
 
 @export_group("Advanced")
-## 玩家闪避概率（需关联player_damage_data）
-@export_range(0.0, 1.0) var miss_chance: float = 0.1
-## 监听玩家的DamageDataResource
-@export var player_damage_data: DamageDataResource
 ## Status effects that can be applied to target
 @export var status_list:Array[DamageStatusResource]
 
@@ -140,8 +133,7 @@ func _apply_damage_effects(resource_node: ResourceNode, _damage_resource: Damage
 	)
 	
 	# 闪避检测
-	if _check_miss():
-		player_damage_data.missed.emit()
+	if _check_miss(resource_node):
 		_damage_resource.miss_damage(self)
 	else:
 		_commit_damage(_damage_resource, _health_resource)
@@ -153,8 +145,14 @@ func _calculate_single_damage(dmg: DamageTypeResource, res: DamageResource) -> f
 	return max(base * (1.0 - res.resistance_value_list[dmg.type]), 0.0)
 
 ## 抽离闪避检测逻辑
-func _check_miss() -> bool:
-	return player_damage_data && randf() < player_damage_data.miss_chance
+func _check_miss(resource_node: ResourceNode) -> bool:
+	var is_miss: bool = false
+	var _miss_chance_resource: MissChanceResource = resource_node.get_resource("miss_chance")
+	if _miss_chance_resource != null:
+		is_miss = _miss_chance_resource.check_miss()
+	if is_miss:
+		_miss_chance_resource.add_miss_damage(total_damage)
+	return is_miss
 
 ## 提交伤害
 func _commit_damage(_damage_resource: DamageResource, _health_resource: HealthResource) -> void:

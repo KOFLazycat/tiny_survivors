@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MissChanceResource" load_steps=2 format=3 uid="uid://bquv10y2whuub"]
+
+[ext_resource type="Script" uid="uid://dric7gt0o40of" path="res://scripts/damage/miss_chance_resource.gd" id="1_5vet6"]
+
+[resource]
+script = ExtResource("1_5vet6")
+miss_chance = 0.3
+version = 0
+not_saved = false
+metadata/_custom_type_script = "uid://dric7gt0o40of"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cokh8q4nm25l8"]
+[gd_scene load_steps=77 format=3 uid="uid://cokh8q4nm25l8"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_pil3h"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_2kw8m"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="9_dbdfy"]
 [ext_resource type="Resource" uid="uid://btej3lqnjytbl" path="res://addons/top_down/resources/ItemCollectionResource/weapon_inventory.tres" id="10_8eh02"]
 [ext_resource type="Script" uid="uid://dw1hy3w3qhyc7" path="res://addons/great_games_library/nodes/AreaTransmitter/DataChannelReceiver.gd" id="11_enn7q"]
+[ext_resource type="Resource" uid="uid://bquv10y2whuub" path="res://resources/weapon/miss_chance_resource.tres" id="11_ob8ym"]
 [ext_resource type="Resource" uid="uid://bvsv4benq05bj" path="res://resources/weapon/invincible_time_resource.tres" id="13_o34ox"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="15_6oxay"]
 [ext_resource type="Script" uid="uid://bmer0pq67qfcc" path="res://addons/top_down/scripts/actor/player/PlayerInput.gd" id="15_cjohi"]
@@ -142,6 +143,7 @@ description = ""
 resource_name = "Damage Resource"
 script = ExtResource("9_dbdfy")
 can_receive_damage = true
+resistance_value_list = Array[float]([])
 version = 0
 not_saved = false
 
@@ -158,6 +160,14 @@ script = ExtResource("2_2kw8m")
 resource = ExtResource("10_8eh02")
 make_unique = false
 description = ""
+
+[sub_resource type="Resource" id="Resource_ob8ym"]
+resource_name = "miss_chance"
+script = ExtResource("2_2kw8m")
+resource = ExtResource("11_ob8ym")
+make_unique = false
+description = ""
+metadata/_custom_type_script = "uid://bfrujoe7b8kfv"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oxay"]
 radius = 4.0
@@ -305,7 +315,7 @@ collision_layer = 2
 collision_mask = 17
 
 [node name="ResourceNode" parent="." index="0"]
-list = Array[ExtResource("2_2kw8m")]([SubResource("Resource_y1d7o"), SubResource("Resource_3g443"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_or6sa"), SubResource("Resource_cna70"), SubResource("Resource_sj2w3")])
+list = Array[ExtResource("2_2kw8m")]([SubResource("Resource_y1d7o"), SubResource("Resource_3g443"), SubResource("Resource_ltyge"), SubResource("Resource_dsnfh"), SubResource("Resource_j3dss"), SubResource("Resource_ju227"), SubResource("Resource_or6sa"), SubResource("Resource_cna70"), SubResource("Resource_sj2w3"), SubResource("Resource_ob8ym")])
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -3)
@@ -445,3 +455,4 @@ ammo_capacity_resource = ExtResource("44_enn7q")
 reload_speed_resource = ExtResource("45_cjohi")
 shot_number_resource = ExtResource("46_k6o20")
 invincible_time_resource = ExtResource("13_o34ox")
+miss_chance_resource = ExtResource("11_ob8ym")

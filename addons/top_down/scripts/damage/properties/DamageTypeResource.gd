@@ -9,6 +9,9 @@ extends Resource
 ## 基础伤害值（最终伤害需计算抗性）
 ## 注意：该值为单次伤害，非持续伤害
 @export_range(0.0, 10000.0) var value: float = 0.0
+## 抗性百分比
+## 注意：实际伤害 = 伤害总量 * (1 - resistance_value)
+@export_range(0.0, 1.0, 0.01) var resistance_value: float = 0.0
 
 @export_group("Type Settings")
 ## 伤害类型，决定：

@@ -186,9 +186,10 @@ _data = {
 &"walk": SubResource("Animation_b1txh")
 }
 
-[sub_resource type="Resource" id="Resource_7dwox"]
+[sub_resource type="Resource" id="Resource_1v2yq"]
 script = ExtResource("11_xywgh")
 value = 3.0
+resistance_value = 0.2
 type = 0
 
 [node name="EnemySlimeActor" instance=ExtResource("1_j6u2o")]
@@ -234,7 +235,7 @@ dead_vfx_instance_resource = ExtResource("10_guyi0")
 damage_points_instance_resource = ExtResource("13_6dcwu")
 
 [node name="DamageSetup" parent="." index="13"]
-resistance_list = Array[ExtResource("11_xywgh")]([SubResource("Resource_7dwox")])
+resistance_list = Array[ExtResource("11_xywgh")]([SubResource("Resource_1v2yq")])
 
 [node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("15_0jyv2")]
 resource_node = NodePath("../ResourceNode")

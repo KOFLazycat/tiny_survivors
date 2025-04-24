@@ -22,6 +22,8 @@ signal stats_updated(stat: STAT)
 @export var shot_number_resource: IntResource
 ## 基础无敌时间
 @export var invincible_time_resource: FloatResource
+## 基础闪避概率
+@export var miss_chance_resource: MissChanceResource
 
 enum STAT {
 	MAX_HEALTH,
@@ -90,7 +92,7 @@ func _ready() -> void:
 	# 初始化基础无敌时间数值
 	base_values[STAT.INVINCIBLE] = invincible_time_resource.value
 	# 初始化基础闪避概率
-	base_values[STAT.MISS_CHANCE] = damage_data_resource.miss_chance
+	base_values[STAT.MISS_CHANCE] = miss_chance_resource.miss_chance
 	# 初始化基础穿透数量
 	base_values[STAT.HIT_LIMIT] = damage_data_resource.target_hit_limit
 	
@@ -152,6 +154,6 @@ func _on_stats_updated(stat: STAT) -> void:
 		STAT.INVINCIBLE:
 			invincible_time_resource.value = value
 		STAT.MISS_CHANCE:
-			damage_data_resource.miss_chance = value
+			miss_chance_resource.miss_chance = value
 		STAT.HIT_LIMIT:
 			damage_data_resource.target_hit_limit = int(value)
