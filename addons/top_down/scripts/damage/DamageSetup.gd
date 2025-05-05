@@ -47,8 +47,8 @@ func _setup_resistance()->void:
 	# 初始化抗性数组（按枚举大小动态调整）
 	var type_count = DamageTypeResource.DamageType.size()
 	damage_resource.resistance_value_list.resize(type_count)
-	for i in type_count:
-		damage_resource.resistance_value_list[i] = 0.0
+	#for i in type_count:
+		#damage_resource.resistance_value_list[i] = 0.0
 	
 	_calculate_resistances()
 

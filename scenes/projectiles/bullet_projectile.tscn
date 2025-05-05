@@ -2,23 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_kxxn2"]
 [ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="2_dot0l"]
+[ext_resource type="Script" uid="uid://dnxaqnm5bsit2" path="res://scripts/damage/properties/status_effects/poison_status_resource.gd" id="3_dot0l"]
 [ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="3_s83xh"]
-[ext_resource type="Script" uid="uid://oc3oqqonki75" path="res://addons/top_down/scripts/damage/properties/StatusEffects/TickHealthResource.gd" id="3_shcdb"]
 [ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="4_lwnxk"]
 [ext_resource type="Texture2D" uid="uid://cp2j5s0kpi288" path="res://addons/top_down/assets/images/projectile/bullet_1.png" id="5_4lonb"]
 [ext_resource type="Resource" uid="uid://qkblw3huirik" path="res://resources/instance_resources/vfx/explosion0_instance.tres" id="6_adkdu"]
 [ext_resource type="Script" uid="uid://dxjfqmefy1lrh" path="res://scripts/weapon_system/projectile/projectile_impact_sfx.gd" id="7_hs2kk"]
 [ext_resource type="Resource" uid="uid://byppueuo3drya" path="res://addons/top_down/resources/sounds/damage.tres" id="8_t66r8"]
 
-[sub_resource type="Resource" id="Resource_etuoe"]
-script = ExtResource("3_shcdb")
-chance = 1.0
-ticks = 3
-value = -4.0
-interval = 1.0
-status_name = "Default Status"
+[sub_resource type="Resource" id="Resource_shcdb"]
+script = ExtResource("3_dot0l")
+status_name = "POISON"
 base_duration = 5.0
-metadata/_custom_type_script = "uid://oc3oqqonki75"
+value = -10.0
+interval = 1.0
+chance = 1.0
+dmg_type = 4
+metadata/_custom_type_script = "uid://dnxaqnm5bsit2"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv4mq"]
 radius = 2.0
@@ -30,7 +30,7 @@ size = Vector2(4, 4)
 speed = 240.0
 
 [node name="ProjectileSetup" parent="." index="0"]
-status_damage = Array[ExtResource("2_dot0l")]([SubResource("Resource_etuoe")])
+status_damage = Array[ExtResource("2_dot0l")]([SubResource("Resource_shcdb")])
 
 [node name="Shadow" type="Sprite2D" parent="." index="1"]
 modulate = Color(1, 0.983333, 0, 0.168627)

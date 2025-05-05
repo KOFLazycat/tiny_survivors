@@ -12,20 +12,26 @@ func _ready() -> void:
 	
 	_setup_status()
 	# in case used with PoolNode
-	resource_node.ready.connect(_setup_status)
+	if !resource_node.ready.is_connected(_setup_status):
+		resource_node.ready.connect(_setup_status)
+	# 对象池初始化
+	request_ready()
+
 
 func _setup_status()->void:
 	damage_resource = resource_node.get_resource("damage")
 	assert(damage_resource != null)
-	if damage_resource.store_status.is_connected(_store_status):
+	if !damage_resource.store_status.is_connected(_store_status):
 		# it is the same DamageResource
-		return
-	damage_resource.store_status.connect(_store_status)
-	#for _status:DamageStatusResource in status_list:
-		#assert(_status != null)
-		#_status.process(resource_node, null, true)
+		damage_resource.store_status.connect(_store_status)
+	
+	for _status:DamageStatusResource in status_list:
+		assert(_status != null)
+		_status.set_over(true)
+
 
 func _store_status(status_effect:DamageStatusResource)->void:
+	status_effect.set_over(false)
 	if status_effect.tick_finished.is_connected(_on_tick_finished):
 		return
 	status_effect.tick_finished.connect(_on_tick_finished)

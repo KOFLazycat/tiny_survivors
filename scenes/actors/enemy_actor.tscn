@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c2h30dpmo6tff"]
+[gd_scene load_steps=43 format=3 uid="uid://c2h30dpmo6tff"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_fybaw"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_6gjbv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="10_vbwwv"]
 [ext_resource type="Resource" uid="uid://puojn644fqur" path="res://resources/instance_resources/actors/dead/enemy_dead_instance.tres" id="11_23nqi"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="12_rcdee"]
+[ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="14_8ddkg"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="14_l0fag"]
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="15_cnjwa"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="16_d6xd7"]
@@ -186,6 +187,16 @@ _data = {
 &"walk": SubResource("Animation_vbwwv")
 }
 
+[sub_resource type="Resource" id="Resource_wwptg"]
+script = ExtResource("14_8ddkg")
+value = 0.0
+resistance_value = 0.2
+type = 4
+effect_radius = 20.0
+max_spread = 0
+allow_on_boss = false
+metadata/_custom_type_script = "uid://1rbr4is74e7l"
+
 [node name="EnemyActor" instance=ExtResource("1_fybaw")]
 y_sort_enabled = true
 collision_layer = 4
@@ -227,6 +238,9 @@ dead_vfx_instance_resource = ExtResource("11_23nqi")
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("12_rcdee")
 
+[node name="DamageSetup" parent="." index="13"]
+resistance_list = Array[ExtResource("14_8ddkg")]([SubResource("Resource_wwptg")])
+
 [node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("14_l0fag")]
 resource_node = NodePath("../ResourceNode")
 
@@ -234,9 +248,10 @@ resource_node = NodePath("../ResourceNode")
 collision_mask = 2
 resource_node = NodePath("../ResourceNode")
 
-[node name="PoolNode" type="Node" parent="." index="17" node_paths=PackedStringArray("animation_player_list", "listen_node")]
+[node name="PoolNode" type="Node" parent="." index="17" node_paths=PackedStringArray("ready_nodes", "animation_player_list", "listen_node")]
 process_mode = 3
 script = ExtResource("16_d6xd7")
+ready_nodes = [NodePath("../StatusSetup")]
 animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]
 listen_node = NodePath("../ActorDamage")
 signal_name = &"actor_died"

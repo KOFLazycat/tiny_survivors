@@ -7,11 +7,24 @@
 class_name DamageStatusResource
 extends Resource
 
+## 状态计时结束
+signal tick_finished(dsr: DamageStatusResource)
+
 @export_group("Base Settings")
 ## 状态显示名称
 @export var status_name: String = "Default Status"
 ## 基础持续时间（秒）
-@export var base_duration: float = 5.0
+@export var base_duration: float = 3.0
+## 每次结算基础值，负数表示伤害，正数表示恢复
+@export var value:float = 0.0
+## 伤害结算间隔
+@export var interval:float = 1.0
+## 状态产生概率
+@export_range(0.0, 1.0) var chance:float = 1.0
+## 伤害类型，决定：
+## - 抗性计算方式
+## - 命中特效表现
+@export var dmg_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL
 
 @export_group("Visual Settings")
 ## 状态图标
@@ -19,15 +32,7 @@ extends Resource
 ## 状态生效时的粒子特效场景
 @export var effect_scene: PackedScene
 
-## 当前生效时长
-var current_duration: float = 0.0
-## 所属伤害资源
-var source_damage: DamageDataResource
-
-## 初始化状态（子类必须实现）
-func initialize(damage_data: DamageDataResource) -> void:
-	self.source_damage = damage_data
-	current_duration = base_duration
+var is_over: bool = false
 
 ## 处理状态效果逻辑（基类默认行为为存储副本到实体）
 ## 参数:
@@ -35,18 +40,27 @@ func initialize(damage_data: DamageDataResource) -> void:
 ##   damage_resource: 关联的伤害资源（自动获取若为空）
 ##   is_stored: 是否为已存储的实例（避免循环添加）
 func process(resource_node:ResourceNode, damage_resource:DamageResource = null, is_stored:bool = false)->void:
+	if is_over:
+		return
+		
+	if randf() > chance:
+		return
 	# 参数校验
 	assert(resource_node != null, "ResourceNode is null")
 	if damage_resource == null:
 		damage_resource = resource_node.get_resource("damage")
 		assert(damage_resource != null, "DamageResource not found")
 	
+	#var ad: ActorDamage = resource_node.owner.get_node("ActorDamage")
+	#if is_instance_valid(ad) and !ad.actor_died.is_connected(_on_actor_died):
+		#ad.actor_died.connect(_on_actor_died, CONNECT_ONE_SHOT)
+	
 	# 存储逻辑
 	if !is_stored:
-		_store_effect(damage_resource)
+		store_effect(damage_resource)
 	
 	# 子类扩展点
-	_on_process(resource_node, damage_resource)
+	tick(resource_node, damage_resource, base_duration)
 
 
 ## 复制时生成唯一ID（可选）
@@ -56,27 +70,27 @@ func duplicate(subresources: bool = false) -> Resource:
 	return copy
 
 ## 存储状态效果到实体
-func _store_effect(damage_resource: DamageResource) -> void:
+func store_effect(damage_resource: DamageResource) -> void:
 	damage_resource.add_status_effect(self.duplicate(true))
 
 ## 内部处理逻辑（子类重写此方法而非 process()）
-func _on_process(resource_node: ResourceNode, damage_resource: DamageResource) -> void:
+func tick(resource_node:ResourceNode, damage_resource:DamageResource, remaining_ticks:float) -> void:
 	pass
 
 
-## 应用效果（子类必须实现）
-func apply_effect(target: Node) -> void:
-	pass
+func set_over(over: bool) -> void:
+	is_over = over
 
-## 传播效果（子类可选实现）
-func spread_effect(origin: Node) -> void:
-	pass
 
-## 更新效果（返回true表示效果继续）
-func update_effect(delta: float) -> bool:
-	current_duration -= delta
-	return current_duration > 0
+## 单类型伤害计算
+func calculate_value(dmg_resource: DamageResource) -> float:
+	var r: float = 0.0
+	if value > 0.0:
+		r = value
+	else:
+		r = min(0.0, value * (1.0 - dmg_resource.resistance_value_list[dmg_type]))
+	return r
 
-## 获取状态类型（子类必须实现）
-func get_status_type() -> int:
-	return DamageTypeResource.DamageType.PHYSICAL
+#
+#func _on_actor_died() -> void:
+	#pass

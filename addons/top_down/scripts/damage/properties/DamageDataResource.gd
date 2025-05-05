@@ -96,7 +96,7 @@ func process(resource_node:ResourceNode)->void:
 			var status_setup: StatusSetup = resource_node.owner.get_node("StatusSetup")
 			assert(status_setup != null, "status_setup should not be null.")
 			if !status_setup.status_list.has(s):
-				s.process(resource_node, _damage_resource, true)
+				s.process(resource_node, _damage_resource, false)
 	)
 	
 	if report_callback.is_valid():
