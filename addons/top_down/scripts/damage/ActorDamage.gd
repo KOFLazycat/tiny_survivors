@@ -46,10 +46,11 @@ func _play_dead()->void:
 	
 	dead_vfx_instance_resource.instance.call_deferred(_config_callback)
 	
-	if status_setup and status_setup.status_list[DamageTypeResource.DamageType.POISON] != null:
+	var poison_status: PoisonStatusResource = status_setup.status_list[DamageTypeResource.DamageType.POISON]
+	if status_setup and poison_status != null:
 		var _poison_config_callback:Callable = func (inst:PoisonEffect)->void:
 			inst.global_position = owner.global_position
-			inst.poison_status_resource = status_setup.status_list[DamageTypeResource.DamageType.POISON].duplicate()
+			inst.poison_status_resource = poison_status.duplicate()
 		
 		poison_effect_instance_resource.instance.call_deferred(_poison_config_callback)
 	actor_died.emit()

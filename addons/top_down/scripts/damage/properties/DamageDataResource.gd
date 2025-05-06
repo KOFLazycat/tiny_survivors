@@ -90,15 +90,6 @@ func process(resource_node:ResourceNode)->void:
 	_update_essentials(resource_node, _damage_resource)
 	_apply_damage_effects(resource_node, _damage_resource, _health_resource)
 	
-	# 状态效果
-	status_list.map(
-		func(s: DamageStatusResource): 
-			var status_setup: StatusSetup = resource_node.owner.get_node("StatusSetup")
-			assert(status_setup != null, "status_setup should not be null.")
-			if !status_setup.status_list.has(s):
-				s.process(resource_node, _damage_resource, false)
-	)
-	
 	if report_callback.is_valid():
 		report_callback.call_deferred(self)
 	
@@ -125,6 +116,12 @@ func _update_essentials(resource_node: ResourceNode, _damage_resource: DamageRes
 	var _push_resource: PushResource = resource_node.get_resource("push")
 	if _push_resource:
 		_push_resource.add_impulse(direction * kickback_strength)
+	
+	# 状态效果
+	status_list.map(
+		func(s: DamageStatusResource): 
+			s.process(resource_node, _damage_resource)
+	)
 
 
 ## 应用伤害与状态效果

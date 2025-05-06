@@ -7,7 +7,7 @@ extends DashAbility
 var move_particles: MoveParticles
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if move_particles:
 		move_particles.global_position = sprite.global_position + Vector2(0, 8)
 		move_particles.emitting = dash_bool.value

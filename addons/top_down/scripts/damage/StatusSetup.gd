@@ -21,23 +21,26 @@ func _ready() -> void:
 	request_ready()
 
 
+func _physics_process(delta: float) -> void:
+	for _status: DamageStatusResource in status_list:
+		if _status != null:
+			_status.tick(resource_node, delta)
+
+
 func _setup_status()->void:
 	damage_resource = resource_node.get_resource("damage")
 	assert(damage_resource != null)
 	if !damage_resource.store_status.is_connected(store_status):
 		# it is the same DamageResource
 		damage_resource.store_status.connect(store_status)
-	
-	#for _status:DamageStatusResource in status_list:
-		#if _status != null:
-			#_status.kill_tick_tween()
 
 
+## 存储状态BUF，相同类型的BUF只能存在一个
 func store_status(status_effect:DamageStatusResource)->void:
-	if status_effect.tick_finished.is_connected(_on_tick_finished):
-		return
-	status_effect.tick_finished.connect(_on_tick_finished)
-	status_list[status_effect.dmg_type] = status_effect
+	if status_list[status_effect.dmg_type] == null and status_effect != null:
+		status_list[status_effect.dmg_type] = status_effect
+		if !status_effect.tick_finished.is_connected(_on_tick_finished):
+			status_effect.tick_finished.connect(_on_tick_finished)
 
 
 func _on_tick_finished(status_effect: DamageStatusResource) -> void:

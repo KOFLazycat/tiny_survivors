@@ -3,23 +3,29 @@ extends Node2D
 
 ## 毒资源
 @export var poison_status_resource: PoisonStatusResource : set = set_poison_status_resource
+@export var spread_detect: Area2D
+@export var collision_shape: CollisionShape2D
+@export var sprite: Sprite2D
+@export var body_node: Node2D
+@export var animation_player: AnimationPlayer
+
 
 
 func _ready() -> void:
-	if !$SpreadDetect.body_entered.is_connected(_on_spread_detect_body_entered):
-		$SpreadDetect.body_entered.connect(_on_spread_detect_body_entered)
+	if !spread_detect.body_entered.is_connected(_on_spread_detect_body_entered):
+		spread_detect.body_entered.connect(_on_spread_detect_body_entered)
 	request_ready()
 
 # 设置毒资源
 func set_poison_status_resource(psr: PoisonStatusResource) -> void:
 	poison_status_resource = psr
-	if $SpreadDetect/CollisionShape2D.shape == null:
-		$SpreadDetect/CollisionShape2D.shape = CircleShape2D.new()  # 若未初始化则新建
-	$SpreadDetect/CollisionShape2D.shape.radius = poison_status_resource.speard_radius  # 设置半径
-	var scale_i: float = poison_status_resource.speard_radius/($Body/Stretch/Sprite2D.texture.get_height()/2) # 爆炸动画方位需要跟探测方向一致
-	$Body.scale = Vector2(scale_i, scale_i)
-	$Body.rotation = randf_range(0, TAU)
-	$Body/Stretch/Sprite2D/AnimationPlayer.play("explosion")
+	if collision_shape.shape == null:
+		collision_shape.shape = CircleShape2D.new()  # 若未初始化则新建
+	collision_shape.shape.radius = poison_status_resource.speard_radius  # 设置半径
+	var scale_i: float = poison_status_resource.speard_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
+	body_node.scale = Vector2(scale_i, scale_i)
+	body_node.rotation = randf_range(0, TAU)
+	animation_player.play("explosion")
 
 
 func _on_spread_detect_body_entered(body: Node2D) -> void:
@@ -29,4 +35,4 @@ func _on_spread_detect_body_entered(body: Node2D) -> void:
 		assert(rn != null, "ResourceNode should not be null.")
 		var damage_resource: DamageResource = rn.get_resource("damage")
 		assert(damage_resource != null, "DamageResource not found")
-		poison_status_resource.process(rn, damage_resource, false)
+		poison_status_resource.process(rn, damage_resource)
