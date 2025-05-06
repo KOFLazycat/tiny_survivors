@@ -44,13 +44,14 @@ func process(resource_node:ResourceNode, damage_resource:DamageResource = null, 
 		return
 	# 参数校验
 	assert(resource_node != null, "ResourceNode is null")
+	
+	var ad:ActorDamage = resource_node.owner.get_node("ActorDamage")
+	if !ad.actor_died.is_connected(_on_actor_died):
+		ad.actor_died.connect(_on_actor_died)
+	
 	if damage_resource == null:
 		damage_resource = resource_node.get_resource("damage")
 		assert(damage_resource != null, "DamageResource not found")
-	
-	#var ad: ActorDamage = resource_node.owner.get_node("ActorDamage")
-	#if is_instance_valid(ad) and !ad.actor_died.is_connected(_on_actor_died):
-		#ad.actor_died.connect(_on_actor_died, CONNECT_ONE_SHOT)
 	
 	# 存储逻辑
 	if !is_stored:
@@ -89,6 +90,6 @@ func calculate_value(dmg_resource: DamageResource) -> float:
 		r = min(0.0, value * (1.0 - dmg_resource.resistance_value_list[dmg_type]))
 	return r
 
-#
-#func _on_actor_died() -> void:
-	#pass
+
+func _on_actor_died() -> void:
+	pass

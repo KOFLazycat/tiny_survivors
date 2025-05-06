@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_olu6n"]
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_ejr8j"]
 [ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="9_ejlo5"]
-[ext_resource type="Texture2D" uid="uid://8pnb0dx8f0mt" path="res://addons/top_down/assets/images/characters/slime_small_16x16_strip7.png" id="10_fqujx"]
+[ext_resource type="Texture2D" uid="uid://c3pd5i1ehliuh" path="res://addons/top_down/assets/images/characters/slime_small_16x16_strip7.png" id="10_fqujx"]
 [ext_resource type="Resource" uid="uid://pvw6k1ntsles" path="res://addons/top_down/resources/sounds/zombie_split.tres" id="11_souqr"]
 [ext_resource type="Resource" uid="uid://b13jjkvbe1mqh" path="res://resources/instance_resources/actors/dead/enemy_slime_small_dead_instance.tres" id="12_cwqh7"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="13_imujl"]
@@ -214,7 +214,7 @@ effect_radius = 20.0
 max_spread = 0
 allow_on_boss = false
 
-[node name="SlimeSmallActor" instance=ExtResource("1_oeuea")]
+[node name="SlimeSmallActor" groups=["enemies"] instance=ExtResource("1_oeuea")]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 5

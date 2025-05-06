@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c2h30dpmo6tff"]
+[gd_scene load_steps=44 format=3 uid="uid://c2h30dpmo6tff"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_fybaw"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_6gjbv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="10_vbwwv"]
 [ext_resource type="Resource" uid="uid://puojn644fqur" path="res://resources/instance_resources/actors/dead/enemy_dead_instance.tres" id="11_23nqi"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="12_rcdee"]
+[ext_resource type="Resource" uid="uid://2syqn84y4e0h" path="res://resources/instance_resources/vfx/status_effects/poison_effect_instance.tres" id="13_wwptg"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="14_8ddkg"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="14_l0fag"]
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="15_cnjwa"]
@@ -197,7 +198,7 @@ max_spread = 0
 allow_on_boss = false
 metadata/_custom_type_script = "uid://1rbr4is74e7l"
 
-[node name="EnemyActor" instance=ExtResource("1_fybaw")]
+[node name="EnemyActor" groups=["enemies"] instance=ExtResource("1_fybaw")]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 5
@@ -231,9 +232,11 @@ libraries = {
 [node name="HoleDeath" parent="." index="10"]
 enabled = false
 
-[node name="ActorDamage" parent="." index="11"]
+[node name="ActorDamage" parent="." index="11" node_paths=PackedStringArray("status_setup")]
+status_setup = NodePath("../StatusSetup")
 sound_resource_dead = ExtResource("10_vbwwv")
 dead_vfx_instance_resource = ExtResource("11_23nqi")
+poison_effect_instance_resource = ExtResource("13_wwptg")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("12_rcdee")
@@ -267,7 +270,8 @@ script = ExtResource("20_ltm0k")
 resource_node = NodePath("../ResourceNode")
 pool_node = NodePath("../PoolNode")
 active_enemy = NodePath("../ActiveEnemy")
-health_treshold = 0.3
+health_treshold = 0.4
+replace_chance = 0.8
 replacement_instance_resource = ExtResource("19_ltm0k")
 sound_effect = ExtResource("20_8ddkg")
 damage_data_receiver = NodePath("../AreaReceiver2D/DamageDataReceiver")

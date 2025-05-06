@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c3h4pus0snrfu"]
+[gd_scene load_steps=42 format=3 uid="uid://c3h4pus0snrfu"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_bgiua"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_k2tpu"]
@@ -9,11 +9,12 @@
 [ext_resource type="Script" uid="uid://dm3b7cxadprx0" path="res://addons/top_down/scripts/input/InputResource.gd" id="7_wui2d"]
 [ext_resource type="Script" uid="uid://dqe8os6rf54ca" path="res://addons/top_down/scripts/damage/DamageResource.gd" id="8_2q543"]
 [ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://addons/top_down/scripts/shaders/color_flash.gdshader" id="9_nxcny"]
-[ext_resource type="Texture2D" uid="uid://dwvq0tijkhh12" path="res://addons/top_down/assets/images/characters/zombie_crawler_16x16_strip6-sheet.png" id="10_etss4"]
+[ext_resource type="Texture2D" uid="uid://dcvg1fkeax8rp" path="res://addons/top_down/assets/images/characters/zombie_crawler_16x16_strip6-sheet.png" id="10_etss4"]
 [ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="11_7e1ob"]
 [ext_resource type="Resource" uid="uid://c088ctyii0ii8" path="res://resources/instance_resources/actors/dead/enemy_crawler_dead_instance.tres" id="12_k2tpu"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="13_k2tpu"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="13_or04p"]
+[ext_resource type="Resource" uid="uid://2syqn84y4e0h" path="res://resources/instance_resources/vfx/status_effects/poison_effect_instance.tres" id="13_qr2k7"]
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="14_n07pn"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="15_t6ndq"]
 [ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="16_vpjlw"]
@@ -118,6 +119,7 @@ description = "Used to control actors movement by it's input node.
 resource_name = "Damage Resource"
 script = ExtResource("8_2q543")
 can_receive_damage = true
+resistance_value_list = Array[float]([])
 version = 0
 not_saved = false
 
@@ -220,7 +222,7 @@ _data = {
 &"walk": SubResource("Animation_d7gcn")
 }
 
-[node name="EnemyCrawlerActor" instance=ExtResource("1_bgiua")]
+[node name="EnemyCrawlerActor" groups=["enemies"] instance=ExtResource("1_bgiua")]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 5
@@ -252,9 +254,11 @@ libraries = {
 [node name="HoleDeath" parent="." index="10"]
 enabled = false
 
-[node name="ActorDamage" parent="." index="11"]
+[node name="ActorDamage" parent="." index="11" node_paths=PackedStringArray("status_setup")]
+status_setup = NodePath("../StatusSetup")
 sound_resource_dead = ExtResource("11_7e1ob")
 dead_vfx_instance_resource = ExtResource("12_k2tpu")
+poison_effect_instance_resource = ExtResource("13_qr2k7")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("13_k2tpu")

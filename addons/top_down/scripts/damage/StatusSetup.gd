@@ -8,7 +8,10 @@ var damage_resource:DamageResource
 
 func _ready() -> void:
 	# BUG: workaround - https://github.com/godotengine/godot/issues/96181
-	status_list = status_list.duplicate()
+	#status_list = status_list.duplicate()
+	status_list = []
+	var type_count = DamageTypeResource.DamageType.size()
+	status_list.resize(type_count)
 	
 	_setup_status()
 	# in case used with PoolNode
@@ -21,21 +24,21 @@ func _ready() -> void:
 func _setup_status()->void:
 	damage_resource = resource_node.get_resource("damage")
 	assert(damage_resource != null)
-	if !damage_resource.store_status.is_connected(_store_status):
+	if !damage_resource.store_status.is_connected(store_status):
 		# it is the same DamageResource
-		damage_resource.store_status.connect(_store_status)
+		damage_resource.store_status.connect(store_status)
 	
-	for _status:DamageStatusResource in status_list:
-		assert(_status != null)
-		_status.kill_tick_tween()
+	#for _status:DamageStatusResource in status_list:
+		#if _status != null:
+			#_status.kill_tick_tween()
 
 
-func _store_status(status_effect:DamageStatusResource)->void:
+func store_status(status_effect:DamageStatusResource)->void:
 	if status_effect.tick_finished.is_connected(_on_tick_finished):
 		return
 	status_effect.tick_finished.connect(_on_tick_finished)
-	status_list.append(status_effect)
+	status_list[status_effect.dmg_type] = status_effect
 
 
 func _on_tick_finished(status_effect: DamageStatusResource) -> void:
-	status_list.erase(status_effect)
+	status_list[status_effect.dmg_type] = null

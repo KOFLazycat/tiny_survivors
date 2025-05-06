@@ -5,11 +5,13 @@ signal actor_died
 
 @export var resource_node:ResourceNode
 @export var sprite_flip:SpriteFlip
+@export var status_setup: StatusSetup
 @export var flash_animation_player:AnimationPlayer
 @export var flash_animation:StringName
 @export var sound_resource_damage:SoundResource
 @export var sound_resource_dead:SoundResource
 @export var dead_vfx_instance_resource:InstanceResource
+@export var poison_effect_instance_resource:InstanceResource
 
 func _ready()->void:
 	var _health_resource:HealthResource = resource_node.get_resource("health")
@@ -23,6 +25,7 @@ func _ready()->void:
 	request_ready()
 	flash_animation_player.play("RESET")
 	tree_exiting.connect(_remove_connections.bind(_health_resource), CONNECT_ONE_SHOT)
+
 
 func _remove_connections(health_resource:HealthResource)->void:
 	health_resource.damaged.disconnect(_play_damaged)
@@ -42,4 +45,11 @@ func _play_dead()->void:
 		inst.scale.x = sprite_flip.dir
 	
 	dead_vfx_instance_resource.instance.call_deferred(_config_callback)
+	
+	if status_setup and status_setup.status_list[DamageTypeResource.DamageType.POISON] != null:
+		var _poison_config_callback:Callable = func (inst:PoisonEffect)->void:
+			inst.global_position = owner.global_position
+			inst.poison_status_resource = status_setup.status_list[DamageTypeResource.DamageType.POISON].duplicate()
+		
+		poison_effect_instance_resource.instance.call_deferred(_poison_config_callback)
 	actor_died.emit()

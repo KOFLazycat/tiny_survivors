@@ -45,6 +45,10 @@ enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/
 
 import/canvas_textures/default_texture_filter=3
 
+[global_group]
+
+enemies=""
+
 [input]
 
 ui_accept={
