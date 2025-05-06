@@ -118,10 +118,8 @@ func _update_essentials(resource_node: ResourceNode, _damage_resource: DamageRes
 		_push_resource.add_impulse(direction * kickback_strength)
 	
 	# 状态效果
-	status_list.map(
-		func(s: DamageStatusResource): 
-			s.process(resource_node, _damage_resource)
-	)
+	for _status: DamageStatusResource in status_list:
+		_status.initialize(resource_node)
 
 
 ## 应用伤害与状态效果

@@ -13,12 +13,12 @@
 [sub_resource type="Resource" id="Resource_shcdb"]
 script = ExtResource("3_dot0l")
 speard_radius = 30.0
-status_name = "POISON"
-base_duration = 5.0
-value = -3.0
-interval = 1.0
-chance = 1.0
-dmg_type = 4
+status_name = &"PoisonStatus"
+status_duration = 5.0
+status_value = -6.0
+status_interval = 1.0
+status_chance = 1.0
+status_damage_type = 4
 metadata/_custom_type_script = "uid://dnxaqnm5bsit2"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv4mq"]

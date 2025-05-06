@@ -33,6 +33,4 @@ func _on_spread_detect_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("enemies"):
 		var rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
 		assert(rn != null, "ResourceNode should not be null.")
-		var damage_resource: DamageResource = rn.get_resource("damage")
-		assert(damage_resource != null, "DamageResource not found")
-		poison_status_resource.process(rn, damage_resource)
+		poison_status_resource.initialize(rn)

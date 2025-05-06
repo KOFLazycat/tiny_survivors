@@ -24,7 +24,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	for _status: DamageStatusResource in status_list:
 		if _status != null:
-			_status.tick(resource_node, delta)
+			_status.process(delta)
 
 
 func _setup_status()->void:
@@ -37,11 +37,12 @@ func _setup_status()->void:
 
 ## 存储状态BUF，相同类型的BUF只能存在一个
 func store_status(status_effect:DamageStatusResource)->void:
-	if status_list[status_effect.dmg_type] == null and status_effect != null:
-		status_list[status_effect.dmg_type] = status_effect
-		if !status_effect.tick_finished.is_connected(_on_tick_finished):
-			status_effect.tick_finished.connect(_on_tick_finished)
+	if status_list[status_effect.status_damage_type] == null and status_effect != null:
+		#status_effect.initialize(resource_node)
+		status_list[status_effect.status_damage_type] = status_effect
+		if !status_effect.status_removed.is_connected(_on_status_removed):
+			status_effect.status_removed.connect(_on_status_removed)
 
 
-func _on_tick_finished(status_effect: DamageStatusResource) -> void:
-	status_list[status_effect.dmg_type] = null
+func _on_status_removed(status_effect: DamageStatusResource) -> void:
+	status_list[status_effect.status_damage_type] = null
