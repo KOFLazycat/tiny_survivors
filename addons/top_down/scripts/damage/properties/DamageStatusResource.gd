@@ -32,7 +32,7 @@ signal tick_finished(dsr: DamageStatusResource)
 ## 状态生效时的粒子特效场景
 @export var effect_scene: PackedScene
 
-var is_over: bool = false
+var tick_tween: Tween
 
 ## 处理状态效果逻辑（基类默认行为为存储副本到实体）
 ## 参数:
@@ -40,9 +40,6 @@ var is_over: bool = false
 ##   damage_resource: 关联的伤害资源（自动获取若为空）
 ##   is_stored: 是否为已存储的实例（避免循环添加）
 func process(resource_node:ResourceNode, damage_resource:DamageResource = null, is_stored:bool = false)->void:
-	if is_over:
-		return
-		
 	if randf() > chance:
 		return
 	# 参数校验
@@ -78,8 +75,9 @@ func tick(resource_node:ResourceNode, damage_resource:DamageResource, remaining_
 	pass
 
 
-func set_over(over: bool) -> void:
-	is_over = over
+func kill_tick_tween() -> void:
+	if tick_tween:
+		tick_tween.kill()
 
 
 ## 单类型伤害计算

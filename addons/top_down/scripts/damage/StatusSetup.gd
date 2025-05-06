@@ -27,11 +27,10 @@ func _setup_status()->void:
 	
 	for _status:DamageStatusResource in status_list:
 		assert(_status != null)
-		_status.set_over(true)
+		_status.kill_tick_tween()
 
 
 func _store_status(status_effect:DamageStatusResource)->void:
-	status_effect.set_over(false)
 	if status_effect.tick_finished.is_connected(_on_tick_finished):
 		return
 	status_effect.tick_finished.connect(_on_tick_finished)
