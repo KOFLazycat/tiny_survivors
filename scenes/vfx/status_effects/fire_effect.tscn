@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2rkhhylfkdee"]
+
+[ext_resource type="Script" uid="uid://b7e2xc8sxx1g8" path="res://scripts/vfx/status_effects/fire_effect.gd" id="1_0eqyp"]
+
+[node name="FireEffect" type="Node2D" node_paths=PackedStringArray("area_detect", "collision_shape", "sprite", "body_node", "animation_player")]
+script = ExtResource("1_0eqyp")
+area_detect = NodePath("")
+collision_shape = NodePath("")
+sprite = NodePath("")
+body_node = NodePath("")
+animation_player = NodePath("")

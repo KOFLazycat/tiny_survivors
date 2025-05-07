@@ -45,6 +45,9 @@ var _looping_vfx: Node      # 循环特效实例
 
 ## 初始化状态（由StatusSetup调用）
 func initialize(resource_node:ResourceNode) -> void:
+	if randf() > status_chance:
+		return
+	
 	# 参数校验
 	_resource_node = resource_node
 	assert(resource_node != null, "ResourceNode is null")
@@ -56,8 +59,8 @@ func initialize(resource_node:ResourceNode) -> void:
 	
 	# 存储逻辑
 	store_effect(_damage_resource)
+	on_apply()
 	#_apply_visual_effects()
-	#_on_apply()
 	status_applied.emit(self)
 
 ## 主处理入口（由StatusSetup调用）
@@ -77,7 +80,7 @@ func process(delta: float) -> bool:
 	_current_interval += delta
 	if _current_interval >= status_interval + randf_range(-0.2, 0.2):
 		_current_interval = 0.0
-		_on_tick()
+		on_tick()
 		status_ticked.emit(self)
 	
 	return true
@@ -103,35 +106,35 @@ func remove() -> void:
 
 #region 生命周期方法（子类重写区域）
 ## 初次应用时触发（子类必须实现）
-func _on_apply() -> void:
+func on_apply() -> void:
 	push_warning("Unimplemented _on_apply() in status: %s" % status_name)
 
 ## 每次间隔触发（子类必须实现）
-func _on_tick() -> void:
+func on_tick() -> void:
 	push_warning("Unimplemented _on_tick() in status: %s" % status_name)
 
 ## 效果移除时触发（子类可选实现）
-func _on_remove() -> void:
+func on_remove() -> void:
 	pass
 
 ## 效果传播时触发（子类可选实现）
-func _on_spread() -> void:
+func on_spread() -> void:
 	pass
 #endregion
 
 
 #region 辅助方法
 ## 计算最终效果值（考虑抗性/增益）
-func _calculate_final_value() -> float:
-	if status_value >= 0:
-		return status_value  # 治疗值不受抗性影响
+func _calculate_final_value(value: float) -> float:
+	if value >= 0:
+		return value  # 治疗值不受抗性影响
 	
 	# 获取抗性值（带边界保护）
 	var resist = 0.0
 	if _damage_resource.resistance_value_list.size() > status_damage_type:
 		resist = _damage_resource.resistance_value_list[status_damage_type]
 	
-	return status_value * (1.0 - clamp(resist, 0.0, 1.0))
+	return value * (1.0 - clamp(resist, 0.0, 1.0))
 
 ## 应用视觉特效
 func _apply_visual_effects() -> void:
@@ -147,7 +150,7 @@ func _apply_visual_effects() -> void:
 func _trigger_remove() -> void:
 	if _looping_vfx:
 		_looping_vfx.queue_free()
-	_on_remove()
+	on_remove()
 	status_removed.emit(self)
 
 #endregion

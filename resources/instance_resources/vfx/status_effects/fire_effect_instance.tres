@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InstanceResource" load_steps=2 format=3 uid="uid://duiraau8dglnr"]
+
+[ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="1_pggpn"]
+
+[resource]
+script = ExtResource("1_pggpn")
+scene_path = ""
+metadata/_custom_type_script = "uid://bbnccrapnv54n"

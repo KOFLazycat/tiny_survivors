@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c2h30dpmo6tff"]
+[gd_scene load_steps=44 format=3 uid="uid://c2h30dpmo6tff"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_fybaw"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_6gjbv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://2syqn84y4e0h" path="res://resources/instance_resources/vfx/status_effects/poison_effect_instance.tres" id="13_wwptg"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="14_8ddkg"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="14_l0fag"]
+[ext_resource type="Resource" uid="uid://duiraau8dglnr" path="res://resources/instance_resources/vfx/status_effects/fire_effect_instance.tres" id="14_wwptg"]
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="15_cnjwa"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="16_d6xd7"]
 [ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="17_bex4l"]
@@ -234,6 +235,7 @@ status_setup = NodePath("../StatusSetup")
 sound_resource_dead = ExtResource("10_vbwwv")
 dead_vfx_instance_resource = ExtResource("11_23nqi")
 poison_effect_instance_resource = ExtResource("13_wwptg")
+fire_effect_instance_resource = ExtResource("14_wwptg")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("12_rcdee")

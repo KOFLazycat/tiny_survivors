@@ -12,6 +12,7 @@ signal actor_died
 @export var sound_resource_dead:SoundResource
 @export var dead_vfx_instance_resource:InstanceResource
 @export var poison_effect_instance_resource:InstanceResource
+@export var fire_effect_instance_resource:InstanceResource
 
 func _ready()->void:
 	var _health_resource:HealthResource = resource_node.get_resource("health")
@@ -51,7 +52,15 @@ func _play_dead()->void:
 		if poison_status != null:
 			var _poison_config_callback:Callable = func (inst:PoisonEffect)->void:
 				inst.global_position = owner.global_position
-				inst.poison_status_resource = poison_status.duplicate()
+				inst.poison_status_resource = poison_status
 			
 			poison_effect_instance_resource.instance.call_deferred(_poison_config_callback)
+		
+		var fire_status: FireStatusResource = status_setup.status_list[DamageTypeResource.DamageType.FIRE]
+		if fire_status != null:
+			var _fire_config_callback:Callable = func (inst:FireEffect)->void:
+				inst.global_position = owner.global_position
+				inst.fire_status_resource = fire_status
+			
+			fire_effect_instance_resource.instance.call_deferred(_fire_config_callback)
 	actor_died.emit()

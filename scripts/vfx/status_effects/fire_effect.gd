@@ -1,8 +1,8 @@
-class_name PoisonEffect
+class_name FireEffect
 extends Node2D
 
-## 毒资源
-@export var poison_status_resource: PoisonStatusResource : set = set_poison_status_resource
+## 火资源
+@export var fire_status_resource: FireStatusResource : set = set_fire_status_resource
 @export var area_detect: Area2D
 @export var collision_shape: CollisionShape2D
 @export var sprite: Sprite2D
@@ -16,20 +16,16 @@ func _ready() -> void:
 	request_ready()
 
 # 设置毒资源
-func set_poison_status_resource(psr: PoisonStatusResource) -> void:
-	poison_status_resource = psr
+func set_fire_status_resource(fsr: FireStatusResource) -> void:
+	fire_status_resource = fsr
 	if collision_shape.shape == null:
 		collision_shape.shape = CircleShape2D.new()  # 若未初始化则新建
-	collision_shape.shape.radius = poison_status_resource.poison_speard_radius  # 设置半径
-	var scale_i: float = poison_status_resource.poison_speard_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
+	collision_shape.shape.radius = fire_status_resource.fire_explosion_radius  # 设置半径
+	var scale_i: float = fire_status_resource.fire_explosion_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
 	body_node.scale = Vector2(scale_i, scale_i)
-	body_node.rotation = randf_range(0, TAU)
 	animation_player.play("explosion")
 
 
 func _on_area_detect_body_entered(body: Node2D) -> void:
-	# 传染
 	if body is CharacterBody2D and body.is_in_group("enemies"):
-		var rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
-		assert(rn != null, "ResourceNode should not be null.")
-		poison_status_resource.initialize(rn)
+		fire_status_resource.on_spread()
