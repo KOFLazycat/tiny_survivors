@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d1vl4eb7lilqw"]
+[gd_scene load_steps=43 format=3 uid="uid://d1vl4eb7lilqw"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_j6u2o"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_xywgh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bmurrqosq7bec" path="res://addons/top_down/resources/sounds/kill_zombie.tres" id="10_xywgh"]
 [ext_resource type="Script" uid="uid://1rbr4is74e7l" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="11_xywgh"]
 [ext_resource type="Resource" uid="uid://bto6gjv35d18b" path="res://resources/instance_resources/vfx/damage_points_instance.tres" id="13_6dcwu"]
+[ext_resource type="Resource" uid="uid://2syqn84y4e0h" path="res://resources/instance_resources/vfx/status_effects/poison_effect_instance.tres" id="13_xnvjk"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="15_0jyv2"]
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="16_guyi0"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="17_7p48n"]
@@ -230,9 +231,11 @@ libraries = {
 [node name="HoleDeath" parent="." index="10"]
 enabled = false
 
-[node name="ActorDamage" parent="." index="11"]
+[node name="ActorDamage" parent="." index="11" node_paths=PackedStringArray("status_setup")]
+status_setup = NodePath("../StatusSetup")
 sound_resource_dead = ExtResource("10_xywgh")
 dead_vfx_instance_resource = ExtResource("10_guyi0")
+poison_effect_instance_resource = ExtResource("13_xnvjk")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("13_6dcwu")

@@ -11,7 +11,6 @@ base_damage = Array[ExtResource("1_4vq84")]([ExtResource("2_6kfhy")])
 critical_chance = 0.3
 critical_multiply = 1.5
 target_hit_limit = 1
-miss_chance = 1.0
 status_list = Array[ExtResource("3_6kfhy")]([])
 hit_list = []
 report_callback = Callable()

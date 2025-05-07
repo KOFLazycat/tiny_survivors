@@ -18,10 +18,6 @@ extends Resource
 @export var type: DamageType = DamageType.PHYSICAL
 
 @export_group("Advanced Effects")
-## 效果作用半径
-@export var effect_radius: float = 20.0
-## 最大传播次数（0=不可传播）
-@export var max_spread: int = 0
 ## 是否允许对Boss生效
 @export var allow_on_boss: bool = false
 
