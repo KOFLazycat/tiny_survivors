@@ -10,7 +10,7 @@ signal report_damage(damage_data:DamageDataResource)
 ## 实际接收伤害事件
 signal received_damage(damage_data:DamageDataResource)
 ## 接收伤害数值事件（用于UI/日志）
-signal received_damage_points(points:float, is_critical:bool)
+signal received_damage_points(points:float, is_critical:bool, damage_type: DamageTypeResource.DamageType)
 ## 存储状态效果到实体
 ## 参数:
 ##   status_effect: 需持久化的状态效果资源（如中毒、燃烧）
@@ -55,8 +55,8 @@ func receive(damage_data:DamageDataResource)->void:
 ## 参数:
 ##   points: 实际伤害值（已计算抗性后的正值）
 ##   is_critical: 是否暴击，用于特效区分
-func receive_points(points:float, is_critical:bool = false)->void:
-	received_damage_points.emit(points, is_critical)
+func receive_points(points:float, is_critical:bool = false, damage_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL)->void:
+	received_damage_points.emit(points, is_critical, damage_type)
 
 ## 添加状态效果
 func add_status_effect(status_effect:DamageStatusResource)->void:

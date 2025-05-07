@@ -7,11 +7,23 @@ extends Node2D
 @export var pool_node:PoolNode
 
 
-func set_displayed_points(points:int, is_critical:bool)->void:
-	if is_critical:
-		label.modulate = Color.YELLOW
-	else:
-		label.modulate = Color.WHITE
+func set_displayed_points(points:int, is_critical:bool, damage_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL)->void:
+	label.modulate = Color.WHITE
+	match damage_type:
+		DamageTypeResource.DamageType.PHYSICAL:
+			if is_critical:
+				label.modulate = Color.YELLOW
+		DamageTypeResource.DamageType.FIRE: # 火焰（持续灼烧，可引燃环境）
+			pass
+		DamageTypeResource.DamageType.ICE: # 冰霜（减速目标移动速度）
+			pass
+		DamageTypeResource.DamageType.LIGHTNING: # 雷电（连锁攻击多个目标）
+			pass
+		DamageTypeResource.DamageType.POISON: # 毒素（持续生命流失）
+			label.modulate = Color.LIME
+		DamageTypeResource.DamageType.CURSE: # 诅咒（目标立即死亡）
+			pass
+		
 	var text: String = str(points)
 	if points == 0:
 		text = "MISS"

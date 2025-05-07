@@ -17,7 +17,7 @@ func _on_tick() -> void:
 	_health_resource.add_hp(total_dmg)
 	if total_dmg < 0.0:
 		# show damage points but as positive numbers
-		_damage_resource.receive_points(-total_dmg)
+		_damage_resource.receive_points(-total_dmg, false, status_damage_type)
 
 
 ## 效果移除时触发（子类可选实现）

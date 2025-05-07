@@ -21,12 +21,12 @@ func _ready()->void:
 	request_ready()
 
 ## TODO: with shotgun possible to receive altering criticality and create more than 2 points
-func _on_damage_points(points:float, is_critical:bool)->void:
+func _on_damage_points(points:float, is_critical:bool, damage_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL)->void:
 	var _time:float = Time.get_ticks_msec() * 0.001
 	if last_critical == is_critical && last_points && _time < last_time + UPDATE_INTERVAL:
 		last_time = _time
 		total_points += points
-		last_points.set_displayed_points(total_points, last_critical)
+		last_points.set_displayed_points(total_points, last_critical, damage_type)
 		return
 	
 	last_time = _time
@@ -35,7 +35,7 @@ func _on_damage_points(points:float, is_critical:bool)->void:
 	var _config_callback:Callable = func (inst:Node2D)->void:
 		# give offset to appear on body position
 		inst.global_position = owner.global_position + Vector2(0.0, -8.0)
-		(inst as DamagePoints).set_displayed_points(total_points, last_critical)
+		(inst as DamagePoints).set_displayed_points(total_points, last_critical, damage_type)
 	
 	last_points = damage_points_instance_resource.instance(_config_callback)
 
