@@ -10,7 +10,6 @@ extends Node2D
 @export var animation_player: AnimationPlayer
 
 
-
 func _ready() -> void:
 	if !spread_detect.body_entered.is_connected(_on_spread_detect_body_entered):
 		spread_detect.body_entered.connect(_on_spread_detect_body_entered)

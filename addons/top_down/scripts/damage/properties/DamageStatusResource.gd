@@ -106,15 +106,9 @@ func remove() -> void:
 func _on_apply() -> void:
 	push_warning("Unimplemented _on_apply() in status: %s" % status_name)
 
-
 ## 每次间隔触发（子类必须实现）
 func _on_tick() -> void:
-	var total_dmg: float = _calculate_final_value()
-	_health_resource.add_hp(total_dmg)
-	if total_dmg < 0.0:
-		# show damage points but as positive numbers
-		_damage_resource.receive_points(-total_dmg)
-
+	push_warning("Unimplemented _on_tick() in status: %s" % status_name)
 
 ## 效果移除时触发（子类可选实现）
 func _on_remove() -> void:
