@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbxvawwnu5k45" path="res://scripts/vfx/status_effects/poison_effect.gd" id="1_jobpb"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="2_ebrse"]
-[ext_resource type="Texture2D" uid="uid://cphjw1nsb6iar" path="res://assets/images/status_effects/poison_effect_explosion.png" id="3_gh1eh"]
+[ext_resource type="Texture2D" uid="uid://rqxmxs16hwyb" path="res://assets/images/status_effects/poison_effect_explosion.png" id="3_gh1eh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7nmyv"]
 radius = 30.0

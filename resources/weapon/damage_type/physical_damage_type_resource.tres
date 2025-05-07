@@ -4,10 +4,8 @@
 
 [resource]
 script = ExtResource("1_6ege2")
-value = 10.0
+value = 100.0
 resistance_value = 0.0
 type = 0
-effect_radius = 20.0
-max_spread = 0
 allow_on_boss = false
 metadata/_custom_type_script = "uid://1rbr4is74e7l"

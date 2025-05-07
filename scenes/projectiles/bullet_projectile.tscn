@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5tq2hw88cf73"]
+[gd_scene load_steps=16 format=3 uid="uid://b5tq2hw88cf73"]
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_kxxn2"]
 [ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="2_dot0l"]
 [ext_resource type="Script" uid="uid://dnxaqnm5bsit2" path="res://scripts/damage/properties/status_effects/poison_status_resource.gd" id="3_dot0l"]
-[ext_resource type="Texture2D" uid="uid://d2tle2bgdsopw" path="res://addons/top_down/assets/images/shadow.png" id="3_s83xh"]
+[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="3_s83xh"]
 [ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="4_lwnxk"]
 [ext_resource type="Script" uid="uid://usbnyn0tjgrw" path="res://scripts/damage/properties/status_effects/fire_status_resource.gd" id="4_shcdb"]
-[ext_resource type="Texture2D" uid="uid://b5k0cvn775w7v" path="res://addons/top_down/assets/images/projectile/bullet_1.png" id="5_4lonb"]
+[ext_resource type="Texture2D" uid="uid://cp2j5s0kpi288" path="res://addons/top_down/assets/images/projectile/bullet_1.png" id="5_4lonb"]
+[ext_resource type="Resource" uid="uid://cc4h7hhxrb2gl" path="res://resources/weapon/damage_data_resource.tres" id="5_etuoe"]
 [ext_resource type="Resource" uid="uid://qkblw3huirik" path="res://resources/instance_resources/vfx/explosion0_instance.tres" id="6_adkdu"]
 [ext_resource type="Script" uid="uid://dxjfqmefy1lrh" path="res://scripts/weapon_system/projectile/projectile_impact_sfx.gd" id="7_hs2kk"]
 [ext_resource type="Resource" uid="uid://byppueuo3drya" path="res://addons/top_down/resources/sounds/damage.tres" id="8_t66r8"]
@@ -20,6 +21,7 @@ status_value = -6.0
 status_interval = 1.0
 status_chance = 0.3
 status_damage_type = 4
+status_damage_data_resource = ExtResource("5_etuoe")
 metadata/_custom_type_script = "uid://dnxaqnm5bsit2"
 
 [sub_resource type="Resource" id="Resource_etuoe"]
@@ -32,6 +34,7 @@ status_value = -5.0
 status_interval = 0.5
 status_chance = 0.5
 status_damage_type = 1
+status_damage_data_resource = ExtResource("5_etuoe")
 metadata/_custom_type_script = "uid://usbnyn0tjgrw"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv4mq"]

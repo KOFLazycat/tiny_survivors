@@ -25,6 +25,8 @@ signal status_removed(dsr: DamageStatusResource)  # 效果移除时
 @export_range(0.0, 1.0) var status_chance: float = 1.0
 ## 伤害类型（影响抗性计算）
 @export var status_damage_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL
+## 伤害来源数据资源
+@export var status_damage_data_resource:DamageDataResource
 
 @export_group("Visual Settings", "vfx_")
 ## 状态图标（用于UI显示）

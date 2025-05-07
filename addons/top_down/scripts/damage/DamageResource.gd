@@ -47,9 +47,9 @@ func report(damage_data:DamageDataResource)->void:
 	report_damage.emit(damage_data)
 
 ## 处理实际伤害接收
-func receive(damage_data:DamageDataResource)->void:
+func receive(damage_data:DamageDataResource, damage_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL)->void:
 	received_damage.emit(damage_data)
-	receive_points(damage_data.total_damage, damage_data.is_critical)
+	receive_points(damage_data.total_damage, damage_data.is_critical, damage_type)
 
 ## 接收伤害点数（直接数值，非 DamageDataResource）
 ## 参数:

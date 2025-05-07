@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://c75d5c6vxcu56"]
+[gd_scene load_steps=69 format=3 uid="uid://c75d5c6vxcu56"]
 
 [ext_resource type="Script" uid="uid://cdwrmqq8g7o6l" path="res://scripts/world/test_world.gd" id="1_cg5f0"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_utf6i"]
@@ -55,6 +55,13 @@
 [ext_resource type="PackedScene" uid="uid://co5kvd8tl87gp" path="res://scenes/ui/upgrade/upgrade_screen.tscn" id="38_6n4eo"]
 [ext_resource type="Resource" uid="uid://diqwqa27l1nux" path="res://resources/abilities/hit_limit_ability_resource.tres" id="39_tmsu7"]
 [ext_resource type="Resource" uid="uid://brtv3jsq2cfgc" path="res://resources/weapon/ammo_capacity_resource.tres" id="44_oh41w"]
+
+[sub_resource type="Resource" id="Resource_ldemw"]
+script = ExtResource("15_s4qyy")
+is_boss = false
+count = 6
+instance_list = Array[ExtResource("16_tersh")]([ExtResource("20_prvl0")])
+metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_avoxj"]
 script = ExtResource("15_s4qyy")
@@ -127,7 +134,7 @@ metadata/_custom_type_script = "uid://cgc1tkk1w6e2a"
 
 [sub_resource type="Resource" id="Resource_ew2ib"]
 script = ExtResource("14_ew2ib")
-waves = Array[ExtResource("15_s4qyy")]([SubResource("Resource_avoxj"), SubResource("Resource_tmsu7"), SubResource("Resource_prvl0"), SubResource("Resource_8keqq"), SubResource("Resource_8sgms"), SubResource("Resource_0bcx0"), SubResource("Resource_h1i0h"), SubResource("Resource_fyxt2"), SubResource("Resource_0goju"), SubResource("Resource_sul5t")])
+waves = Array[ExtResource("15_s4qyy")]([SubResource("Resource_ldemw"), SubResource("Resource_avoxj"), SubResource("Resource_tmsu7"), SubResource("Resource_prvl0"), SubResource("Resource_8keqq"), SubResource("Resource_8sgms"), SubResource("Resource_0bcx0"), SubResource("Resource_h1i0h"), SubResource("Resource_fyxt2"), SubResource("Resource_0goju"), SubResource("Resource_sul5t")])
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ew2ib"]
 radius = 29.0689
