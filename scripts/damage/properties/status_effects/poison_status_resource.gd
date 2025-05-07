@@ -26,5 +26,5 @@ func on_remove() -> void:
 	pass
 
 ## 效果传播时触发（子类可选实现）
-func on_spread() -> void:
+func on_spread(obj_rn: ResourceNode) -> void:
 	pass

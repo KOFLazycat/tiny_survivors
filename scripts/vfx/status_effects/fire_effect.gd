@@ -23,9 +23,12 @@ func set_fire_status_resource(fsr: FireStatusResource) -> void:
 	collision_shape.shape.radius = fire_status_resource.fire_explosion_radius  # 设置半径
 	var scale_i: float = fire_status_resource.fire_explosion_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
 	body_node.scale = Vector2(scale_i, scale_i)
+	body_node.rotation = randf_range(0, TAU)
 	animation_player.play("explosion")
 
 
 func _on_area_detect_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("enemies"):
-		fire_status_resource.on_spread()
+		var obj_rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
+		assert(obj_rn != null, "ResourceNode should not be null.")
+		fire_status_resource.on_spread(obj_rn)

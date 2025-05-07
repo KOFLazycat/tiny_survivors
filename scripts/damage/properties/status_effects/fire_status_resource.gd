@@ -27,11 +27,12 @@ func on_remove() -> void:
 	pass
 
 ## 效果传播时触发（子类可选实现）
-## 一次性伤害
-func on_spread() -> void:
+## 一次性伤害， obj_rn 需要传染对象的ResourceNode
+func on_spread(obj_rn: ResourceNode) -> void:
 	var total_dmg: float = _calculate_final_value(fire_explosion_damage)
-	print(total_dmg)
-	_health_resource.add_hp(total_dmg)
+	var obj_dr: DamageResource = obj_rn.get_resource("damage")
+	var obj_hr: HealthResource = obj_rn.get_resource("health")
+	obj_hr.add_hp(total_dmg)
 	if total_dmg < 0.0:
 		# show damage points but as positive numbers
-		_damage_resource.receive_points(-total_dmg, false, status_damage_type)
+		obj_dr.receive_points(-total_dmg, false, status_damage_type)
