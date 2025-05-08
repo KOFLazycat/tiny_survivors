@@ -2,11 +2,6 @@
 class_name PoisonStatusResource
 extends DamageStatusResource
 
-@export_group("Poison Settings", "poison_")
-## 传播半径
-@export var poison_speard_radius: float = 30.0
-
-
 ## 初次应用时触发（子类必须实现）
 func on_apply() -> void:
 	status_damage_type = DamageTypeResource.DamageType.POISON

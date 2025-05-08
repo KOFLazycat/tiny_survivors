@@ -13,6 +13,7 @@ signal actor_died
 @export var dead_vfx_instance_resource:InstanceResource
 @export var poison_effect_instance_resource:InstanceResource
 @export var fire_effect_instance_resource:InstanceResource
+@export var lightning_effect_instance_resource:InstanceResource
 
 func _ready()->void:
 	var _health_resource:HealthResource = resource_node.get_resource("health")
@@ -36,6 +37,16 @@ func _remove_connections(health_resource:HealthResource)->void:
 func _play_damaged()->void:
 	flash_animation_player.stop()
 	flash_animation_player.play(flash_animation)
+	
+	if status_setup:
+		var lightning_status: LightningStatusResource = status_setup.status_list[DamageTypeResource.DamageType.LIGHTNING]
+		if lightning_status != null:
+			var _lightning_config_callback:Callable = func (inst:LightningEffect)->void:
+				inst.global_position = owner.global_position
+				inst.lightning_status_resource = lightning_status
+			
+			lightning_effect_instance_resource.instance.call_deferred(_lightning_config_callback)
+	
 	sound_resource_damage.play_managed()
 
 func _play_dead()->void:

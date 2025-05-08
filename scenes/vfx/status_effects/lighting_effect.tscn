@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh0hvg06l5cpt"]
+[gd_scene load_steps=12 format=3 uid="uid://bh0hvg06l5cpt"]
 
 [ext_resource type="Script" uid="uid://bk277atggsexn" path="res://scripts/vfx/status_effects/lightning_effect.gd" id="1_f2x5b"]
 [ext_resource type="Texture2D" uid="uid://sy8qjeecbtti" path="res://assets/images/status_effects/lightning_start_effect.png" id="1_n5wnv"]
 [ext_resource type="Texture2D" uid="uid://p44kou3fbkrv" path="res://assets/images/status_effects/lightning_loop_effect.png" id="2_4ow5r"]
 [ext_resource type="Texture2D" uid="uid://cfpflnkx11mty" path="res://assets/images/status_effects/lightning_end_effect.png" id="3_y2yi6"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="5_egmk5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2x5b"]
 
 [sub_resource type="Animation" id="Animation_n5wnv"]
 length = 0.001
@@ -66,6 +69,71 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_y2yi6"]
+resource_name = "lightning_end"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_y2yi6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_4ow5r"]
@@ -198,71 +266,6 @@ tracks/4/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_y2yi6"]
-resource_name = "lightning_end"
-length = 0.1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_y2yi6")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -32)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:vframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n5wnv"]
 _data = {
 &"RESET": SubResource("Animation_n5wnv"),
@@ -271,11 +274,20 @@ _data = {
 &"lightning_start": SubResource("Animation_p2v5x")
 }
 
-[node name="LightingEffect" type="Node2D" node_paths=PackedStringArray("sprite", "body_node", "animation_player")]
+[node name="LightingEffect" type="Node2D" node_paths=PackedStringArray("area_detect", "collision_shape", "sprite", "body_node", "animation_player")]
 script = ExtResource("1_f2x5b")
+area_detect = NodePath("AreaDetect")
+collision_shape = NodePath("AreaDetect/CollisionShape2D")
 sprite = NodePath("Body/Stretch/Sprite2D")
 body_node = NodePath("Body")
 animation_player = NodePath("Body/Stretch/Sprite2D/AnimationPlayer")
+
+[node name="AreaDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetect"]
+shape = SubResource("CircleShape2D_f2x5b")
 
 [node name="Body" type="Node2D" parent="."]
 
@@ -290,3 +302,9 @@ hframes = 2
 libraries = {
 &"": SubResource("AnimationLibrary_n5wnv")
 }
+
+[node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
+script = ExtResource("5_egmk5")
+ready_nodes = [NodePath("..")]
+animation_player_list = [NodePath("../Body/Stretch/Sprite2D/AnimationPlayer")]
+metadata/_custom_type_script = "uid://c0aipoimc2hru"

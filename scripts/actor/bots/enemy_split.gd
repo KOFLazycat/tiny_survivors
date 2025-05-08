@@ -60,7 +60,9 @@ func _on_damage_received(damage: DamageDataResource) -> void:
 	var spawn_pos: Vector2 = position_node.global_position
 
 	# 使用预处理的角度数据
-	for radian in _radian_angles:
+	_radian_angles.shuffle()
+	var rand_count: int = randi_range(2, _radian_angles.size())
+	for radian in _radian_angles.slice(0, rand_count):
 		var modified_dir: Vector2 = (
 			base_dir.rotated(radian) * axis_multiplication.value
 		).normalized()

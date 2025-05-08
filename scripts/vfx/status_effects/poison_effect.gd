@@ -20,8 +20,8 @@ func set_poison_status_resource(psr: PoisonStatusResource) -> void:
 	poison_status_resource = psr
 	if collision_shape.shape == null:
 		collision_shape.shape = CircleShape2D.new()  # 若未初始化则新建
-	collision_shape.shape.radius = poison_status_resource.poison_speard_radius  # 设置半径
-	var scale_i: float = poison_status_resource.poison_speard_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
+	collision_shape.shape.radius = poison_status_resource.effect_radius  # 设置半径
+	var scale_i: float = poison_status_resource.effect_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
 	body_node.scale = Vector2(scale_i, scale_i)
 	body_node.rotation = randf_range(0, TAU)
 	animation_player.play("explosion")

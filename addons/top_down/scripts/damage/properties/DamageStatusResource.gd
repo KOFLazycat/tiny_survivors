@@ -15,7 +15,7 @@ signal status_removed(dsr: DamageStatusResource)  # 效果移除时
 @export_group("Base Settings", "status_")
 ## 状态显示名称
 @export var status_name: StringName = "Default Status"
-## 基础持续时间（秒），≤0 表示永久
+## 基础持续时间（秒），≤0 表示一次性伤害
 @export_range(-1.0, 60.0) var status_duration: float = 3.0
 ## 每次结算基础值（负=伤害，正=治疗）
 @export var status_value:float = 0.0
@@ -23,6 +23,8 @@ signal status_removed(dsr: DamageStatusResource)  # 效果移除时
 @export_range(0.1, 10.0) var status_interval: float = 1.0
 ## 状态施加概率（0.0~1.0）
 @export_range(0.0, 1.0) var status_chance: float = 1.0
+## 影响半径
+@export var effect_radius: float = 40.0
 ## 伤害类型（影响抗性计算）
 @export var status_damage_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL
 ## 伤害来源数据资源
@@ -77,6 +79,11 @@ func process(delta: float) -> bool:
 		if _current_duration >= status_duration:
 			_trigger_remove()
 			return false
+	else:
+		on_tick()
+		status_ticked.emit(self)
+		_trigger_remove()
+		return false
 	
 	# 间隔触发逻辑
 	_current_interval += delta

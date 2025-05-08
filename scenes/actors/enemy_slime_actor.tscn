@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://d1vl4eb7lilqw"]
+[gd_scene load_steps=45 format=3 uid="uid://d1vl4eb7lilqw"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_j6u2o"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_xywgh"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://2syqn84y4e0h" path="res://resources/instance_resources/vfx/status_effects/poison_effect_instance.tres" id="13_xnvjk"]
 [ext_resource type="Resource" uid="uid://duiraau8dglnr" path="res://resources/instance_resources/vfx/status_effects/fire_effect_instance.tres" id="14_ck6d8"]
 [ext_resource type="PackedScene" uid="uid://cenq1bawfywu8" path="res://addons/top_down/scenes/actors/ai/enemy_ai.tscn" id="15_0jyv2"]
+[ext_resource type="Resource" uid="uid://uis462y1vain" path="res://resources/instance_resources/vfx/status_effects/lightning_effect_instance.tres" id="15_hl6bb"]
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="16_guyi0"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="17_7p48n"]
 [ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="18_1v2yq"]
@@ -236,6 +237,7 @@ sound_resource_dead = ExtResource("10_xywgh")
 dead_vfx_instance_resource = ExtResource("10_guyi0")
 poison_effect_instance_resource = ExtResource("13_xnvjk")
 fire_effect_instance_resource = ExtResource("14_ck6d8")
+lightning_effect_instance_resource = ExtResource("15_hl6bb")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("13_6dcwu")
@@ -261,6 +263,7 @@ signal_name = &"actor_died"
 script = ExtResource("21_xnvjk")
 resource_node = NodePath("../ResourceNode")
 split_instance_resource = ExtResource("19_xnvjk")
+angles = Array[float]([0.0, -25.0, 25.0, -65.0, 65.0])
 axis_multiplication = ExtResource("21_ck6d8")
 position_node = NodePath("..")
 active_enemy = NodePath("../ActiveEnemy")

@@ -24,11 +24,11 @@ func init_spawn_point() -> void:
 
 
 func get_random_position():
-	var vpr = get_viewport_rect().size * randf_range(0.8, 0.9)
-	var top_left = Vector2(0, 0)
-	var top_right = Vector2(480, 0)
-	var bottom_left = Vector2(0, 270)
-	var bottom_right = Vector2(480, 270)
+	#var vpr = get_viewport_rect().size * randf_range(0.8, 0.9)
+	var top_left = Vector2(100, 30)
+	var top_right = Vector2(380, 30)
+	var bottom_left = Vector2(100, 240)
+	var bottom_right = Vector2(380, 240)
 	var pos_side = ["up", "down", "right", "left"].pick_random()
 	var spawn_pos1 = Vector2.ZERO
 	var spawn_pos2 = Vector2.ZERO

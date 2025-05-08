@@ -15,13 +15,13 @@ func _ready() -> void:
 		area_detect.body_entered.connect(_on_area_detect_body_entered)
 	request_ready()
 
-# 设置毒资源
+# 设置火资源
 func set_fire_status_resource(fsr: FireStatusResource) -> void:
 	fire_status_resource = fsr
 	if collision_shape.shape == null:
 		collision_shape.shape = CircleShape2D.new()  # 若未初始化则新建
-	collision_shape.shape.radius = fire_status_resource.fire_explosion_radius  # 设置半径
-	var scale_i: float = fire_status_resource.fire_explosion_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
+	collision_shape.shape.radius = fire_status_resource.effect_radius  # 设置半径
+	var scale_i: float = fire_status_resource.effect_radius/(sprite.texture.get_height()/2.0) # 爆炸动画方位需要跟探测方向一致
 	body_node.scale = Vector2(scale_i, scale_i)
 	body_node.rotation = randf_range(0, TAU)
 	animation_player.play("explosion")
