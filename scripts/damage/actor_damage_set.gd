@@ -14,7 +14,7 @@ func _ready()->void:
 		juicy_bar.set_default_values(0.0, health_resource.hp, health_resource.hp)
 
 
-func _play_damaged()->void:
-	super._play_damaged()
+func _play_damaged(_is_spreadable: bool = false)->void:
+	super._play_damaged(_is_spreadable)
 	if juicy_bar:
 		juicy_bar.change_current_value(health_resource.hp)

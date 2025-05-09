@@ -34,7 +34,7 @@ func _remove_connections(health_resource:HealthResource)->void:
 	# remove character
 	health_resource.dead.disconnect(_play_dead)
 
-func _play_damaged()->void:
+func _play_damaged(is_spreadable: bool = false)->void:
 	flash_animation_player.stop()
 	flash_animation_player.play(flash_animation)
 	
@@ -44,6 +44,7 @@ func _play_damaged()->void:
 			var _lightning_config_callback:Callable = func (inst:LightningEffect)->void:
 				inst.global_position = owner.global_position
 				inst.lightning_status_resource = lightning_status
+				inst.is_spreadable = is_spreadable
 			
 			lightning_effect_instance_resource.instance.call_deferred(_lightning_config_callback)
 	

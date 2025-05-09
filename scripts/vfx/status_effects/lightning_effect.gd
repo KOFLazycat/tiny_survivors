@@ -8,10 +8,23 @@ extends Node2D
 @export var sprite: Sprite2D
 @export var body_node: Node2D
 @export var animation_player: AnimationPlayer
+@onready var pool_node: PoolNode = $PoolNode
 
+var is_spreadable: bool = false
 
 func _ready() -> void:
-	animation_player.animation_finished.connect(_on_animation_finished)
+	modulate.a = 1.0
+	if !animation_player.animation_finished.is_connected(_on_animation_finished):
+		animation_player.animation_finished.connect(_on_animation_finished)
+	
+	if !area_detect.body_entered.is_connected(_on_area_detect_body_entered):
+		area_detect.body_entered.connect(_on_area_detect_body_entered)
+	
+	if is_spreadable:
+		area_detect.monitoring = true
+	else:
+		area_detect.monitoring = false
+	request_ready()
 
 
 # 设置雷资源
@@ -36,3 +49,4 @@ func _on_animation_finished(anim: StringName) -> void:
 	if anim == "lightning_end":
 		var tween: Tween = create_tween()
 		tween.tween_property(self, "modulate:a", 0.0, 0.2)
+		tween.tween_callback(pool_node.pool_return)

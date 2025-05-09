@@ -29,6 +29,8 @@ signal status_removed(dsr: DamageStatusResource)  # 效果移除时
 @export var status_damage_type: DamageTypeResource.DamageType = DamageTypeResource.DamageType.PHYSICAL
 ## 伤害来源数据资源
 @export var status_damage_data_resource:DamageDataResource
+## 是否可传染
+@export var status_spreadable: bool = false
 
 @export_group("Visual Settings", "vfx_")
 ## 状态图标（用于UI显示）
@@ -48,7 +50,7 @@ var _health_resource:HealthResource # 血量
 var _looping_vfx: Node      # 循环特效实例
 
 ## 初始化状态（由StatusSetup调用）
-func initialize(resource_node:ResourceNode) -> void:
+func initialize(resource_node:ResourceNode, is_spreadable: bool = false) -> void:
 	if randf() > status_chance:
 		return
 	
@@ -60,6 +62,8 @@ func initialize(resource_node:ResourceNode) -> void:
 	_health_resource = resource_node.get_resource("health")
 	assert(_health_resource != null, "HealthResource not found")
 	_target_node = resource_node.owner
+	
+	status_spreadable = is_spreadable
 	
 	# 存储逻辑
 	store_effect(_damage_resource)
@@ -80,7 +84,7 @@ func process(delta: float) -> bool:
 			_trigger_remove()
 			return false
 	else:
-		on_tick()
+		on_tick(status_spreadable)
 		status_ticked.emit(self)
 		_trigger_remove()
 		return false
@@ -89,7 +93,7 @@ func process(delta: float) -> bool:
 	_current_interval += delta
 	if _current_interval >= status_interval + randf_range(-0.2, 0.2):
 		_current_interval = 0.0
-		on_tick()
+		on_tick(status_spreadable)
 		status_ticked.emit(self)
 	
 	return true
@@ -118,8 +122,8 @@ func remove() -> void:
 func on_apply() -> void:
 	push_warning("Unimplemented _on_apply() in status: %s" % status_name)
 
-## 每次间隔触发（子类必须实现）
-func on_tick() -> void:
+## 每次间隔触发（子类必须实现），is_spreadable 伤害是否可传染
+func on_tick(is_spreadable: bool = false) -> void:
 	push_warning("Unimplemented _on_tick() in status: %s" % status_name)
 
 ## 效果移除时触发（子类可选实现）

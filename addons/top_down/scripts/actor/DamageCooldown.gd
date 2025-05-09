@@ -9,7 +9,7 @@ func _ready()->void:
 	var _health_resource:HealthResource = resource_node.get_resource("health")
 	_health_resource.damaged.connect(_on_damaged.bind(_damage_bool))
 
-func _on_damaged(damage_bool:BoolResource)->void:
+func _on_damaged(_is_spreadable: bool = false, damage_bool:BoolResource = null)->void:
 	if cooldown_time == 0.0:
 		return
 	damage_bool.set_value(false)

@@ -8,10 +8,10 @@ func on_apply() -> void:
 
 
 ## 每次间隔触发（子类必须实现）
-func on_tick() -> void:
+func on_tick(is_spreadable: bool = false) -> void:
 	var ddr: DamageDataResource = DamageDataResource.new()
 	ddr.total_damage = _calculate_final_value(status_value)
-	_health_resource.add_hp(ddr.total_damage)
+	_health_resource.add_hp(ddr.total_damage, is_spreadable)
 	ddr.is_kill = _health_resource.is_dead
 	if ddr.total_damage < 0.0:
 		# show damage points but as positive numbers
@@ -24,12 +24,7 @@ func on_remove() -> void:
 ## 效果传播时触发（子类可选实现）
 ## 一次性伤害， obj_rn 需要传染对象的ResourceNode
 func on_spread(obj_rn: ResourceNode) -> void:
-	var ddr: DamageDataResource = DamageDataResource.new()
-	ddr.total_damage = _calculate_final_value(status_value)
-	var obj_dr: DamageResource = obj_rn.get_resource("damage")
-	var obj_hr: HealthResource = obj_rn.get_resource("health")
-	obj_hr.add_hp(ddr.total_damage)
-	ddr.is_kill = obj_hr.is_dead
-	if ddr.total_damage < 0.0:
-		# show damage points but as positive numbers
-		obj_dr.receive(ddr, status_damage_type)
+	# 对自身不能传染
+	if obj_rn == _resource_node:
+		return
+	initialize(obj_rn, false)

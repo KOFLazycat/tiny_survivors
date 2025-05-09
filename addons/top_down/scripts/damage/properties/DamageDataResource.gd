@@ -119,7 +119,7 @@ func _update_essentials(resource_node: ResourceNode, _damage_resource: DamageRes
 	
 	# 状态效果
 	for _status: DamageStatusResource in status_list:
-		_status.initialize(resource_node)
+		_status.initialize(resource_node, _status.status_spreadable)
 
 
 ## 应用伤害与状态效果

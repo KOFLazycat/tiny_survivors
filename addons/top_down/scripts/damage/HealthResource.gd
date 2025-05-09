@@ -1,7 +1,7 @@
 class_name HealthResource
 extends SaveableResource
 
-signal damaged
+signal damaged(is_spreadable: bool)
 signal dead
 signal hp_changed
 signal max_hp_changed
@@ -35,11 +35,11 @@ func prepare_load(data:Resource)->void:
 func is_full()->bool:
 	return hp == max_hp
 
-func add_hp(value:float)->void:
+func add_hp(value:float, is_spreadable: bool = false)->void:
 	hp = clamp(hp + value, 0.0, max_hp)
 	hp_changed.emit()
 	if value < 0.0:
-		damaged.emit()
+		damaged.emit(is_spreadable)
 	if hp == 0.0:
 		is_dead = true
 		dead.emit()
