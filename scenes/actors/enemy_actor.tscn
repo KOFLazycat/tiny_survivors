@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c2h30dpmo6tff"]
+[gd_scene load_steps=46 format=3 uid="uid://c2h30dpmo6tff"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_fybaw"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_6gjbv"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://uis462y1vain" path="res://resources/instance_resources/vfx/status_effects/lightning_effect_instance.tres" id="15_436tl"]
 [ext_resource type="PackedScene" uid="uid://baisjmcsnk3on" path="res://addons/top_down/scenes/weapons/zombie_attack.tscn" id="15_cnjwa"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="16_d6xd7"]
+[ext_resource type="Resource" uid="uid://krs6vdtpigv" path="res://resources/instance_resources/vfx/status_effects/curse_effect_instance.tres" id="16_g7vnb"]
 [ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="17_bex4l"]
 [ext_resource type="Resource" uid="uid://djao1rauye0x4" path="res://resources/instance_resources/actors/enemy_crawler_actor_instance_resource.tres" id="19_ltm0k"]
 [ext_resource type="Resource" uid="uid://pvw6k1ntsles" path="res://addons/top_down/resources/sounds/zombie_split.tres" id="20_8ddkg"]
@@ -238,6 +239,7 @@ dead_vfx_instance_resource = ExtResource("11_23nqi")
 poison_effect_instance_resource = ExtResource("13_wwptg")
 fire_effect_instance_resource = ExtResource("14_wwptg")
 lightning_effect_instance_resource = ExtResource("15_436tl")
+curse_effect_instance_resource = ExtResource("16_g7vnb")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("12_rcdee")

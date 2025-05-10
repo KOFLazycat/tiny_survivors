@@ -14,6 +14,7 @@ signal actor_died
 @export var poison_effect_instance_resource:InstanceResource
 @export var fire_effect_instance_resource:InstanceResource
 @export var lightning_effect_instance_resource:InstanceResource
+@export var curse_effect_instance_resource:InstanceResource
 
 func _ready()->void:
 	var _health_resource:HealthResource = resource_node.get_resource("health")
@@ -75,4 +76,13 @@ func _play_dead()->void:
 				inst.fire_status_resource = fire_status
 			
 			fire_effect_instance_resource.instance.call_deferred(_fire_config_callback)
+		
+		var curse_status: CurseStatusResource = status_setup.status_list[DamageTypeResource.DamageType.CURSE]
+		if curse_status != null:
+			var _curse_config_callback:Callable = func (inst:CurseEffect)->void:
+				inst.global_position = owner.global_position
+				inst.curse_status_resource = curse_status
+				inst.is_spreadable = curse_status.status_spreadable
+			
+			curse_effect_instance_resource.instance.call_deferred(_curse_config_callback)
 	actor_died.emit()

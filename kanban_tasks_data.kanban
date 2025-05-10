@@ -17,9 +17,8 @@
 				"12acfd8c-06e5-4933-9b52-4b8f772b1399",
 				"a41bf011-2c10-4d8f-8f59-3323721330a4",
 				"b1d1d101-f069-45d2-9851-ad8eeb37a9ce",
-				"a9cf6e1a-3468-4a2b-ad11-d62f2d31c84c",
-				"3cbd7638-d178-4e9a-bdfa-4a9393416f63",
-				"91125858-e14f-45ab-ad84-6b5b93dd8445"
+				"91125858-e14f-45ab-ad84-6b5b93dd8445",
+				"18cdf883-43bb-4767-a5e3-c670d27fd19f"
 			]
 		},
 		{
@@ -34,6 +33,8 @@
 			"uuid": "acaf644d-3956-4bfc-b1f1-19f822d45093",
 			"title": "Done",
 			"tasks": [
+				"3cbd7638-d178-4e9a-bdfa-4a9393416f63",
+				"a9cf6e1a-3468-4a2b-ad11-d62f2d31c84c",
 				"e59afb84-f734-4c8d-885d-02c34c6c324e",
 				"5a167ef6-c09d-49ac-927c-695f3e1163d6",
 				"7d8b35ef-2407-4ffd-a065-1b6b481c1abb",
@@ -595,6 +596,13 @@
 		{
 			"uuid": "7d8b35ef-2407-4ffd-a065-1b6b481c1abb",
 			"title": "修复slime无法正常销毁、产生小slime的BUG",
+			"description": "",
+			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
+			"steps": []
+		},
+		{
+			"uuid": "18cdf883-43bb-4767-a5e3-c670d27fd19f",
+			"title": "收到属性伤害死亡的敌人，在重新出生时仍然携带DEBUF",
 			"description": "",
 			"category": "3c019f8f-7018-401f-89e7-6ddedafd24e2",
 			"steps": []

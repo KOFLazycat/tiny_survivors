@@ -37,7 +37,7 @@ func on_spread(obj_rn: ResourceNode) -> void:
 	ddr.total_damage = _calculate_final_value(fire_explosion_damage)
 	var obj_dr: DamageResource = obj_rn.get_resource("damage")
 	var obj_hr: HealthResource = obj_rn.get_resource("health")
-	obj_hr.add_hp(ddr.total_damage)
+	obj_hr.add_hp(ddr.total_damage, false)
 	ddr.is_kill = obj_hr.is_dead
 	if ddr.total_damage < 0.0:
 		# show damage points but as positive numbers
