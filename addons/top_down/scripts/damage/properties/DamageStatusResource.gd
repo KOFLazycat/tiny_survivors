@@ -44,9 +44,10 @@ signal status_removed(dsr: DamageStatusResource)  # 效果移除时
 var _current_duration: float = 0.0
 var _current_interval: float = 0.0
 var _target_node: CharacterBody2D      # 目标实体节点
-var _resource_node:ResourceNode # 伤害
+var _resource_node:ResourceNode # 资源
 var _damage_resource:DamageResource # 伤害
 var _health_resource:HealthResource # 血量
+var _movement_resource: ActorStatsResource # 移速
 var _looping_vfx: Node      # 循环特效实例
 
 ## 初始化状态（由StatusSetup调用）
@@ -61,13 +62,15 @@ func initialize(resource_node:ResourceNode, is_spreadable: bool = false) -> void
 	assert(_damage_resource != null, "DamageResource not found")
 	_health_resource = resource_node.get_resource("health")
 	assert(_health_resource != null, "HealthResource not found")
+	_movement_resource = resource_node.get_resource("movement")
+	assert(_movement_resource != null, "ActorStatsResource not found")
 	_target_node = resource_node.owner
 	
 	status_spreadable = is_spreadable
 	
+	on_apply()
 	# 存储逻辑
 	store_effect(_damage_resource)
-	on_apply()
 	#_apply_visual_effects()
 	status_applied.emit(self)
 
@@ -105,6 +108,7 @@ func duplicate(subresources: bool = false) -> Resource:
 	copy._resource_node = _resource_node
 	copy._damage_resource = _damage_resource
 	copy._health_resource = _health_resource
+	copy._movement_resource = _movement_resource
 	return copy
 
 ## 存储状态效果到实体

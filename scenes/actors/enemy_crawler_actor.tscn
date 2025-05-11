@@ -29,6 +29,7 @@ resource_name = "movement  properties"
 script = ExtResource("3_vjq2g")
 acceleration = 200.0
 max_speed = 60.0
+default_max_speed = 60.0
 version = 0
 not_saved = false
 
@@ -268,9 +269,6 @@ curse_effect_instance_resource = ExtResource("16_fxq2r")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("13_k2tpu")
-
-[node name="StatusSetup" parent="." index="14" node_paths=PackedStringArray("sprite")]
-sprite = NodePath("../Body/Stretch/Sprite2D")
 
 [node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("13_or04p")]
 resource_node = NodePath("../ResourceNode")

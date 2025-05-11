@@ -28,6 +28,7 @@ resource_name = "movement  properties"
 script = ExtResource("3_m50p6")
 acceleration = 500.0
 max_speed = 55.0
+default_max_speed = 55.0
 version = 0
 not_saved = false
 
@@ -271,9 +272,6 @@ damage_points_instance_resource = ExtResource("13_imujl")
 
 [node name="DamageSetup" parent="." index="13"]
 resistance_list = Array[ExtResource("14_vor7y")]([SubResource("Resource_oeuea")])
-
-[node name="StatusSetup" parent="." index="14" node_paths=PackedStringArray("sprite")]
-sprite = NodePath("../Body/Stretch/Sprite2D")
 
 [node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("15_b0pge")]
 resource_node = NodePath("../ResourceNode")

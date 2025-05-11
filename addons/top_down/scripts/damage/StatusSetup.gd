@@ -48,6 +48,8 @@ func store_status(status_effect:DamageStatusResource)->void:
 		
 		if status_effect.status_damage_type == DamageTypeResource.DamageType.CURSE:
 			sprite.self_modulate = Color.DIM_GRAY
+		if status_effect.status_damage_type == DamageTypeResource.DamageType.ICE:
+			sprite.self_modulate = Color.DARK_TURQUOISE
 		
 		if !status_effect.status_removed.is_connected(_on_status_removed):
 			status_effect.status_removed.connect(_on_status_removed)
@@ -55,3 +57,6 @@ func store_status(status_effect:DamageStatusResource)->void:
 
 func _on_status_removed(status_effect: DamageStatusResource) -> void:
 	status_list[status_effect.status_damage_type] = null
+	
+	if status_effect.status_damage_type == DamageTypeResource.DamageType.ICE:
+		sprite.self_modulate = Color.WHITE

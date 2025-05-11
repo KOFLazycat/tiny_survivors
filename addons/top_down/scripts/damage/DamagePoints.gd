@@ -16,7 +16,7 @@ func set_displayed_points(points:int, is_critical:bool, damage_type: DamageTypeR
 		DamageTypeResource.DamageType.FIRE: # 火焰（持续灼烧，可引燃环境）
 			label.modulate = Color.SANDY_BROWN
 		DamageTypeResource.DamageType.ICE: # 冰霜（减速目标移动速度）
-			pass
+			label.modulate = Color.DARK_TURQUOISE
 		DamageTypeResource.DamageType.LIGHTNING: # 雷电（连锁攻击多个目标）
 			label.modulate = Color.LINEN
 		DamageTypeResource.DamageType.POISON: # 毒素（持续生命流失）

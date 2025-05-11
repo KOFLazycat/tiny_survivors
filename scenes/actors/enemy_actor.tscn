@@ -31,6 +31,7 @@ resource_name = "movement  properties"
 script = ExtResource("3_dj46p")
 acceleration = 400.0
 max_speed = 40.0
+default_max_speed = 40.0
 version = 0
 not_saved = false
 
