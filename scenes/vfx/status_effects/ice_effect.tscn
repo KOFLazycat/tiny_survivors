@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjy08wpe8osrt"]
+
+[ext_resource type="Texture2D" uid="uid://dymarwjxjjqjk" path="res://assets/images/status_effects/ice_effect_explosion.png" id="1_6snhb"]
+[ext_resource type="Script" uid="uid://q1v7665tsera" path="res://scripts/vfx/status_effects/ice_effect.gd" id="1_htclb"]
+[ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="1_ocs1l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5f2f"]
+
+[sub_resource type="Animation" id="Animation_ocs1l"]
+resource_name = "explosion"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6snhb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../../PoolNode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pool_return"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6snhb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6snhb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6snhb"]
+_data = {
+&"RESET": SubResource("Animation_6snhb"),
+&"explosion": SubResource("Animation_ocs1l")
+}
+
+[node name="IceEffect" type="Node2D" node_paths=PackedStringArray("area_detect", "collision_shape", "sprite", "body_node", "animation_player")]
+script = ExtResource("1_htclb")
+area_detect = NodePath("AreaDetect")
+collision_shape = NodePath("AreaDetect/CollisionShape2D")
+sprite = NodePath("Body/Stretch/Sprite2D")
+body_node = NodePath("Body")
+animation_player = NodePath("Body/Stretch/Sprite2D/AnimationPlayer")
+
+[node name="AreaDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetect"]
+shape = SubResource("CircleShape2D_e5f2f")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Stretch" type="Node2D" parent="Body"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body/Stretch"]
+texture = ExtResource("1_6snhb")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_6snhb")
+}
+
+[node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
+script = ExtResource("1_ocs1l")
+ready_nodes = [NodePath("..")]
+animation_player_list = [NodePath("../Body/Stretch/Sprite2D/AnimationPlayer")]
+metadata/_custom_type_script = "uid://c0aipoimc2hru"

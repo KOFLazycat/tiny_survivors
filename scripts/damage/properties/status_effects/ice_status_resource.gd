@@ -8,11 +8,34 @@ extends DamageStatusResource
 ## 死亡后，周围敌人冰冻时间
 @export var ice_duration: float = 1.0
 
+## 主处理入口（由StatusSetup调用）
+func process(delta: float) -> bool:
+	# 血量管理
+	if _health_resource.is_dead:
+		_trigger_remove()
+		return false
+	# 持续时间管理
+	if status_duration > 0:
+		_current_duration += delta
+		if _current_duration >= status_duration:
+			_trigger_remove()
+			return false
+	
+	# 间隔触发逻辑
+	_current_interval += delta
+	if _current_interval >= status_interval + randf_range(-0.2, 0.2):
+		_current_interval = 0.0
+		on_tick(status_spreadable)
+		status_ticked.emit(self)
+	
+	return true
+
 
 ## 初次应用时触发（子类必须实现）
 func on_apply() -> void:
 	status_damage_type = DamageTypeResource.DamageType.ICE
-	_movement_resource.max_speed = _movement_resource.max_speed * (1 - ice_speed_decrease)
+	if _movement_resource.max_speed >= _movement_resource.default_max_speed:
+		_movement_resource.max_speed = _movement_resource.max_speed * (1 - ice_speed_decrease)
 
 
 ## 每次间隔触发（子类必须实现）
@@ -37,4 +60,5 @@ func on_spread(obj_rn: ResourceNode) -> void:
 	if obj_rn == _resource_node:
 		return
 	ice_speed_decrease = 1.0
+	status_duration = ice_duration
 	initialize(obj_rn, false)

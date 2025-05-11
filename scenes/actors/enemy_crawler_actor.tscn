@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c3h4pus0snrfu"]
+[gd_scene load_steps=46 format=3 uid="uid://c3h4pus0snrfu"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://addons/top_down/scenes/actors/actor.tscn" id="1_bgiua"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_k2tpu"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="15_t6ndq"]
 [ext_resource type="Resource" uid="uid://krs6vdtpigv" path="res://resources/instance_resources/vfx/status_effects/curse_effect_instance.tres" id="16_fxq2r"]
 [ext_resource type="Script" uid="uid://cg28p7oj86ktp" path="res://addons/top_down/scripts/actor/bots/ActiveEnemy.gd" id="16_vpjlw"]
+[ext_resource type="Resource" uid="uid://b6uwrns63adtx" path="res://resources/instance_resources/vfx/status_effects/ice_effect_instance.tres" id="17_curcq"]
 [ext_resource type="Script" uid="uid://ba5qdonkixtia" path="res://addons/top_down/scripts/actor/bots/BloodTrail.gd" id="17_qegqg"]
 [ext_resource type="Resource" uid="uid://cd5fpeb8ej7ji" path="res://resources/instance_resources/vfx/crawler_blood_instance.tres" id="19_k2tpu"]
 
@@ -266,6 +267,7 @@ poison_effect_instance_resource = ExtResource("13_qr2k7")
 fire_effect_instance_resource = ExtResource("14_de2vm")
 lightning_effect_instance_resource = ExtResource("15_kdmua")
 curse_effect_instance_resource = ExtResource("16_fxq2r")
+ice_effect_instance_resource = ExtResource("17_curcq")
 
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("13_k2tpu")

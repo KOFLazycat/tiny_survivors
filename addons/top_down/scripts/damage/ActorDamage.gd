@@ -7,6 +7,7 @@ signal actor_died
 @export var sprite_flip:SpriteFlip
 @export var status_setup: StatusSetup
 @export var flash_animation_player:AnimationPlayer
+@export var effect_animation_player:AnimationPlayer
 @export var flash_animation:StringName
 @export var sound_resource_damage:SoundResource
 @export var sound_resource_dead:SoundResource
@@ -15,6 +16,7 @@ signal actor_died
 @export var fire_effect_instance_resource:InstanceResource
 @export var lightning_effect_instance_resource:InstanceResource
 @export var curse_effect_instance_resource:InstanceResource
+@export var ice_effect_instance_resource:InstanceResource
 
 func _ready()->void:
 	var _health_resource:HealthResource = resource_node.get_resource("health")
@@ -36,8 +38,7 @@ func _remove_connections(health_resource:HealthResource)->void:
 	health_resource.dead.disconnect(_play_dead)
 
 func _play_damaged(is_spreadable: bool = false)->void:
-	flash_animation_player.stop()
-	flash_animation_player.play(flash_animation)
+	var anim_played: bool = false
 	
 	if status_setup:
 		var lightning_status: LightningStatusResource = status_setup.status_list[DamageTypeResource.DamageType.LIGHTNING]
@@ -48,6 +49,24 @@ func _play_damaged(is_spreadable: bool = false)->void:
 				inst.is_spreadable = is_spreadable
 			
 			lightning_effect_instance_resource.instance.call_deferred(_lightning_config_callback)
+		
+		for _status: DamageStatusResource in status_setup.status_list:
+			if _status != null:
+				if !anim_played:
+					if _status.status_damage_type == DamageTypeResource.DamageType.CURSE:
+						effect_animation_player.stop()
+						effect_animation_player.play("flash_curse")
+						anim_played = true
+						break
+					if _status.status_damage_type == DamageTypeResource.DamageType.ICE:
+						effect_animation_player.stop()
+						effect_animation_player.play("flash_ice")
+						anim_played = true
+						break
+		
+		if !anim_played:
+			flash_animation_player.stop()
+			flash_animation_player.play(flash_animation)
 	
 	sound_resource_damage.play_managed()
 
@@ -85,4 +104,13 @@ func _play_dead()->void:
 				inst.is_spreadable = curse_status.status_spreadable
 			
 			curse_effect_instance_resource.instance.call_deferred(_curse_config_callback)
+		
+		var ice_status: IceStatusResource = status_setup.status_list[DamageTypeResource.DamageType.ICE]
+		if ice_status != null:
+			var _ice_config_callback:Callable = func (inst:IceEffect)->void:
+				inst.global_position = owner.global_position
+				inst.ice_status_resource = ice_status
+				inst.is_spreadable = ice_status.status_spreadable
+			
+			ice_effect_instance_resource.instance.call_deferred(_ice_config_callback)
 	actor_died.emit()

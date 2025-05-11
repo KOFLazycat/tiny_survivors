@@ -3,7 +3,7 @@ extends Node2D
 
 @export var resource_node:ResourceNode
 @export var status_list:Array[DamageStatusResource]
-@onready var sprite: Sprite2D = $"../Body/Stretch/Sprite2D"
+
 
 
 var damage_resource:DamageResource
@@ -15,9 +15,6 @@ func _ready() -> void:
 	var type_count = DamageTypeResource.DamageType.size()
 	status_list.resize(type_count)
 	
-	## 重置颜色
-	sprite.self_modulate = Color.WHITE
-
 	_setup_status()
 	# in case used with PoolNode
 	if !resource_node.ready.is_connected(_setup_status):
@@ -46,17 +43,9 @@ func store_status(status_effect:DamageStatusResource)->void:
 		#status_effect.initialize(resource_node)
 		status_list[status_effect.status_damage_type] = status_effect
 		
-		if status_effect.status_damage_type == DamageTypeResource.DamageType.CURSE:
-			sprite.self_modulate = Color.DIM_GRAY
-		if status_effect.status_damage_type == DamageTypeResource.DamageType.ICE:
-			sprite.self_modulate = Color.DARK_TURQUOISE
-		
 		if !status_effect.status_removed.is_connected(_on_status_removed):
 			status_effect.status_removed.connect(_on_status_removed)
 
 
 func _on_status_removed(status_effect: DamageStatusResource) -> void:
 	status_list[status_effect.status_damage_type] = null
-	
-	if status_effect.status_damage_type == DamageTypeResource.DamageType.ICE:
-		sprite.self_modulate = Color.WHITE
