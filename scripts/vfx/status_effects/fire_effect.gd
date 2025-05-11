@@ -11,8 +11,13 @@ extends Node2D
 
 
 func _ready() -> void:
+	area_detect.monitoring = true
 	if !area_detect.body_entered.is_connected(_on_area_detect_body_entered):
 		area_detect.body_entered.connect(_on_area_detect_body_entered)
+	
+	if !animation_player.animation_finished.is_connected(_on_animation_finished):
+		animation_player.animation_finished.connect(_on_animation_finished)
+	
 	request_ready()
 
 # 设置火资源
@@ -32,3 +37,8 @@ func _on_area_detect_body_entered(body: Node2D) -> void:
 		var obj_rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
 		assert(obj_rn != null, "ResourceNode should not be null.")
 		fire_status_resource.on_spread(obj_rn)
+
+
+func _on_animation_finished(anim: StringName) -> void:
+	if anim == "explosion":
+		area_detect.monitoring = false

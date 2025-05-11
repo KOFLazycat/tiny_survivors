@@ -56,12 +56,13 @@ metadata/_custom_type_script = "uid://drki4135213dg"
 
 [sub_resource type="Resource" id="Resource_keaot"]
 script = ExtResource("7_mca01")
+curse_physical_resistance_percent = 0.1
 status_name = &"CurseStatus"
-status_duration = 5.0
+status_duration = 3.0
 status_value = -9999.0
 status_interval = 1.0
 status_chance = 1.0
-effect_radius = 40.0
+effect_radius = 18.0
 status_damage_type = 5
 status_damage_data_resource = ExtResource("5_etuoe")
 status_spreadable = true

@@ -51,4 +51,4 @@ func on_spread(obj_rn: ResourceNode) -> void:
 	# 对自身不能传染
 	if obj_rn == _resource_node:
 		return
-	initialize(obj_rn, false)
+	initialize(obj_rn, status_spreadable)

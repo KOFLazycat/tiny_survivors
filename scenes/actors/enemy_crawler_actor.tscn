@@ -269,6 +269,9 @@ curse_effect_instance_resource = ExtResource("16_fxq2r")
 [node name="DamageDisplay" parent="." index="12"]
 damage_points_instance_resource = ExtResource("13_k2tpu")
 
+[node name="StatusSetup" parent="." index="14" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../Body/Stretch/Sprite2D")
+
 [node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("13_or04p")]
 resource_node = NodePath("../ResourceNode")
 

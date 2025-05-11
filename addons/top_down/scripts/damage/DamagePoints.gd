@@ -22,7 +22,7 @@ func set_displayed_points(points:int, is_critical:bool, damage_type: DamageTypeR
 		DamageTypeResource.DamageType.POISON: # 毒素（持续生命流失）
 			label.modulate = Color.LIME
 		DamageTypeResource.DamageType.CURSE: # 诅咒（目标立即死亡）
-			label.modulate = Color.BLACK
+			label.modulate = Color.YELLOW
 		
 	var text: String = str(points)
 	if points == 0:

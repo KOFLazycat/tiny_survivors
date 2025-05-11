@@ -247,6 +247,9 @@ damage_points_instance_resource = ExtResource("13_6dcwu")
 [node name="DamageSetup" parent="." index="13"]
 resistance_list = Array[ExtResource("11_xywgh")]([SubResource("Resource_1v2yq")])
 
+[node name="StatusSetup" parent="." index="14" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../Body/Stretch/Sprite2D")
+
 [node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("15_0jyv2")]
 resource_node = NodePath("../ResourceNode")
 
