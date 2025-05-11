@@ -135,8 +135,8 @@ radius = 29.0689
 [node name="TestWorld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_cg5f0")
-metadata/_edit_vertical_guides_ = [960.0, 534.0, -1.0, 98.0]
-metadata/_edit_horizontal_guides_ = [540.0, 270.0, 31.0]
+metadata/_edit_vertical_guides_ = [960.0, 534.0, -1.0, 98.0, 382.0]
+metadata/_edit_horizontal_guides_ = [540.0, 270.0, 31.0, 229.0]
 
 [node name="ReferenceNodeSetter" type="Node" parent="." node_paths=PackedStringArray("reference_node")]
 script = ExtResource("2_utf6i")

@@ -13,7 +13,6 @@ extends Node2D
 var is_spreadable: bool = false
 
 func _ready() -> void:
-	modulate.a = 1.0
 	if !animation_player.animation_finished.is_connected(_on_animation_finished):
 		animation_player.animation_finished.connect(_on_animation_finished)
 	
@@ -24,6 +23,7 @@ func _ready() -> void:
 		area_detect.monitoring = true
 	else:
 		area_detect.monitoring = false
+	
 	request_ready()
 
 
@@ -41,6 +41,11 @@ func set_ice_status_resource(isr: IceStatusResource) -> void:
 
 func _on_area_detect_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("enemies"):
+		##TODO 可能存在BUG，即使body超过collision_shape检测范围也有可能被检测到
+		var dis: float = global_position.distance_to(body.global_position)
+		if dis >= ice_status_resource.effect_radius * 1.1:
+			prints("检测到对象:", body.name, " 位置:", body.global_position, " 检测范围:", ice_status_resource.effect_radius, " 距离:", dis)
+			return
 		var obj_rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
 		assert(obj_rn != null, "ResourceNode should not be null.")
 		ice_status_resource.on_spread(obj_rn)

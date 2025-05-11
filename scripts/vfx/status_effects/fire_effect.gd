@@ -34,6 +34,11 @@ func set_fire_status_resource(fsr: FireStatusResource) -> void:
 
 func _on_area_detect_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("enemies"):
+		##TODO 可能存在BUG，即使body超过collision_shape检测范围也有可能被检测到
+		var dis: float = global_position.distance_to(body.global_position)
+		if dis >= fire_status_resource.effect_radius * 1.1:
+			prints("检测到对象:", body.name, " 位置:", body.global_position, " 检测范围:", fire_status_resource.effect_radius, " 距离:", dis)
+			return
 		var obj_rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
 		assert(obj_rn != null, "ResourceNode should not be null.")
 		fire_status_resource.on_spread(obj_rn)

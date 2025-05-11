@@ -133,7 +133,7 @@ size = Vector2(12, 10)
 resource_local_to_scene = true
 shader = ExtResource("2_ggfmp")
 shader_parameter/overlay = Color(1, 1, 1, 1)
-shader_parameter/blend = 1.0
+shader_parameter/blend = 0.0
 
 [sub_resource type="Animation" id="Animation_dj46p"]
 length = 0.001
@@ -193,6 +193,45 @@ _data = {
 &"walk": SubResource("Animation_vbwwv")
 }
 
+[sub_resource type="Animation" id="Animation_d780m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/overlay")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material:shader_parameter/blend")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_dl5wv"]
 resource_name = "flash_curse"
 length = 0.5
@@ -232,45 +271,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_d780m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.75, 1.2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:material:shader_parameter/overlay")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:material:shader_parameter/blend")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_fewx1"]
@@ -321,96 +321,16 @@ _data = {
 &"flash_ice": SubResource("Animation_fewx1")
 }
 
+[sub_resource type="Resource" id="Resource_wwptg"]
+script = ExtResource("14_8ddkg")
+value = 0.0
+resistance_value = 0.2
+type = 4
+allow_on_boss = false
+metadata/_custom_type_script = "uid://1rbr4is74e7l"
+
 [sub_resource type="Animation" id="Animation_ehrdx"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("11_d6rob")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -12)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:hframes")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:vframes")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.6, 0.6)]
-}
-
-[sub_resource type="Animation" id="Animation_d6rob"]
-resource_name = "ice_prison"
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -466,7 +386,96 @@ tracks/4/path = NodePath(".:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6, 0.6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_d6rob"]
+resource_name = "ice_prison"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_d6rob")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -502,14 +511,6 @@ _data = {
 &"ice_prison": SubResource("Animation_d6rob")
 }
 
-[sub_resource type="Resource" id="Resource_wwptg"]
-script = ExtResource("14_8ddkg")
-value = 0.0
-resistance_value = 0.2
-type = 4
-allow_on_boss = false
-metadata/_custom_type_script = "uid://1rbr4is74e7l"
-
 [node name="EnemyActor" groups=["enemies"] instance=ExtResource("1_fybaw")]
 y_sort_enabled = true
 collision_layer = 4
@@ -532,9 +533,6 @@ shape = SubResource("RectangleShape2D_dj46p")
 [node name="HoleDataReceiver" parent="AreaReceiver2D" index="1"]
 enabled = false
 
-[node name="Stretch" parent="Body" index="0"]
-scale = Vector2(0.75, 1.2)
-
 [node name="Sprite2D" parent="Body/Stretch" index="0"]
 material = SubResource("ShaderMaterial_6gjbv")
 texture = ExtResource("8_yad2s")
@@ -547,19 +545,6 @@ libraries = {
 [node name="EffectFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D" index="2"]
 libraries = {
 &"": SubResource("AnimationLibrary_d780m")
-}
-
-[node name="SpriteEffect" type="Sprite2D" parent="Body/Stretch" index="1"]
-visible = false
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("11_d6rob")
-offset = Vector2(0, -12)
-hframes = 6
-vframes = 4
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Body/Stretch/SpriteEffect" index="0"]
-libraries = {
-&"": SubResource("AnimationLibrary_ehrdx")
 }
 
 [node name="HoleDeath" parent="." index="10"]
@@ -582,6 +567,10 @@ damage_points_instance_resource = ExtResource("12_rcdee")
 [node name="DamageSetup" parent="." index="13"]
 resistance_list = Array[ExtResource("14_8ddkg")]([SubResource("Resource_wwptg")])
 
+[node name="StatusSetup" parent="." index="14" node_paths=PackedStringArray("effect_animation", "weapon")]
+effect_animation = NodePath("../EffectSprite/EffectAnimation")
+weapon = NodePath("../SlashAttack")
+
 [node name="ZombieInput" parent="." index="15" node_paths=PackedStringArray("resource_node") instance=ExtResource("14_l0fag")]
 resource_node = NodePath("../ResourceNode")
 
@@ -589,15 +578,28 @@ resource_node = NodePath("../ResourceNode")
 collision_mask = 2
 resource_node = NodePath("../ResourceNode")
 
-[node name="PoolNode" type="Node" parent="." index="17" node_paths=PackedStringArray("ready_nodes", "animation_player_list", "listen_node")]
+[node name="EffectSprite" type="Sprite2D" parent="." index="17"]
+visible = false
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_d6rob")
+offset = Vector2(0, -12)
+hframes = 6
+vframes = 4
+
+[node name="EffectAnimation" type="AnimationPlayer" parent="EffectSprite" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_ehrdx")
+}
+
+[node name="PoolNode" type="Node" parent="." index="18" node_paths=PackedStringArray("ready_nodes", "animation_player_list", "listen_node")]
 process_mode = 3
 script = ExtResource("16_d6xd7")
 ready_nodes = [NodePath("../StatusSetup")]
-animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash"), NodePath("../Body/Stretch/Sprite2D/EffectFlash")]
+animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash"), NodePath("../Body/Stretch/Sprite2D/EffectFlash"), NodePath("../EffectSprite/EffectAnimation")]
 listen_node = NodePath("../ActorDamage")
 signal_name = &"actor_died"
 
-[node name="EnemyReplace" type="Node" parent="." index="18" node_paths=PackedStringArray("resource_node", "pool_node", "active_enemy", "damage_data_receiver")]
+[node name="EnemyReplace" type="Node" parent="." index="19" node_paths=PackedStringArray("resource_node", "pool_node", "active_enemy", "damage_data_receiver")]
 script = ExtResource("20_ltm0k")
 resource_node = NodePath("../ResourceNode")
 pool_node = NodePath("../PoolNode")
@@ -608,7 +610,7 @@ replacement_instance_resource = ExtResource("19_ltm0k")
 sound_effect = ExtResource("20_8ddkg")
 damage_data_receiver = NodePath("../AreaReceiver2D/DamageDataReceiver")
 
-[node name="ActiveEnemy" type="Node" parent="." index="19" node_paths=PackedStringArray("listen_node", "resource_node")]
+[node name="ActiveEnemy" type="Node" parent="." index="20" node_paths=PackedStringArray("listen_node", "resource_node")]
 script = ExtResource("17_bex4l")
 listen_node = NodePath("../ActorDamage")
 signal_name = &"actor_died"

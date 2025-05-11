@@ -29,6 +29,7 @@ func _ready()->void:
 	# in case used with PoolNode
 	request_ready()
 	flash_animation_player.play("RESET")
+	effect_animation_player.play("RESET")
 	tree_exiting.connect(_remove_connections.bind(_health_resource), CONNECT_ONE_SHOT)
 
 

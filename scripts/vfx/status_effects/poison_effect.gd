@@ -33,8 +33,13 @@ func set_poison_status_resource(psr: PoisonStatusResource) -> void:
 
 
 func _on_area_detect_body_entered(body: Node2D) -> void:
-	# 传染
 	if body is CharacterBody2D and body.is_in_group("enemies"):
+		##TODO 可能存在BUG，即使body超过collision_shape检测范围也有可能被检测到
+		var dis: float = global_position.distance_to(body.global_position)
+		if dis >= poison_status_resource.effect_radius * 1.1:
+			prints("检测到对象:", body.name, " 位置:", body.global_position, " 检测范围:", poison_status_resource.effect_radius, " 距离:", dis)
+			return
+		
 		var rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
 		assert(rn != null, "ResourceNode should not be null.")
 		poison_status_resource.initialize(rn)
