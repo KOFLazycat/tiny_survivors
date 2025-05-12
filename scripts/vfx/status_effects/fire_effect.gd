@@ -8,6 +8,8 @@ extends Node2D
 @export var sprite: Sprite2D
 @export var body_node: Node2D
 @export var animation_player: AnimationPlayer
+## 应对超远距离被检测的BUG
+@export var detect_distance_offset_factor: float = 1.5
 
 
 func _ready() -> void:
@@ -36,7 +38,7 @@ func _on_area_detect_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and body.is_in_group("enemies"):
 		##TODO 可能存在BUG，即使body超过collision_shape检测范围也有可能被检测到
 		var dis: float = global_position.distance_to(body.global_position)
-		if dis >= fire_status_resource.effect_radius * 1.1:
+		if dis >= fire_status_resource.effect_radius * detect_distance_offset_factor:
 			prints("检测到对象:", body.name, " 位置:", body.global_position, " 检测范围:", fire_status_resource.effect_radius, " 距离:", dis)
 			return
 		var obj_rn: ResourceNode = body.get_node("ResourceNode") as ResourceNode
