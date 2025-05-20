@@ -7,5 +7,6 @@ resource_name = "Player Stats"
 script = ExtResource("1_7iir7")
 acceleration = 500.0
 max_speed = 80.0
+default_max_speed = 0.0
 version = 0
 not_saved = false

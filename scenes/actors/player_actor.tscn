@@ -53,7 +53,7 @@
 resource_name = "movement  properties"
 script = ExtResource("3_vlmhb")
 acceleration = 500.0
-max_speed = 80.0
+max_speed = 60.0
 default_max_speed = 0.0
 version = 0
 not_saved = false
@@ -576,7 +576,7 @@ collison_shape = NodePath("CollisionShape2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetectArea" index="0"]
 shape = SubResource("CircleShape2D_hd114")
 
-[node name="AbilitySystem" type="Node" parent="." index="26" node_paths=PackedStringArray("stats_component") groups=["ability_system"]]
+[node name="AbilitySystem" type="Node" parent="." index="26" node_paths=PackedStringArray("stats_component")]
 script = ExtResource("26_3clrf")
 stats_component = NodePath("StatsComponent")
 ability_pick_list_resource = ExtResource("39_3clrf")

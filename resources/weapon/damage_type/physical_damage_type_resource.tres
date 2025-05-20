@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_6ege2")
-value = 3.0
+value = 5.0
 resistance_value = 0.0
 type = 0
 allow_on_boss = false

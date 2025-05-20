@@ -1,88 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://b5tq2hw88cf73"]
+[gd_scene load_steps=10 format=3 uid="uid://b5tq2hw88cf73"]
 
 [ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_kxxn2"]
-[ext_resource type="Script" uid="uid://hy0fl20ercb4" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="2_dot0l"]
-[ext_resource type="Script" uid="uid://dnxaqnm5bsit2" path="res://scripts/damage/properties/status_effects/poison_status_resource.gd" id="3_dot0l"]
 [ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="3_s83xh"]
 [ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="4_lwnxk"]
-[ext_resource type="Script" uid="uid://usbnyn0tjgrw" path="res://scripts/damage/properties/status_effects/fire_status_resource.gd" id="4_shcdb"]
 [ext_resource type="Texture2D" uid="uid://cp2j5s0kpi288" path="res://addons/top_down/assets/images/projectile/bullet_1.png" id="5_4lonb"]
-[ext_resource type="Resource" uid="uid://cc4h7hhxrb2gl" path="res://resources/weapon/damage_data_resource.tres" id="5_etuoe"]
 [ext_resource type="Resource" uid="uid://qkblw3huirik" path="res://resources/instance_resources/vfx/explosion0_instance.tres" id="6_adkdu"]
-[ext_resource type="Script" uid="uid://drki4135213dg" path="res://scripts/damage/properties/status_effects/lightning_status_resource.gd" id="6_xi7uk"]
 [ext_resource type="Script" uid="uid://dxjfqmefy1lrh" path="res://scripts/weapon_system/projectile/projectile_impact_sfx.gd" id="7_hs2kk"]
-[ext_resource type="Script" uid="uid://xyboa8j2ul4l" path="res://scripts/damage/properties/status_effects/curse_status_resource.gd.gd" id="7_mca01"]
-[ext_resource type="Script" uid="uid://dgr4foqqtqfw" path="res://scripts/damage/properties/status_effects/ice_status_resource.gd" id="8_keaot"]
 [ext_resource type="Resource" uid="uid://byppueuo3drya" path="res://addons/top_down/resources/sounds/damage.tres" id="8_t66r8"]
-
-[sub_resource type="Resource" id="Resource_shcdb"]
-script = ExtResource("3_dot0l")
-status_name = &"PoisonStatus"
-status_duration = 5.0
-status_value = -4.0
-status_interval = 1.0
-status_chance = 0.161
-effect_radius = 40.0
-status_damage_type = 4
-status_damage_data_resource = ExtResource("5_etuoe")
-status_spreadable = true
-metadata/_custom_type_script = "uid://dnxaqnm5bsit2"
-
-[sub_resource type="Resource" id="Resource_etuoe"]
-script = ExtResource("4_shcdb")
-fire_explosion_damage = -10.0
-status_name = &"FireStatus"
-status_duration = 2.0
-status_value = -6.0
-status_interval = 0.5
-status_chance = 0.387
-effect_radius = 30.0
-status_damage_type = 1
-status_damage_data_resource = ExtResource("5_etuoe")
-status_spreadable = true
-metadata/_custom_type_script = "uid://usbnyn0tjgrw"
-
-[sub_resource type="Resource" id="Resource_mca01"]
-script = ExtResource("6_xi7uk")
-status_name = &"LightningStatus"
-status_duration = 0.0
-status_value = -8.0
-status_interval = 1.0
-status_chance = 0.266
-effect_radius = 30.0
-status_damage_type = 3
-status_damage_data_resource = ExtResource("5_etuoe")
-status_spreadable = true
-metadata/_custom_type_script = "uid://drki4135213dg"
-
-[sub_resource type="Resource" id="Resource_keaot"]
-script = ExtResource("7_mca01")
-curse_physical_resistance_percent = 0.229
-status_name = &"CurseStatus"
-status_duration = 3.0
-status_value = -9999.0
-status_interval = 1.0
-status_chance = 0.54
-effect_radius = 18.0
-status_damage_type = 5
-status_damage_data_resource = ExtResource("5_etuoe")
-status_spreadable = true
-metadata/_custom_type_script = "uid://xyboa8j2ul4l"
-
-[sub_resource type="Resource" id="Resource_egwrj"]
-script = ExtResource("8_keaot")
-ice_speed_decrease = 0.2
-ice_duration = 1.0
-status_name = &"IceStatus"
-status_duration = 3.0
-status_value = -3.0
-status_interval = 1.0
-status_chance = 0.339
-effect_radius = 40.0
-status_damage_type = 2
-status_damage_data_resource = ExtResource("5_etuoe")
-status_spreadable = true
-metadata/_custom_type_script = "uid://dgr4foqqtqfw"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pv4mq"]
 radius = 2.0
@@ -92,9 +16,6 @@ size = Vector2(4, 4)
 
 [node name="BulletProjectile" instance=ExtResource("1_kxxn2")]
 speed = 240.0
-
-[node name="ProjectileSetup" parent="." index="0"]
-status_damage = Array[ExtResource("2_dot0l")]([SubResource("Resource_shcdb"), SubResource("Resource_etuoe"), SubResource("Resource_mca01"), SubResource("Resource_keaot"), SubResource("Resource_egwrj")])
 
 [node name="Shadow" type="Sprite2D" parent="." index="1"]
 modulate = Color(1, 0.983333, 0, 0.168627)
